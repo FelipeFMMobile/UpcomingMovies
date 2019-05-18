@@ -3,16 +3,15 @@ use_frameworks!
 
 def shared_pods
 	pod 'Alamofire', '~> 4.7'
-	pod 'AlamofireObjectMapper', '~> 4.0'
+	pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'SVProgressHUD'
-  pod 'RxSwift',    '~> 3.0'
-  pod 'RxCocoa',    '~> 3.0'
-  pod 'RxDataSources', '~> 1.0'
+  pod 'RxSwift', '~> 4.5'
+  pod 'RxCocoa', '~> 4.1'
+  pod 'RxDataSources', '~> 3.1'
   pod 'SwiftLint'
-  pod 'Fabric', '~> 1.7.2'
-  pod 'Crashlytics', '~> 3.9.3'
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
-  pod 'Kingfisher', '~> 4.0'
+  pod 'Kingfisher', '5.1.1'
+  pod 'Firebase/Core'
 end
 
 # Pods for UpComingMovies
@@ -26,10 +25,10 @@ target 'UpComingMovies' do
 
 end
 
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['SWIFT_VERSION'] = '3.0'
-        end
-    end
-end
+#post_install do |installer|
+#    installer.pods_project.targets.each do |target|
+#        target.build_configurations.each do |config|
+#            config.build_settings['SWIFT_VERSION'] = '4.2'
+#        end
+#    end
+#end
