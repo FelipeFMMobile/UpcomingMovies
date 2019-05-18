@@ -36,7 +36,7 @@ class UpComingListTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
+    refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControl.Event.valueChanged)
     
     title = "Upcoming Movies"
     
@@ -50,7 +50,7 @@ class UpComingListTableViewController: UITableViewController {
     tableView.register(UINib(nibName: ListMoviesTableViewCell.nib, bundle: nil), 
                        forCellReuseIdentifier: ListMoviesTableViewCell.identifier)
     
-    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 44
     start()
   }

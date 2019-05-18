@@ -30,11 +30,11 @@ class DetailUpComingListTableViewController: UITableViewController {
     genreLabel.text = viewModel?.genresString
     posterImageView.kf.setImage(with: viewModel?.posterPath)  
     
-    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 44
   }
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-   return UITableViewAutomaticDimension
+   return UITableView.automaticDimension
   }
 }
