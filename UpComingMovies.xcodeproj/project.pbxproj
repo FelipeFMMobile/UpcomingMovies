@@ -10,6 +10,7 @@
 		12906FC6B0E77B931F161EA4 /* Pods_UpComingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7F44A7DD638D1A5AAD71E9 /* Pods_UpComingMovies.framework */; };
 		51994EAB2290AE1900B4420D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51994EAA2290AE1900B4420D /* GoogleService-Info.plist */; };
 		51994EAD2290B06500B4420D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 51994EAC2290B06500B4420D /* .swiftlint.yml */; };
+		51994EB12290B69900B4420D /* FirebaseSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51994EB02290B69900B4420D /* FirebaseSdk.swift */; };
 		BC1023F02072F5D0005FF7C5 /* ListMoviesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1023EF2072F5D0005FF7C5 /* ListMoviesCell.xib */; };
 		BCE213192071921D000FFBDC /* ListMoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE213182071921D000FFBDC /* ListMoviesTableViewCell.swift */; };
 		BCE2131B20719234000FFBDC /* ListMoviesCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE2131A20719234000FFBDC /* ListMoviesCellModel.swift */; };
@@ -47,6 +48,7 @@
 		31A03D984C0E3E440B0EA124 /* Pods_UpComingMoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpComingMoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51994EAA2290AE1900B4420D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51994EAC2290B06500B4420D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		51994EB02290B69900B4420D /* FirebaseSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSdk.swift; sourceTree = "<group>"; };
 		5973A4A1F4BBEB827D88E49D /* Pods-UpComingMoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpComingMoviesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpComingMoviesTests/Pods-UpComingMoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		6757EC2BE7A546524A311F84 /* Pods-UpComingMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpComingMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpComingMovies/Pods-UpComingMovies.debug.xcconfig"; sourceTree = "<group>"; };
 		72A0E2185F4D80BA7D0BC8F2 /* Pods-UpComingMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpComingMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpComingMovies/Pods-UpComingMovies.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51994EAF2290B68000B4420D /* SdkManagers */ = {
+			isa = PBXGroup;
+			children = (
+				51994EB02290B69900B4420D /* FirebaseSdk.swift */,
+			);
+			path = SdkManagers;
+			sourceTree = "<group>";
+		};
 		9AA67584A645EA44ED2752DD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 		BCF6EBB1206EC7C50063D023 /* UpComingMovies */ = {
 			isa = PBXGroup;
 			children = (
+				51994EAF2290B68000B4420D /* SdkManagers */,
 				BCE213142071902E000FFBDC /* UpComingMovies-Bridging-Header.h */,
 				BCF6EBD6206ECAC00063D023 /* UpCommingList */,
 				BCF6EBB2206EC7C50063D023 /* AppDelegate.swift */,
@@ -346,6 +357,7 @@
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -361,6 +373,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -432,6 +445,7 @@
 				BCF6EBE5206ECBBF0063D023 /* DetailUpComingListTableViewController.swift in Sources */,
 				BCF6EBE9206EDBC00063D023 /* StatusModelMap.swift in Sources */,
 				BCF6EBDD206ECB280063D023 /* UpComingListViewModel.swift in Sources */,
+				51994EB12290B69900B4420D /* FirebaseSdk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

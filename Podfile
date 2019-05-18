@@ -12,6 +12,7 @@ def shared_pods
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '5.1.1'
   pod 'Firebase/Core'
+  pod 'OHHTTPStubs/Swift'
 end
 
 # Pods for UpComingMovies
