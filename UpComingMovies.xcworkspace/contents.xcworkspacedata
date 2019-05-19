@@ -5,6 +5,9 @@
       location = "group:UpComingMovies.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

@@ -48,6 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: SdkControlProtocol {
   func initSdks() {
     let firebase: SdkProtocol = FirebaseSdk()
-    firebase.initialization()
+    _ = firebase.initialization()
   }
 }
