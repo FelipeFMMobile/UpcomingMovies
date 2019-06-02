@@ -59,8 +59,11 @@ open class ApiRunner: ApiRestProtocol {
             let result = try decoder.decode(T.self, from: odata)
             completion(true, result, request, nil)
             return
-          } catch {
+          } catch let jsonError { 
             errorCode = .responseCodableFail
+            #if DEBUG 
+            print(jsonError)
+            #endif
           }
         } else {
           errorCode = .noDataResponse

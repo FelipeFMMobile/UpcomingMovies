@@ -17,7 +17,7 @@ enum ServicesEndpoints: String {
   case movie = "movie/"
 }
 
-class UPComingListApi {
+class UpComingListApiAlamo {
 
   let key = ServerConfig.key
   let language = "en-US"

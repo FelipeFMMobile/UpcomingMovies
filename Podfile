@@ -36,6 +36,8 @@ target 'UpComingMovies' do
   test_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
+    pod 'Quick'
+    pod 'Nimble'
   end
   
   target 'SdkManagerTests' do

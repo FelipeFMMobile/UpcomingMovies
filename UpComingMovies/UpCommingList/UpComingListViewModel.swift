@@ -14,7 +14,7 @@ import Foundation
 #endif
 
 class UpComingListViewModel {
-  let api = UPComingListApi()
+  let api = UpComingListApiAlamo()
   var currentPage = 1
   var maxPages = 1
   var genreList: GenreListModelMap?

@@ -19,8 +19,8 @@ open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostJsonProtocol {
   public override init() { super.init() }
   
   /// Get Post
-  func get<T>(endPoint: String, params: [String: Any]?, 
-              completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
+  public func get<T>(endPoint: String, params: [String: Any]?, 
+                     completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
     
     let getParams = GetParams(params: params ?? [:])
     self.run(method: HttpMethod.GET, ContentType.json, endPoint: endPoint, 
@@ -28,8 +28,8 @@ open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostJsonProtocol {
   }
   
   /// JsonBody Post
-  func post<T>(endPoint: String, params: [String: Any]?, 
-               completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
+  public func post<T>(endPoint: String, params: [String: Any]?, 
+                      completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
     let getParams = JsonBodyParams(params: params ?? [:])
     self.run(method: HttpMethod.GET, ContentType.json, endPoint: endPoint, 
              params: getParams, completion: completion)

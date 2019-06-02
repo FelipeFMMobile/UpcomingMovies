@@ -58,6 +58,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Nimble (8.0.1)
   - ObjectMapper (3.4.2)
   - OHHTTPStubs/Core (8.0.0)
   - OHHTTPStubs/Default (8.0.0):
@@ -72,6 +73,7 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (8.0.0)
   - OHHTTPStubs/Swift (8.0.0):
     - OHHTTPStubs/Default
+  - Quick (2.1.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxDataSources (3.1.0):
@@ -90,7 +92,9 @@ DEPENDENCIES:
   - Fabric (~> 1.9.0)
   - Firebase/Core
   - Kingfisher (= 5.1.1)
+  - Nimble
   - OHHTTPStubs/Swift
+  - Quick
   - RxCocoa (~> 4.1)
   - RxDataSources (~> 3.1)
   - RxSwift (~> 4.5)
@@ -113,8 +117,10 @@ SPEC REPOS:
     - GoogleUtilities
     - Kingfisher
     - nanopb
+    - Nimble
     - ObjectMapper
     - OHHTTPStubs
+    - Quick
     - RxCocoa
     - RxDataSources
     - RxSwift
@@ -136,8 +142,10 @@ SPEC CHECKSUMS:
   GoogleUtilities: 996e0db07153674fd1b54b220fda3a3dc3547cba
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
+  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
@@ -145,6 +153,6 @@ SPEC CHECKSUMS:
   SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
   UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
 
-PODFILE CHECKSUM: 5dffd8c8a796b10bd8b5f5022783b1ac698081ad
+PODFILE CHECKSUM: b105299c0628fca546a7a35d621f7940b6911a3b
 
 COCOAPODS: 1.6.2

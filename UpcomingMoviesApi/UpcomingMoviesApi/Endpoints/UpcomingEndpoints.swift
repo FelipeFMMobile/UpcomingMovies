@@ -6,7 +6,7 @@
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
-enum UpcomingEndpoints: String {
+public enum UpcomingEndpoints: String {
   case upComing = "movie/upcoming"
   case genres = "genre/movie/list"
   case movie = "movie/"
