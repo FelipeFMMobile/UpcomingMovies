@@ -27,7 +27,6 @@
 		51EE91DC2291EBA800BE0D03 /* JsonBodyParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91DB2291EBA800BE0D03 /* JsonBodyParams.swift */; };
 		51EE91DE2291EBCA00BE0D03 /* GetParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91DD2291EBCA00BE0D03 /* GetParams.swift */; };
 		51EE91E02291EEF600BE0D03 /* ApiRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91DF2291EEF600BE0D03 /* ApiRunner.swift */; };
-		5F3E28025911034AD7C4BB49 /* Pods_UpcomingMoviesApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AC2EED4D1107CF482D74AB /* Pods_UpcomingMoviesApiTests.framework */; };
 		BA1046BBCFF8956074E4DF73 /* Pods_UpcomingMoviesApi_UpcomingMoviesApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E824DEBD61FEFE7F5878D1 /* Pods_UpcomingMoviesApi_UpcomingMoviesApiTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F3E28025911034AD7C4BB49 /* Pods_UpcomingMoviesApiTests.framework in Frameworks */,
 				BA1046BBCFF8956074E4DF73 /* Pods_UpcomingMoviesApi_UpcomingMoviesApiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

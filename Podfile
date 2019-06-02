@@ -17,6 +17,8 @@ def shared_pods
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '5.1.1'
   pod 'Firebase/Core'
+  pod 'Fabric', '~> 1.9.0'
+  pod 'Crashlytics', '~> 3.12.0'
 end
 
 def quality_pods
@@ -41,6 +43,7 @@ target 'UpComingMovies' do
   end
 end
 
+# Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
 target 'UpcomingMoviesApi' do 
   xcodeproj 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
   test_pods

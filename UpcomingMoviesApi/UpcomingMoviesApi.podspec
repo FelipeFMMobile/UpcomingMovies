@@ -26,10 +26,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/*.h'
   s.frameworks = 'UIKit'
-  s.dependency 'RxSwift', '~> 4.0'
-  s.dependency 'RxCocoa', '~> 4.0'
-  s.dependency 'RxKeyboard'
-  s.dependency 'msawsuploader'
-  s.dependency 'CPF-CNPJ-Validator'
-  s.dependency 'Atributika'
+  s.dependency 'OHHTTPStubs/Swift'
 end
