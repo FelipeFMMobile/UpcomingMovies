@@ -8,8 +8,18 @@
 
 import UIKit
 
-class DetailUpCommingListViewModel: NSObject {
-  var movie: MoviesDetailModelMap
+protocol DetailUpCommingListViewModelProtocol {
+  var movie: MoviesDetailModelCodable { get set }
+  var title: String? { get set }
+  var posterPath: URL? { get set }
+  var overview: String? { get set }
+  var releaseDate: String? { get set }
+  var genresString: String? { get set }
+  init(genres: [GenreModelCodable]?, movie: MoviesDetailModelCodable)
+}
+
+class DetailUpCommingListViewModel: NSObject, DetailUpCommingListViewModelProtocol {
+  var movie: MoviesDetailModelCodable
   
   var title: String?
   var posterPath: URL?
@@ -17,7 +27,7 @@ class DetailUpCommingListViewModel: NSObject {
   var releaseDate: String?
   var genresString: String?
   
-  init(genres: [GenreModelMap]?, movie: MoviesDetailModelMap) {
+  required init(genres: [GenreModelCodable]?, movie: MoviesDetailModelCodable) {
     self.movie = movie
     title = movie.title
     overview = movie.overview

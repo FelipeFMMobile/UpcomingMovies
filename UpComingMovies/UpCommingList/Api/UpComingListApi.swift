@@ -28,7 +28,7 @@ class UpComingListApi: UpComingListApiProtocol {
   func requestMovies(page: Int, 
                      complete: @escaping RequetsResult<PaginationModelCodable<MoviesModelCodable>>) {
     
-    let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d"]
+    let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d", "page": "\(page)"]
     api.get(endPoint: UpcomingEndpoints.upComing.rawValue, 
             params: params) {(_: Bool, result: PaginationModelCodable<MoviesModelCodable>?, 
                               _: URLRequest?, error: NSError?) in

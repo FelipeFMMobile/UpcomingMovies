@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12906FC6B0E77B931F161EA4 /* Pods_UpComingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7F44A7DD638D1A5AAD71E9 /* Pods_UpComingMovies.framework */; };
 		51430E632292127C00517C4C /* UpcomingMoviesApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51430E622292127C00517C4C /* UpcomingMoviesApi.framework */; };
+		517290D722A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */; };
 		51830CE222A4269500BE346A /* UpComingListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE122A4269500BE346A /* UpComingListApi.swift */; };
 		51830CE422A426E100BE346A /* UpComingListApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE322A426E100BE346A /* UpComingListApiTests.swift */; };
 		51830CE722A4286B00BE346A /* StatusErrorModelCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE622A4286B00BE346A /* StatusErrorModelCodable.swift */; };
@@ -72,6 +73,7 @@
 		51430E5B229211FD00517C4C /* Pods_UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E5E2292120A00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E622292127C00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingTableViewsDataSetProtocol.swift; sourceTree = "<group>"; };
 		51830CE122A4269500BE346A /* UpComingListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingListApi.swift; sourceTree = "<group>"; };
 		51830CE322A426E100BE346A /* UpComingListApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingListApiTests.swift; sourceTree = "<group>"; };
 		51830CE622A4286B00BE346A /* StatusErrorModelCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusErrorModelCodable.swift; sourceTree = "<group>"; };
@@ -153,9 +155,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		517290D822A73D8E00D6C9A7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		51830CDC22A425A900BE346A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				517290D822A73D8E00D6C9A7 /* Protocols */,
+				BCF6EBDC206ECB280063D023 /* UpComingListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -163,6 +175,8 @@
 		51830CDD22A425B400BE346A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BCF6EBD7206ECAEA0063D023 /* UpComingListTableViewController.swift */,
+				BCF6EBD9206ECB010063D023 /* UpComingListStoryboard.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,12 +337,9 @@
 				BCE70823207452290015DAA3 /* ServerConfig.swift */,
 				BCF6EBE2206ECB850063D023 /* Model */,
 				51830CDE22A425D700BE346A /* Api */,
-				51830CDD22A425B400BE346A /* View */,
 				51830CDC22A425A900BE346A /* ViewModel */,
+				51830CDD22A425B400BE346A /* View */,
 				BCF6EBDB206ECB0E0063D023 /* Cell's */,
-				BCF6EBDC206ECB280063D023 /* UpComingListViewModel.swift */,
-				BCF6EBD7206ECAEA0063D023 /* UpComingListTableViewController.swift */,
-				BCF6EBD9206ECB010063D023 /* UpComingListStoryboard.storyboard */,
 				BCF6EBE3206ECB9C0063D023 /* Detail */,
 			);
 			path = UpCommingList;
@@ -691,6 +702,7 @@
 				BCE2131B20719234000FFBDC /* ListMoviesCellModel.swift in Sources */,
 				51830CF322A4395B00BE346A /* MoviesDetailModelCodable.swift in Sources */,
 				BCE213192071921D000FFBDC /* ListMoviesTableViewCell.swift in Sources */,
+				517290D722A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift in Sources */,
 				51830CE922A4290000BE346A /* PaginationModelCodable.swift in Sources */,
 				BCE2131F20719DBD000FFBDC /* DetailUpCommingListViewModel.swift in Sources */,
 				51830CE222A4269500BE346A /* UpComingListApi.swift in Sources */,
