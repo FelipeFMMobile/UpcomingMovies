@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12906FC6B0E77B931F161EA4 /* Pods_UpComingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7F44A7DD638D1A5AAD71E9 /* Pods_UpComingMovies.framework */; };
 		51430E632292127C00517C4C /* UpcomingMoviesApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51430E622292127C00517C4C /* UpcomingMoviesApi.framework */; };
+		516E3E7822AD6B270025F255 /* UpComingListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */; };
 		517290D722A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */; };
 		51830CE222A4269500BE346A /* UpComingListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE122A4269500BE346A /* UpComingListApi.swift */; };
 		51830CE422A426E100BE346A /* UpComingListApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE322A426E100BE346A /* UpComingListApiTests.swift */; };
@@ -73,6 +74,7 @@
 		51430E5B229211FD00517C4C /* Pods_UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E5E2292120A00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E622292127C00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingListViewModelTests.swift; sourceTree = "<group>"; };
 		517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingTableViewsDataSetProtocol.swift; sourceTree = "<group>"; };
 		51830CE122A4269500BE346A /* UpComingListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingListApi.swift; sourceTree = "<group>"; };
 		51830CE322A426E100BE346A /* UpComingListApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingListApiTests.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				51830CEE22A438B400BE346A /* MocksObjects */,
 				BCF6EBCA206EC7C50063D023 /* UpComingMoviesTests.swift */,
 				51830CE322A426E100BE346A /* UpComingListApiTests.swift */,
+				516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */,
 				BCF6EBCC206EC7C50063D023 /* Info.plist */,
 			);
 			path = UpComingMoviesTests;
@@ -726,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				516E3E7822AD6B270025F255 /* UpComingListViewModelTests.swift in Sources */,
 				BCF6EBCB206EC7C50063D023 /* UpComingMoviesTests.swift in Sources */,
 				51830CF122A438D300BE346A /* MockPagination.swift in Sources */,
 				51830CE422A426E100BE346A /* UpComingListApiTests.swift in Sources */,

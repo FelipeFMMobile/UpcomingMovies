@@ -22,6 +22,8 @@ protocol UpComingListViewModelProtocol: UpcomingApiProtocol {
   func getMovieInfo(movie: MoviesModelCodable, complete: @escaping () -> Void)
   func getGenres(complete: @escaping () -> Void)
   func getUpCommingMovies(complete: @escaping () -> Void)
+  func resetPage() 
+  func forwardPage()
 }
 
 class UpComingListViewModel: UpComingListViewModelProtocol { 
