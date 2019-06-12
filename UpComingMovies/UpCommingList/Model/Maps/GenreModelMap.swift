@@ -20,12 +20,6 @@ public class GenreListModelMap: Mappable {
     genres <- map["genres"]
   }
   
-  //we need to choice a better place for this 
-  public func genresForMovie(movie: MoviesModelMap) -> [GenreModelMap]? {
-    return genres?.filter { 
-        return movie.genreIds.contains($0.idGenre)
-    }
-  }
 }
 
 public class GenreModelMap: Mappable {

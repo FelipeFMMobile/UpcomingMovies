@@ -57,7 +57,9 @@ class UpComingListViewModel: UpComingListViewModelProtocol {
   ///getUpCommingMovies
   func getUpCommingMovies(complete: @escaping () -> Void) {
     api.requestMovies(page: currentPage) { [weak self] resultInfo in
-      self?.maxPages = resultInfo.result?.totalPages ?? 0
+      if let totalPages = resultInfo.result?.totalPages {
+        self?.maxPages = totalPages
+      }
       if let results = resultInfo.result?.results {
         self?.movies += results
       }

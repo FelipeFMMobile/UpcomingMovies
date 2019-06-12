@@ -15,7 +15,7 @@ protocol DetailUpCommingListViewModelProtocol {
   var overview: String? { get set }
   var releaseDate: String? { get set }
   var genresString: String? { get set }
-  init(genres: [GenreModelCodable]?, movie: MoviesDetailModelCodable)
+  init(movie: MoviesDetailModelCodable)
 }
 
 class DetailUpCommingListViewModel: NSObject, DetailUpCommingListViewModelProtocol {
@@ -27,7 +27,7 @@ class DetailUpCommingListViewModel: NSObject, DetailUpCommingListViewModelProtoc
   var releaseDate: String?
   var genresString: String?
   
-  required init(genres: [GenreModelCodable]?, movie: MoviesDetailModelCodable) {
+  required init(movie: MoviesDetailModelCodable) {
     self.movie = movie
     title = movie.title
     overview = movie.overview
@@ -42,7 +42,7 @@ class DetailUpCommingListViewModel: NSObject, DetailUpCommingListViewModelProtoc
         releaseDate = "Comming on " + sDate 
       }
     }
-    let array = genres?.map { $0.name ?? "" }
+    let array = movie.genres?.map { $0.name ?? "" }
     genresString = array?.joined(separator: ", ")
   }
 }

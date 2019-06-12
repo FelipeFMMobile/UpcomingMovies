@@ -11,6 +11,8 @@ import SVProgressHUD
 
 class UpComingListTableViewController: UITableViewController {
   
+  lazy var coordinator = { UpCommingCoordinator(controller: self) }()
+  
   let viewModel = UpComingListViewModel()
   
   override func viewDidLoad() {
@@ -58,7 +60,7 @@ class UpComingListTableViewController: UITableViewController {
   // MARK: - Table view data source
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return self.viewModel.numberOfSections()
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,20 +90,12 @@ class UpComingListTableViewController: UITableViewController {
   }
   
   public func instantiateDetailSegue(movie: MoviesModelCodable) {
-    if let detailController = self.storyboard?.instantiateViewController (
-      withIdentifier: DetailUpComingListTableViewController.DetailIdentifier)  
-      as? DetailUpComingListTableViewController {
-      SVProgressHUD.show()
-      viewModel.getMovieInfo(movie: movie, complete: { [weak self] in
-        SVProgressHUD.dismiss()
-        if let movieInfo = self?.viewModel.detailMovie {
-          let genres = self?.viewModel.genreList?.genresForMovie(movie: movie)
-          detailController.viewModel = DetailUpCommingListViewModel(genres: genres, movie: movieInfo)
-          DispatchQueue.main.async {
-            self?.navigationController?.pushViewController(detailController, animated: true)
-          }
-        }
-      })
-    }
+    SVProgressHUD.show()
+    viewModel.getMovieInfo(movie: movie, complete: { [weak self] in
+      SVProgressHUD.dismiss()
+      if let movieInfo = self?.viewModel.detailMovie {
+        _ = self?.coordinator.instantiateDetailSegue(detailMovie: movieInfo)
+      }
+    })
   }
 }

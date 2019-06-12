@@ -11,6 +11,10 @@
 		51430E632292127C00517C4C /* UpcomingMoviesApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51430E622292127C00517C4C /* UpcomingMoviesApi.framework */; };
 		516E3E7822AD6B270025F255 /* UpComingListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */; };
 		517290D722A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */; };
+		5177AD3D22B073E3005D20AC /* UpCommingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177AD3C22B073E3005D20AC /* UpCommingCoordinator.swift */; };
+		5177AD3F22B077E9005D20AC /* UpComingListCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177AD3E22B077E9005D20AC /* UpComingListCoordinatorTests.swift */; };
+		5177AD4122B07D78005D20AC /* UpComingListRXTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177AD4022B07D78005D20AC /* UpComingListRXTableViewController.swift */; };
+		5177AD4322B07FAC005D20AC /* UpComingListViewModelRX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177AD4222B07FAC005D20AC /* UpComingListViewModelRX.swift */; };
 		51830CE222A4269500BE346A /* UpComingListApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE122A4269500BE346A /* UpComingListApi.swift */; };
 		51830CE422A426E100BE346A /* UpComingListApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE322A426E100BE346A /* UpComingListApiTests.swift */; };
 		51830CE722A4286B00BE346A /* StatusErrorModelCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51830CE622A4286B00BE346A /* StatusErrorModelCodable.swift */; };
@@ -76,6 +80,10 @@
 		51430E622292127C00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingListViewModelTests.swift; sourceTree = "<group>"; };
 		517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingTableViewsDataSetProtocol.swift; sourceTree = "<group>"; };
+		5177AD3C22B073E3005D20AC /* UpCommingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpCommingCoordinator.swift; sourceTree = "<group>"; };
+		5177AD3E22B077E9005D20AC /* UpComingListCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingListCoordinatorTests.swift; sourceTree = "<group>"; };
+		5177AD4022B07D78005D20AC /* UpComingListRXTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingListRXTableViewController.swift; sourceTree = "<group>"; };
+		5177AD4222B07FAC005D20AC /* UpComingListViewModelRX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingListViewModelRX.swift; sourceTree = "<group>"; };
 		51830CE122A4269500BE346A /* UpComingListApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingListApi.swift; sourceTree = "<group>"; };
 		51830CE322A426E100BE346A /* UpComingListApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingListApiTests.swift; sourceTree = "<group>"; };
 		51830CE622A4286B00BE346A /* StatusErrorModelCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusErrorModelCodable.swift; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 			children = (
 				517290D822A73D8E00D6C9A7 /* Protocols */,
 				BCF6EBDC206ECB280063D023 /* UpComingListViewModel.swift */,
+				5177AD4222B07FAC005D20AC /* UpComingListViewModelRX.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -177,7 +186,9 @@
 		51830CDD22A425B400BE346A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5177AD3C22B073E3005D20AC /* UpCommingCoordinator.swift */,
 				BCF6EBD7206ECAEA0063D023 /* UpComingListTableViewController.swift */,
+				5177AD4022B07D78005D20AC /* UpComingListRXTableViewController.swift */,
 				BCF6EBD9206ECB010063D023 /* UpComingListStoryboard.storyboard */,
 			);
 			path = View;
@@ -329,6 +340,7 @@
 				BCF6EBCA206EC7C50063D023 /* UpComingMoviesTests.swift */,
 				51830CE322A426E100BE346A /* UpComingListApiTests.swift */,
 				516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */,
+				5177AD3E22B077E9005D20AC /* UpComingListCoordinatorTests.swift */,
 				BCF6EBCC206EC7C50063D023 /* Info.plist */,
 			);
 			path = UpComingMoviesTests;
@@ -699,7 +711,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5177AD3D22B073E3005D20AC /* UpCommingCoordinator.swift in Sources */,
 				BCE2131D207199E1000FFBDC /* MoviesDetailModelMap.swift in Sources */,
+				5177AD4322B07FAC005D20AC /* UpComingListViewModelRX.swift in Sources */,
 				BCF6EBDF206ECB430063D023 /* UpComingListApiAlamo.swift in Sources */,
 				BCF6EBE7206ECBF80063D023 /* PaginationModelMap.swift in Sources */,
 				BCE2131B20719234000FFBDC /* ListMoviesCellModel.swift in Sources */,
@@ -717,6 +731,7 @@
 				51830CE722A4286B00BE346A /* StatusErrorModelCodable.swift in Sources */,
 				BCE70824207452290015DAA3 /* ServerConfig.swift in Sources */,
 				BCF6EBEB206EDE760063D023 /* GenreModelMap.swift in Sources */,
+				5177AD4122B07D78005D20AC /* UpComingListRXTableViewController.swift in Sources */,
 				BCF6EBBB206EC7C50063D023 /* UpComingMovies.xcdatamodeld in Sources */,
 				BCF6EBE5206ECBBF0063D023 /* DetailUpComingListTableViewController.swift in Sources */,
 				BCF6EBE9206EDBC00063D023 /* StatusModelMap.swift in Sources */,
@@ -729,6 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5177AD3F22B077E9005D20AC /* UpComingListCoordinatorTests.swift in Sources */,
 				516E3E7822AD6B270025F255 /* UpComingListViewModelTests.swift in Sources */,
 				BCF6EBCB206EC7C50063D023 /* UpComingMoviesTests.swift in Sources */,
 				51830CF122A438D300BE346A /* MockPagination.swift in Sources */,
