@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12906FC6B0E77B931F161EA4 /* Pods_UpComingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7F44A7DD638D1A5AAD71E9 /* Pods_UpComingMovies.framework */; };
+		5106DFE922B6F0BB00CAE101 /* sonar-project.properties in Resources */ = {isa = PBXBuildFile; fileRef = 5106DFE822B6F0BB00CAE101 /* sonar-project.properties */; };
 		51430E632292127C00517C4C /* UpcomingMoviesApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51430E622292127C00517C4C /* UpcomingMoviesApi.framework */; };
 		516E3E7822AD6B270025F255 /* UpComingListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */; };
 		517290D722A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517290D622A739CE00D6C9A7 /* UpComingTableViewsDataSetProtocol.swift */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		06F39DABE3E4A9CD06BE62BC /* Pods-SdkManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SdkManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SdkManagerTests/Pods-SdkManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		31A03D984C0E3E440B0EA124 /* Pods_UpComingMoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpComingMoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5106DFE822B6F0BB00CAE101 /* sonar-project.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sonar-project.properties"; sourceTree = "<group>"; };
 		51430E5B229211FD00517C4C /* Pods_UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E5E2292120A00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E622292127C00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +296,7 @@
 		BCF6EBA6206EC7C50063D023 = {
 			isa = PBXGroup;
 			children = (
+				5106DFE822B6F0BB00CAE101 /* sonar-project.properties */,
 				51430E5E2292120A00517C4C /* UpcomingMoviesApi.framework */,
 				51430E5B229211FD00517C4C /* Pods_UpcomingMoviesApi.framework */,
 				BCF6EBB1206EC7C50063D023 /* UpComingMovies */,
@@ -516,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51994EAD2290B06500B4420D /* .swiftlint.yml in Resources */,
+				5106DFE922B6F0BB00CAE101 /* sonar-project.properties in Resources */,
 				51994EAB2290AE1900B4420D /* GoogleService-Info.plist in Resources */,
 				BCF6EBC0206EC7C50063D023 /* LaunchScreen.storyboard in Resources */,
 				BCF6EBDA206ECB010063D023 /* UpComingListStoryboard.storyboard in Resources */,
