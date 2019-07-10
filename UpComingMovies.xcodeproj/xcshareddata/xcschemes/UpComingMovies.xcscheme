@@ -26,7 +26,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "BCF6EBAE206EC7C50063D023"
+            BuildableName = "UpComingMovies.app"
+            BlueprintName = "UpComingMovies"
+            ReferencedContainer = "container:UpComingMovies.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,6 +46,16 @@
                BlueprintIdentifier = "BCF6EBC5206EC7C50063D023"
                BuildableName = "UpComingMoviesTests.xctest"
                BlueprintName = "UpComingMoviesTests"
+               ReferencedContainer = "container:UpComingMovies.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "51EE91AF2291A69B00BE0D03"
+               BuildableName = "SdkManagerTests.xctest"
+               BlueprintName = "SdkManagerTests"
                ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </TestableReference>

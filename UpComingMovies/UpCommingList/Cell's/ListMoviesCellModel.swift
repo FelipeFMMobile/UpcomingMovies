@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ListMoviesCellModel: NSObject {
+protocol ListMoviesCellModelProtocol {
+  var title: String  { get set }
+  var posterPath: URL? { get set }
+  var releaseDate: String? { get set }
+  var genreTitle: String { get set }
+  init(genre: GenreModelCodable, movie: MoviesModelCodable)
+}
+
+class ListMoviesCellModel: NSObject, ListMoviesCellModelProtocol {
   var title: String = ""
   var posterPath: URL?
   var releaseDate: String?
   var genreTitle: String = ""
   
-  init(genre: GenreModelMap, movie: MoviesModelMap) {
+  required init(genre: GenreModelCodable, movie: MoviesModelCodable) {
     genreTitle = genre.name ?? ""
     title = movie.title
     let url = ServerConfig.imagesBaseUrl + (movie.posterPath ?? "")

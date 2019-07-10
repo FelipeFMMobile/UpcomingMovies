@@ -1,0 +1,21 @@
+{
+  "results": [
+    {
+      "vote_count": 171,
+      "id": 373571,
+      "video": false,
+      "vote_average": 6.6,
+      "title": "Godzilla: King of the Monsters",
+      "popularity": 161.54,
+      "original_title": "Godzilla: King of the Monsters",
+      "genre_ids": [
+        878,
+        53
+      ],
+      "adult": false
+    }
+  ],
+  "page": 1,
+  "total_results": 192,
+  "total_pages": 10
+}
