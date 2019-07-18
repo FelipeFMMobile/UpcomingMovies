@@ -59,6 +59,16 @@
                ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F1023C1022E10FD500602584"
+               BuildableName = "UpComingMoviesKIFTests.xctest"
+               BlueprintName = "UpComingMoviesKIFTests"
+               ReferencedContainer = "container:UpComingMovies.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

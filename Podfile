@@ -44,6 +44,13 @@ target 'UpComingMovies' do
   target 'SdkManagerTests' do
     inherit! :search_paths
   end
+
+  target 'UpComingMoviesKIFTests' do
+    inherit! :search_paths
+    pod 'Quick'
+    pod 'Nimble'
+    pod 'KIF'
+  end
 end
 
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
@@ -54,6 +61,7 @@ target 'UpcomingMoviesApi' do
   target 'UpcomingMoviesApiTests' do
     test_pods
   end
+  
   
 #  target 'ParamsTests' do
 #    test_pods
