@@ -15,7 +15,7 @@ def shared_pods
   pod 'RxCocoa', '~> 4.1'
   pod 'RxDataSources', '~> 3.1'
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
-  pod 'Kingfisher', '5.1.1'
+  pod 'Kingfisher', '5.2.0'
   pod 'Firebase/Core'
   pod 'Fabric', '~> 1.9.0'
   pod 'Crashlytics', '~> 3.12.0'
@@ -27,6 +27,7 @@ end
 
 def test_pods
   pod 'OHHTTPStubs/Swift'
+  pod 'KIF'
 end  
 
 # Pods for UpComingMovies

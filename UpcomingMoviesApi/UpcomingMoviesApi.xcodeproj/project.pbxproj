@@ -369,16 +369,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
