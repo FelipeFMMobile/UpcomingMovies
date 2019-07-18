@@ -15,9 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions 
-                   launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                   launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
     appTheme()
+    
+    initSdks()
+    
     return true
   }
   
@@ -39,5 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
+  }
+}
+
+extension AppDelegate: SdkControlProtocol {
+  func initSdks() {
+    let firebase: SdkProtocol = FirebaseSdk()
+    _ = firebase.initialization()
   }
 }
