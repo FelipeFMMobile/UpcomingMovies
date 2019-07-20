@@ -22,12 +22,11 @@ def shared_pods
 end
 
 def quality_pods
-  pod 'SwiftLint'
+  #pod 'SwiftLint'
 end  
 
 def test_pods
   pod 'OHHTTPStubs/Swift'
-  pod 'KIF'
 end  
 
 # Pods for UpComingMovies
