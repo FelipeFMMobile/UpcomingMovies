@@ -1,70 +1,62 @@
 <coverage version="1">
-/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift">
-    <lineToCover lineNumber="30" covered="true"/>
-    <lineToCover lineNumber="31" covered="true"/>
-    <lineToCover lineNumber="32" covered="true"/>
-    <lineToCover lineNumber="33" covered="true"/>
-    <lineToCover lineNumber="34" covered="true"/>
-    <lineToCover lineNumber="35" covered="true"/>
-    <lineToCover lineNumber="36" covered="true"/>
-    <lineToCover lineNumber="37" covered="true"/>
-    <lineToCover lineNumber="38" covered="true"/>
-    <lineToCover lineNumber="39" covered="true"/>
-    <lineToCover lineNumber="40" covered="true"/>
-    <lineToCover lineNumber="41" covered="true"/>
-    <lineToCover lineNumber="42" covered="true"/>
-    <lineToCover lineNumber="43" covered="true"/>
-    <lineToCover lineNumber="44" covered="true"/>
-    <lineToCover lineNumber="45" covered="true"/>
-    <lineToCover lineNumber="46" covered="true"/>
-    <lineToCover lineNumber="47" covered="true"/>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/AppDelegate.swift">
+ Total lines: 26
   </file>
-/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModel.swift
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/SdkManagers/FirebaseSdk.swift">
+ Total lines: 5
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/AlamofireVersion/UpComingListApiAlamo.swift">
+ Total lines: 55
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/UpComingListApi.swift">
+ Total lines: 25
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesCellModel.swift">
+ Total lines: 15
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesTableViewCell.swift">
+ Total lines: 14
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpComingListTableViewController.swift">
+ Total lines: 15
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift">
+ Total lines: 18
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/GenreModelCodable.swift">
+ Total lines: 5
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/GenreModelMap.swift">
+ Total lines: 11
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesDetailModelMap.swift">
+ Total lines: 29
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesModelMap.swift">
+ Total lines: 19
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/PaginationModelMap.swift">
+ Total lines: 8
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/StatusModelMap.swift">
+ Total lines: 7
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/PaginationModelCodable.swift">
+ Total lines: 10
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListRXTableViewController.swift">
+ Total lines: 43
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListTableViewController.swift">
+ Total lines: 74
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpCommingCoordinator.swift">
+ Total lines: 15
+  </file>
   <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModel.swift">
-    <lineToCover lineNumber="42" covered="true"/>
-    <lineToCover lineNumber="43" covered="true"/>
-    <lineToCover lineNumber="44" covered="true"/>
-    <lineToCover lineNumber="45" covered="true"/>
-    <lineToCover lineNumber="46" covered="true"/>
-    <lineToCover lineNumber="47" covered="true"/>
-    <lineToCover lineNumber="50" covered="true"/>
-    <lineToCover lineNumber="51" covered="true"/>
-    <lineToCover lineNumber="52" covered="true"/>
-    <lineToCover lineNumber="53" covered="true"/>
-    <lineToCover lineNumber="54" covered="true"/>
-    <lineToCover lineNumber="55" covered="true"/>
-    <lineToCover lineNumber="58" covered="true"/>
-    <lineToCover lineNumber="59" covered="true"/>
-    <lineToCover lineNumber="60" covered="true"/>
-    <lineToCover lineNumber="61" covered="true"/>
-    <lineToCover lineNumber="62" covered="true"/>
-    <lineToCover lineNumber="63" covered="true"/>
-    <lineToCover lineNumber="64" covered="true"/>
-    <lineToCover lineNumber="65" covered="true"/>
-    <lineToCover lineNumber="66" covered="true"/>
-    <lineToCover lineNumber="67" covered="true"/>
-    <lineToCover lineNumber="68" covered="true"/>
-    <lineToCover lineNumber="70" covered="true"/>
-    <lineToCover lineNumber="71" covered="true"/>
-    <lineToCover lineNumber="72" covered="true"/>
-    <lineToCover lineNumber="73" covered="true"/>
-    <lineToCover lineNumber="75" covered="true"/>
-    <lineToCover lineNumber="76" covered="true"/>
-    <lineToCover lineNumber="77" covered="true"/>
-    <lineToCover lineNumber="78" covered="true"/>
-    <lineToCover lineNumber="79" covered="true"/>
-    <lineToCover lineNumber="83" covered="true"/>
-    <lineToCover lineNumber="84" covered="true"/>
-    <lineToCover lineNumber="85" covered="true"/>
-    <lineToCover lineNumber="87" covered="true"/>
-    <lineToCover lineNumber="88" covered="true"/>
-    <lineToCover lineNumber="89" covered="true"/>
-    <lineToCover lineNumber="91" covered="true"/>
-    <lineToCover lineNumber="92" covered="true"/>
-    <lineToCover lineNumber="93" covered="true"/>
-    <lineToCover lineNumber="98" covered="true"/>
-    <lineToCover lineNumber="99" covered="true"/>
-    <lineToCover lineNumber="100" covered="true"/>
+ Total lines: 44
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModelRX.swift">
+ Total lines: 6
   </file>
 </coverage>
