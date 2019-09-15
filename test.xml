@@ -1,62 +1,22 @@
 <coverage version="1">
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/AppDelegate.swift">
- Total lines: 26
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/SdkManagers/FirebaseSdk.swift">
- Total lines: 5
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/AlamofireVersion/UpComingListApiAlamo.swift">
- Total lines: 55
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/UpComingListApi.swift">
- Total lines: 25
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesCellModel.swift">
- Total lines: 15
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesTableViewCell.swift">
- Total lines: 14
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpComingListTableViewController.swift">
- Total lines: 15
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift">
- Total lines: 18
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/GenreModelCodable.swift">
- Total lines: 5
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/GenreModelMap.swift">
- Total lines: 11
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesDetailModelMap.swift">
- Total lines: 29
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesModelMap.swift">
- Total lines: 19
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/PaginationModelMap.swift">
- Total lines: 8
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/StatusModelMap.swift">
- Total lines: 7
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/PaginationModelCodable.swift">
- Total lines: 10
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListRXTableViewController.swift">
- Total lines: 43
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListTableViewController.swift">
- Total lines: 74
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpCommingCoordinator.swift">
- Total lines: 15
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModel.swift">
- Total lines: 44
-  </file>
-  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModelRX.swift">
- Total lines: 6
-  </file>
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/AppDelegate.swift: .69230769230769230769
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/SdkManagers/FirebaseSdk.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/AlamofireVersion/UpComingListApiAlamo.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/UpComingListApi.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesCellModel.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesTableViewCell.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpComingListTableViewController.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/GenreModelCodable.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/GenreModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesDetailModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/PaginationModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/StatusModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/PaginationModelCodable.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListRXTableViewController.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListTableViewController.swift: .67567567567567567567
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpCommingCoordinator.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModel.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModelRX.swift: 0
 </coverage>
