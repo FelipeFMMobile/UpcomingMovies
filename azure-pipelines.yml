@@ -25,7 +25,7 @@ steps:
 - task: Xcode@5
   inputs:
     actions: 'test'
-    xcWorkspacePath: '**/Upcoming.xcworkspace'
+    xcWorkspacePath: '**/UpComingMovies.xcworkspace'
     scheme: 'Upcoming'
     packageApp: false
     publishJUnitResults: true
