@@ -27,6 +27,7 @@ steps:
     actions: 'test'
     xcWorkspacePath: '**/UpComingMovies.xcworkspace'
     scheme: 'UpComingMovies'
-    sdk: 'iphoneos'
+    sdk: 'iphonesimulator'
+    destinationSimulators: 'platform=iOS Simulator,name=iPhone 6,OS=8.1'
     packageApp: false
     publishJUnitResults: true
