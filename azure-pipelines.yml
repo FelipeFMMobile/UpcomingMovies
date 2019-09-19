@@ -22,3 +22,10 @@ steps:
     configuration: 'Develop'
     xcWorkspacePath: '**/UpComingMovies.xcworkspace'
     xcodeVersion: '10' # Options: 8, 9, 10, default, specifyPath
+- task: Xcode@5
+  inputs:
+    actions: 'test'
+    xcWorkspacePath: '**/Upcoming.xcworkspace'
+    scheme: 'Upcoming'
+    packageApp: false
+    publishJUnitResults: true
