@@ -20,5 +20,5 @@ steps:
     scheme: 'UpComingMovies'
     sdk: 'iphoneos'
     configuration: 'Develop'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    xcWorkspacePath: '**/UpComingMovies.xcworkspace'
     xcodeVersion: '10' # Options: 8, 9, 10, default, specifyPath
