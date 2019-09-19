@@ -26,6 +26,7 @@ steps:
   inputs:
     actions: 'test'
     xcWorkspacePath: '**/UpComingMovies.xcworkspace'
-    scheme: 'Upcoming'
+    scheme: 'UpComingMovies'
+    sdk: 'iphoneos'
     packageApp: false
     publishJUnitResults: true
