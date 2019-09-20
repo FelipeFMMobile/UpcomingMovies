@@ -25,7 +25,7 @@ steps:
     xcodeVersion: '10' # Options: 8, 9, 10, default, specifyPath
     publishJUnitResults: true
 
-- task: Testing@5
+- task: Xcode@5
   inputs:
     actions: 'test'
     scheme: 'UpComingMovies'
