@@ -20,14 +20,7 @@ steps:
     scheme: 'UpComingMovies'
     sdk: 'iphoneos'
     configuration: 'Develop'
+    destinationSimulators: 'platform=iOS Simulator,name=iPhone 6,OS=8.1'
     xcWorkspacePath: '**/UpComingMovies.xcworkspace'
     xcodeVersion: '10' # Options: 8, 9, 10, default, specifyPath
-- task: Xcode@5
-  inputs:
-    actions: 'test'
-    xcWorkspacePath: '**/UpComingMovies.xcworkspace'
-    scheme: 'UpComingMovies'
-    sdk: 'iphonesimulator'
-    destinationSimulators: 'platform=iOS Simulator,name=iPhone 6,OS=8.1'
-    packageApp: false
     publishJUnitResults: true
