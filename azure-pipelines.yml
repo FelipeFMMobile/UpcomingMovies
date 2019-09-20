@@ -24,6 +24,7 @@ steps:
     xcodeVersion: '10' # Options: 8, 9, 10, default, specifyPath
 - task: Xcode@5
   inputs:
+    actions: 'test'
     xcWorkspacePath: '**/UpComingMovies.xcworkspace'
     scheme: 'UpComingMovies'
     sdk: 'iphonesimulator'
