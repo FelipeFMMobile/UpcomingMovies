@@ -17,12 +17,10 @@ def shared_pods
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '5.2.0'
   pod 'Firebase/Core'
-  pod 'Fabric', '~> 1.9.0'
-  pod 'Crashlytics', '~> 3.12.0'
 end
 
 def quality_pods
-  #pod 'SwiftLint'
+  pod 'SwiftLint'
 end  
 
 def test_pods

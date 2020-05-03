@@ -10,14 +10,14 @@ import Foundation
 
 ///StatusModelCodable
 public class StatusErrorModelCodable: Decodable {
-  
-  var statusCode: Int?
-  var statusMessage: String?
-  var success: Bool?
-  
-  private enum CodingKeys: String, CodingKey {
-    case statusCode = "status_code"
-    case statusMessage = "status_message"
-    case success
-  }
+    
+    var statusCode: Int?
+    var statusMessage: String?
+    var success: Bool?
+    
+    private enum CodingKeys: String, CodingKey {
+        case statusCode = "status_code"
+        case statusMessage = "status_message"
+        case success
+    }
 }

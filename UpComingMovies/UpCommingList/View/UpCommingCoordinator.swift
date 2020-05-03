@@ -25,8 +25,8 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
   }
   
   func instantiateDetailSegue(detailMovie: MoviesDetailModelCodable) -> Bool {
-    if let detailController = self.parentController.storyboard?.instantiateViewController (
-      withIdentifier: DetailUpComingListTableViewController.DetailIdentifier)  
+    if let detailController = self.parentController.storyboard?.instantiateViewController(
+withIdentifier: DetailUpComingListTableViewController.DetailIdentifier)  
       as? DetailUpComingListTableViewController {
       detailController.viewModel = DetailUpCommingListViewModel(movie: detailMovie)
       DispatchQueue.main.async {
