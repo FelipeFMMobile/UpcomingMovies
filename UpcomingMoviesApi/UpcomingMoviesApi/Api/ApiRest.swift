@@ -11,28 +11,38 @@
 import Foundation
 
 enum DefaultErrorCodes: Int {
-  case domainFail = 999, responseCodableFail = 997, noDataResponse = 996, statusCodeError = 995
+    case domainFail = 999, responseCodableFail = 997, noDataResponse = 996, statusCodeError = 995
 }
 
-open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostJsonProtocol {
-  
-  public override init() { super.init() }
-  
-  /// Get Post
-  public func get<T>(endPoint: String, params: [String: Any]?, 
-                     completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
+open class ApiRest: ApiRunner {
     
-    let getParams = GetParams(params: params ?? [:])
-    self.run(method: HttpMethod.GET, ContentType.json, endPoint: endPoint, 
-             params: getParams, completion: completion)
-  }
-  
-  /// JsonBody Post
-  public func post<T>(endPoint: String, params: [String: Any]?, 
-                      completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
-    let getParams = JsonBodyParams(params: params ?? [:])
-    self.run(method: HttpMethod.GET, ContentType.json, endPoint: endPoint, 
-             params: getParams, completion: completion)
-  }
-  
+    public override init() { super.init() }
+    
+    /// GET
+    public func get<T>(endPoint: EndPoint, params: [String: Any]?,
+                       completion: @escaping (Result<ResultRequest<T>, Error>) -> Void) where T: Decodable {
+        
+        header = endPoint.header()
+        
+        let body = GetParams(params: params ?? [:])
+        self.run(method: .GET, endPoint.contentType(), endPoint: endPoint.path(),
+                 params: body, completion: completion)
+    }
+    
+    /// POST
+    public func post<T>(endPoint: EndPoint, params: [String: Any]?,
+                       completion: @escaping (Result<ResultRequest<T>, Error>) -> Void) where T: Decodable {
+        
+        header = endPoint.header()
+        var body: ParamsProtocol!
+        switch endPoint.contentType() {
+        case .json:
+            body = JsonBodyParams(params: params ?? [:])
+        case .formurlencoded:
+            body = FormEncodedParams(params: params ?? [:])
+        }
+        
+        self.run(method: .POST, endPoint.contentType(), endPoint: endPoint.path(),
+                 params: body, completion: completion)
+    }
 }

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UpcomingMoviesApi'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'UpcomingMoviesApi for connections managers'
   s.swift_version = '4.2'
 

@@ -10,31 +10,33 @@
 
 import Foundation
 
-typealias CompletionRequest<T> = (_ sucesso: Bool,
-  _ responseData: T?,
-  _ request: URLRequest?,
-  _ error: NSError?) -> Void
+public struct ResultRequest<T> {
+    var result: T
+    var request: URLRequest
+}
+
+typealias CompletionRequest<T> = (Result<ResultRequest<T>, Error>) -> Void
 
 protocol ApiRestGetProtocol {
-  func get<T: Decodable>(endPoint: String, params: [String: Any]?,
-                         completion: @escaping CompletionRequest<T>)
+    func get<T: Decodable>(endPoint: EndPoint, params: [String: Any]?,
+                           completion: @escaping CompletionRequest<T>)
 }
 
 protocol ApiRestPostJsonProtocol {
-  func post<T: Decodable>(endPoint: String, params: [String: Any]?,
-                          completion: @escaping CompletionRequest<T>)
+    func post<T: Decodable>(endPoint: EndPoint, params: [String: Any]?,
+                            completion: @escaping CompletionRequest<T>)
 }
 
 protocol ApiRestProtocol {
-  
-  func run<T: Decodable>(method: HttpMethod,
-                         _ contentType: ContentType,
-                         endPoint: String,
-                         params: ParamsProtocol,
-                         completion: @escaping CompletionRequest<T>
-  )
-
-  func addHeaderValue(value: String, key: String) -> Bool
-  func setAuthorization(value: String) -> Bool
-  func clearHeaderValues() -> Bool
+    
+    func run<T: Decodable>(method: HttpMethod,
+                           _ contentType: ContentType,
+                           endPoint: String,
+                           params: ParamsProtocol,
+                           completion: @escaping CompletionRequest<T>
+    )
+    
+    func addHeaderValue(value: String, key: String) -> Bool
+    func setAuthorization(value: String) -> Bool
+    func clearHeaderValues() -> Bool
 }
