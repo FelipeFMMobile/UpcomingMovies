@@ -13,14 +13,14 @@ import OHHTTPStubs
 class UpcomingMoviesApiExecuteTests: XCTestCase {
 
   override func setUp() {
-    OHHTTPStubs.setEnabled(true)
-    OHHTTPStubs.onStubActivation { (request: URLRequest, stub: OHHTTPStubsDescriptor, _: OHHTTPStubsResponse) in
+    HTTPStubs.setEnabled(true)
+    HTTPStubs.onStubActivation { (request: URLRequest, stub: HTTPStubsDescriptor, _: HTTPStubsResponse) in
       print("[OHHTTPStubs] Request to \(request.url!) has been stubbed with \(String(describing: stub.name))")
     }
   }
 
   override func tearDown() {
-    OHHTTPStubs.removeAllStubs()
+    HTTPStubs.removeAllStubs()
     super.tearDown()
   }
 
