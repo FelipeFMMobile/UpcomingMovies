@@ -18,7 +18,7 @@ open class ApiRunner: ApiRestProtocol {
     var header: [String: String] = [:]
     
     func run<T>(method: HttpMethod, _ contentType: ContentType, endPoint: String, params: ParamsProtocol,
-                completion: @escaping (Result<ResultRequest<T>, Error>) -> Void) where T: Decodable {
+                completion: @escaping (Result<ResultRequest<T>, NSError>) -> Void) where T: Decodable {
         
         let session = URLSession.shared
         let urlString = WebDomain.domainForBundle().rawValue + endPoint
@@ -56,7 +56,7 @@ open class ApiRunner: ApiRestProtocol {
                     let decoder = JSONDecoder()
                     do {
                         let result = try decoder.decode(T.self, from: odata)
-                        let resultRequest = ResultRequest(result: result, request: request)
+                        let resultRequest = ResultRequest(data: result, request: request)
                         completion(.success(resultRequest))
                         return
                     } catch let jsonError {

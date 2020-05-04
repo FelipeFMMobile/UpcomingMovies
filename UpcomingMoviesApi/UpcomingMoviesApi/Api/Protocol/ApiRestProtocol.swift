@@ -11,20 +11,20 @@
 import Foundation
 
 public struct ResultRequest<T> {
-    var result: T
+    var data: T
     var request: URLRequest
 }
 
-typealias CompletionRequest<T> = (Result<ResultRequest<T>, Error>) -> Void
+typealias CompletionRequest<T> = (Result<ResultRequest<T>, NSError>) -> Void
 
 protocol ApiRestGetProtocol {
-    func get<T: Decodable>(endPoint: EndPoint, params: [String: Any]?,
-                           completion: @escaping CompletionRequest<T>)
+    func get<T: Decodable, E: EndPoint>(endPoint: E, params: [String: Any]?,
+                                        _ model: T.Type, completion: @escaping CompletionRequest<T>)
 }
 
-protocol ApiRestPostJsonProtocol {
-    func post<T: Decodable>(endPoint: EndPoint, params: [String: Any]?,
-                            completion: @escaping CompletionRequest<T>)
+protocol ApiRestPostProtocol {
+    func post<T: Decodable, E: EndPoint>(endPoint: E, params: [String: Any]?,
+                                         _ model: T.Type, completion: @escaping CompletionRequest<T>)
 }
 
 protocol ApiRestProtocol {
