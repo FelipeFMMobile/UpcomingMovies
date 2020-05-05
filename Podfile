@@ -17,6 +17,11 @@ def shared_pods
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '5.2.0'
   pod 'Firebase/Core'
+  # Pods for PodTest
+  pod 'Fabric'
+  pod 'Crashlytics'
+  # (Recommended) Pod for Google Analytics
+  pod 'Firebase/Analytics'
 end
 
 def quality_pods

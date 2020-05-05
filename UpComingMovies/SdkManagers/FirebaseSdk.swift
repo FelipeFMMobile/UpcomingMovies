@@ -10,6 +10,7 @@
 
 import Foundation
 import Firebase
+import Crashlytics
 
 protocol SdkProtocol {
     func initialization() -> Bool
