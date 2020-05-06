@@ -239,6 +239,7 @@
 		51830CDE22A425D700BE346A /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				BCE70823207452290015DAA3 /* ServerConfig.swift */,
 				363215E52460DE6E00A0C7C7 /* UpcomingEndpoints.swift */,
 				51830CDF22A425F400BE346A /* AlamofireVersion */,
 				51830CE122A4269500BE346A /* UpComingListApi.swift */,
@@ -397,7 +398,6 @@
 		BCF6EBD6206ECAC00063D023 /* UpCommingList */ = {
 			isa = PBXGroup;
 			children = (
-				BCE70823207452290015DAA3 /* ServerConfig.swift */,
 				BCF6EBE2206ECB850063D023 /* Model */,
 				51830CDE22A425D700BE346A /* Api */,
 				51830CDC22A425A900BE346A /* ViewModel */,
