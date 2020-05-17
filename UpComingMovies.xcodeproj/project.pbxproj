@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E23D9FBBCB5C1053A7BBC54 /* Pods_SdkManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCBF2CC2CEFE116A57E3AA8 /* Pods_SdkManagerTests.framework */; };
 		363215E62460DE6E00A0C7C7 /* UpcomingEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363215E52460DE6E00A0C7C7 /* UpcomingEndpoints.swift */; };
+		36B00B062471DAE600E2DB5D /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B00B052471DAE600E2DB5D /* AppStoryboard.swift */; };
 		403F4BABF0F591DC8D589201 /* Pods_UpComingMoviesKIFTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D28BD44AD8FF8D4ECB9D66 /* Pods_UpComingMoviesKIFTests.framework */; };
 		5102ABBD22E3D34D0073A382 /* UpcomingMoviesApi.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51430E5E2292120A00517C4C /* UpcomingMoviesApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5106DFE922B6F0BB00CAE101 /* sonar-project.properties in Resources */ = {isa = PBXBuildFile; fileRef = 5106DFE822B6F0BB00CAE101 /* sonar-project.properties */; };
@@ -103,6 +104,7 @@
 		2A642476B5BE6DB4273610F8 /* Pods-UpComingMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpComingMovies.release.xcconfig"; path = "Target Support Files/Pods-UpComingMovies/Pods-UpComingMovies.release.xcconfig"; sourceTree = "<group>"; };
 		2FCBF2CC2CEFE116A57E3AA8 /* Pods_SdkManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SdkManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		363215E52460DE6E00A0C7C7 /* UpcomingEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEndpoints.swift; sourceTree = "<group>"; };
+		36B00B052471DAE600E2DB5D /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		5106DFE822B6F0BB00CAE101 /* sonar-project.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sonar-project.properties"; sourceTree = "<group>"; };
 		51430E5E2292120A00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E622292127C00517C4C /* UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36B00AFD2471D9CF00E2DB5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		36B00B032471DA9400E2DB5D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5177AD3C22B073E3005D20AC /* UpCommingCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		36B00B042471DAD500E2DB5D /* CoreLibs */ = {
+			isa = PBXGroup;
+			children = (
+				36B00B052471DAE600E2DB5D /* AppStoryboard.swift */,
+			);
+			path = CoreLibs;
+			sourceTree = "<group>";
+		};
 		517290D822A73D8E00D6C9A7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +253,6 @@
 		51830CDD22A425B400BE346A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5177AD3C22B073E3005D20AC /* UpCommingCoordinator.swift */,
 				BCF6EBD7206ECAEA0063D023 /* UpComingListTableViewController.swift */,
 				5177AD4022B07D78005D20AC /* UpComingListRXTableViewController.swift */,
 				BCF6EBD9206ECB010063D023 /* UpComingListStoryboard.storyboard */,
@@ -368,6 +392,8 @@
 		BCF6EBB1206EC7C50063D023 /* UpComingMovies */ = {
 			isa = PBXGroup;
 			children = (
+				36B00B042471DAD500E2DB5D /* CoreLibs */,
+				36B00AFD2471D9CF00E2DB5D /* Extensions */,
 				51994EAF2290B68000B4420D /* SdkManagers */,
 				BCE213142071902E000FFBDC /* UpComingMovies-Bridging-Header.h */,
 				BCF6EBD6206ECAC00063D023 /* UpCommingList */,
@@ -398,6 +424,7 @@
 		BCF6EBD6206ECAC00063D023 /* UpCommingList */ = {
 			isa = PBXGroup;
 			children = (
+				36B00B032471DA9400E2DB5D /* Coordinator */,
 				BCF6EBE2206ECB850063D023 /* Model */,
 				51830CDE22A425D700BE346A /* Api */,
 				51830CDC22A425A900BE346A /* ViewModel */,
@@ -875,6 +902,7 @@
 				BCF6EBB3206EC7C50063D023 /* AppDelegate.swift in Sources */,
 				51830CE722A4286B00BE346A /* StatusErrorModelCodable.swift in Sources */,
 				BCE70824207452290015DAA3 /* ServerConfig.swift in Sources */,
+				36B00B062471DAE600E2DB5D /* AppStoryboard.swift in Sources */,
 				BCF6EBEB206EDE760063D023 /* GenreModelMap.swift in Sources */,
 				5177AD4122B07D78005D20AC /* UpComingListRXTableViewController.swift in Sources */,
 				BCF6EBBB206EC7C50063D023 /* UpComingMovies.xcdatamodeld in Sources */,

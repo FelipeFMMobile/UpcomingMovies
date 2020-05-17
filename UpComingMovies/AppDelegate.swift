@@ -12,6 +12,8 @@ import SVProgressHUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    let coordinator = UpCommingCoordinator()
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions 
@@ -21,12 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         initSdks()
         
+        initViews()
+        
         return true
     }
     
     func appTheme() {
         //theme of SVProgressHUD
         SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+    }
+    
+    func initViews() {
+        self.window = UIWindow()
+        self.window?.rootViewController = coordinator.view
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

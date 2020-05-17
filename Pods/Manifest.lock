@@ -78,7 +78,7 @@ PODS:
     - nanopb/encode (= 1.30905.0)
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
-  - Nimble (8.0.7)
+  - Nimble (8.0.9)
   - ObjectMapper (3.5.2)
   - OHHTTPStubs/Core (9.0.0)
   - OHHTTPStubs/Default (9.0.0):
@@ -176,7 +176,7 @@ SPEC CHECKSUMS:
   KIF: 350f96fb4205972a10e4c1a45774d48b2d8482d8
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
-  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
   ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
   OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6

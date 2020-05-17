@@ -18,7 +18,7 @@ class UpComingListRXTableViewController: UIViewController, UITableViewDelegate {
   
   var disposeBag = DisposeBag()
   
-  lazy var coordinator = { UpCommingCoordinator(controller: self) }()
+  lazy var coordinator = { UpCommingCoordinator() }()
   
   let viewModel = UpComingListViewModelRX()
 
@@ -51,7 +51,7 @@ class UpComingListRXTableViewController: UIViewController, UITableViewDelegate {
         self.viewModel.getMovieInfo(movie: value, complete: { [weak self] in
           SVProgressHUD.dismiss()
           if let movieInfo = self?.viewModel.detailMovie {
-            _ = self?.coordinator.instantiateDetailSegue(detailMovie: movieInfo)
+            _ = self?.coordinator.gotoDetail(detailMovie: movieInfo)
           }
         })
       })
