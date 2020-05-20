@@ -22,6 +22,7 @@ def shared_pods
   pod 'Crashlytics'
   # (Recommended) Pod for Google Analytics
   pod 'Firebase/Analytics'
+  pod 'Firebase/Performance'
 end
 
 def quality_pods

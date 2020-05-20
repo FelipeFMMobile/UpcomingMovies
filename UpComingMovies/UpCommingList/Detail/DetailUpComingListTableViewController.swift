@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Crashlytics
 
 class DetailUpComingListTableViewController: UITableViewController {
     
@@ -36,5 +37,9 @@ class DetailUpComingListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    @IBAction func forceCrashButtonTapped(_ sender: AnyObject) {
+        Crashlytics.sharedInstance().crash()
     }
 }

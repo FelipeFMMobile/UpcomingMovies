@@ -14,16 +14,16 @@ import RxSwift
 import RxCocoa
 
 protocol UpComingListViewModelRXProtocol {
-  var moviesSubject: PublishSubject<[MoviesModelCodable]> { get set }
+    var moviesSubject: PublishSubject<[MoviesModelCodable]> { get set }
 }
 
 class UpComingListViewModelRX: UpComingListViewModel, UpComingListViewModelRXProtocol {
-  var moviesSubject = PublishSubject<[MoviesModelCodable]>()
-  
-  override func getUpCommingMovies(complete: @escaping () -> Void) {
-    super.getUpCommingMovies {
-      self.moviesSubject.onNext(self.movies)
-      complete()
+    var moviesSubject = PublishSubject<[MoviesModelCodable]>()
+    
+    override func getUpCommingMovies(complete: @escaping () -> Void) {
+        super.getUpCommingMovies {
+            self.moviesSubject.onNext(self.movies)
+            complete()
+        }
     }
-  }
 }
