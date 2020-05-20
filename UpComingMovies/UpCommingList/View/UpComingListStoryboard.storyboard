@@ -87,7 +87,7 @@
         <!--Detail Up Coming List Table View Controller-->
         <scene sceneID="NCq-D7-xpc">
             <objects>
-                <tableViewController storyboardIdentifier="DetailMovieView" id="nzL-FU-OdW" customClass="DetailUpComingListTableViewController" customModule="UpComingMovies" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailUpComingListTableViewController" id="nzL-FU-OdW" customClass="DetailUpComingListTableViewController" customModule="UpComingMovies" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JPR-LK-mzD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

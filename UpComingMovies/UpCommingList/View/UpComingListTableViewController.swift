@@ -9,9 +9,9 @@
 import UIKit
 import SVProgressHUD
 
-class UpComingListTableViewController: UITableViewController {
-    
-    lazy var coordinator = { UpCommingCoordinator() }()
+class UpComingListTableViewController: UITableViewController, UIViewCoordinator {
+
+    var coordinator: UpCommingCoordinator?
     
     let viewModel = UpComingListViewModel()
     
@@ -94,7 +94,7 @@ class UpComingListTableViewController: UITableViewController {
         viewModel.getMovieInfo(movie: movie, complete: { [weak self] in
             SVProgressHUD.dismiss()
             if let movieInfo = self?.viewModel.detailMovie {
-                _ = self?.coordinator.gotoDetail(detailMovie: movieInfo)
+                _ = self?.coordinator?.gotoDetail(detailMovie: movieInfo)
             }
         })
     }

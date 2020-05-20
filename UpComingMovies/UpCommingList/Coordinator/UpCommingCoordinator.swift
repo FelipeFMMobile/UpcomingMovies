@@ -7,28 +7,30 @@
 //
 
 import Foundation
-import SVProgressHUD
 
-protocol UpCommingCoordinatorProtocol {
-    var view: UpComingListTableViewController! { get set }
-    init()
+protocol UpCommingCoordinatorProtocol: AppCoordinator {
+    func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailUpComingListTableViewController
     func gotoDetail(detailMovie: MoviesDetailModelCodable)
 }
 
 class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     
-    var view: UpComingListTableViewController!
+    typealias ListView = UpComingListTableViewController
+    typealias DetailView = DetailUpComingListTableViewController
     
-    required init() {
-        view = instantiateList()
+    var navigation: UINavigationController!
+    var view: ListView?
+    
+    required init(nav: UINavigationController) {
+        navigation = nav
     }
     
-    private func instantiateList() -> UpComingListTableViewController {
-        return AppStoryboard.instantiate(.list)
+    func instantiateView() -> ListView? {
+        return ListView.instantiate(.list)
     }
     
-    private func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailUpComingListTableViewController {
-        let detailController: DetailUpComingListTableViewController = AppStoryboard.instantiate(.list)
+    internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailView {
+        let detailController: DetailView = DetailView.instantiate(.list)
         detailController.viewModel = DetailUpCommingListViewModel(movie: detailMovie)
         return detailController
     }
@@ -36,9 +38,9 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     // MARK: Navigation
     
     func gotoDetail(detailMovie: MoviesDetailModelCodable) {
-        let detailController = instantiateDetail(detailMovie)
         DispatchQueue.main.async {
-            self.view.navigationController?.pushViewController(detailController, animated: true)
+            let detailController = self.instantiateDetail(detailMovie)
+            self.navigation.pushViewController(detailController, animated: true)
         }
     }
 }

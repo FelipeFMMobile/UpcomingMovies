@@ -18,14 +18,7 @@ enum AppStoryboard: String {
 }
 
 extension AppStoryboard: AppStoryboardProtocol {
-    
-    // swiftlint:disable force_cast
-    static func instantiate<T>(_ appStoryboard: AppStoryboard) -> T where T: UIViewController {
-        let storyboard = UIStoryboard(name: appStoryboard.getName(), bundle: nil)
-        let identifier = NSStringFromClass(T.self).components(separatedBy: ".").last ?? ""
-        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
-    }
-    
+        
     func getName() -> String {
         switch self {
         case .main:

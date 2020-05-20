@@ -12,7 +12,7 @@ import SVProgressHUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let coordinator = UpCommingCoordinator()
+    var coordinator: UpCommingCoordinator?
     
     var window: UIWindow?
     
@@ -35,7 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initViews() {
         self.window = UIWindow()
-        self.window?.rootViewController = coordinator.view
+        coordinator = UpCommingCoordinator(nav: UINavigationController())
+        
+        self.window?.rootViewController = coordinator?.start(.none)?.navigationController
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
