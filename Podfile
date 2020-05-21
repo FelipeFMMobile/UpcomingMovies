@@ -31,6 +31,8 @@ end
 
 def test_pods
   pod 'OHHTTPStubs/Swift'
+  pod 'Quick'
+  pod 'Nimble'
 end  
 
 # Pods for UpComingMovies
@@ -40,8 +42,6 @@ target 'UpComingMovies' do
   test_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
   end
   
   target 'SdkManagerTests' do
@@ -50,8 +50,6 @@ target 'UpComingMovies' do
 
   target 'UpComingMoviesKIFTests' do
     inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
     pod 'KIF'
   end
 end
@@ -65,20 +63,7 @@ target 'UpcomingMoviesApi' do
     test_pods
   end
   
-  
-#  target 'ParamsTests' do
-#    test_pods
-#  end
-  
 end
-
-#post_install do |installer|
-#    installer.pods_project.targets.each do |target|
-#        target.build_configurations.each do |config|
-#            config.build_settings['SWIFT_VERSION'] = '4.2'
-#        end
-#    end
-#end
 
 # Disable Code Coverage for Pods projects
 post_install do |installer_representation|
