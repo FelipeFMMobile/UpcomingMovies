@@ -1,6 +1,6 @@
 platform :ios, '10.3'
 use_frameworks!
-plugin 'cocoapods-binary'
+
 workspace 'UpComingMovies'
 
 xcodeproj 'UpComingMovies.xcodeproj'
@@ -55,7 +55,6 @@ target 'UpComingMovies' do
 end
 
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
-enable_bitcode_for_prebuilt_frameworks!
 target 'UpcomingMoviesApi' do 
   xcodeproj 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
   test_pods

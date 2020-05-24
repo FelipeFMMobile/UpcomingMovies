@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		361825C6247737400079BC14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 361825C52477373F0079BC14 /* GoogleService-Info.plist */; };
 		363215E62460DE6E00A0C7C7 /* UpcomingEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363215E52460DE6E00A0C7C7 /* UpcomingEndpoints.swift */; };
 		364D370524734B4500C5F22D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D370424734B4500C5F22D /* UIViewController+Extensions.swift */; };
 		36898CC42475824800C1043A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36898CC32475824800C1043A /* AppCoordinator.swift */; };
@@ -33,6 +32,7 @@
 		51830CF822A464C300BE346A /* ListMovieRequired.json in Resources */ = {isa = PBXBuildFile; fileRef = 51830CF722A464C300BE346A /* ListMovieRequired.json */; };
 		51830CFA22A4667700BE346A /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = 51830CF922A4667600BE346A /* Genre.json */; };
 		51830CFC22A4677800BE346A /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 51830CFB22A4677800BE346A /* MovieDetail.json */; };
+		51994EAB2290AE1900B4420D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51994EAA2290AE1900B4420D /* GoogleService-Info.plist */; };
 		51994EAD2290B06500B4420D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 51994EAC2290B06500B4420D /* .swiftlint.yml */; };
 		51994EB12290B69900B4420D /* FirebaseSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51994EB02290B69900B4420D /* FirebaseSdk.swift */; };
 		51EE91B32291A69B00BE0D03 /* SdkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91B22291A69B00BE0D03 /* SdkManagerTests.swift */; };
@@ -104,7 +104,6 @@
 /* Begin PBXFileReference section */
 		00B86B690F3ACE7C46C2EA9E /* Pods_SdkManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SdkManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFC3274C52681C3B53D4968 /* Pods-UpComingMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpComingMovies.debug.xcconfig"; path = "Target Support Files/Pods-UpComingMovies/Pods-UpComingMovies.debug.xcconfig"; sourceTree = "<group>"; };
-		361825C52477373F0079BC14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		363215E52460DE6E00A0C7C7 /* UpcomingEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEndpoints.swift; sourceTree = "<group>"; };
 		364D370424734B4500C5F22D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		36898CC32475824800C1043A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		51830CF722A464C300BE346A /* ListMovieRequired.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ListMovieRequired.json; sourceTree = "<group>"; };
 		51830CF922A4667600BE346A /* Genre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Genre.json; path = UpcomingMoviesApi/UpcomingMoviesApiTests/Mocks/Genre.json; sourceTree = SOURCE_ROOT; };
 		51830CFB22A4677800BE346A /* MovieDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = MovieDetail.json; path = UpcomingMoviesApi/UpcomingMoviesApiTests/Mocks/MovieDetail.json; sourceTree = SOURCE_ROOT; };
+		51994EAA2290AE1900B4420D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51994EAC2290B06500B4420D /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		51994EB02290B69900B4420D /* FirebaseSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSdk.swift; sourceTree = "<group>"; };
 		51EE91B02291A69B00BE0D03 /* SdkManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SdkManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -408,7 +408,7 @@
 				BCF6EBBE206EC7C50063D023 /* LaunchScreen.storyboard */,
 				BCF6EBC1206EC7C50063D023 /* Info.plist */,
 				BCF6EBB9206EC7C50063D023 /* UpComingMovies.xcdatamodeld */,
-				361825C52477373F0079BC14 /* GoogleService-Info.plist */,
+				51994EAA2290AE1900B4420D /* GoogleService-Info.plist */,
 			);
 			path = UpComingMovies;
 			sourceTree = "<group>";
@@ -634,11 +634,11 @@
 			files = (
 				51994EAD2290B06500B4420D /* .swiftlint.yml in Resources */,
 				5106DFE922B6F0BB00CAE101 /* sonar-project.properties in Resources */,
+				51994EAB2290AE1900B4420D /* GoogleService-Info.plist in Resources */,
 				BCF6EBC0206EC7C50063D023 /* LaunchScreen.storyboard in Resources */,
 				BCF6EBDA206ECB010063D023 /* UpComingListStoryboard.storyboard in Resources */,
 				BCF6EBBD206EC7C50063D023 /* Assets.xcassets in Resources */,
 				BC1023F02072F5D0005FF7C5 /* ListMoviesCell.xib in Resources */,
-				361825C6247737400079BC14 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1122,7 +1122,6 @@
 			baseConfigurationReference = 1FFC3274C52681C3B53D4968 /* Pods-UpComingMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1144,7 +1143,6 @@
 			baseConfigurationReference = FA5F7DD6949A9F66F2CF0AD3 /* Pods-UpComingMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YZYY9PGW5;
