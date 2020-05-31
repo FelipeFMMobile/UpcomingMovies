@@ -47,16 +47,6 @@
                ReferencedContainer = "container:UpcomingMoviesApi.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51EE91CE2291E2C800BE0D03"
-               BuildableName = "ParamsTests.xctest"
-               BlueprintName = "ParamsTests"
-               ReferencedContainer = "container:UpcomingMoviesApi.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -100,6 +90,6 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      revealArchiveInOrganizer = "YES">
+      revealArchiveInOrganizer = "NO">
    </ArchiveAction>
 </Scheme>

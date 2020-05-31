@@ -39,9 +39,9 @@ end
 target 'UpComingMovies' do
   shared_pods
   quality_pods
-  test_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
+    test_pods
   end
   
   target 'SdkManagerTests' do
@@ -50,6 +50,7 @@ target 'UpComingMovies' do
 
   target 'UpComingMoviesKIFTests' do
     inherit! :search_paths
+    test_pods
     pod 'KIF'
   end
 end
@@ -57,7 +58,6 @@ end
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
 target 'UpcomingMoviesApi' do 
   xcodeproj 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
-  test_pods
   
   target 'UpcomingMoviesApiTests' do
     test_pods

@@ -17,6 +17,8 @@ open class ApiRunner: ApiRestProtocol {
     
     var header: [String: String] = [:]
     
+    public init() { }
+    
     func run<T>(method: HttpMethod, _ contentType: ContentType, endPoint: String, params: ParamsProtocol,
                 completion: @escaping (Result<ResultRequest<T>, NSError>) -> Void) where T: Decodable {
         

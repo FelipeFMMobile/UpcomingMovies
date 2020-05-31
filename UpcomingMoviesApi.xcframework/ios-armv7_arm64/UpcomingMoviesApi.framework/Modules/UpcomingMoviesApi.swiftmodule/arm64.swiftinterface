@@ -1,0 +1,53 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios10.3 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name UpcomingMoviesApi
+import Foundation
+import Swift
+@_exported import UpcomingMoviesApi
+public enum HttpMethod {
+  case GET
+  case POST
+  case PUT
+  case DELETE
+  case PATCH
+  public static func == (a: UpcomingMoviesApi.HttpMethod, b: UpcomingMoviesApi.HttpMethod) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public struct ResultRequest<T> {
+  public var data: T
+  public var request: Foundation.URLRequest
+}
+public typealias CompletionRequest<T> = (Swift.Result<UpcomingMoviesApi.ResultRequest<T>, Foundation.NSError>) -> Swift.Void
+public typealias Header = [Swift.String : Swift.String]
+public typealias Path = Swift.String
+public protocol EndPoint {
+  func path() -> UpcomingMoviesApi.Path
+  func header() -> UpcomingMoviesApi.Header
+  func contentType() -> UpcomingMoviesApi.ContentType
+}
+open class ApiRunner {
+  public init()
+  @objc deinit
+}
+open class ApiRest : UpcomingMoviesApi.ApiRunner {
+  override public init()
+  public func get<T, E>(endPoint: E, params: [Swift.String : Any]?, _ model: T.Type, completion: @escaping (Swift.Result<UpcomingMoviesApi.ResultRequest<T>, Foundation.NSError>) -> Swift.Void) where T : Swift.Decodable, E : UpcomingMoviesApi.EndPoint
+  public func post<T, E>(endPoint: E, params: [Swift.String : Any]?, _ model: T.Type, completion: @escaping (Swift.Result<UpcomingMoviesApi.ResultRequest<T>, Foundation.NSError>) -> Swift.Void) where T : Swift.Decodable, E : UpcomingMoviesApi.EndPoint
+  @objc deinit
+}
+public enum ContentType {
+  case formurlencoded
+  case json
+  public static func == (a: UpcomingMoviesApi.ContentType, b: UpcomingMoviesApi.ContentType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+extension UpcomingMoviesApi.HttpMethod : Swift.Equatable {}
+extension UpcomingMoviesApi.HttpMethod : Swift.Hashable {}
+extension UpcomingMoviesApi.ContentType : Swift.Equatable {}
+extension UpcomingMoviesApi.ContentType : Swift.Hashable {}
