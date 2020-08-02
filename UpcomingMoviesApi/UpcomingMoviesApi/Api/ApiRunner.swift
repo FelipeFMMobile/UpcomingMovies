@@ -10,19 +10,23 @@
 
 import Foundation
 
-open class ApiRunner: ApiRestProtocol {
+open class ApiRunner: NSObject, ApiRestProtocol {
+    
+    let configuration = URLSessionConfiguration.default
     
     /// enumerado que define o Content-Type da request
     var contentType: ContentType?
     
     var header: [String: String] = [:]
     
-    public init() { }
+    public override init() { }
     
     func run<T>(method: HttpMethod, _ contentType: ContentType, endPoint: String, params: ParamsProtocol,
                 completion: @escaping (Result<ResultRequest<T>, NSError>) -> Void) where T: Decodable {
         
-        let session = URLSession.shared
+        let session = URLSession(configuration: configuration,
+                                 delegate: self,
+                                 delegateQueue: nil)
         let urlString = WebDomain.domainForBundle().rawValue + endPoint
         guard let url = URL(string: urlString) else {
             completion(.failure(defaultError(errorType: .domainFail)))
@@ -105,4 +109,21 @@ open class ApiRunner: ApiRestProtocol {
         }
     }
     
+}
+
+extension ApiRunner: URLSessionDataDelegate  {
+    
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask,
+                    willCacheResponse proposedResponse: CachedURLResponse,
+                    completionHandler: @escaping (CachedURLResponse?) -> Void) {
+        if proposedResponse.response.url?.scheme == "https" {
+            let updatedResponse = CachedURLResponse(response: proposedResponse.response,
+                                                    data: proposedResponse.data,
+                                                    userInfo: proposedResponse.userInfo,
+                                                    storagePolicy: .allowedInMemoryOnly)
+            completionHandler(updatedResponse)
+        } else {
+            completionHandler(proposedResponse)
+        }
+    }
 }

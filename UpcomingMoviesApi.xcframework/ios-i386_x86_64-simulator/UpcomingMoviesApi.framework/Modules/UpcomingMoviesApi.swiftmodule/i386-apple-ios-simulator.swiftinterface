@@ -28,12 +28,16 @@ public protocol EndPoint {
   func header() -> UpcomingMoviesApi.Header
   func contentType() -> UpcomingMoviesApi.ContentType
 }
-open class ApiRunner {
-  public init()
+@objc open class ApiRunner : ObjectiveC.NSObject {
+  @objc override dynamic public init()
   @objc deinit
 }
-open class ApiRest : UpcomingMoviesApi.ApiRunner {
-  override public init()
+extension ApiRunner : Foundation.URLSessionDataDelegate {
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse, completionHandler: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
+}
+@objc open class ApiRest : UpcomingMoviesApi.ApiRunner {
+  @objc override dynamic public init()
+  public init(usingCache: Swift.Bool = false)
   public func get<T, E>(endPoint: E, params: [Swift.String : Any]?, _ model: T.Type, completion: @escaping (Swift.Result<UpcomingMoviesApi.ResultRequest<T>, Foundation.NSError>) -> Swift.Void) where T : Swift.Decodable, E : UpcomingMoviesApi.EndPoint
   public func post<T, E>(endPoint: E, params: [Swift.String : Any]?, _ model: T.Type, completion: @escaping (Swift.Result<UpcomingMoviesApi.ResultRequest<T>, Foundation.NSError>) -> Swift.Void) where T : Swift.Decodable, E : UpcomingMoviesApi.EndPoint
   @objc deinit

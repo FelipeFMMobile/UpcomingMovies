@@ -27,6 +27,10 @@ protocol ApiRestPostProtocol {
                                          _ model: T.Type, completion: @escaping CompletionRequest<T>)
 }
 
+protocol ApiRestCacheProtocol {
+    func setCachePolicy()
+}
+
 protocol ApiRestProtocol {
     
     func run<T: Decodable>(method: HttpMethod,

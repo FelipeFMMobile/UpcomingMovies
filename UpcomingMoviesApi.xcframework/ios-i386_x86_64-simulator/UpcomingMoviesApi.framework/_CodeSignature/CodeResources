@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/UpcomingMoviesApi-Swift.h</key>
 		<data>
-		zPgisDWlpjDHOHSjW9jlIllJ/w8=
+		0YEBibEY1ShzFEs+Jm8B7Gi8N5A=
 		</data>
 		<key>Headers/UpcomingMoviesApi.h</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<data>
-		L7MCDInMRHqV5mxSKTyQpm+3MN8=
+		GcjWkxiyOnAMYcjuqVnY8xTNUZU=
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		hBFb4+VygAzELJ0MaBH6yVfn//8=
+		gtbyJjoRh4tBPvrcdR+/mLiiBFI=
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386.swiftinterface</key>
 		<data>
-		L7MCDInMRHqV5mxSKTyQpm+3MN8=
+		GcjWkxiyOnAMYcjuqVnY8xTNUZU=
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386.swiftmodule</key>
 		<data>
-		hBFb4+VygAzELJ0MaBH6yVfn//8=
+		gtbyJjoRh4tBPvrcdR+/mLiiBFI=
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Ja6jGoiM+wHBl3XcoedykInU8vY=
+		Kg3h6LQo9JZSBD5xiAtcfZ4qC0M=
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		+FPMdcBnitrc1dUuVwIqTYIlUNM=
+		CuRCOHXDVvOqFC6Sn2GRBCchJOg=
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		Ja6jGoiM+wHBl3XcoedykInU8vY=
+		Kg3h6LQo9JZSBD5xiAtcfZ4qC0M=
 		</data>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		+FPMdcBnitrc1dUuVwIqTYIlUNM=
+		CuRCOHXDVvOqFC6Sn2GRBCchJOg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -79,11 +79,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zPgisDWlpjDHOHSjW9jlIllJ/w8=
+			0YEBibEY1ShzFEs+Jm8B7Gi8N5A=
 			</data>
 			<key>hash2</key>
 			<data>
-			Tg73H8Z37+F/RpQRm/Lopyguj8u9hDxI2FP5290b+lY=
+			PAOeqKeYAN0w5Z2qh0ae8MzEnMvxKChGz708V5S3BTE=
 			</data>
 		</dict>
 		<key>Headers/UpcomingMoviesApi.h</key>
@@ -112,22 +112,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L7MCDInMRHqV5mxSKTyQpm+3MN8=
+			GcjWkxiyOnAMYcjuqVnY8xTNUZU=
 			</data>
 			<key>hash2</key>
 			<data>
-			QoYZJ4YSmhYsaDnQjHiqPz6mSNb24lbZb+N8I51lnsE=
+			zNA3vsv3sUYowblN5XoxwA6Xhv/YTLJAlCvdwacy67w=
 			</data>
 		</dict>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hBFb4+VygAzELJ0MaBH6yVfn//8=
+			gtbyJjoRh4tBPvrcdR+/mLiiBFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			6/VOYEwfwlUn3aRUz8BvnpfrAjycGRQHHws/tBmZqYw=
+			WBEtPaO7g45rVDSAN5VQwfE514kDwGE1ieOXvZSBAWc=
 			</data>
 		</dict>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386.swiftdoc</key>
@@ -145,22 +145,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L7MCDInMRHqV5mxSKTyQpm+3MN8=
+			GcjWkxiyOnAMYcjuqVnY8xTNUZU=
 			</data>
 			<key>hash2</key>
 			<data>
-			QoYZJ4YSmhYsaDnQjHiqPz6mSNb24lbZb+N8I51lnsE=
+			zNA3vsv3sUYowblN5XoxwA6Xhv/YTLJAlCvdwacy67w=
 			</data>
 		</dict>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hBFb4+VygAzELJ0MaBH6yVfn//8=
+			gtbyJjoRh4tBPvrcdR+/mLiiBFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			6/VOYEwfwlUn3aRUz8BvnpfrAjycGRQHHws/tBmZqYw=
+			WBEtPaO7g45rVDSAN5VQwfE514kDwGE1ieOXvZSBAWc=
 			</data>
 		</dict>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -178,22 +178,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ja6jGoiM+wHBl3XcoedykInU8vY=
+			Kg3h6LQo9JZSBD5xiAtcfZ4qC0M=
 			</data>
 			<key>hash2</key>
 			<data>
-			54sPCrO9JDo/j/S5Eoi15AQuTL3ER4BIJPJYAk6/XBg=
+			9xu6jZ160+vxYXPKl6vUp/hFIlhmuwI/uNXFY/q6Hto=
 			</data>
 		</dict>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+FPMdcBnitrc1dUuVwIqTYIlUNM=
+			CuRCOHXDVvOqFC6Sn2GRBCchJOg=
 			</data>
 			<key>hash2</key>
 			<data>
-			PF7qD/4chWnSlZavx5jf/WLHHm2wdqd1hnz9vjCtYg0=
+			zm8/x+l+7sgLtYdCMGU0uVspQC13/mXBzCEHRgbyLI0=
 			</data>
 		</dict>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64.swiftdoc</key>
@@ -211,22 +211,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ja6jGoiM+wHBl3XcoedykInU8vY=
+			Kg3h6LQo9JZSBD5xiAtcfZ4qC0M=
 			</data>
 			<key>hash2</key>
 			<data>
-			54sPCrO9JDo/j/S5Eoi15AQuTL3ER4BIJPJYAk6/XBg=
+			9xu6jZ160+vxYXPKl6vUp/hFIlhmuwI/uNXFY/q6Hto=
 			</data>
 		</dict>
 		<key>Modules/UpcomingMoviesApi.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+FPMdcBnitrc1dUuVwIqTYIlUNM=
+			CuRCOHXDVvOqFC6Sn2GRBCchJOg=
 			</data>
 			<key>hash2</key>
 			<data>
-			PF7qD/4chWnSlZavx5jf/WLHHm2wdqd1hnz9vjCtYg0=
+			zm8/x+l+7sgLtYdCMGU0uVspQC13/mXBzCEHRgbyLI0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -18,6 +18,13 @@ open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostProtocol {
     
     public override init() { super.init() }
     
+    public init(usingCache: Bool = false) {
+        super.init()
+        if usingCache {
+            setCachePolicy()
+        }
+    }
+    
     /// GET
     public func get<T, E>(endPoint: E, params: [String: Any]?, _ model: T.Type,
                           completion: @escaping (Result<ResultRequest<T>, NSError>) -> Void) where T: Decodable, E: EndPoint {
@@ -44,5 +51,16 @@ open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostProtocol {
         
         self.run(method: .POST, endPoint.contentType(), endPoint: endPoint.path(),
                  params: body, completion: completion)
+    }
+}
+
+extension ApiRest: ApiRestCacheProtocol {
+    /// set cachePolicy using 
+    func setCachePolicy() {
+        let cacheDirectory = (NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0] as String).appendingFormat("/\(Bundle.main.bundleIdentifier ?? "cache")/" )
+        self.configuration.urlCache = URLCache(memoryCapacity: 4 * 1024 * 1024,
+                                               diskCapacity: 1 * 1024 * 1024,
+                                               diskPath: cacheDirectory)
+        self.configuration.requestCachePolicy = .useProtocolCachePolicy
     }
 }
