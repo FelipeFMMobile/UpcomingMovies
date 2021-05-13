@@ -22,14 +22,14 @@ open class ApiRunner: NSObject, ApiRestProtocol {
     public override init() { }
     
     func run<T>(method: HttpMethod, _ contentType: ContentType, endPoint: String, params: ParamsProtocol,
-                completion: @escaping (Result<ResultRequest<T>, NSError>) -> Void) where T: Decodable {
+                completion: @escaping (Result<ResultRequest<T>, ApiError>) -> Void) where T: Decodable {
         
         let session = URLSession(configuration: configuration,
                                  delegate: self,
                                  delegateQueue: nil)
         let urlString = WebDomain.domainForBundle().rawValue + endPoint
         guard let url = URL(string: urlString) else {
-            completion(.failure(defaultError(errorType: .domainFail)))
+            completion(.failure(.domainFail))
             return
         }
         var request = URLRequest(url: url)
@@ -50,13 +50,14 @@ open class ApiRunner: NSObject, ApiRestProtocol {
         
         // Request
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
             guard error == nil else {
-                completion(.failure(NSError(domain: error?.localizedDescription ?? "", code: 0, userInfo: nil)))
+                let err = NSError(domain: error?.localizedDescription ?? "", code: statusCode)
+                completion(.failure(.networkingError(err)))
                 return
             }
             
-            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-            var errorCode: DefaultErrorCodes = .responseCodableFail
+            var errorCode: ApiError = .domainFail
             if statusCode == 200 {
                 if let odata = data {
                     let decoder = JSONDecoder()
@@ -66,18 +67,18 @@ open class ApiRunner: NSObject, ApiRestProtocol {
                         completion(.success(resultRequest))
                         return
                     } catch let jsonError {
-                        errorCode = .responseCodableFail
+                        errorCode = .contentSerializeError(jsonError)
                         #if DEBUG
                         print(jsonError)
                         #endif
                     }
                 } else {
-                    errorCode = .noDataResponse
+                    errorCode = .contentSerializeError(nil)
                 }
             } else {
-                errorCode = .statusCodeError
+                errorCode = .statusCodeError(statusCode)
             }
-            completion(.failure(self.defaultError(errorType: errorCode, statusCode)))
+            completion(.failure(errorCode))
         })
         task.resume()
     }
@@ -95,20 +96,6 @@ open class ApiRunner: NSObject, ApiRestProtocol {
     func setAuthorization(value: String) -> Bool {
         return addHeaderValue(value: value, key: "Authorization")
     }
-    
-    private func defaultError(errorType: DefaultErrorCodes, _ errorCode: Int = 0) -> NSError {
-        switch errorType {
-        case .domainFail:
-            return NSError(domain: "dominio ausente", code: errorType.rawValue, userInfo: nil)
-        case .responseCodableFail:
-            return NSError(domain: "response codable fail", code: errorType.rawValue, userInfo: nil)
-        case .noDataResponse:
-            return NSError(domain: "no data response fail", code: errorType.rawValue, userInfo: nil)
-        case .statusCodeError:
-            return NSError(domain: "erro no servidor \(errorCode)", code: errorCode, userInfo: nil)
-        }
-    }
-    
 }
 
 extension ApiRunner: URLSessionDataDelegate  {

@@ -15,7 +15,28 @@ public struct ResultRequest<T> {
     public var request: URLRequest
 }
 
-public typealias CompletionRequest<T> = (Result<ResultRequest<T>, NSError>) -> Void
+public enum ApiError: Error, Equatable {
+    case domainFail, contentSerializeError(Error?), networkingError(NSError), statusCodeError(Int)
+
+    public static func == (lhs: ApiError, rhs: ApiError) -> Bool {
+        switch (lhs, rhs) {
+        case (.domainFail, .domainFail):
+            return true
+        case (.contentSerializeError, .contentSerializeError):
+            return true
+        case (.networkingError(let lError), networkingError(let rError)):
+            return lError.code == rError.code
+        case (.statusCodeError(let lCode), statusCodeError(let rCode)):
+            return lCode == rCode
+        default:
+            return false
+        }
+    }
+}
+
+
+
+public typealias CompletionRequest<T> = (Result<ResultRequest<T>, ApiError>) -> Void
 
 protocol ApiRestGetProtocol {
     func get<T: Decodable, E: EndPoint>(endPoint: E, params: [String: Any]?,

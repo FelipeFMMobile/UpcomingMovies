@@ -10,10 +10,6 @@
 
 import Foundation
 
-enum DefaultErrorCodes: Int {
-    case domainFail = 999, responseCodableFail = 997, noDataResponse = 996, statusCodeError = 995
-}
-
 open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostProtocol {
     
     public override init() { super.init() }
@@ -27,7 +23,7 @@ open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostProtocol {
     
     /// GET
     public func get<T, E>(endPoint: E, params: [String: Any]?, _ model: T.Type,
-                          completion: @escaping (Result<ResultRequest<T>, NSError>) -> Void) where T: Decodable, E: EndPoint {
+                          completion: @escaping (Result<ResultRequest<T>, ApiError>) -> Void) where T: Decodable, E: EndPoint {
         
         header = endPoint.header()
         
@@ -38,7 +34,7 @@ open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostProtocol {
     
     /// POST
     public func post<T, E>(endPoint: E, params: [String: Any]?, _ model: T.Type,
-                           completion: @escaping (Result<ResultRequest<T>, NSError>) -> Void) where T: Decodable, E: EndPoint {
+                           completion: @escaping (Result<ResultRequest<T>, ApiError>) -> Void) where T: Decodable, E: EndPoint {
         
         header = endPoint.header()
         var body: ParamsProtocol!

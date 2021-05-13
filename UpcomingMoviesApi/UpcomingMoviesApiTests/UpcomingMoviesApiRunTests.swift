@@ -40,7 +40,7 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
     api.run(method: HttpMethod.GET,
                     ContentType.json,
                     endPoint: "",
-                    params: params) { (response: Result<ResultRequest<GenreList>, NSError>) in
+                    params: params) { (response: Result<ResultRequest<GenreList>, ApiError>) in
                         switch response {
                         case .success(let result):
                             XCTAssertNotNil(result.data)
@@ -69,13 +69,13 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
     api.run(method: HttpMethod.GET,
             ContentType.json,
             endPoint: "",
-            params: params) { (response: Result<ResultRequest<GenreList>, NSError>)  in
+            params: params) { (response: Result<ResultRequest<GenreList>, ApiError>)  in
                 switch response {
                 case .success(let result):
                     XCTFail()
                     XCTAssertNotNil(result.data)
                 case .failure(let error):
-                    XCTAssertEqual(error.code, 500)
+                    XCTAssertEqual(error, ApiError.statusCodeError(500))
                 }
                 promise.fulfill()
     }
@@ -93,19 +93,19 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
     let api: ApiRestProtocol = ApiRunner()
     let promise = expectation(description: "Api Request")
     
-    guard let url = URL(string: "http://api.themoviedb.org") else { return }
+    guard let _ = URL(string: "http://api.themoviedb.org") else { return }
     let params = GetParams(params: [:])
     
     api.run(method: HttpMethod.GET,
             ContentType.json,
             endPoint: "",
-            params: params) { (response: Result<ResultRequest<GenreList>, NSError>) in
+            params: params) { (response: Result<ResultRequest<GenreList>, ApiError>) in
                    switch response {
                    case .success(let result):
                        XCTFail()
                        XCTAssertNotNil(result.data)
                    case .failure(let error):
-                       XCTAssertEqual(error.code, DefaultErrorCodes.responseCodableFail.rawValue)
+                    XCTAssertEqual(error, ApiError.contentSerializeError(nil))
                    }
                    promise.fulfill()
     }

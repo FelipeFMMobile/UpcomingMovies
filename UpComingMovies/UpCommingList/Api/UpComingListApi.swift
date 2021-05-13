@@ -11,7 +11,7 @@ import UpcomingMoviesApi
 
 struct RequestResultInfo<T> { 
     var result: T?
-    var error: Error?
+    var error: ApiError?
 }
 
 protocol UpComingListApiProtocol {
