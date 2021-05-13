@@ -1,0 +1,22 @@
+<coverage version="1">
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/AppDelegate.swift: .69230769230769230769
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/SdkManagers/FirebaseSdk.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/AlamofireVersion/UpComingListApiAlamo.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/UpComingListApi.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesCellModel.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesTableViewCell.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpComingListTableViewController.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/GenreModelCodable.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/GenreModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesDetailModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/PaginationModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/StatusModelMap.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/PaginationModelCodable.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListRXTableViewController.swift: 0
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListTableViewController.swift: .67567567567567567567
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpCommingCoordinator.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModel.swift: 1.00000000000000000000
+ Coveraged for /Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModelRX.swift: 0
+</coverage>

@@ -1,65 +1,40 @@
 <coverage version="1">
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/AppDelegate.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/AppDelegate.swift">
+    <lineToCover lineNumber="18" covered="true"/>
+    <lineToCover lineNumber="19" covered="true"/>
     <lineToCover lineNumber="20" covered="true"/>
     <lineToCover lineNumber="21" covered="true"/>
     <lineToCover lineNumber="22" covered="true"/>
     <lineToCover lineNumber="23" covered="true"/>
     <lineToCover lineNumber="24" covered="true"/>
     <lineToCover lineNumber="25" covered="true"/>
-    <lineToCover lineNumber="26" covered="true"/>
     <lineToCover lineNumber="27" covered="true"/>
     <lineToCover lineNumber="28" covered="true"/>
     <lineToCover lineNumber="29" covered="true"/>
-    <lineToCover lineNumber="31" covered="true"/>
-    <lineToCover lineNumber="32" covered="true"/>
-    <lineToCover lineNumber="33" covered="true"/>
-    <lineToCover lineNumber="34" covered="true"/>
-    <lineToCover lineNumber="36" covered="true"/>
-    <lineToCover lineNumber="37" covered="true"/>
-    <lineToCover lineNumber="38" covered="true"/>
-    <lineToCover lineNumber="39" covered="true"/>
-    <lineToCover lineNumber="40" covered="true"/>
+    <lineToCover lineNumber="30" covered="true"/>
+    <lineToCover lineNumber="32" covered="false"/>
+    <lineToCover lineNumber="33" covered="false"/>
+    <lineToCover lineNumber="35" covered="false"/>
+    <lineToCover lineNumber="36" covered="false"/>
+    <lineToCover lineNumber="38" covered="false"/>
+    <lineToCover lineNumber="39" covered="false"/>
     <lineToCover lineNumber="41" covered="true"/>
-    <lineToCover lineNumber="43" covered="false"/>
+    <lineToCover lineNumber="42" covered="true"/>
     <lineToCover lineNumber="44" covered="false"/>
-    <lineToCover lineNumber="46" covered="false"/>
-    <lineToCover lineNumber="47" covered="false"/>
-    <lineToCover lineNumber="49" covered="false"/>
-    <lineToCover lineNumber="50" covered="false"/>
+    <lineToCover lineNumber="45" covered="false"/>
+    <lineToCover lineNumber="49" covered="true"/>
+    <lineToCover lineNumber="50" covered="true"/>
+    <lineToCover lineNumber="51" covered="true"/>
     <lineToCover lineNumber="52" covered="true"/>
-    <lineToCover lineNumber="53" covered="true"/>
-    <lineToCover lineNumber="55" covered="false"/>
-    <lineToCover lineNumber="56" covered="false"/>
-    <lineToCover lineNumber="60" covered="true"/>
-    <lineToCover lineNumber="61" covered="true"/>
-    <lineToCover lineNumber="62" covered="true"/>
-    <lineToCover lineNumber="63" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/CoreLibs/AppStoryboard.swift">
-    <lineToCover lineNumber="22" covered="true"/>
-    <lineToCover lineNumber="23" covered="true"/>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/SdkManagers/FirebaseSdk.swift">
     <lineToCover lineNumber="24" covered="true"/>
-    <lineToCover lineNumber="25" covered="false"/>
-    <lineToCover lineNumber="26" covered="true"/>
-    <lineToCover lineNumber="27" covered="true"/>
-    <lineToCover lineNumber="28" covered="true"/>
-    <lineToCover lineNumber="29" covered="true"/>
-  </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/Extensions/UIViewController+Extensions.swift">
-    <lineToCover lineNumber="13" covered="true"/>
-    <lineToCover lineNumber="14" covered="true"/>
-    <lineToCover lineNumber="15" covered="true"/>
-    <lineToCover lineNumber="16" covered="true"/>
-    <lineToCover lineNumber="17" covered="true"/>
-  </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/SdkManagers/FirebaseSdk.swift">
     <lineToCover lineNumber="25" covered="true"/>
     <lineToCover lineNumber="26" covered="true"/>
     <lineToCover lineNumber="27" covered="true"/>
     <lineToCover lineNumber="28" covered="true"/>
-    <lineToCover lineNumber="29" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Api/AlamofireVersion/UpComingListApiAlamo.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/AlamofireVersion/UpComingListApiAlamo.swift">
     <lineToCover lineNumber="25" covered="false"/>
     <lineToCover lineNumber="26" covered="false"/>
     <lineToCover lineNumber="27" covered="false"/>
@@ -116,7 +91,7 @@
     <lineToCover lineNumber="80" covered="false"/>
     <lineToCover lineNumber="81" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Api/UpComingListApi.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Api/UpComingListApi.swift">
     <lineToCover lineNumber="29" covered="true"/>
     <lineToCover lineNumber="30" covered="true"/>
     <lineToCover lineNumber="31" covered="true"/>
@@ -126,42 +101,24 @@
     <lineToCover lineNumber="35" covered="true"/>
     <lineToCover lineNumber="36" covered="true"/>
     <lineToCover lineNumber="37" covered="true"/>
-    <lineToCover lineNumber="38" covered="false"/>
     <lineToCover lineNumber="39" covered="true"/>
     <lineToCover lineNumber="40" covered="true"/>
     <lineToCover lineNumber="41" covered="true"/>
+    <lineToCover lineNumber="42" covered="true"/>
     <lineToCover lineNumber="43" covered="true"/>
     <lineToCover lineNumber="44" covered="true"/>
     <lineToCover lineNumber="45" covered="true"/>
     <lineToCover lineNumber="46" covered="true"/>
-    <lineToCover lineNumber="47" covered="true"/>
     <lineToCover lineNumber="48" covered="true"/>
     <lineToCover lineNumber="49" covered="true"/>
     <lineToCover lineNumber="50" covered="true"/>
-    <lineToCover lineNumber="51" covered="false"/>
+    <lineToCover lineNumber="51" covered="true"/>
     <lineToCover lineNumber="52" covered="true"/>
     <lineToCover lineNumber="53" covered="true"/>
     <lineToCover lineNumber="54" covered="true"/>
-    <lineToCover lineNumber="56" covered="true"/>
-    <lineToCover lineNumber="57" covered="true"/>
-    <lineToCover lineNumber="58" covered="true"/>
-    <lineToCover lineNumber="59" covered="true"/>
-    <lineToCover lineNumber="60" covered="true"/>
-    <lineToCover lineNumber="61" covered="true"/>
-    <lineToCover lineNumber="62" covered="true"/>
-    <lineToCover lineNumber="63" covered="true"/>
-    <lineToCover lineNumber="64" covered="false"/>
-    <lineToCover lineNumber="65" covered="true"/>
-    <lineToCover lineNumber="66" covered="true"/>
-    <lineToCover lineNumber="67" covered="true"/>
+    <lineToCover lineNumber="55" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Api/UpcomingEndpoints.swift">
-    <lineToCover lineNumber="19" covered="true"/>
-    <lineToCover lineNumber="20" covered="true"/>
-    <lineToCover lineNumber="21" covered="true"/>
-    <lineToCover lineNumber="22" covered="true"/>
-    <lineToCover lineNumber="23" covered="true"/>
-    <lineToCover lineNumber="24" covered="true"/>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesCellModel.swift">
     <lineToCover lineNumber="25" covered="true"/>
     <lineToCover lineNumber="26" covered="true"/>
     <lineToCover lineNumber="27" covered="true"/>
@@ -172,89 +129,30 @@
     <lineToCover lineNumber="32" covered="true"/>
     <lineToCover lineNumber="33" covered="true"/>
     <lineToCover lineNumber="34" covered="true"/>
-    <lineToCover lineNumber="36" covered="false"/>
-    <lineToCover lineNumber="37" covered="false"/>
-    <lineToCover lineNumber="38" covered="false"/>
-    <lineToCover lineNumber="39" covered="false"/>
-    <lineToCover lineNumber="40" covered="false"/>
-    <lineToCover lineNumber="41" covered="false"/>
-    <lineToCover lineNumber="43" covered="true"/>
-    <lineToCover lineNumber="44" covered="true"/>
-    <lineToCover lineNumber="45" covered="true"/>
-    <lineToCover lineNumber="46" covered="true"/>
-    <lineToCover lineNumber="47" covered="true"/>
-    <lineToCover lineNumber="48" covered="true"/>
+    <lineToCover lineNumber="35" covered="true"/>
+    <lineToCover lineNumber="36" covered="true"/>
+    <lineToCover lineNumber="37" covered="true"/>
+    <lineToCover lineNumber="38" covered="true"/>
+    <lineToCover lineNumber="39" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesCellModel.swift">
-    <lineToCover lineNumber="25" covered="false"/>
-    <lineToCover lineNumber="26" covered="false"/>
-    <lineToCover lineNumber="27" covered="false"/>
-    <lineToCover lineNumber="28" covered="false"/>
-    <lineToCover lineNumber="29" covered="false"/>
-    <lineToCover lineNumber="30" covered="false"/>
-    <lineToCover lineNumber="31" covered="false"/>
-    <lineToCover lineNumber="32" covered="false"/>
-    <lineToCover lineNumber="33" covered="false"/>
-    <lineToCover lineNumber="34" covered="false"/>
-    <lineToCover lineNumber="35" covered="false"/>
-    <lineToCover lineNumber="36" covered="false"/>
-    <lineToCover lineNumber="37" covered="false"/>
-    <lineToCover lineNumber="38" covered="false"/>
-    <lineToCover lineNumber="39" covered="false"/>
-  </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesTableViewCell.swift">
-    <lineToCover lineNumber="22" covered="false"/>
-    <lineToCover lineNumber="23" covered="false"/>
-    <lineToCover lineNumber="24" covered="false"/>
-    <lineToCover lineNumber="26" covered="false"/>
-    <lineToCover lineNumber="27" covered="false"/>
-    <lineToCover lineNumber="28" covered="false"/>
-    <lineToCover lineNumber="29" covered="false"/>
-    <lineToCover lineNumber="30" covered="false"/>
-    <lineToCover lineNumber="31" covered="false"/>
-    <lineToCover lineNumber="33" covered="false"/>
-    <lineToCover lineNumber="34" covered="false"/>
-    <lineToCover lineNumber="35" covered="false"/>
-    <lineToCover lineNumber="36" covered="false"/>
-    <lineToCover lineNumber="37" covered="false"/>
-  </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Coordinator/AppCoordinator.swift">
-    <lineToCover lineNumber="32" covered="true"/>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Cell's/ListMoviesTableViewCell.swift">
+    <lineToCover lineNumber="22" covered="true"/>
+    <lineToCover lineNumber="23" covered="true"/>
+    <lineToCover lineNumber="24" covered="true"/>
+    <lineToCover lineNumber="26" covered="true"/>
+    <lineToCover lineNumber="27" covered="true"/>
+    <lineToCover lineNumber="28" covered="true"/>
+    <lineToCover lineNumber="29" covered="true"/>
+    <lineToCover lineNumber="30" covered="true"/>
+    <lineToCover lineNumber="31" covered="true"/>
     <lineToCover lineNumber="33" covered="true"/>
     <lineToCover lineNumber="34" covered="true"/>
     <lineToCover lineNumber="35" covered="true"/>
     <lineToCover lineNumber="36" covered="true"/>
     <lineToCover lineNumber="37" covered="true"/>
-    <lineToCover lineNumber="38" covered="false"/>
-    <lineToCover lineNumber="39" covered="true"/>
-    <lineToCover lineNumber="40" covered="false"/>
-    <lineToCover lineNumber="41" covered="false"/>
-    <lineToCover lineNumber="42" covered="true"/>
-    <lineToCover lineNumber="43" covered="true"/>
-    <lineToCover lineNumber="44" covered="true"/>
-    <lineToCover lineNumber="45" covered="true"/>
-    <lineToCover lineNumber="46" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Coordinator/UpCommingCoordinator.swift">
-    <lineToCover lineNumber="24" covered="true"/>
-    <lineToCover lineNumber="25" covered="true"/>
-    <lineToCover lineNumber="26" covered="true"/>
-    <lineToCover lineNumber="28" covered="true"/>
-    <lineToCover lineNumber="29" covered="true"/>
-    <lineToCover lineNumber="30" covered="true"/>
-    <lineToCover lineNumber="32" covered="true"/>
-    <lineToCover lineNumber="33" covered="true"/>
-    <lineToCover lineNumber="34" covered="true"/>
-    <lineToCover lineNumber="35" covered="true"/>
-    <lineToCover lineNumber="36" covered="true"/>
-    <lineToCover lineNumber="40" covered="false"/>
-    <lineToCover lineNumber="41" covered="false"/>
-    <lineToCover lineNumber="42" covered="false"/>
-    <lineToCover lineNumber="43" covered="false"/>
-    <lineToCover lineNumber="44" covered="false"/>
-    <lineToCover lineNumber="45" covered="false"/>
-  </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Detail/DetailUpComingListTableViewController.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpComingListTableViewController.swift">
+    <lineToCover lineNumber="24" covered="false"/>
     <lineToCover lineNumber="25" covered="false"/>
     <lineToCover lineNumber="26" covered="false"/>
     <lineToCover lineNumber="27" covered="false"/>
@@ -266,15 +164,11 @@
     <lineToCover lineNumber="33" covered="false"/>
     <lineToCover lineNumber="34" covered="false"/>
     <lineToCover lineNumber="35" covered="false"/>
-    <lineToCover lineNumber="36" covered="false"/>
+    <lineToCover lineNumber="37" covered="false"/>
     <lineToCover lineNumber="38" covered="false"/>
     <lineToCover lineNumber="39" covered="false"/>
-    <lineToCover lineNumber="40" covered="false"/>
-    <lineToCover lineNumber="42" covered="false"/>
-    <lineToCover lineNumber="43" covered="false"/>
-    <lineToCover lineNumber="44" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Detail/DetailUpCommingListViewModel.swift">
     <lineToCover lineNumber="30" covered="true"/>
     <lineToCover lineNumber="31" covered="true"/>
     <lineToCover lineNumber="32" covered="true"/>
@@ -294,14 +188,14 @@
     <lineToCover lineNumber="46" covered="true"/>
     <lineToCover lineNumber="47" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Model/GenreModelCodable.swift">
-    <lineToCover lineNumber="16" covered="false"/>
-    <lineToCover lineNumber="17" covered="false"/>
-    <lineToCover lineNumber="18" covered="false"/>
-    <lineToCover lineNumber="19" covered="false"/>
-    <lineToCover lineNumber="20" covered="false"/>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/GenreModelCodable.swift">
+    <lineToCover lineNumber="16" covered="true"/>
+    <lineToCover lineNumber="17" covered="true"/>
+    <lineToCover lineNumber="18" covered="true"/>
+    <lineToCover lineNumber="19" covered="true"/>
+    <lineToCover lineNumber="20" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Model/Maps/GenreModelMap.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/GenreModelMap.swift">
     <lineToCover lineNumber="16" covered="false"/>
     <lineToCover lineNumber="17" covered="false"/>
     <lineToCover lineNumber="19" covered="false"/>
@@ -314,7 +208,7 @@
     <lineToCover lineNumber="34" covered="false"/>
     <lineToCover lineNumber="35" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesDetailModelMap.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesDetailModelMap.swift">
     <lineToCover lineNumber="39" covered="false"/>
     <lineToCover lineNumber="40" covered="false"/>
     <lineToCover lineNumber="42" covered="false"/>
@@ -345,7 +239,7 @@
     <lineToCover lineNumber="67" covered="false"/>
     <lineToCover lineNumber="68" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesModelMap.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/MoviesModelMap.swift">
     <lineToCover lineNumber="29" covered="false"/>
     <lineToCover lineNumber="30" covered="false"/>
     <lineToCover lineNumber="32" covered="false"/>
@@ -366,7 +260,7 @@
     <lineToCover lineNumber="47" covered="false"/>
     <lineToCover lineNumber="48" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Model/Maps/PaginationModelMap.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/PaginationModelMap.swift">
     <lineToCover lineNumber="20" covered="false"/>
     <lineToCover lineNumber="21" covered="false"/>
     <lineToCover lineNumber="22" covered="false"/>
@@ -376,7 +270,7 @@
     <lineToCover lineNumber="26" covered="false"/>
     <lineToCover lineNumber="27" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Model/Maps/StatusModelMap.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/Maps/StatusModelMap.swift">
     <lineToCover lineNumber="18" covered="false"/>
     <lineToCover lineNumber="19" covered="false"/>
     <lineToCover lineNumber="21" covered="false"/>
@@ -385,7 +279,7 @@
     <lineToCover lineNumber="24" covered="false"/>
     <lineToCover lineNumber="25" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/Model/PaginationModelCodable.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/Model/PaginationModelCodable.swift">
     <lineToCover lineNumber="27" covered="true"/>
     <lineToCover lineNumber="28" covered="true"/>
     <lineToCover lineNumber="29" covered="true"/>
@@ -395,8 +289,10 @@
     <lineToCover lineNumber="33" covered="true"/>
     <lineToCover lineNumber="34" covered="true"/>
     <lineToCover lineNumber="35" covered="true"/>
+    <lineToCover lineNumber="36" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/View/UpComingListRXTableViewController.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListRXTableViewController.swift">
+    <lineToCover lineNumber="21" covered="false"/>
     <lineToCover lineNumber="25" covered="false"/>
     <lineToCover lineNumber="26" covered="false"/>
     <lineToCover lineNumber="27" covered="false"/>
@@ -440,7 +336,8 @@
     <lineToCover lineNumber="65" covered="false"/>
     <lineToCover lineNumber="66" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/View/UpComingListTableViewController.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpComingListTableViewController.swift">
+    <lineToCover lineNumber="14" covered="false"/>
     <lineToCover lineNumber="18" covered="true"/>
     <lineToCover lineNumber="19" covered="true"/>
     <lineToCover lineNumber="20" covered="true"/>
@@ -466,16 +363,16 @@
     <lineToCover lineNumber="41" covered="true"/>
     <lineToCover lineNumber="42" covered="true"/>
     <lineToCover lineNumber="43" covered="true"/>
-    <lineToCover lineNumber="44" covered="false"/>
-    <lineToCover lineNumber="45" covered="false"/>
-    <lineToCover lineNumber="46" covered="false"/>
+    <lineToCover lineNumber="44" covered="true"/>
+    <lineToCover lineNumber="45" covered="true"/>
+    <lineToCover lineNumber="46" covered="true"/>
     <lineToCover lineNumber="47" covered="true"/>
-    <lineToCover lineNumber="49" covered="false"/>
-    <lineToCover lineNumber="50" covered="false"/>
-    <lineToCover lineNumber="51" covered="false"/>
-    <lineToCover lineNumber="52" covered="false"/>
-    <lineToCover lineNumber="53" covered="false"/>
-    <lineToCover lineNumber="54" covered="false"/>
+    <lineToCover lineNumber="49" covered="true"/>
+    <lineToCover lineNumber="50" covered="true"/>
+    <lineToCover lineNumber="51" covered="true"/>
+    <lineToCover lineNumber="52" covered="true"/>
+    <lineToCover lineNumber="53" covered="true"/>
+    <lineToCover lineNumber="54" covered="true"/>
     <lineToCover lineNumber="56" covered="false"/>
     <lineToCover lineNumber="57" covered="false"/>
     <lineToCover lineNumber="58" covered="false"/>
@@ -485,20 +382,20 @@
     <lineToCover lineNumber="66" covered="true"/>
     <lineToCover lineNumber="67" covered="true"/>
     <lineToCover lineNumber="68" covered="true"/>
-    <lineToCover lineNumber="70" covered="false"/>
-    <lineToCover lineNumber="71" covered="false"/>
-    <lineToCover lineNumber="72" covered="false"/>
-    <lineToCover lineNumber="73" covered="false"/>
-    <lineToCover lineNumber="74" covered="false"/>
-    <lineToCover lineNumber="75" covered="false"/>
-    <lineToCover lineNumber="76" covered="false"/>
-    <lineToCover lineNumber="77" covered="false"/>
-    <lineToCover lineNumber="78" covered="false"/>
-    <lineToCover lineNumber="79" covered="false"/>
-    <lineToCover lineNumber="80" covered="false"/>
-    <lineToCover lineNumber="81" covered="false"/>
+    <lineToCover lineNumber="70" covered="true"/>
+    <lineToCover lineNumber="71" covered="true"/>
+    <lineToCover lineNumber="72" covered="true"/>
+    <lineToCover lineNumber="73" covered="true"/>
+    <lineToCover lineNumber="74" covered="true"/>
+    <lineToCover lineNumber="75" covered="true"/>
+    <lineToCover lineNumber="76" covered="true"/>
+    <lineToCover lineNumber="77" covered="true"/>
+    <lineToCover lineNumber="78" covered="true"/>
+    <lineToCover lineNumber="79" covered="true"/>
+    <lineToCover lineNumber="80" covered="true"/>
+    <lineToCover lineNumber="81" covered="true"/>
     <lineToCover lineNumber="82" covered="false"/>
-    <lineToCover lineNumber="83" covered="false"/>
+    <lineToCover lineNumber="83" covered="true"/>
     <lineToCover lineNumber="85" covered="false"/>
     <lineToCover lineNumber="86" covered="false"/>
     <lineToCover lineNumber="87" covered="false"/>
@@ -515,7 +412,24 @@
     <lineToCover lineNumber="99" covered="false"/>
     <lineToCover lineNumber="100" covered="false"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModel.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/View/UpCommingCoordinator.swift">
+    <lineToCover lineNumber="23" covered="true"/>
+    <lineToCover lineNumber="24" covered="true"/>
+    <lineToCover lineNumber="25" covered="true"/>
+    <lineToCover lineNumber="27" covered="true"/>
+    <lineToCover lineNumber="28" covered="true"/>
+    <lineToCover lineNumber="29" covered="true"/>
+    <lineToCover lineNumber="30" covered="true"/>
+    <lineToCover lineNumber="31" covered="true"/>
+    <lineToCover lineNumber="32" covered="true"/>
+    <lineToCover lineNumber="33" covered="true"/>
+    <lineToCover lineNumber="34" covered="true"/>
+    <lineToCover lineNumber="35" covered="true"/>
+    <lineToCover lineNumber="36" covered="true"/>
+    <lineToCover lineNumber="37" covered="true"/>
+    <lineToCover lineNumber="38" covered="true"/>
+  </file>
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModel.swift">
     <lineToCover lineNumber="42" covered="true"/>
     <lineToCover lineNumber="43" covered="true"/>
     <lineToCover lineNumber="44" covered="true"/>
@@ -557,11 +471,11 @@
     <lineToCover lineNumber="91" covered="true"/>
     <lineToCover lineNumber="92" covered="true"/>
     <lineToCover lineNumber="93" covered="true"/>
-    <lineToCover lineNumber="97" covered="true"/>
     <lineToCover lineNumber="98" covered="true"/>
     <lineToCover lineNumber="99" covered="true"/>
+    <lineToCover lineNumber="100" covered="true"/>
   </file>
-  <file path="/Users/felipemm/codes/UpcomingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModelRX.swift">
+  <file path="/Users/felipemenezes 1/FMMobile/Projetos/UpComingMovies/UpComingMovies/UpCommingList/ViewModel/UpComingListViewModelRX.swift">
     <lineToCover lineNumber="23" covered="false"/>
     <lineToCover lineNumber="24" covered="false"/>
     <lineToCover lineNumber="25" covered="false"/>
