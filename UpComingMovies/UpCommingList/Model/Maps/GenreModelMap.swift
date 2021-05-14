@@ -11,26 +11,26 @@ import ObjectMapper
 
 /// Genre Mapping Object
 public class GenreListModelMap: Mappable {
-  var genres: [GenreModelMap]?
-  
-  required public init?(map: Map) {
-  }
-  
-  public func mapping(map: Map) {
-    genres <- map["genres"]
-  }
-  
+    var genres: [GenreModelMap]?
+    
+    required public init?(map: Map) {
+    }
+    
+    public func mapping(map: Map) {
+        genres <- map["genres"]
+    }
+    
 }
 
 public class GenreModelMap: Mappable {
-  var idGenre: Int = 0
-  var name: String?
-  
-  required public init?(map: Map) {
-  }
-  
-  public  func mapping(map: Map) {
-    idGenre <- map["id"]
-    name <- map["name"]
-  }
+    var idGenre: Int = 0
+    var name: String?
+    
+    required public init?(map: Map) {
+    }
+    
+    public  func mapping(map: Map) {
+        idGenre <- map["id"]
+        name <- map["name"]
+    }
 }

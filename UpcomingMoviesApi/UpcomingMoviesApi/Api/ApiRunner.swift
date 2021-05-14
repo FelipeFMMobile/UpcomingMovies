@@ -10,97 +10,107 @@
 
 import Foundation
 
-open class ApiRunner: ApiRestProtocol {
-
-  /// enumerado que define o Content-Type da request
-  var contentType: ContentType?
-  
-  var header: [String: String] = [:]
-  
-  func run<T>(method: HttpMethod, _ contentType: ContentType, endPoint: String, params: ParamsProtocol, 
-              completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
+open class ApiRunner: NSObject, ApiRestProtocol {
     
-    let session = URLSession.shared
-    let urlString = WebDomain.domainForBundle().rawValue + endPoint
-    guard let url = URL(string: urlString) else {
-      completion(false, nil, nil, defaultError(errorType: .domainFail))
-      return
-    }
-    var request = URLRequest(url: url)
-    request.httpMethod = method.verb() //set http method as POST
-    //HTTP Headers
-    request.addValue(contentType.contentType(), forHTTPHeaderField: "Content-Type")
-    request.addValue(contentType.contentType(), forHTTPHeaderField: "Accept")
+    let configuration = URLSessionConfiguration.default
     
-    request.setValue("Apple", forHTTPHeaderField: "x-fabricante")
-    request.setValue(UIDevice.current.model, forHTTPHeaderField: "x-modelo")
-    request.setValue(UIDevice.current.systemVersion, forHTTPHeaderField: "x-sistema-operacional")
+    /// enumerado que define o Content-Type da request
+    var contentType: ContentType?
     
-    //headers
-    for value in header {
-      request.setValue(value.value, forHTTPHeaderField: value.key)
-    }
+    var header: [String: String] = [:]
     
-    request = params.buildParams(request: request)
+    public override init() { }
     
-    // Request
-    let task = session.dataTask(with: request, completionHandler: { data, response, error in
-      guard error == nil else {
-        completion(false, nil, nil, NSError(domain: error?.localizedDescription ?? "", code: 0, userInfo: nil))
-        return
-      }
-      
-      let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-      var errorCode: DefaultErrorCodes = .responseCodableFail
-      if statusCode == 200 {
-        if let odata = data {
-          let decoder = JSONDecoder()
-          do {
-            let result = try decoder.decode(T.self, from: odata)
-            completion(true, result, request, nil)
+    func run<T>(method: HttpMethod, _ contentType: ContentType, endPoint: String, params: ParamsProtocol,
+                completion: @escaping (Result<ResultRequest<T>, ApiError>) -> Void) where T: Decodable {
+        
+        let session = URLSession(configuration: configuration,
+                                 delegate: self,
+                                 delegateQueue: nil)
+        let urlString = WebDomain.domainForBundle().rawValue + endPoint
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.domainFail))
             return
-          } catch let jsonError { 
-            errorCode = .responseCodableFail
-            #if DEBUG 
-            print(jsonError)
-            #endif
-          }
-        } else {
-          errorCode = .noDataResponse
         }
-      } else {
-        errorCode = .statusCodeError
-      }
-      completion(false, nil, request, self.defaultError(errorType: errorCode, statusCode))
-    })
-    task.resume()
-  }
-  
-  func addHeaderValue(value: String, key: String) -> Bool {
-    self.header[key] = value
-    return self.header.contains(where: { $1 == value })
-  }
-  
-  func clearHeaderValues() -> Bool {
-    self.header.removeAll()
-    return self.header.count == 0
-  }
-  
-  func setAuthorization(value: String) -> Bool {
-    return addHeaderValue(value: value, key: "Authorization")
-  }
-  
-  private func defaultError(errorType: DefaultErrorCodes, _ errorCode: Int = 0) -> NSError {
-    switch errorType {
-    case .domainFail:
-      return NSError(domain: "dominio ausente", code: errorType.rawValue, userInfo: nil)
-    case .responseCodableFail:
-      return NSError(domain: "response codable fail", code: errorType.rawValue, userInfo: nil)
-    case .noDataResponse:
-      return NSError(domain: "no data response fail", code: errorType.rawValue, userInfo: nil)
-    case .statusCodeError:
-      return NSError(domain: "erro no servidor \(errorCode)", code: errorCode, userInfo: nil)
+        var request = URLRequest(url: url)
+        request.httpMethod = method.verb() //set http method as POST
+        //HTTP Headers
+        request.addValue(contentType.contentType(), forHTTPHeaderField: "Content-Type")
+        request.addValue(contentType.contentType(), forHTTPHeaderField: "Accept")
+        request.setValue("Apple", forHTTPHeaderField: "x-fabricante")
+        request.setValue(UIDevice.current.model, forHTTPHeaderField: "x-modelo")
+        request.setValue(UIDevice.current.systemVersion, forHTTPHeaderField: "x-sistema-operacional")
+        
+        //headers
+        for value in header {
+            request.setValue(value.value, forHTTPHeaderField: value.key)
+        }
+        
+        request = params.buildParams(request: request)
+        
+        // Request
+        let task = session.dataTask(with: request, completionHandler: { data, response, error in
+            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+            guard error == nil else {
+                let err = NSError(domain: error?.localizedDescription ?? "", code: statusCode)
+                completion(.failure(.networkingError(err)))
+                return
+            }
+            
+            var errorCode: ApiError = .domainFail
+            if statusCode == 200 {
+                if let odata = data {
+                    let decoder = JSONDecoder()
+                    do {
+                        let result = try decoder.decode(T.self, from: odata)
+                        let resultRequest = ResultRequest(data: result, request: request)
+                        completion(.success(resultRequest))
+                        return
+                    } catch let jsonError {
+                        errorCode = .contentSerializeError(jsonError)
+                        #if DEBUG
+                        print(jsonError)
+                        #endif
+                    }
+                } else {
+                    errorCode = .contentSerializeError(nil)
+                }
+            } else {
+                errorCode = .statusCodeError(statusCode)
+            }
+            completion(.failure(errorCode))
+        })
+        task.resume()
     }
-  }
-  
+    
+    func addHeaderValue(value: String, key: String) -> Bool {
+        self.header[key] = value
+        return self.header.contains(where: { $1 == value })
+    }
+    
+    func clearHeaderValues() -> Bool {
+        self.header.removeAll()
+        return self.header.count == 0
+    }
+    
+    func setAuthorization(value: String) -> Bool {
+        return addHeaderValue(value: value, key: "Authorization")
+    }
+}
+
+extension ApiRunner: URLSessionDataDelegate  {
+    
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask,
+                    willCacheResponse proposedResponse: CachedURLResponse,
+                    completionHandler: @escaping (CachedURLResponse?) -> Void) {
+        if proposedResponse.response.url?.scheme == "https" {
+            let updatedResponse = CachedURLResponse(response: proposedResponse.response,
+                                                    data: proposedResponse.data,
+                                                    userInfo: proposedResponse.userInfo,
+                                                    storagePolicy: .allowedInMemoryOnly)
+            completionHandler(updatedResponse)
+        } else {
+            completionHandler(proposedResponse)
+        }
+    }
 }

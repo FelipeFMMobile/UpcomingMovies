@@ -8,6 +8,7 @@
 //  which Square, Inc. licenses this file to you.
 
 #import "UIApplication-KIFAdditions.h"
+#import "UIWindow-KIFAdditions.h"
 #import "LoadableCategory.h"
 #import "UIView-KIFAdditions.h"
 #import "NSError-KIFAdditions.h"
@@ -99,6 +100,20 @@ static const void *KIFRunLoopModesKey = &KIFRunLoopModesKey;
     return [self getWindowForSubviewClass:@"UIDimmingView"];
 }
 
+- (NSArray<UIResponder *> *)firstResponders;
+{
+    NSMutableArray *responders = [NSMutableArray array];
+
+    for (UIWindow *window in [[self windowsWithKeyWindow] reverseObjectEnumerator]) {
+        UIResponder *responder = window.firstResponder;
+        if (responder) {
+            [responders addObject:responder];
+        }
+    }
+
+    return [responders copy];
+}
+
 - (UIWindow *)getWindowForSubviewClass:(NSString*)className;
 {
     for (UIWindow *window in self.windowsWithKeyWindow) {
@@ -181,7 +196,7 @@ static const void *KIFRunLoopModesKey = &KIFRunLoopModesKey;
 
     NSError *directoryCreationError = nil;
     if (![[NSFileManager defaultManager] createDirectoryAtPath:outputPath withIntermediateDirectories:YES attributes:nil error:&directoryCreationError]) {
-        if (directoryCreationError) {
+        if (error) {
             *error = [NSError KIFErrorWithFormat:@"Couldn't create directory at path %@ (details: %@)", outputPath, directoryCreationError];
         }
         return NO;

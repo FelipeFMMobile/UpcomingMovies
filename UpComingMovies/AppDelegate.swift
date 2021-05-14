@@ -11,43 +11,54 @@ import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  var window: UIWindow?
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions 
-                   launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
-    appTheme()
+    var coordinator: UpCommingCoordinator?
     
-    initSdks()
+    var window: UIWindow?
     
-    return true
-  }
-  
-  func appTheme() {
-    //theme of SVProgressHUD
-    SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
-  }
-
-  func applicationWillResignActive(_ application: UIApplication) {
-  }
-
-  func applicationDidEnterBackground(_ application: UIApplication) {
-  }
-
-  func applicationWillEnterForeground(_ application: UIApplication) {
-  }
-
-  func applicationDidBecomeActive(_ application: UIApplication) {
-  }
-
-  func applicationWillTerminate(_ application: UIApplication) {
-  }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions 
+        launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        appTheme()
+        
+        initSdks()
+        
+        initViews()
+        
+        return true
+    }
+    
+    func appTheme() {
+        //theme of SVProgressHUD
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+    }
+    
+    func initViews() {
+        self.window = UIWindow()
+        coordinator = UpCommingCoordinator(nav: UINavigationController())
+        
+        self.window?.rootViewController = coordinator?.start(.none)?.navigationController
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+    }
 }
 
 extension AppDelegate: SdkControlProtocol {
-  func initSdks() {
-    let firebase: SdkProtocol = FirebaseSdk()
-    _ = firebase.initialization()
-  }
+    func initSdks() {
+        let firebase: SdkProtocol = FirebaseSdk()
+        _ = firebase.initialization()
+    }
 }

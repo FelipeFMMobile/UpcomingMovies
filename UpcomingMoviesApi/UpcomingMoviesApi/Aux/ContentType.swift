@@ -8,17 +8,17 @@
 
 import Foundation
 
-enum ContentType {
-  
-  case formurlencoded
-  case json
-  
-  func contentType() -> String {
-    switch self {
-    case .formurlencoded:
-      return "application/x-www-form-urlencoded"
-    case .json:
-      return "application/json"
+public enum ContentType {
+    
+    case formurlencoded
+    case json
+    
+    func contentType() -> String {
+        switch self {
+        case .formurlencoded:
+            return "application/x-www-form-urlencoded"
+        case .json:
+            return "application/json"
+        }
     }
-  }
 }

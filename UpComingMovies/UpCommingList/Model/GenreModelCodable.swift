@@ -10,22 +10,22 @@ import Foundation
 
 /// Genre Mapping Object
 public class GenreListModelCodable: Decodable {
-  var genres: [GenreModelCodable]?
- 
-  //we need to choice a better place for this 
-  public func genresForMovie(movie: MoviesModelCodable) -> [GenreModelCodable]? {
-    return genres?.filter { 
-        return movie.genreIds.contains($0.idGenre)
+    var genres: [GenreModelCodable]?
+    
+    //we need to choice a better place for this
+    public func genresForMovie(movie: MoviesModelCodable) -> [GenreModelCodable]? {
+        return genres?.filter {
+            return movie.genreIds.contains($0.idGenre)
+        }
     }
-  }
 }
 
 public class GenreModelCodable: Decodable {
-  var idGenre: Int
-  var name: String?
-  
-  enum CodingKeys: String, CodingKey {
-    case idGenre = "id"
-    case name
-  }
+    var idGenre: Int
+    var name: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case idGenre = "id"
+        case name
+    }
 }

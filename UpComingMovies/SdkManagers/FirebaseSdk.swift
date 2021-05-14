@@ -10,21 +10,22 @@
 
 import Foundation
 import Firebase
+import Crashlytics
 
 protocol SdkProtocol {
-  func initialization() -> Bool
+    func initialization() -> Bool
 }
 
 protocol SdkControlProtocol {
-  func initSdks() 
+    func initSdks() 
 }
 
 // FireBase SDK Implementation Tools
 class FirebaseSdk: SdkProtocol {
-  func initialization() -> Bool {
-    let hasInit = FirebaseApp.app() != nil
-    if !hasInit { FirebaseApp.configure() }
-    return FirebaseApp.app() != nil
-  }
-  
+    func initialization() -> Bool {
+        let hasInit = FirebaseApp.app() != nil
+        if !hasInit { FirebaseApp.configure() }
+        return FirebaseApp.app() != nil
+    }
+    
 }

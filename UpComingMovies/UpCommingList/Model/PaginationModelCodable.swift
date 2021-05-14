@@ -10,33 +10,32 @@ import Foundation
 
 /// PaginationModelCodable
 public class PaginationModelCodable<T>: StatusErrorModelCodable where T: Decodable {
-  var results: [T]?
-  var page: Int
-  var totalResults: Int
-  var dates: DatesCodable?
-  var totalPages: Int
-  
-  private enum CodingKeys: String, CodingKey {
-    case results
-    case page
-    case totalResults = "total_results"
-    case dates
-    case totalPages = "total_pages"
-  }
-  
-  public required init(from decoder: Decoder) throws {
-    let map = try decoder.container(keyedBy: CodingKeys.self)
-    do { self.results = try  map.decode([T].self, forKey: .results) } 
-    catch let error { print(error) } 
-    self.page = try map.decode(Int.self, forKey: .page)
-    self.totalResults = try map.decode(Int.self, forKey: .totalResults)
-    self.dates = try? map.decode(DatesCodable.self, forKey: .dates)
-    self.totalPages = try map.decode(Int.self, forKey: .totalPages)
-    try super.init(from: decoder)
-  }
+    var results: [T]?
+    var page: Int
+    var totalResults: Int
+    var dates: DatesCodable?
+    var totalPages: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case results
+        case page
+        case totalResults = "total_results"
+        case dates
+        case totalPages = "total_pages"
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let map = try decoder.container(keyedBy: CodingKeys.self)
+        do { self.results = try map.decode([T].self, forKey: .results) } catch let error { print(error) }
+        self.page = try map.decode(Int.self, forKey: .page)
+        self.totalResults = try map.decode(Int.self, forKey: .totalResults)
+        self.dates = try? map.decode(DatesCodable.self, forKey: .dates)
+        self.totalPages = try map.decode(Int.self, forKey: .totalPages)
+        try super.init(from: decoder)
+    }
 }
 
 public class DatesCodable: Decodable { 
-  var maximum: String
-  var minimum: String
+    var maximum: String
+    var minimum: String
 }

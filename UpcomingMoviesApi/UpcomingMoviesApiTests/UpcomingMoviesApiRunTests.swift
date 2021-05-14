@@ -13,14 +13,14 @@ import OHHTTPStubs
 class UpcomingMoviesApiExecuteTests: XCTestCase {
 
   override func setUp() {
-    OHHTTPStubs.setEnabled(true)
-    OHHTTPStubs.onStubActivation { (request: URLRequest, stub: OHHTTPStubsDescriptor, _: OHHTTPStubsResponse) in
+    HTTPStubs.setEnabled(true)
+    HTTPStubs.onStubActivation { (request: URLRequest, stub: HTTPStubsDescriptor, _: HTTPStubsResponse) in
       print("[OHHTTPStubs] Request to \(request.url!) has been stubbed with \(String(describing: stub.name))")
     }
   }
 
   override func tearDown() {
-    OHHTTPStubs.removeAllStubs()
+    HTTPStubs.removeAllStubs()
     super.tearDown()
   }
 
@@ -34,16 +34,20 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
     let api: ApiRestProtocol = ApiRunner()
     let promise = expectation(description: "Api Request")
     
-    guard let url = URL(string: "http://api.themoviedb.org") else { return }
+    guard let _ = URL(string: "http://api.themoviedb.org") else { return }
     let params = GetParams(params: [:])
     
     api.run(method: HttpMethod.GET,
                     ContentType.json,
                     endPoint: "",
-                    params: params) { (sucesso: Bool, result: GenreList?, _: URLRequest?, _: NSError?) in
-                      XCTAssert(sucesso)
-                      XCTAssert(result != nil)
-                      promise.fulfill()
+                    params: params) { (response: Result<ResultRequest<GenreList>, ApiError>) in
+                        switch response {
+                        case .success(let result):
+                            XCTAssertNotNil(result.data)
+                        case .failure:
+                            XCTFail()
+                        }
+                        promise.fulfill()
     }
     waitForExpectations(timeout: 10, handler: nil)
     
@@ -59,17 +63,21 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
     let api: ApiRestProtocol = ApiRunner()
     let promise = expectation(description: "Api Request")
     
-    guard let url = URL(string: "http://api.themoviedb.org") else { return }
+    guard let _ = URL(string: "http://api.themoviedb.org") else { return }
     let params = GetParams(params: [:])
     
     api.run(method: HttpMethod.GET,
             ContentType.json,
             endPoint: "",
-            params: params) { (_: Bool, result: GenreList?, _: URLRequest?, error: NSError?) in
-                  XCTAssertTrue(error != nil)
-                  XCTAssertTrue(error?.code == 500)
-                  XCTAssertTrue(result == nil)
-                  promise.fulfill()
+            params: params) { (response: Result<ResultRequest<GenreList>, ApiError>)  in
+                switch response {
+                case .success(let result):
+                    XCTFail()
+                    XCTAssertNotNil(result.data)
+                case .failure(let error):
+                    XCTAssertEqual(error, ApiError.statusCodeError(500))
+                }
+                promise.fulfill()
     }
     waitForExpectations(timeout: 10, handler: nil)
     
@@ -85,17 +93,21 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
     let api: ApiRestProtocol = ApiRunner()
     let promise = expectation(description: "Api Request")
     
-    guard let url = URL(string: "http://api.themoviedb.org") else { return }
+    guard let _ = URL(string: "http://api.themoviedb.org") else { return }
     let params = GetParams(params: [:])
     
     api.run(method: HttpMethod.GET,
             ContentType.json,
             endPoint: "",
-            params: params) { (_: Bool, result: GenreList?, _: URLRequest?, error: NSError?) in
-                  XCTAssertTrue(error != nil)
-                  XCTAssertTrue(error?.code == DefaultErrorCodes.responseCodableFail.rawValue)
-                  XCTAssertTrue(result == nil)
-                  promise.fulfill()
+            params: params) { (response: Result<ResultRequest<GenreList>, ApiError>) in
+                   switch response {
+                   case .success(let result):
+                       XCTFail()
+                       XCTAssertNotNil(result.data)
+                   case .failure(let error):
+                    XCTAssertEqual(error, ApiError.contentSerializeError(nil))
+                   }
+                   promise.fulfill()
     }
     waitForExpectations(timeout: 10, handler: nil)
     

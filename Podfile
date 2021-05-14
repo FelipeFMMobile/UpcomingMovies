@@ -17,27 +17,31 @@ def shared_pods
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '5.2.0'
   pod 'Firebase/Core'
-  pod 'Fabric', '~> 1.9.0'
-  pod 'Crashlytics', '~> 3.12.0'
+  # Pods for PodTest
+  pod 'Fabric'
+  pod 'Crashlytics'
+  # (Recommended) Pod for Google Analytics
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Performance'
 end
 
 def quality_pods
-  #pod 'SwiftLint'
+  pod 'SwiftLint'
 end  
 
 def test_pods
   pod 'OHHTTPStubs/Swift'
+  pod 'Quick'
+  pod 'Nimble'
 end  
 
 # Pods for UpComingMovies
 target 'UpComingMovies' do
   shared_pods
   quality_pods
-  test_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
+    test_pods
   end
   
   target 'SdkManagerTests' do
@@ -46,8 +50,7 @@ target 'UpComingMovies' do
 
   target 'UpComingMoviesKIFTests' do
     inherit! :search_paths
-    pod 'Quick'
-    pod 'Nimble'
+    test_pods
     pod 'KIF'
   end
 end
@@ -55,26 +58,12 @@ end
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
 target 'UpcomingMoviesApi' do 
   xcodeproj 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
-  test_pods
   
   target 'UpcomingMoviesApiTests' do
     test_pods
   end
   
-  
-#  target 'ParamsTests' do
-#    test_pods
-#  end
-  
 end
-
-#post_install do |installer|
-#    installer.pods_project.targets.each do |target|
-#        target.build_configurations.each do |config|
-#            config.build_settings['SWIFT_VERSION'] = '4.2'
-#        end
-#    end
-#end
 
 # Disable Code Coverage for Pods projects
 post_install do |installer_representation|
