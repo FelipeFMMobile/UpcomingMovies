@@ -1,6 +1,0 @@
-framework module Pods_UpcomingMoviesApi_UpcomingMoviesApiTests {
-  umbrella header "Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
