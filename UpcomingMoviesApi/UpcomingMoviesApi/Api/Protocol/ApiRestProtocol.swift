@@ -8,13 +8,6 @@
 //  SOLID: Liskov Substitution Principle, Fat Interface Principle
 //
 
-import Foundation
-
-public struct ResultRequest<T> {
-    public var data: T
-    public var request: URLRequest
-}
-
 public enum ApiError: Error, Equatable {
     case domainFail, contentSerializeError(Error?), networkingError(NSError), statusCodeError(Int)
 
@@ -34,34 +27,16 @@ public enum ApiError: Error, Equatable {
     }
 }
 
-
-
-public typealias CompletionRequest<T> = (Result<ResultRequest<T>, ApiError>) -> Void
-
-protocol ApiRestGetProtocol {
-    func get<T: Decodable, E: EndPoint>(endPoint: E, params: [String: Any]?,
-                                        _ model: T.Type, completion: @escaping CompletionRequest<T>)
-}
-
-protocol ApiRestPostProtocol {
-    func post<T: Decodable, E: EndPoint>(endPoint: E, params: [String: Any]?,
-                                         _ model: T.Type, completion: @escaping CompletionRequest<T>)
+public typealias ApiCompletionRequest<T> = (_ result: Result<T, NSError>,
+                                            _ request: URLRequest?) -> Void
+protocol ApiRestProtocol {
+    func run<T: Decodable>(param: ApiRestParamProtocol,
+                           _ resultModel: T.Type,
+                           completion: @escaping ApiCompletionRequest<T>
+    )
 }
 
 protocol ApiRestCacheProtocol {
     func setCachePolicy()
 }
 
-protocol ApiRestProtocol {
-    
-    func run<T: Decodable>(method: HttpMethod,
-                           _ contentType: ContentType,
-                           endPoint: String,
-                           params: ParamsProtocol,
-                           completion: @escaping CompletionRequest<T>
-    )
-    
-    func addHeaderValue(value: String, key: String) -> Bool
-    func setAuthorization(value: String) -> Bool
-    func clearHeaderValues() -> Bool
-}

@@ -11,11 +11,10 @@ import Foundation
 /// JsonBodyParams Parse Build
 class JsonBodyParams: ParamsProtocol {
     let params: [String: Any]
-    
     required init(params: [String: Any]) {
         self.params = params
     }
-    
+
     func buildParams(request: URLRequest) -> URLRequest {
         var orequest = request
         if JSONSerialization.isValidJSONObject(params) {

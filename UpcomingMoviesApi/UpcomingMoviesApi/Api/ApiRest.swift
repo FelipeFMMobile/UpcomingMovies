@@ -10,46 +10,12 @@
 
 import Foundation
 
-open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostProtocol {
-    
-    public override init() { super.init() }
-    
-    public init(usingCache: Bool = false) {
-        super.init()
-        if usingCache {
-            setCachePolicy()
-        }
-    }
-    
-    /// GET
-    public func get<T, E>(endPoint: E, params: [String: Any]?, _ model: T.Type,
-                          completion: @escaping (Result<ResultRequest<T>, ApiError>) -> Void) where T: Decodable, E: EndPoint {
-        
-        header = endPoint.header()
-        
-        let body = GetParams(params: params ?? [:])
-        self.run(method: .GET, endPoint.contentType(), endPoint: endPoint.path(),
-                 params: body, completion: completion)
-    }
-    
-    /// POST
-    public func post<T, E>(endPoint: E, params: [String: Any]?, _ model: T.Type,
-                           completion: @escaping (Result<ResultRequest<T>, ApiError>) -> Void) where T: Decodable, E: EndPoint {
-        
-        header = endPoint.header()
-        var body: ParamsProtocol!
-        switch endPoint.contentType() {
-        case .json:
-            body = JsonBodyParams(params: params ?? [:])
-        case .formurlencoded:
-            body = FormEncodedParams(params: params ?? [:])
-        }
-        
-        self.run(method: .POST, endPoint.contentType(), endPoint: endPoint.path(),
-                 params: body, completion: completion)
-    }
+enum ApiErrorCodes: Int {
+    case domainFail = 999, responseCodableFail = 997, noDataResponse = 996, statusCodeError = 995
 }
 
+open class ApiRest: ApiRunner {
+    public override init() { super.init() }
 extension ApiRest: ApiRestCacheProtocol {
     /// set cachePolicy using 
     func setCachePolicy() {
