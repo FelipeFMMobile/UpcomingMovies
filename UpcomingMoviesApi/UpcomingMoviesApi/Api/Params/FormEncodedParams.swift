@@ -11,11 +11,11 @@ import Foundation
 /// FormEncodedParams Parse Build
 class FormEncodedParams: QueryItensConvert, ParamsProtocol {
     let params: [String: Any]
-    
+
     required init(params: [String: Any]) {
         self.params = params
     }
-    
+
     func buildParams(request: URLRequest) -> URLRequest {
         var bodyComponents = URLComponents()
         bodyComponents.queryItems = []

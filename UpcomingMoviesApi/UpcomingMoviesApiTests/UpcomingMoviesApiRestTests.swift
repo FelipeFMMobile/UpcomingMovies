@@ -72,7 +72,7 @@ class UpcomingMoviesApiRestTests: XCTestCase {
         let promise = expectation(description: "Api Request")
         let checkUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=1f54bd990f1cdfb230adb312546d765d"
         let params = GetParams(params: ["api_key": "1f54bd990f1cdfb230adb312546d765d"])
-        api.run(param: ApiParamFactory.basic.generate(endPoint: UpcomingEndpoints.genres.rawValue,
+        api.run(param: ApiParamFactory.basic.generate(endPoint: UpcomingEndpoints.genres.path(),
                                                       params: params), GenreList.self) { result, request in
             switch result {
             case .success(let result):

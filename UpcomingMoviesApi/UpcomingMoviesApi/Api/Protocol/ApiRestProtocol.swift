@@ -39,4 +39,3 @@ protocol ApiRestProtocol {
 protocol ApiRestCacheProtocol {
     func setCachePolicy()
 }
-
