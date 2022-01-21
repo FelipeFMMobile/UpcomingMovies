@@ -28,6 +28,9 @@
 		51EE91DE2291EBCA00BE0D03 /* GetParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91DD2291EBCA00BE0D03 /* GetParams.swift */; };
 		51EE91E02291EEF600BE0D03 /* ApiRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91DF2291EEF600BE0D03 /* ApiRunner.swift */; };
 		BA1046BBCFF8956074E4DF73 /* Pods_UpcomingMoviesApi_UpcomingMoviesApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E824DEBD61FEFE7F5878D1 /* Pods_UpcomingMoviesApi_UpcomingMoviesApiTests.framework */; };
+		BC95F9312798E3020029F2FA /* ApiHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95F9302798E3020029F2FA /* ApiHeader.swift */; };
+		BC95F9332798E8B20029F2FA /* ApiRestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95F9322798E8B20029F2FA /* ApiRestParam.swift */; };
+		BCB28162279B3D370082035F /* ApiRestParamFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB28161279B3D370082035F /* ApiRestParamFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		84AC2EED4D1107CF482D74AB /* Pods_UpcomingMoviesApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingMoviesApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8155FC0B7071E507C60CFED /* Pods_UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A98E684C84BA09E2056C53 /* Pods-UpcomingMoviesApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi.release.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi/Pods-UpcomingMoviesApi.release.xcconfig"; sourceTree = "<group>"; };
+		BC95F9302798E3020029F2FA /* ApiHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHeader.swift; sourceTree = "<group>"; };
+		BC95F9322798E8B20029F2FA /* ApiRestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRestParam.swift; sourceTree = "<group>"; };
+		BCB28161279B3D370082035F /* ApiRestParamFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRestParamFactory.swift; sourceTree = "<group>"; };
 		DECCFC377DCA71FB7EF3C872 /* Pods_UpcomingMoviesApi_ParamsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingMoviesApi_ParamsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D76F34C87471E7BC51B25C /* Pods-UpcomingMoviesApi-ParamsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi-ParamsTests.release.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi-ParamsTests/Pods-UpcomingMoviesApi-ParamsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,7 +193,10 @@
 		51EE91C82291D81700BE0D03 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				BC95F9302798E3020029F2FA /* ApiHeader.swift */,
+				BC95F9322798E8B20029F2FA /* ApiRestParam.swift */,
 				51EE91A92291A4D500BE0D03 /* ApiRestProtocol.swift */,
+				BCB28161279B3D370082035F /* ApiRestParamFactory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -253,6 +262,7 @@
 				51EE91882291A49C00BE0D03 /* Sources */,
 				51EE91892291A49C00BE0D03 /* Frameworks */,
 				51EE918A2291A49C00BE0D03 /* Resources */,
+				BCB28164279B46A50082035F /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -290,7 +300,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = FMMobile;
 				TargetAttributes = {
 					51EE918B2291A49C00BE0D03 = {
@@ -371,21 +381,32 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BCB28164279B46A50082035F /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		FF6DAC9B856BE6F1CF045BC7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -418,6 +439,7 @@
 			files = (
 				51EE91BF2291AC5700BE0D03 /* HttpMethod.swift in Sources */,
 				51EE91AA2291A4D500BE0D03 /* ApiRestProtocol.swift in Sources */,
+				BC95F9332798E8B20029F2FA /* ApiRestParam.swift in Sources */,
 				51EE91C42291AFF800BE0D03 /* UpcomingEndpoints.swift in Sources */,
 				51EE91DC2291EBA800BE0D03 /* JsonBodyParams.swift in Sources */,
 				51EE91E02291EEF600BE0D03 /* ApiRunner.swift in Sources */,
@@ -425,6 +447,8 @@
 				51EE91DE2291EBCA00BE0D03 /* GetParams.swift in Sources */,
 				51EE91BD2291AB5B00BE0D03 /* ContentType.swift in Sources */,
 				51EE91C12291AD6900BE0D03 /* WebDomain.swift in Sources */,
+				BC95F9312798E3020029F2FA /* ApiHeader.swift in Sources */,
+				BCB28162279B3D370082035F /* ApiRestParamFactory.swift in Sources */,
 				51EE91CA2291D83200BE0D03 /* ParamsProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +502,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -504,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -542,6 +567,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -562,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -588,7 +614,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = UpcomingMoviesApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -597,6 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.fmmobile.UpcomingMoviesApi;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -617,7 +644,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = UpcomingMoviesApi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,6 +653,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.fmmobile.UpcomingMoviesApi;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -635,7 +663,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B22DA1322AD1CE2DF0BB7B8 /* Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "${inherited}";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YZYY9PGW5;
 				INFOPLIST_FILE = UpcomingMoviesApiTests/Info.plist;
@@ -655,7 +683,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C29222A5F28B7AF29C4DA92 /* Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "${inherited}";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YZYY9PGW5;
 				INFOPLIST_FILE = UpcomingMoviesApiTests/Info.plist;

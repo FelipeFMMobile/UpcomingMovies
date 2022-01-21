@@ -63,18 +63,18 @@ PODS:
   - nanopb/encode (0.3.901)
   - Nimble (8.0.2)
   - ObjectMapper (3.5.1)
-  - OHHTTPStubs/Core (8.0.0)
-  - OHHTTPStubs/Default (8.0.0):
+  - OHHTTPStubs/Core (9.1.0)
+  - OHHTTPStubs/Default (9.1.0):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (8.0.0):
+  - OHHTTPStubs/JSON (9.1.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (8.0.0):
+  - OHHTTPStubs/NSURLSession (9.1.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (8.0.0)
-  - OHHTTPStubs/Swift (8.0.0):
+  - OHHTTPStubs/OHPathHelpers (9.1.0)
+  - OHHTTPStubs/Swift (9.1.0):
     - OHHTTPStubs/Default
   - Quick (2.1.0)
   - RxCocoa (4.5.0):
@@ -85,6 +85,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.45.1)
   - UIScrollView-InfiniteScroll (1.0.2)
 
 DEPENDENCIES:
@@ -102,10 +103,11 @@ DEPENDENCIES:
   - RxDataSources (~> 3.1)
   - RxSwift (~> 4.5)
   - SVProgressHUD
+  - SwiftLint
   - UIScrollView-InfiniteScroll (~> 1.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - AlamofireObjectMapper
     - Crashlytics
@@ -128,14 +130,15 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SVProgressHUD
+    - SwiftLint
     - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Crashlytics: a33af323773f73904037dc2e684cd2f0d29f4fe2
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  Fabric: 09ef2d9b99b104702bede1acaf469fb8f20a9146
   Firebase: dedc9e48ea3f3649ad5f6b982f8a0c73508a14b5
   FirebaseAnalytics: 3fb375bc9d13779add4039716f868d233a473fad
   FirebaseCore: aecf02fb2274ec361b9bebeac112f5daa18273bd
@@ -147,14 +150,15 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Nimble: 622629381bda1dd5678162f21f1368cec7cbba60
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
-  OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
+  OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
   UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
 
-PODFILE CHECKSUM: 766aa4e0d18749aae0616544e98eb17f98f56bdd
+PODFILE CHECKSUM: 3614fb624793865389e85cd4a770936cd57adccd
 
-COCOAPODS: 1.6.2
+COCOAPODS: 1.11.2

@@ -10,20 +10,20 @@ import Foundation
 
 /// JsonBodyParams Parse Build
 class JsonBodyParams: ParamsProtocol {
-  let params: [String: Any]
-  
-  required init(params: [String: Any]) {
-    self.params = params
-  }
-  
-  func buildParams(request: URLRequest) -> URLRequest {
-    var orequest = request
-    if JSONSerialization.isValidJSONObject(params) {
-      do {
-        let data = try JSONSerialization.data(withJSONObject: params, options: [])
-        orequest.httpBody = data
-      } catch { }
+    let params: [String: Any]
+
+    required init(params: [String: Any]) {
+        self.params = params
     }
-    return orequest
-  }
+
+    func buildParams(request: URLRequest) -> URLRequest {
+        var orequest = request
+        if JSONSerialization.isValidJSONObject(params) {
+            do {
+                let data = try JSONSerialization.data(withJSONObject: params, options: [])
+                orequest.httpBody = data
+            } catch { }
+        }
+        return orequest
+    }
 }

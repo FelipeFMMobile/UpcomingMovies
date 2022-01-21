@@ -8,33 +8,11 @@
 //  SOLID: Liskov Substitution Principle, Fat Interface Principle
 //
 
-import Foundation
-
-typealias CompletionRequest<T> = (_ sucesso: Bool,
-  _ responseData: T?,
-  _ request: URLRequest?,
-  _ error: NSError?) -> Void
-
-protocol ApiRestGetProtocol {
-  func get<T: Decodable>(endPoint: String, params: [String: Any]?,
-                         completion: @escaping CompletionRequest<T>)
-}
-
-protocol ApiRestPostJsonProtocol {
-  func post<T: Decodable>(endPoint: String, params: [String: Any]?,
-                          completion: @escaping CompletionRequest<T>)
-}
-
+public typealias ApiCompletionRequest<T> = (_ result: Result<T, NSError>,
+                                            _ request: URLRequest?) -> Void
 protocol ApiRestProtocol {
-  
-  func run<T: Decodable>(method: HttpMethod,
-                         _ contentType: ContentType,
-                         endPoint: String,
-                         params: ParamsProtocol,
-                         completion: @escaping CompletionRequest<T>
-  )
-
-  func addHeaderValue(value: String, key: String) -> Bool
-  func setAuthorization(value: String) -> Bool
-  func clearHeaderValues() -> Bool
+    func run<T: Decodable>(param: ApiRestParamProtocol,
+                           _ resultModel: T.Type,
+                           completion: @escaping ApiCompletionRequest<T>
+    )
 }

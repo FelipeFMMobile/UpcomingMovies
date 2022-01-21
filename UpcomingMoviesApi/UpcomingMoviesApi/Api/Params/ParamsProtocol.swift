@@ -8,9 +8,7 @@
 //  SOLID: Single Responsibility Principle
 //
 
-import Foundation
-
 protocol ParamsProtocol {
-  init(params: [String: Any])
-  func buildParams(request: URLRequest) -> URLRequest
+    init(params: [String: Any])
+    func buildParams(request: URLRequest) -> URLRequest
 }
