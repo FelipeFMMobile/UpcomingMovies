@@ -38,9 +38,14 @@ class UpComingListApiTests: XCTestCase {
         stubFor(contract: "ListMovie.json")
         let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
         let promise = expectation(description: "resultExpectation")
-        upcommingMovieApi.requestMovies(page: 0) { resultInfo in
-            expect(resultInfo.result).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
-            expect(resultInfo.result?.results?.first).toNot(beNil())
+        upcommingMovieApi.requestMovies(page: 0) { result in
+            switch result {
+            case .success(let model):
+                expect(model).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
+                expect(model.results?.first).toNot(beNil())
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -50,9 +55,14 @@ class UpComingListApiTests: XCTestCase {
         stubFor(contract: "ListMovieRequired.json")
         let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
         let promise = expectation(description: "resultExpectation")
-        upcommingMovieApi.requestMovies(page: 0) { resultInfo in
-            expect(resultInfo.result).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
-            expect(resultInfo.result?.results?.first).toNot(beNil())
+        upcommingMovieApi.requestMovies(page: 0) { result in
+            switch result {
+            case .success(let model):
+                expect(model).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
+                expect(model.results?.first).toNot(beNil())
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -62,9 +72,14 @@ class UpComingListApiTests: XCTestCase {
         stubFor(contract: "Genre.json")
         let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
         let promise = expectation(description: "resultExpectation")
-        upcommingMovieApi.requestGenres { resultInfo in
-            expect(resultInfo.result).to(beAKindOf(GenreListModelCodable.self))
-            expect(resultInfo.result).toNot(beNil())
+        upcommingMovieApi.requestGenres { result in
+            switch result {
+            case .success(let model):
+                expect(model).to(beAKindOf(GenreListModelCodable.self))
+                expect(model).toNot(beNil())
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -76,9 +91,14 @@ class UpComingListApiTests: XCTestCase {
         let promise = expectation(description: "resultExpectation")
         if let object = objectForContract(contract: "ListMovie", PaginationModelCodable<MoviesModelCodable>.self) {
             if let movie = object.results?.first {
-                upcommingMovieApi.requestMoviesDetail(movie: movie) { resultInfo in
-                    expect(resultInfo.result).to(beAKindOf(MoviesDetailModelCodable.self))
-                    expect(resultInfo.result).toNot(beNil())
+                upcommingMovieApi.requestMoviesDetail(movie: movie) { result in
+                    switch result {
+                    case .success(let model):
+                        expect(model).to(beAKindOf(MoviesDetailModelCodable.self))
+                        expect(model).toNot(beNil())
+                    case .failure(let error):
+                        XCTFail(error.localizedDescription)
+                    }
                     promise.fulfill()
                 }
             }

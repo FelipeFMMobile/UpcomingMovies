@@ -6,23 +6,23 @@
 //  Copyright © 2022 FMMobile. All rights reserved.
 //
 
-protocol ApiRestParamFactoryProtocol {
+public protocol ApiRestParamFactoryProtocol {
     func generate(endPoint: String, params: ParamsProtocol) -> ApiRestParamProtocol
     func generate(method: HttpMethod, endPoint: String, params: ParamsProtocol) -> ApiRestParamProtocol
 }
 
 extension ApiRestParamFactoryProtocol {
-    func generate(endPoint: String, params: ParamsProtocol) -> ApiRestParamProtocol {
+    public func generate(endPoint: String, params: ParamsProtocol) -> ApiRestParamProtocol {
         ApiRestParam(endPoint: endPoint, params: params)
     }
 
-    func generate(method: HttpMethod, endPoint: String, params: ParamsProtocol) -> ApiRestParamProtocol {
+    public func generate(method: HttpMethod, endPoint: String, params: ParamsProtocol) -> ApiRestParamProtocol {
         let param = ApiRestParam(endPoint: endPoint, params: params)
         param.method = method
         return param
     }
 }
 
-enum ApiParamFactory: ApiRestParamFactoryProtocol {
+public enum ApiParamFactory: ApiRestParamFactoryProtocol {
     case basic
 }

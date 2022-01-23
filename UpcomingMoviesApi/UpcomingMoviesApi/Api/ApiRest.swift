@@ -8,8 +8,6 @@
 // SOLID: Liskov Substitution Principle, Fat Interface Principle
 //
 
-import Foundation
-
 enum ApiErrorCodes: Int {
     case domainFail = 999, responseCodableFail = 997, noDataResponse = 996, statusCodeError = 995
 }

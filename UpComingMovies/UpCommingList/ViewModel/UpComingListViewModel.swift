@@ -19,9 +19,9 @@ protocol ViewBasicInfoProtocol {
 }
 
 protocol UpComingListViewModelProtocol: UpcomingApiProtocol {
-    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping () -> Void)
-    func getGenres(complete: @escaping () -> Void)
-    func getUpCommingMovies(complete: @escaping () -> Void)
+    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, Error>) -> Void)
+    func getGenres(complete: @escaping (Result<Bool, Error>) -> Void)
+    func getUpCommingMovies(complete: @escaping (Result<Bool, Error>) -> Void)
     func resetPage()
     func forwardPage()
 }
@@ -39,31 +39,44 @@ class UpComingListViewModel: UpComingListViewModelProtocol {
     var detailMovie: MoviesDetailModelCodable?
     
     /// getMovieInfo
-    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping () -> Void) {
+    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, Error>) -> Void) {
         api.requestMoviesDetail(movie: movie) { [weak self] resultInfo in
-            self?.detailMovie = resultInfo.result
-            complete()
+            switch resultInfo {
+            case .success(let model):
+                self?.detailMovie = model
+                complete(.success(true))
+            case .failure(let error):
+                complete(.failure(error))
+            }
         }
     }
     
     /// getGenres
-    func getGenres(complete: @escaping () -> Void) {
+    func getGenres(complete: @escaping (Result<Bool, Error>) -> Void) {
         api.requestGenres { [weak self] resultInfo in
-            self?.genreList = resultInfo.result
-            complete()
+            switch resultInfo {
+            case .success(let model):
+                self?.genreList = model
+                complete(.success(true))
+            case .failure(let error):
+                complete(.failure(error))
+            }
         }
     }
     
     /// getUpCommingMovies
-    func getUpCommingMovies(complete: @escaping () -> Void) {
+    func getUpCommingMovies(complete: @escaping (Result<Bool, Error>) -> Void) {
         api.requestMovies(page: currentPage) { [weak self] resultInfo in
-            if let totalPages = resultInfo.result?.totalPages {
-                self?.maxPages = totalPages
+            switch resultInfo {
+            case .success(let model):
+                self?.maxPages = model.totalPages
+                if let results = model.results {
+                    self?.movies += results
+                }
+                complete(.success(true))
+            case .failure(let error):
+                complete(.failure(error))
             }
-            if let results = resultInfo.result?.results {
-                self?.movies += results
-            }
-            complete()
         }
     }
     

@@ -8,24 +8,24 @@
 
 import Foundation
 
-protocol ApiHeader {
+public protocol ApiHeader {
     var header: [String: String] { get set }
     func addHeaderValue(value: String, key: String)
     func setAuthorization(value: String)
     func clearHeaderValues()
 }
 
-class ApiHeaderSimple: ApiHeader {
-    var header: [String: String] = [:]
-    func addHeaderValue(value: String, key: String) {
+public class ApiHeaderSimple: ApiHeader {
+    public var header: [String: String] = [:]
+    public func addHeaderValue(value: String, key: String) {
         self.header[key] = value
     }
 
-    func clearHeaderValues() {
+    public func clearHeaderValues() {
         self.header.removeAll()
     }
 
-    func setAuthorization(value: String) {
+    public func setAuthorization(value: String) {
         addHeaderValue(value: value, key: "Authorization")
     }
 }

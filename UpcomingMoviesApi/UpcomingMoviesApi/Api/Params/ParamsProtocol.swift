@@ -8,7 +8,7 @@
 //  SOLID: Single Responsibility Principle
 //
 
-protocol ParamsProtocol {
+public protocol ParamsProtocol {
     init(params: [String: Any])
     func buildParams(request: URLRequest) -> URLRequest
 }

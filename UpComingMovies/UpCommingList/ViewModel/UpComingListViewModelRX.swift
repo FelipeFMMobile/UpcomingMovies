@@ -12,6 +12,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import UpcomingMoviesApi
 
 protocol UpComingListViewModelRXProtocol {
     var moviesSubject: PublishSubject<[MoviesModelCodable]> { get set }
@@ -20,10 +21,10 @@ protocol UpComingListViewModelRXProtocol {
 class UpComingListViewModelRX: UpComingListViewModel, UpComingListViewModelRXProtocol {
     var moviesSubject = PublishSubject<[MoviesModelCodable]>()
     
-    override func getUpCommingMovies(complete: @escaping () -> Void) {
-        super.getUpCommingMovies {
+    override func getUpCommingMovies(complete: @escaping (Result<Bool, Error>) -> Void) {
+        super.getUpCommingMovies { result in
             self.moviesSubject.onNext(self.movies)
-            complete()
+            complete(result)
         }
     }
 }

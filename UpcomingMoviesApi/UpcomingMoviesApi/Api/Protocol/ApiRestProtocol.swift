@@ -27,7 +27,7 @@ public enum ApiError: Error, Equatable {
     }
 }
 
-public typealias ApiCompletionRequest<T> = (_ result: Result<T, NSError>,
+public typealias ApiCompletionRequest<T> = (_ result: Result<T, ApiError>,
                                             _ request: URLRequest?) -> Void
 protocol ApiRestProtocol {
     func run<T: Decodable>(param: ApiRestParamProtocol,

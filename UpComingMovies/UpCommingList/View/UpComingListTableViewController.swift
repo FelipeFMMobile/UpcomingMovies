@@ -39,16 +39,26 @@ class UpComingListTableViewController: UITableViewController, UIViewCoordinator 
         SVProgressHUD.show()
         viewModel.resetPage()
         
-        viewModel.getGenres { [weak self] in
-            self?.loadingContent()
+        viewModel.getGenres { [weak self] result in
+            switch result {
+            case .success:
+                self?.loadingContent()
+            case .failure(let error):
+                self?.displayError(error)
+            }
             DispatchQueue.main.async { self?.refreshControl?.endRefreshing() }
         }
     }
     
     func loadingContent() {
-        viewModel.getUpCommingMovies { [weak self] in
+        viewModel.getUpCommingMovies { [weak self] result in
             SVProgressHUD.dismiss()
-            DispatchQueue.main.async { self?.tableView.reloadData() }
+            switch result {
+            case .success:
+                DispatchQueue.main.async { self?.tableView.reloadData() }
+            case .failure(let error):
+                self?.displayError(error)
+            }
         }
     }
     
@@ -90,10 +100,15 @@ class UpComingListTableViewController: UITableViewController, UIViewCoordinator 
     
     public func instantiateDetailSegue(movie: MoviesModelCodable) {
         SVProgressHUD.show()
-        viewModel.getMovieInfo(movie: movie, complete: { [weak self] in
+        viewModel.getMovieInfo(movie: movie, complete: { [weak self] result in
             SVProgressHUD.dismiss()
-            if let movieInfo = self?.viewModel.detailMovie {
-                self?.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
+            switch result {
+            case .success:
+                if let movieInfo = self?.viewModel.detailMovie {
+                    self?.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
+                }
+            case .failure(let error):
+                self?.displayError(error)
             }
         })
     }

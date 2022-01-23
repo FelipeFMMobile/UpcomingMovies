@@ -12,15 +12,15 @@ open class ApiRunner: NSObject, ApiRestProtocol {
 
     let configuration = URLSessionConfiguration.default
 
-    func run<T>(param: ApiRestParamProtocol, _ resultModel: T.Type,
-                completion: @escaping ApiCompletionRequest<T>) where T: Decodable {
+    public func run<T>(param: ApiRestParamProtocol, _ resultModel: T.Type,
+                       completion: @escaping ApiCompletionRequest<T>) where T: Decodable {
 
         let session = URLSession(configuration: configuration,
                                  delegate: self,
                                  delegateQueue: nil)
         let urlString = param.endPoint
         guard let url = URL(string: urlString) else {
-            completion(.failure(defaultError(errorType: .domainFail)), nil)
+            completion(.failure(ApiError.domainFail), nil)
             return
         }
         var request = URLRequest(url: url)
@@ -35,12 +35,13 @@ open class ApiRunner: NSObject, ApiRestProtocol {
         // Request
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
             guard error == nil else {
-                completion(.failure(NSError(domain: error?.localizedDescription ?? "", code: 0, userInfo: nil)), nil)
+                completion(.failure(ApiError.networkingError(NSError(domain: error?.localizedDescription ?? "",
+                                                                     code: 0, userInfo: nil))), nil)
                 return
             }
 
             let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-            var errorCode: ApiErrorCodes = .responseCodableFail
+            var errorCode: ApiError = .statusCodeError(statusCode)
             if statusCode == 200 {
                 if let odata = data {
                     let decoder = JSONDecoder()
@@ -49,16 +50,16 @@ open class ApiRunner: NSObject, ApiRestProtocol {
                         completion(.success(result), request)
                         return
                     } catch let jsonError {
-                        errorCode = .responseCodableFail
+                        errorCode = .contentSerializeError(self.defaultError(errorType: .responseCodableFail,
+                                                                             statusCode))
                         debugPrint(jsonError)
                     }
                 } else {
-                    errorCode = .noDataResponse
+                    errorCode = .contentSerializeError(self.defaultError(errorType: .noDataResponse,
+                                                                         statusCode))
                 }
-            } else {
-                errorCode = .statusCodeError
             }
-            completion(.failure(self.defaultError(errorType: errorCode, statusCode)), request)
+            completion(.failure(errorCode), request)
         })
         task.resume()
     }

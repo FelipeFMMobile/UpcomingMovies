@@ -6,8 +6,8 @@
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
-class QueryItensConvert {
-    func queryItens(url: URL, params: [String: Any]) -> URL {
+public class QueryItensConvert {
+    public func queryItens(url: URL, params: [String: Any]) -> URL {
         if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             var queryItems = [URLQueryItem]()
             params.forEach { key, value in
@@ -25,14 +25,14 @@ class QueryItensConvert {
 }
 
 /// GetParams Parse Build
-class GetParams: QueryItensConvert, ParamsProtocol {
+public class GetParams: QueryItensConvert, ParamsProtocol {
     let params: [String: Any]
-    
-    required init(params: [String: Any]) {
+
+    public required init(params: [String: Any]) {
         self.params = params
     }
-    
-    func buildParams(request: URLRequest) -> URLRequest {
+
+    public func buildParams(request: URLRequest) -> URLRequest {
         var orequest = request
 
         if var url = request.url {

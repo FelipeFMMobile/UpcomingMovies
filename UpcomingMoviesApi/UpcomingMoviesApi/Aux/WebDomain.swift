@@ -17,7 +17,7 @@ struct ServerConfig {
 // Domain control
 // Check target bundle to switch between domains
 // Homolg and dev domains is not avalaible
-enum WebDomain: String {
+public enum WebDomain: String {
     case producao = "https://api.themoviedb.org/3/"
     case homolog = "https://homolog.themoviedb.org/3/"
     case dev = "localhost://api.themoviedb.org/3/"

@@ -62,7 +62,7 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
             case .success:
                 XCTFail("Failure not allowed")
             case .failure(let error):
-                XCTAssertTrue(error.code == 500)
+                XCTAssertTrue(error == .statusCodeError(500))
             }
             promise.fulfill()
         }
@@ -84,7 +84,8 @@ class UpcomingMoviesApiExecuteTests: XCTestCase {
             case .success:
                 XCTFail("Failure not allowed")
             case .failure(let error):
-                XCTAssertTrue(error.code == ApiErrorCodes.responseCodableFail.rawValue)
+                let nsError = NSError(domain: "", code: ApiErrorCodes.responseCodableFail.rawValue, userInfo: nil)
+                XCTAssertTrue(error == .contentSerializeError(nsError))
             }
             promise.fulfill()
         }

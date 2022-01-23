@@ -55,7 +55,6 @@ end
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
 target 'UpcomingMoviesApi' do 
   project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
-  test_pods
   quality_pods
   target 'UpcomingMoviesApiTests' do
     test_pods

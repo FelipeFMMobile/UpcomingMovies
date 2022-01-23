@@ -48,21 +48,31 @@ class UpComingListRXTableViewController: UIViewController, UITableViewDelegate {
             .modelSelected(MoviesModelCodable.self)
             .subscribe(onNext: { value in
                 SVProgressHUD.show()
-                self.viewModel.getMovieInfo(movie: value, complete: { [weak self] in
+                self.viewModel.getMovieInfo(movie: value, complete: { [weak self] result in
                     SVProgressHUD.dismiss()
-                    if let movieInfo = self?.viewModel.detailMovie {
-                        _ = self?.coordinator?.gotoDetail(detailMovie: movieInfo)
+                    switch result {
+                    case .success:
+                        if let movieInfo = self?.viewModel.detailMovie {
+                            _ = self?.coordinator?.gotoDetail(detailMovie: movieInfo)
+                        }
+                    case .failure(let error):
+                        self?.displayError(error)
                     }
                 })
             })
             .disposed(by: disposeBag)
         
         SVProgressHUD.show()
-        viewModel.getGenres { [weak self] in
-            self?.viewModel.getUpCommingMovies {
+        viewModel.getGenres { [weak self] result in
+            self?.viewModel.getUpCommingMovies { result in
                 SVProgressHUD.dismiss()
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    self?.displayError(error)
+                }
             }
         }
     }
-    
 }

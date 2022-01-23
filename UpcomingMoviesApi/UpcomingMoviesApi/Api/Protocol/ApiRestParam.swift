@@ -6,7 +6,7 @@
 //  Copyright © 2022 FMMobile. All rights reserved.
 //
 
-protocol ApiRestParamProtocol: AnyObject {
+public protocol ApiRestParamProtocol: AnyObject {
     var domain: WebDomain { get }
     var method: HttpMethod { get }
     var contentType: ContentType { get }
@@ -17,7 +17,7 @@ protocol ApiRestParamProtocol: AnyObject {
 }
 
 extension ApiRestParamProtocol {
-    func generateDefaultHeader() {
+    public func generateDefaultHeader() {
         header.addHeaderValue(value: "Content-Type", key: contentType.contentType())
         header.addHeaderValue(value: "Accept", key: contentType.contentType())
         header.addHeaderValue(value: "x-fabricante", key: "Apple")
@@ -26,13 +26,13 @@ extension ApiRestParamProtocol {
     }
 }
 
-class ApiRestParam: ApiRestParamProtocol {
-    var domain: WebDomain = .domainForBundle()
-    var method: HttpMethod = .GET
-    var contentType: ContentType = .json
-    var endPoint: String
-    var params: ParamsProtocol
-    var header: ApiHeader = ApiHeaderSimple()
+public class ApiRestParam: ApiRestParamProtocol {
+    public var domain: WebDomain = .domainForBundle()
+    public var method: HttpMethod = .GET
+    public var contentType: ContentType = .json
+    public var endPoint: String
+    public var params: ParamsProtocol
+    public var header: ApiHeader = ApiHeaderSimple()
     init(endPoint: String, params: ParamsProtocol) {
         self.endPoint =  domain.rawValue + endPoint
         self.params = params

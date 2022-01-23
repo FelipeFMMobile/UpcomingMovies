@@ -11,6 +11,8 @@ import XCTest
 import OHHTTPStubs
 import Nimble
 
+/// UpComingListViewModelTests
+/// Important note: none of this tests are covering failure scenarios, this will probably revised later
 class UpComingListViewModelTests: XCTestCase {
     
     override func setUp() {
@@ -40,10 +42,15 @@ class UpComingListViewModelTests: XCTestCase {
         let promise = expectation(description: "resultExpectation")
         if let object = objectForContract(contract: "ListMovie", PaginationModelCodable<MoviesModelCodable>.self) {
             if let movie = object.results?.first {
-                viewModel.getMovieInfo(movie: movie) {
-                    expect((viewModel as? UpComingListViewModel)?.detailMovie)
-                            .to(beAKindOf(MoviesDetailModelCodable.self))
-                    expect((viewModel as? UpComingListViewModel)?.detailMovie).toNot(beNil())
+                viewModel.getMovieInfo(movie: movie) { result in
+                    switch result {
+                    case .success:
+                        expect((viewModel as? UpComingListViewModel)?.detailMovie)
+                                .to(beAKindOf(MoviesDetailModelCodable.self))
+                        expect((viewModel as? UpComingListViewModel)?.detailMovie).toNot(beNil())
+                    case .failure:
+                        XCTFail("Testing failing")
+                    }
                     promise.fulfill()
                 }
             }
@@ -55,9 +62,14 @@ class UpComingListViewModelTests: XCTestCase {
         stubFor(contract: "Genre.json")
         let viewModel: UpComingListViewModelProtocol = UpComingListViewModel()
         let promise = expectation(description: "resultExpectation")
-        viewModel.getGenres {
-            expect((viewModel as? UpComingListViewModel)?.genreList).to(beAKindOf(GenreListModelCodable.self))
-            expect((viewModel as? UpComingListViewModel)?.genreList?.genres).toNot(beEmpty())
+        viewModel.getGenres { result in
+            switch result {
+            case .success:
+                expect((viewModel as? UpComingListViewModel)?.genreList).to(beAKindOf(GenreListModelCodable.self))
+                expect((viewModel as? UpComingListViewModel)?.genreList?.genres).toNot(beEmpty())
+            case .failure:
+                XCTFail("Testing failing")
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -67,8 +79,13 @@ class UpComingListViewModelTests: XCTestCase {
         stubFor(contract: "ListMovie.json")
         let viewModel: UpComingListViewModelProtocol = UpComingListViewModel()
         let promise = expectation(description: "resultExpectation")
-        viewModel.getUpCommingMovies {
-            expect((viewModel as? UpComingListViewModel)?.movies).toNot(beEmpty())
+        viewModel.getUpCommingMovies { result in
+            switch result {
+            case .success:
+                expect((viewModel as? UpComingListViewModel)?.movies).toNot(beEmpty())
+            case .failure:
+                XCTFail("Testing failing")
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -78,11 +95,16 @@ class UpComingListViewModelTests: XCTestCase {
         stubFor(contract: "ListMovie.json")
         let viewModel = UpComingListViewModel()
         let promise = expectation(description: "resultExpectation")
-        viewModel.getUpCommingMovies {
-            expect(viewModel.movies).toNot(beEmpty())
-            viewModel.resetPage()
-            expect(viewModel.currentPage).to(equal(1))
-            expect(viewModel.movies).to(beEmpty())
+        viewModel.getUpCommingMovies { result in
+            switch result {
+            case .success:
+                expect(viewModel.movies).toNot(beEmpty())
+                viewModel.resetPage()
+                expect(viewModel.currentPage).to(equal(1))
+                expect(viewModel.movies).to(beEmpty())
+            case .failure:
+                XCTFail("Testing failing")
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -92,10 +114,15 @@ class UpComingListViewModelTests: XCTestCase {
         stubFor(contract: "ListMovie.json")
         let viewModel = UpComingListViewModel()
         let promise = expectation(description: "resultExpectation")
-        viewModel.getUpCommingMovies {
-            expect(viewModel.movies).toNot(beEmpty())
-            viewModel.forwardPage()
-            expect(viewModel.currentPage).to(equal(2))
+        viewModel.getUpCommingMovies { result in
+            switch result {
+            case .success:
+                expect(viewModel.movies).toNot(beEmpty())
+                viewModel.forwardPage()
+                expect(viewModel.currentPage).to(equal(2))
+            case .failure:
+                XCTFail("Testing failing")
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -105,9 +132,14 @@ class UpComingListViewModelTests: XCTestCase {
         stubFor(contract: "ListMovie.json")
         let viewModel = UpComingListViewModel()
         let promise = expectation(description: "resultExpectation")
-        viewModel.getUpCommingMovies {
-            expect(viewModel.movies).toNot(beEmpty())
-            expect(viewModel.numberOfSections()).to(beGreaterThanOrEqualTo(1))
+        viewModel.getUpCommingMovies { result in
+            switch result {
+            case .success:
+                expect(viewModel.movies).toNot(beEmpty())
+                expect(viewModel.numberOfSections()).to(beGreaterThanOrEqualTo(1))
+            case .failure:
+                XCTFail("Testing failing")
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -117,9 +149,14 @@ class UpComingListViewModelTests: XCTestCase {
         stubFor(contract: "ListMovie.json")
         let viewModel = UpComingListViewModel()
         let promise = expectation(description: "resultExpectation")
-        viewModel.getUpCommingMovies {
-            expect(viewModel.movies).toNot(beEmpty())
-            expect(viewModel.numRowsSection(section: 1)).to(beGreaterThanOrEqualTo(1))
+        viewModel.getUpCommingMovies { result in
+            switch result {
+            case .success:
+                expect(viewModel.movies).toNot(beEmpty())
+                expect(viewModel.numRowsSection(section: 1)).to(beGreaterThanOrEqualTo(1))
+            case .failure:
+                XCTFail("Testing failing")
+            }
             promise.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
@@ -129,12 +166,17 @@ class UpComingListViewModelTests: XCTestCase {
         stubFor(contract: "ListMovie.json")
         let viewModel = UpComingListViewModel()
         let promise = expectation(description: "resultExpectation")
-        viewModel.getUpCommingMovies {
-            expect(viewModel.movies).toNot(beEmpty())
-            expect(viewModel.movies.first).toNot(beNil())
-            if let firstPosition = viewModel.movies.first {
-                let pos = viewModel.valueForCellPosition(indexPath: IndexPath(item: 0, section: 0))?.idM ?? 0
-                expect(pos).to(equal(firstPosition.idM))
+        viewModel.getUpCommingMovies { result in
+            switch result {
+            case .success:
+                expect(viewModel.movies).toNot(beEmpty())
+                expect(viewModel.movies.first).toNot(beNil())
+                if let firstPosition = viewModel.movies.first {
+                    let pos = viewModel.valueForCellPosition(indexPath: IndexPath(item: 0, section: 0))?.idM ?? 0
+                    expect(pos).to(equal(firstPosition.idM))
+                }
+            case .failure:
+                XCTFail("Testing failing")
             }
             promise.fulfill()
         }

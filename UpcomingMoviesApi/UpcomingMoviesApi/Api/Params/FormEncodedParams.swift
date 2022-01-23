@@ -6,17 +6,15 @@
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
-import Foundation
-
 /// FormEncodedParams Parse Build
-class FormEncodedParams: QueryItensConvert, ParamsProtocol {
+public class FormEncodedParams: QueryItensConvert, ParamsProtocol {
     let params: [String: Any]
 
-    required init(params: [String: Any]) {
+    public required init(params: [String: Any]) {
         self.params = params
     }
 
-    func buildParams(request: URLRequest) -> URLRequest {
+    public func buildParams(request: URLRequest) -> URLRequest {
         var bodyComponents = URLComponents()
         bodyComponents.queryItems = []
         for (key, value) in params {
