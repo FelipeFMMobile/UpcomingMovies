@@ -1,4 +1,4 @@
-platform :ios, '10.3'
+platform :ios, '13.0'
 use_frameworks!
 
 workspace 'UpComingMovies'
@@ -17,9 +17,7 @@ def shared_pods
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '5.2.0'
   pod 'Firebase/Core'
-  # Pods for PodTest
-  pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'Firebase/Crashlytics'
   # (Recommended) Pod for Google Analytics
   pod 'Firebase/Analytics'
   pod 'Firebase/Performance'
@@ -28,7 +26,7 @@ end
 def quality_pods
   pod 'SwiftLint'
 end  
-
+# Pods for PodTest
 def test_pods
   pod 'OHHTTPStubs/Swift'
   pod 'Quick'
@@ -38,7 +36,6 @@ end
 # Pods for UpComingMovies
 target 'UpComingMovies' do
   shared_pods
-  test_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
     test_pods

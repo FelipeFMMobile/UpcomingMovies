@@ -10,8 +10,7 @@ import UIKit
 import SVProgressHUD
 
 class UpComingListTableViewController: UITableViewController, UIViewCoordinator {
-
-    var coordinator: UpCommingCoordinator?
+    weak var coordinatorDelegate: AppCoordinatorDelegate?
     
     let viewModel = UpComingListViewModel()
     
@@ -21,7 +20,7 @@ class UpComingListTableViewController: UITableViewController, UIViewCoordinator 
         
         title = viewModel.title
         
-        //Handle Pagination
+        // Handle Pagination
         self.tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
             self?.viewModel.forwardPage()
             self?.loadingContent()
@@ -94,7 +93,7 @@ class UpComingListTableViewController: UITableViewController, UIViewCoordinator 
         viewModel.getMovieInfo(movie: movie, complete: { [weak self] in
             SVProgressHUD.dismiss()
             if let movieInfo = self?.viewModel.detailMovie {
-                _ = self?.coordinator?.gotoDetail(detailMovie: movieInfo)
+                self?.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
             }
         })
     }

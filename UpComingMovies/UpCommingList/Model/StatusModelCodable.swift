@@ -8,7 +8,7 @@
 
 import Foundation
 
-///StatusModelCodable
+/// StatusModelCodable
 public class StatusErrorModelCodable: Decodable {
   
   var statusCode: Int?

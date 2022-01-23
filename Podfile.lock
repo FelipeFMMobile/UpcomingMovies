@@ -3,10 +3,7 @@ PODS:
   - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
   - Differentiator (3.1.0)
-  - Fabric (1.10.2)
   - Firebase/Analytics (8.11.0):
     - Firebase/Core
   - Firebase/Core (8.11.0):
@@ -14,6 +11,9 @@ PODS:
     - FirebaseAnalytics (~> 8.11.0)
   - Firebase/CoreOnly (8.11.0):
     - FirebaseCore (= 8.11.0)
+  - Firebase/Crashlytics (8.11.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 8.11.0)
   - Firebase/Performance (8.11.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 8.11.0)
@@ -46,6 +46,13 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
+  - FirebaseCrashlytics (8.11.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.1)
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
   - FirebaseInstallations (8.11.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.7)
@@ -150,10 +157,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - AlamofireObjectMapper (~> 5.2)
-  - Crashlytics
-  - Fabric
   - Firebase/Analytics
   - Firebase/Core
+  - Firebase/Crashlytics
   - Firebase/Performance
   - KIF
   - Kingfisher (= 5.2.0)
@@ -171,14 +177,13 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireObjectMapper
-    - Crashlytics
     - Differentiator
-    - Fabric
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseInstallations
     - FirebasePerformance
     - FirebaseRemoteConfig
@@ -203,14 +208,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
-  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   Firebase: 44dd9724c84df18b486639e874f31436eaa9a20c
   FirebaseABTesting: aac00a5472250a45f1462675792030e44df025c7
   FirebaseAnalytics: 4e4b13031034e6561ed3bd1d47b6fdabbd6487c6
   FirebaseCore: 2f4f85b453cc8fea4bb2b37e370007d2bcafe3f0
   FirebaseCoreDiagnostics: 64d9709d804a6c25bd77841371c1fcfd909d5601
+  FirebaseCrashlytics: 62268addefae79601057818156e8bc69d71fee41
   FirebaseInstallations: 044eede8a049bce71c4541ee68d6e4364fcbe774
   FirebasePerformance: c40a3bfe5ed9e91f2ab4851d1aa8e0f2f3ca19cf
   FirebaseRemoteConfig: a6a1ce9dabf404817ae2a44e8421d276660d9091
@@ -232,6 +236,6 @@ SPEC CHECKSUMS:
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
   UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
 
-PODFILE CHECKSUM: 7a8996918b681b719259e46182d62a813a58f34a
+PODFILE CHECKSUM: 8b71876ecf2f74c93e5db80447da05edf08d6cba
 
 COCOAPODS: 1.11.2

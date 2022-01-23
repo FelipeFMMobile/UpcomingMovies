@@ -8,10 +8,9 @@
 
 import UIKit
 import Kingfisher
-import Crashlytics
 
 class DetailUpComingListTableViewController: UITableViewController {
-    
+
     static public var DetailIdentifier = "DetailMovieView"
     
     var viewModel: DetailUpCommingListViewModel?
@@ -40,6 +39,7 @@ class DetailUpComingListTableViewController: UITableViewController {
     }
     
     @IBAction func forceCrashButtonTapped(_ sender: AnyObject) {
-        Crashlytics.sharedInstance().crash()
+        let numbers = [0]
+        _ = numbers[1]
     }
 }

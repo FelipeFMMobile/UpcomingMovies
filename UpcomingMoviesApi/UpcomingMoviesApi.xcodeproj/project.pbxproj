@@ -321,6 +321,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 51EE91822291A49C00BE0D03;
 			productRefGroup = 51EE918D2291A49C00BE0D03 /* Products */;
@@ -444,7 +445,6 @@
 				51EE91AA2291A4D500BE0D03 /* ApiRestProtocol.swift in Sources */,
 				51EE91C42291AFF800BE0D03 /* EndPoint.swift in Sources */,
 				BC95F9332798E8B20029F2FA /* ApiRestParam.swift in Sources */,
-				51EE91C42291AFF800BE0D03 /* UpcomingEndpoints.swift in Sources */,
 				51EE91DC2291EBA800BE0D03 /* JsonBodyParams.swift in Sources */,
 				51EE91E02291EEF600BE0D03 /* ApiRunner.swift in Sources */,
 				51EE91A82291A4BD00BE0D03 /* ApiRest.swift in Sources */,

@@ -44,3 +44,10 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
         }
     }
 }
+
+extension UpCommingCoordinator: AppCoordinatorDelegate {
+    func gotoFlow<T>(_ name: String, model: T) where T: Decodable {
+        guard let model = model as? MoviesDetailModelCodable else { return }
+        gotoDetail(detailMovie: model)
+    }
+}

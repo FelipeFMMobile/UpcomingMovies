@@ -38,7 +38,7 @@ class UpComingListViewModel: UpComingListViewModelProtocol {
     var movies = [MoviesModelCodable]()
     var detailMovie: MoviesDetailModelCodable?
     
-    ///getMovieInfo
+    /// getMovieInfo
     func getMovieInfo(movie: MoviesModelCodable, complete: @escaping () -> Void) {
         api.requestMoviesDetail(movie: movie) { [weak self] resultInfo in
             self?.detailMovie = resultInfo.result
@@ -46,7 +46,7 @@ class UpComingListViewModel: UpComingListViewModelProtocol {
         }
     }
     
-    ///getGenres
+    /// getGenres
     func getGenres(complete: @escaping () -> Void) {
         api.requestGenres { [weak self] resultInfo in
             self?.genreList = resultInfo.result
@@ -54,7 +54,7 @@ class UpComingListViewModel: UpComingListViewModelProtocol {
         }
     }
     
-    ///getUpCommingMovies
+    /// getUpCommingMovies
     func getUpCommingMovies(complete: @escaping () -> Void) {
         api.requestMovies(page: currentPage) { [weak self] resultInfo in
             if let totalPages = resultInfo.result?.totalPages {
