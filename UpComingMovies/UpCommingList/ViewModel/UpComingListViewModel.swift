@@ -26,7 +26,8 @@ protocol UpComingListViewModelProtocol: UpcomingApiProtocol {
     func forwardPage()
 }
 
-class UpComingListViewModel: UpComingListViewModelProtocol { 
+class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator, ObservableObject {
+    var coordinatorDelegate: AppCoordinatorDelegate?
     
     var api = UpComingListApi()
     
@@ -35,8 +36,8 @@ class UpComingListViewModel: UpComingListViewModelProtocol {
     
     var genreList: GenreListModelCodable?
     
-    var movies = [MoviesModelCodable]()
-    var detailMovie: MoviesDetailModelCodable?
+    @Published var movies = [MoviesModelCodable]()
+    var detailMovie: MoviesDetailModelCodable!
     
     /// getMovieInfo
     func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, Error>) -> Void) {
@@ -71,7 +72,9 @@ class UpComingListViewModel: UpComingListViewModelProtocol {
             case .success(let model):
                 self?.maxPages = model.totalPages
                 if let results = model.results {
-                    self?.movies += results
+                    DispatchQueue.main.async {
+                        self?.movies += results
+                    }
                 }
                 complete(.success(true))
             case .failure(let error):
@@ -103,6 +106,26 @@ extension UpComingListViewModel: UpComingTableViewsDataSetProtocol {
     
     func valueForCellPosition(indexPath: IndexPath) -> MoviesModelCodable? {
         return movies[indexPath.row]
+    }
+}
+
+extension UpComingListViewModel: UpComingSwiftUIDataSetProtocol {
+    func genreForMovie(movie: MoviesModelCodable) -> GenreModelCodable? {
+        return genreList?.genresForMovie(movie: movie)?.first
+    }
+    
+    public func instantiateDetailSegue(movie: MoviesModelCodable) {
+        getMovieInfo(movie: movie, complete: { [weak self] result in
+            switch result {
+            case .success:
+                if let movieInfo = self?.detailMovie {
+                    self?.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
+                }
+            case .failure(let error):
+                break
+                //self?.displayError(error)
+            }
+        })
     }
 }
 

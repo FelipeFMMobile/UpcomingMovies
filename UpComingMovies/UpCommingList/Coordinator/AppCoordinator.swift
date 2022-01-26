@@ -6,8 +6,12 @@
 //  Copyright © 2020 FMMobile. All rights reserved.
 //
 
-protocol UIViewCoordinator where Self: UIViewController {
+protocol ViewModelCoordinator {
     var coordinatorDelegate: AppCoordinatorDelegate? { get set }
+}
+
+protocol AppCoordinatorDelegate: AnyObject {
+    func gotoFlow<T: Decodable>(_ name: String, model: T)
 }
 
 enum TransitionType {
@@ -22,7 +26,7 @@ enum AppCoordinatorError: Error {
 }
 
 protocol AppCoordinator {
-    associatedtype T: UIViewCoordinator
+    associatedtype T: UIViewController
     var view: T? { get set }
     var navigation: UINavigationController! { get set }
     
@@ -31,15 +35,10 @@ protocol AppCoordinator {
     func instantiateView() -> T?
 }
 
-protocol AppCoordinatorDelegate: AnyObject {
-    func gotoFlow<T: Decodable>(_ name: String, model: T)
-}
-
 extension AppCoordinator {
     mutating func start(_ transition: TransitionType) throws -> T {
         guard let view = instantiateView() else { throw AppCoordinatorError.failedInstantiateViewController }
-        view.coordinatorDelegate = self as? AppCoordinatorDelegate
-        
+
         switch transition {
         case .push:
             self.navigation.pushViewController(view, animated: true)

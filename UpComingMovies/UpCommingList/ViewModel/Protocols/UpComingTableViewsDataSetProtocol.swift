@@ -16,3 +16,8 @@ protocol UpComingTableViewsDataSetProtocol {
   func numRowsSection(section: Int) -> Int
   func valueForCellPosition(indexPath: IndexPath) -> ValueModel?
 }
+
+protocol UpComingSwiftUIDataSetProtocol {
+  func genreForMovie(movie: MoviesModelCodable) -> GenreModelCodable?
+  func instantiateDetailSegue(movie: MoviesModelCodable)
+}

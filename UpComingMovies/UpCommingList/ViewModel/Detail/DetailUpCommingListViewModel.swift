@@ -18,7 +18,7 @@ protocol DetailUpCommingListViewModelProtocol {
   init(movie: MoviesDetailModelCodable)
 }
 
-class DetailUpCommingListViewModel: NSObject, DetailUpCommingListViewModelProtocol {
+class DetailUpCommingListViewModel: ObservableObject, DetailUpCommingListViewModelProtocol {
   var movie: MoviesDetailModelCodable
   
   var title: String?

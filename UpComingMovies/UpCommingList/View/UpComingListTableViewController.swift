@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class UpComingListTableViewController: UITableViewController, UIViewCoordinator {
+class UpComingListTableViewController: UITableViewController, ViewModelCoordinator {
     weak var coordinatorDelegate: AppCoordinatorDelegate?
     
     let viewModel = UpComingListViewModel()
@@ -80,8 +80,7 @@ class UpComingListTableViewController: UITableViewController, UIViewCoordinator 
         if let cell = tableView.dequeueReusableCell(withIdentifier: ListMoviesTableViewCell.identifier)
             as? ListMoviesTableViewCell {
             if let movie = viewModel.valueForCellPosition(indexPath: indexPath) {
-                let genres = viewModel.genreList?.genresForMovie(movie: movie)
-                if let genre = genres?.first {
+                if let genre = viewModel.genreForMovie(movie: movie) {
                     let cellModel = ListMoviesCellModel(genre: genre, movie: movie)
                     cell.drawCell(cellModel: cellModel)
                 }

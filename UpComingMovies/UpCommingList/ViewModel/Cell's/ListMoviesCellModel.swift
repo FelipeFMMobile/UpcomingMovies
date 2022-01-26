@@ -11,7 +11,7 @@ import UIKit
 protocol ListMoviesCellModelProtocol {
     var title: String  { get set }
     var posterPath: URL? { get set }
-    var releaseDate: String? { get set }
+    var releaseDate: String { get set }
     var genreTitle: String { get set }
     init(genre: GenreModelCodable, movie: MoviesModelCodable)
 }
@@ -19,22 +19,22 @@ protocol ListMoviesCellModelProtocol {
 class ListMoviesCellModel: NSObject, ListMoviesCellModelProtocol {
     var title: String = ""
     var posterPath: URL?
-    var releaseDate: String?
+    var releaseDate: String = ""
     var genreTitle: String = ""
+    var sinopses: String = ""
     
     required init(genre: GenreModelCodable, movie: MoviesModelCodable) {
         genreTitle = genre.name ?? ""
         title = movie.title
         let url = ServerConfig.imagesBaseUrl + (movie.posterPath ?? "")
         posterPath = URL(string: url)
+        sinopses = movie.overview ?? ""
         let formatter = DateFormatter()
-        if let release = movie.releaseDate {
-            formatter.dateFormat = ServerConfig.dateFormat
-            if let date = formatter.date(from: release) {
-                formatter.dateFormat = "d MMM"
-                let sDate = formatter.string(from: date)
-                releaseDate = "Comming on " + sDate
-            }
-        }
+        guard let release = movie.releaseDate else { return }
+        formatter.dateFormat = ServerConfig.dateFormat
+        guard let date = formatter.date(from: release)  else { return }
+        formatter.dateFormat = "d MMM"
+        let sDate = formatter.string(from: date)
+        releaseDate = "Comming on " + sDate
     }
 }
