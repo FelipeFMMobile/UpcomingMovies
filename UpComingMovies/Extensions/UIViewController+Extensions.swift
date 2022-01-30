@@ -10,7 +10,13 @@ import Foundation
 import SVProgressHUD
 import UpcomingMoviesApi
 
-extension UIViewController {
+
+protocol UIViewControllerUtils {
+    static func instantiate<T>(_ appStoryboard: AppStoryboard) -> T where T: UIViewController
+    func displayError(_ error: Error)
+}
+
+extension UIViewControllerUtils {
     // swiftlint:disable force_cast
     static func instantiate<T>(_ appStoryboard: AppStoryboard) -> T where T: UIViewController {
         let storyboard = UIStoryboard(name: appStoryboard.getName(), bundle: nil)

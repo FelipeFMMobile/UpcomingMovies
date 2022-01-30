@@ -8,21 +8,23 @@
 
 import Foundation
 
-struct PreviewModelData {
+struct PreviewData {
     static let genres: GenreListModelCodable = load("Genre.json")
     static let movies: PaginationModelCodable<MoviesModelCodable> = load("ListMovie.json")
     static let movieDetail: MoviesDetailModelCodable = load("MovieDetail.json")
-    static var cellModel: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewModelData.genres.genres!.first!,
-                                                             movie: PreviewModelData.movies.results!.first!)
+    static var cellModel: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewData.genres.genres!.first!,
+                                                             movie: PreviewData.movies.results!.first!)
+    static var cellModel2: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewData.genres.genres!.last!,
+                                                             movie: PreviewData.movies.results!.last!)
     static var viewModel: UpComingListViewModel = {
         let model = UpComingListViewModel()
-        model.genreList = PreviewModelData.genres
-        model.movies = PreviewModelData.movies.results!
+        model.genreList = PreviewData.genres
+        model.movies = PreviewData.movies.results!
         return model
     }()
 
     static var detailViewModel: DetailUpCommingListViewModel = {
-        return DetailUpCommingListViewModel(movie: PreviewModelData.movieDetail)
+        return DetailUpCommingListViewModel(movie: PreviewData.movieDetail)
     }()
 }
 

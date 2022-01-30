@@ -43,6 +43,6 @@ struct DetailMovieUI: View {
 
 struct DetailMovieUI_Previews: PreviewProvider {
     static var previews: some View {
-        DetailMovieUI(viewModel: PreviewModelData.detailViewModel)
+        DetailMovieUI(viewModel: PreviewData.detailViewModel)
     }
 }

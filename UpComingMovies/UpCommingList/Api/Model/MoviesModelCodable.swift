@@ -9,7 +9,7 @@
 import Foundation
 
 /// MoviesModelCodable
-public class MoviesModelCodable: Decodable {
+public class MoviesModelCodable: Decodable, Equatable {
     var voteCount: Int
     var idM: Int
     var video: Bool
@@ -40,5 +40,9 @@ public class MoviesModelCodable: Decodable {
         case adult
         case overview
         case releaseDate = "release_date"
+    }
+    
+    public static func == (lhs: MoviesModelCodable, rhs: MoviesModelCodable) -> Bool {
+        return lhs.idM == rhs.idM
     }
 }

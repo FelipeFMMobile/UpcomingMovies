@@ -12,7 +12,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class UpComingListRXTableViewController: UIViewController, UITableViewDelegate {
+class UpComingListRXTableViewController: UIViewController, UITableViewDelegate, UIViewControllerUtils {
     
     @IBOutlet weak var tableView: UITableView!
     

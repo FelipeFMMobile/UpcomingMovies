@@ -21,7 +21,7 @@ protocol UpComingListViewModelRXProtocol {
 class UpComingListViewModelRX: UpComingListViewModel, UpComingListViewModelRXProtocol {
     var moviesSubject = PublishSubject<[MoviesModelCodable]>()
     
-    override func getUpCommingMovies(complete: @escaping (Result<Bool, Error>) -> Void) {
+    override func getUpCommingMovies(complete: @escaping (Result<Bool, ApiError>) -> Void) {
         super.getUpCommingMovies { result in
             self.moviesSubject.onNext(self.movies)
             complete(result)

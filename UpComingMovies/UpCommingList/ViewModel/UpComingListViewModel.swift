@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UpcomingMoviesApi
 
 protocol UpcomingApiProtocol { 
     var api: UpComingListApi { get }
@@ -19,28 +20,28 @@ protocol ViewBasicInfoProtocol {
 }
 
 protocol UpComingListViewModelProtocol: UpcomingApiProtocol {
-    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, Error>) -> Void)
-    func getGenres(complete: @escaping (Result<Bool, Error>) -> Void)
-    func getUpCommingMovies(complete: @escaping (Result<Bool, Error>) -> Void)
+    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, ApiError>) -> Void)
+    func getGenres(complete: @escaping (Result<Bool, ApiError>) -> Void)
+    func getUpCommingMovies(complete: @escaping (Result<Bool, ApiError>) -> Void)
     func resetPage()
     func forwardPage()
 }
 
 class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator, ObservableObject {
-    var coordinatorDelegate: AppCoordinatorDelegate?
-    
+    weak var coordinatorDelegate: AppCoordinatorDelegate?
+
     var api = UpComingListApi()
-    
+
     var currentPage = 1
     var maxPages = 1
-    
+
     var genreList: GenreListModelCodable?
-    
+
     @Published var movies = [MoviesModelCodable]()
     var detailMovie: MoviesDetailModelCodable!
-    
+
     /// getMovieInfo
-    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, Error>) -> Void) {
+    func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, ApiError>) -> Void) {
         api.requestMoviesDetail(movie: movie) { [weak self] resultInfo in
             switch resultInfo {
             case .success(let model):
@@ -51,9 +52,9 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
             }
         }
     }
-    
+
     /// getGenres
-    func getGenres(complete: @escaping (Result<Bool, Error>) -> Void) {
+    func getGenres(complete: @escaping (Result<Bool, ApiError>) -> Void) {
         api.requestGenres { [weak self] resultInfo in
             switch resultInfo {
             case .success(let model):
@@ -64,9 +65,9 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
             }
         }
     }
-    
+
     /// getUpCommingMovies
-    func getUpCommingMovies(complete: @escaping (Result<Bool, Error>) -> Void) {
+    func getUpCommingMovies(complete: @escaping (Result<Bool, ApiError>) -> Void) {
         api.requestMovies(page: currentPage) { [weak self] resultInfo in
             switch resultInfo {
             case .success(let model):
@@ -82,12 +83,12 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
             }
         }
     }
-    
+
     public func resetPage() {
         self.currentPage = 1
         movies.removeAll()
     }
-    
+
     public func forwardPage() {
         if self.currentPage < maxPages {
             currentPage += 1
@@ -114,16 +115,17 @@ extension UpComingListViewModel: UpComingSwiftUIDataSetProtocol {
         return genreList?.genresForMovie(movie: movie)?.first
     }
     
-    public func instantiateDetailSegue(movie: MoviesModelCodable) {
+    public func instantiateDetailSegue(movie: MoviesModelCodable,
+                                       _ completion: ((Result<Bool, ApiError>) -> Void)? = nil) {
         getMovieInfo(movie: movie, complete: { [weak self] result in
             switch result {
             case .success:
                 if let movieInfo = self?.detailMovie {
                     self?.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
+                    completion?(.success(true))
                 }
             case .failure(let error):
-                break
-                //self?.displayError(error)
+                completion?(.failure(error))
             }
         })
     }

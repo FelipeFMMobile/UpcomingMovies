@@ -7,18 +7,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MovieRowUI: View {
     var rowModel: ListMoviesCellModel
-    
     var body: some View {
         HStack(alignment: .top,
                spacing: 12.0) {
-            Image("sample_image")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .shadow(color: .gray,
-                        radius: 2.0, x: 4.0, y: 4.0)
+            ImageLoaderView(url: rowModel.posterPath)
                 .frame(height: 150)
             VStack(alignment: .leading, spacing: 4.0) {
                 Text(rowModel.title)
@@ -45,6 +41,9 @@ struct MovieRowUI: View {
 
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
-        MovieRowUI(rowModel: PreviewModelData.cellModel)
+        Group {
+            MovieRowUI(rowModel: PreviewData.cellModel)
+            MovieRowUI(rowModel: PreviewData.cellModel2)
+        }.previewLayout(.fixed(width: 300, height: 200))
     }
 }

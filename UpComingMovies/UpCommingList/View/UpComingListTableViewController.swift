@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class UpComingListTableViewController: UITableViewController, ViewModelCoordinator {
+class UpComingListTableViewController: UITableViewController, ViewModelCoordinator, UIViewControllerUtils {
     weak var coordinatorDelegate: AppCoordinatorDelegate?
     
     let viewModel = UpComingListViewModel()

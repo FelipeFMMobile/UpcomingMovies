@@ -10,7 +10,7 @@ import UIKit
 
 protocol ListMoviesCellModelProtocol {
     var title: String  { get set }
-    var posterPath: URL? { get set }
+    var posterPath: URL { get set }
     var releaseDate: String { get set }
     var genreTitle: String { get set }
     init(genre: GenreModelCodable, movie: MoviesModelCodable)
@@ -18,7 +18,7 @@ protocol ListMoviesCellModelProtocol {
 
 class ListMoviesCellModel: NSObject, ListMoviesCellModelProtocol {
     var title: String = ""
-    var posterPath: URL?
+    var posterPath: URL = URL(string: "https://www.apple.com")!
     var releaseDate: String = ""
     var genreTitle: String = ""
     var sinopses: String = ""
@@ -27,7 +27,9 @@ class ListMoviesCellModel: NSObject, ListMoviesCellModelProtocol {
         genreTitle = genre.name ?? ""
         title = movie.title
         let url = ServerConfig.imagesBaseUrl + (movie.posterPath ?? "")
-        posterPath = URL(string: url)
+        if let url = URL(string: url) {
+            posterPath = url
+        }
         sinopses = movie.overview ?? ""
         let formatter = DateFormatter()
         guard let release = movie.releaseDate else { return }

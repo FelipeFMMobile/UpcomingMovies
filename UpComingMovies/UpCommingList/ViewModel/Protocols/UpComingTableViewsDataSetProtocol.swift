@@ -9,6 +9,7 @@
 //
 
 import Foundation
+import UpcomingMoviesApi
 
 protocol UpComingTableViewsDataSetProtocol {
   associatedtype ValueModel
@@ -19,5 +20,5 @@ protocol UpComingTableViewsDataSetProtocol {
 
 protocol UpComingSwiftUIDataSetProtocol {
   func genreForMovie(movie: MoviesModelCodable) -> GenreModelCodable?
-  func instantiateDetailSegue(movie: MoviesModelCodable)
+  func instantiateDetailSegue(movie: MoviesModelCodable, _ completion: ((Result<Bool, ApiError>) -> Void)?)
 }

@@ -14,20 +14,18 @@ protocol UpCommingCoordinatorHostingProtocol: AppCoordinator {
 }
 
 class UpCommingCoordinatorHosting: UpCommingCoordinatorProtocol {
-    
-    typealias ListView = ListMoviesHostingController
     typealias DetailView = DetailUpComingListTableViewController
     
     var navigation: UINavigationController!
-    var view: ListView?
+    var view: UIViewController?
     
     required init(nav: UINavigationController) {
         navigation = nav
     }
     
-    func instantiateView() -> ListView? {
-        let view = ListMoviesHostingController()
-        view.viewModel.coordinatorDelegate = self
+    func instantiateView() -> UIViewController? {
+        let view = HostingController(uiView: ListMoviesUI())
+        view.rootView.viewModel.coordinatorDelegate = self
         return view
     }
     

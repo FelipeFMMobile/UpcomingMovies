@@ -120,7 +120,7 @@ PODS:
   - KIF (3.8.6):
     - KIF/Core (= 3.8.6)
   - KIF/Core (3.8.6)
-  - Kingfisher (5.2.0)
+  - Kingfisher (6.3.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -162,7 +162,7 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - Firebase/Performance
   - KIF
-  - Kingfisher (= 5.2.0)
+  - Kingfisher (~> 6.3.0)
   - Nimble
   - OHHTTPStubs/Swift
   - Quick
@@ -222,7 +222,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   KIF: e2e1bab222b6c9523a0a88caab31f8524fe82404
-  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
@@ -236,6 +236,6 @@ SPEC CHECKSUMS:
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
   UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
 
-PODFILE CHECKSUM: f2897da4147936c1c3db4dabebb15298ac137677
+PODFILE CHECKSUM: e75e03a74a0ae5b7eb97fbb538052f19e7ceb9c7
 
 COCOAPODS: 1.11.2

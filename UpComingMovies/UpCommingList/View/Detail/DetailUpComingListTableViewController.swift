@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class DetailUpComingListTableViewController: UITableViewController {
+class DetailUpComingListTableViewController: UITableViewController, UIViewControllerUtils {
 
     static public var DetailIdentifier = "DetailMovieView"
     
