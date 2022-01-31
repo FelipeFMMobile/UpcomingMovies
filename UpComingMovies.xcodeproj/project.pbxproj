@@ -380,6 +380,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC56360327A8A30A006AA64B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BCA0105E27A07FAF0020334E /* DetailMovieUI.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		BC5D80EE279DF295001626DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,11 +415,10 @@
 		BC5D80F1279E129C001626DB /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC7AA96327A73ADB009FEF0F /* Coordinator */,
 				BC7AA96527A73B0A009FEF0F /* Views */,
 				BC7AA96427A73AEC009FEF0F /* UIHosting */,
-				BC7AA96327A73ADB009FEF0F /* Coordinator */,
 				BC5401C5279F53B200D44BEA /* PreviewData.swift */,
-				BCA0105E27A07FAF0020334E /* DetailMovieUI.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -436,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				BC7AA96627A745C9009FEF0F /* List */,
+				BC56360327A8A30A006AA64B /* Detail */,
 			);
 			path = Views;
 			sourceTree = "<group>";

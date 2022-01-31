@@ -9,13 +9,11 @@
 import Foundation
 
 protocol UpCommingCoordinatorHostingProtocol: AppCoordinator {
-    func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailUpComingListTableViewController
+    func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> UIViewController
     func gotoDetail(detailMovie: MoviesDetailModelCodable)
 }
 
-class UpCommingCoordinatorHosting: UpCommingCoordinatorProtocol {
-    typealias DetailView = DetailUpComingListTableViewController
-    
+class UpCommingCoordinatorHosting: UpCommingCoordinatorHostingProtocol {
     var navigation: UINavigationController!
     var view: UIViewController?
     
@@ -29,10 +27,9 @@ class UpCommingCoordinatorHosting: UpCommingCoordinatorProtocol {
         return view
     }
     
-    internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailView {
-        let detailController: DetailView = DetailView.instantiate(.list)
-        detailController.viewModel = DetailUpCommingListViewModel(movie: detailMovie)
-        return detailController
+    internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> UIViewController {
+        let view = HostingController(uiView: DetailMovieUI(viewModel: DetailUpCommingListViewModel(movie: detailMovie)))
+        return view
     }
     
     // MARK: Navigation

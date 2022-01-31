@@ -11,21 +11,18 @@ import SwiftUI
 struct DetailMovieUI: View {
     @ObservedObject var viewModel: DetailUpCommingListViewModel
     var body: some View {
-            VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: .top) {
-                    Image("sample_image")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .shadow(color: .gray,
-                                radius: 2.0, x: 4.0, y: 4.0)
-                        //.frame(height: 200)
+                    ImageLoaderView(url: viewModel.posterPath)
+                        .frame(height: 200)
                     Text(viewModel.overview ?? "")
                         .font(.system(size: 14))
-                        .lineLimit(11)
+                        .lineLimit(12)
                         .foregroundColor(.gray)
+                        .padding(8)
                 }
                 Text(viewModel.title ?? "")
-                    .font(.system(size: 18))
+                    .font(.system(size: 22))
                     .lineLimit(3)
                 Text(viewModel.releaseDate ?? "")
                     .font(.system(size: 14))
@@ -44,5 +41,10 @@ struct DetailMovieUI: View {
 struct DetailMovieUI_Previews: PreviewProvider {
     static var previews: some View {
         DetailMovieUI(viewModel: PreviewData.detailViewModel)
+    }
+}
+
+extension DetailMovieUI: LoaderHostingState {
+    func startDidLoad() {
     }
 }
