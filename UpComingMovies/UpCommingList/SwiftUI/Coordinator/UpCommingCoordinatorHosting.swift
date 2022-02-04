@@ -6,14 +6,11 @@
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
-import Foundation
-
 protocol UpCommingCoordinatorHostingProtocol: AppCoordinator {
-    func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> UIViewController
-    func gotoDetail(detailMovie: MoviesDetailModelCodable)
 }
 
-class UpCommingCoordinatorHosting: UpCommingCoordinatorHostingProtocol {
+@available(iOS 14.0, *)
+final class UpCommingCoordinatorHosting: UpCommingCoordinatorHostingProtocol {
     var navigation: UINavigationController!
     var view: UIViewController?
     
@@ -22,29 +19,12 @@ class UpCommingCoordinatorHosting: UpCommingCoordinatorHostingProtocol {
     }
     
     func instantiateView() -> UIViewController? {
-        let view = HostingController(uiView: ListMoviesUI())
-        view.rootView.viewModel.coordinatorDelegate = self
+        self.view = HostingController(uiView: getListMoviesUI())
         return view
     }
     
-    internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> UIViewController {
-        let view = HostingController(uiView: DetailMovieUI(viewModel: DetailUpCommingListViewModel(movie: detailMovie)))
+    func getListMoviesUI() -> ListMoviesUI {
+        let view = ListMoviesUI()
         return view
-    }
-    
-    // MARK: Navigation
-    
-    func gotoDetail(detailMovie: MoviesDetailModelCodable) {
-        DispatchQueue.main.async {
-            let detailController = self.instantiateDetail(detailMovie)
-            self.navigation.pushViewController(detailController, animated: true)
-        }
-    }
-}
-
-extension UpCommingCoordinatorHosting: AppCoordinatorDelegate {
-    func gotoFlow<T>(_ name: String, model: T) where T: Decodable {
-        guard let model = model as? MoviesDetailModelCodable else { return }
-        gotoDetail(detailMovie: model)
     }
 }

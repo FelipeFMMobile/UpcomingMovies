@@ -10,7 +10,6 @@ import Foundation
 import SVProgressHUD
 import UpcomingMoviesApi
 
-
 protocol UIViewControllerUtils {
     static func instantiate<T>(_ appStoryboard: AppStoryboard) -> T where T: UIViewController
     func displayError(_ error: Error)

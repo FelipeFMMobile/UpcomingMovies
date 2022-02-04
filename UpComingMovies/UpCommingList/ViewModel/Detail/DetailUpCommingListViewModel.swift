@@ -7,27 +7,29 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol DetailUpCommingListViewModelProtocol {
-    var movie: MoviesDetailModelCodable { get set }
+    var movie: MoviesDetailModelCodable? { get set }
     var title: String? { get set }
-    var posterPath: URL { get set }
+    var posterPath: URL? { get set }
     var overview: String? { get set }
     var releaseDate: String? { get set }
     var genresString: String? { get set }
-    init(movie: MoviesDetailModelCodable)
+    init(movie: MoviesDetailModelCodable?)
 }
 
 class DetailUpCommingListViewModel: ObservableObject, DetailUpCommingListViewModelProtocol {
-    var movie: MoviesDetailModelCodable
+    var movie: MoviesDetailModelCodable?
     
     var title: String?
-    var posterPath: URL = URL(string: "www.apple.com")!
+    var posterPath: URL?
     var overview: String?
     var releaseDate: String?
     var genresString: String?
     
-    required init(movie: MoviesDetailModelCodable) {
+    required init(movie: MoviesDetailModelCodable?) {
+        guard let movie = movie else { return }
         self.movie = movie
         title = movie.title
         overview = movie.overview

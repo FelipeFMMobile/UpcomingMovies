@@ -17,9 +17,11 @@ struct MovieRowUI: View {
             ImageLoaderView(url: rowModel.posterPath)
                 .frame(height: 150)
             VStack(alignment: .leading, spacing: 4.0) {
-                Text(rowModel.title)
-                    .font(.system(size: 18))
-                    .lineLimit(2)
+                HStack(alignment: .top) {
+                    Text(rowModel.title)
+                        .font(.system(size: 18))
+                        .lineLimit(2)
+                }
                 Text(rowModel.genreTitle)
                     .font(.system(size: 12))
                 Text(rowModel.sinopses)

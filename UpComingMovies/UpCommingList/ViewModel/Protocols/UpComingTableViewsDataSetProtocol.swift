@@ -20,5 +20,4 @@ protocol UpComingTableViewsDataSetProtocol {
 
 protocol UpComingSwiftUIDataSetProtocol {
   func genreForMovie(movie: MoviesModelCodable) -> GenreModelCodable?
-  func instantiateDetailSegue(movie: MoviesModelCodable, _ completion: ((Result<Bool, ApiError>) -> Void)?)
 }

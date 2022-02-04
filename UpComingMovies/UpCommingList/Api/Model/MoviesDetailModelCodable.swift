@@ -9,7 +9,7 @@
 import Foundation
 
 /// MoviesDetailModelCodable
-public class MoviesDetailModelCodable: Decodable {
+public struct MoviesDetailModelCodable: Decodable {
     var adult: Bool
     var backDropPath: String
     var belongsToCollection: CollectionCodable?
@@ -57,7 +57,7 @@ public class MoviesDetailModelCodable: Decodable {
         case voteCount = "vote_count"
     }
 
-    public class CollectionCodable: Decodable {
+    public struct CollectionCodable: Decodable {
         var idM: Int
         var name: String
         var posterPath: String?
@@ -70,5 +70,4 @@ public class MoviesDetailModelCodable: Decodable {
             case backdroPath = "backdrop_path"
         }
     }
-
 }

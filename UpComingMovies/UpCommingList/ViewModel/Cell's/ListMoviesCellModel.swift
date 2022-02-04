@@ -16,12 +16,14 @@ protocol ListMoviesCellModelProtocol {
     init(genre: GenreModelCodable, movie: MoviesModelCodable)
 }
 
-class ListMoviesCellModel: NSObject, ListMoviesCellModelProtocol {
+class ListMoviesCellModel: NSObject, ObservableObject, ListMoviesCellModelProtocol {
     var title: String = ""
     var posterPath: URL = URL(string: "https://www.apple.com")!
     var releaseDate: String = ""
     var genreTitle: String = ""
     var sinopses: String = ""
+    var movieID: Int = 0
+    var isFavorite: Bool = false
     
     required init(genre: GenreModelCodable, movie: MoviesModelCodable) {
         genreTitle = genre.name ?? ""
@@ -38,5 +40,6 @@ class ListMoviesCellModel: NSObject, ListMoviesCellModelProtocol {
         formatter.dateFormat = "d MMM"
         let sDate = formatter.string(from: date)
         releaseDate = "Comming on " + sDate
+        movieID = movie.idM
     }
 }

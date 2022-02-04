@@ -36,9 +36,10 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
     var maxPages = 1
 
     var genreList: GenreListModelCodable?
-
     @Published var movies = [MoviesModelCodable]()
-    var detailMovie: MoviesDetailModelCodable!
+    var detailMovie: MoviesDetailModelCodable?
+    @Published var detailViewModel = DetailUpCommingListViewModel(movie: nil)
+    var envData = EnviromentData()
 
     /// getMovieInfo
     func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, ApiError>) -> Void) {
@@ -46,6 +47,9 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
             switch resultInfo {
             case .success(let model):
                 self?.detailMovie = model
+                DispatchQueue.main.async {
+                    self?.detailViewModel = DetailUpCommingListViewModel(movie: model)
+                }
                 complete(.success(true))
             case .failure(let error):
                 complete(.failure(error))
@@ -75,6 +79,8 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
                 if let results = model.results {
                     DispatchQueue.main.async {
                         self?.movies += results
+                        let movieMark = results.map { EnviromentData.MovieMark(idM: $0.idM, isFavorite: false) }
+                        self?.envData.favoritesMovies += movieMark
                     }
                 }
                 complete(.success(true))
@@ -113,21 +119,6 @@ extension UpComingListViewModel: UpComingTableViewsDataSetProtocol {
 extension UpComingListViewModel: UpComingSwiftUIDataSetProtocol {
     func genreForMovie(movie: MoviesModelCodable) -> GenreModelCodable? {
         return genreList?.genresForMovie(movie: movie)?.first
-    }
-    
-    public func instantiateDetailSegue(movie: MoviesModelCodable,
-                                       _ completion: ((Result<Bool, ApiError>) -> Void)? = nil) {
-        getMovieInfo(movie: movie, complete: { [weak self] result in
-            switch result {
-            case .success:
-                if let movieInfo = self?.detailMovie {
-                    self?.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
-                    completion?(.success(true))
-                }
-            case .failure(let error):
-                completion?(.failure(error))
-            }
-        })
     }
 }
 

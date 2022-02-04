@@ -10,7 +10,8 @@ import UIKit
 import SwiftUI
 
 protocol LoaderHostingState {
-    func startDidLoad()
+    func startLoad()
+    func titleForView() -> String?
 }
 
 class HostingController<T: LoaderHostingState & View>: UIHostingController<T> {
@@ -21,7 +22,6 @@ class HostingController<T: LoaderHostingState & View>: UIHostingController<T> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        rootView.startDidLoad()
     }
 
     @MainActor @objc required dynamic init?(coder aDecoder: NSCoder) {

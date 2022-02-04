@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var coordinator: UpCommingCoordinatorHosting?
+    var coordinator: AnyObject?
     
     var sdkDependency: [SdkProtocol] = [
         FirebaseSdk()
@@ -37,11 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initViews() {
         self.window = UIWindow()
-        coordinator = UpCommingCoordinatorHosting(nav: UINavigationController())
-        do {
-            self.window?.rootViewController = try coordinator?.start(.none).navigationController
-        } catch {
-            debugPrint("error initiate coordinator UpCommingCoordinator \(error.localizedDescription)")
+        if #available(iOS 14.0, *) {
+            var coordinator = UpCommingCoordinatorHosting(nav: UINavigationController())
+            self.window?.rootViewController = try? coordinator.start(.none).navigationController
+            self.coordinator = coordinator
+        } else {
+            var coordinator = UpCommingCoordinator(nav: UINavigationController())
+            self.window?.rootViewController = try? coordinator.start(.none).navigationController
+            self.coordinator = coordinator
         }
     }
     
