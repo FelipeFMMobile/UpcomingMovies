@@ -37,8 +37,8 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
 
     var genreList: GenreListModelCodable?
     @Published var movies = [MoviesModelCodable]()
+    var detailViewModel = DetailUpCommingListViewModel(movie: nil)
     var detailMovie: MoviesDetailModelCodable?
-    @Published var detailViewModel = DetailUpCommingListViewModel(movie: nil)
     var envData = EnviromentData()
 
     /// getMovieInfo
@@ -77,8 +77,8 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
             case .success(let model):
                 self?.maxPages = model.totalPages
                 if let results = model.results {
+                    self?.movies += results
                     DispatchQueue.main.async {
-                        self?.movies += results
                         let movieMark = results.map { EnviromentData.MovieMark(idM: $0.idM, isFavorite: false) }
                         self?.envData.favoritesMovies += movieMark
                     }

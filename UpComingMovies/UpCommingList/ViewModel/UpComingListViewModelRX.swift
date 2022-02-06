@@ -23,7 +23,9 @@ class UpComingListViewModelRX: UpComingListViewModel, UpComingListViewModelRXPro
     
     override func getUpCommingMovies(complete: @escaping (Result<Bool, ApiError>) -> Void) {
         super.getUpCommingMovies { result in
-            self.moviesSubject.onNext(self.movies)
+            DispatchQueue.main.async {
+                self.moviesSubject.onNext(self.movies)
+            }
             complete(result)
         }
     }

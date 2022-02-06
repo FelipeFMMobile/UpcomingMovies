@@ -456,10 +456,10 @@
 		BC7AA96627A745C9009FEF0F /* List */ = {
 			isa = PBXGroup;
 			children = (
+				BC5401CB279F5B3000D44BEA /* ListMoviesUI.swift */,
 				BCCFA5C3279EFB2700E0806A /* MovieRowUI.swift */,
 				BC7AA96727A747EC009FEF0F /* ImageLoaderView.swift */,
 				BC8AD52B27A9F73A006DBD01 /* StarButton.swift */,
-				BC5401CB279F5B3000D44BEA /* ListMoviesUI.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";

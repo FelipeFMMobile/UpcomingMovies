@@ -11,7 +11,7 @@ import Foundation
 /// MoviesDetailModelCodable
 public struct MoviesDetailModelCodable: Decodable {
     var adult: Bool
-    var backDropPath: String
+    var backDropPath: String?
     var belongsToCollection: CollectionCodable?
     var budget: Int
     var genres: [GenreModelCodable]?

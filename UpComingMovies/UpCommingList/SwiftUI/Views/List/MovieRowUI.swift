@@ -9,8 +9,13 @@
 import SwiftUI
 import Kingfisher
 
+@available(iOS 14.0, *)
 struct MovieRowUI: View {
-    var rowModel: ListMoviesCellModel
+    @StateObject var rowModel: ListMoviesCellModel
+    @EnvironmentObject private var envData: EnviromentData
+    var favoriteIndex: Int {
+        envData.favoritesMovies.firstIndex(where: { $0.idM == rowModel.movieID }) ?? -1
+    }
     var body: some View {
         HStack(alignment: .top,
                spacing: 12.0) {
@@ -34,6 +39,9 @@ struct MovieRowUI: View {
                     Spacer()
                     Text(rowModel.releaseDate)
                         .font(.system(size: 12))
+                    if favoriteIndex >= 0 {
+                        StarButton(isSet: $envData.favoritesMovies[favoriteIndex].isFavorite)
+                    }
                 }
             }
         }.frame(height: 150)
@@ -41,6 +49,7 @@ struct MovieRowUI: View {
     }
 }
 
+@available(iOS 14.0, *)
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
         Group {

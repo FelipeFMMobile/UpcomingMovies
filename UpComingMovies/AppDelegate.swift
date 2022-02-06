@@ -37,15 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initViews() {
         self.window = UIWindow()
-        if #available(iOS 14.0, *) {
-            var coordinator = UpCommingCoordinatorHosting(nav: UINavigationController())
-            self.window?.rootViewController = try? coordinator.start(.none).navigationController
-            self.coordinator = coordinator
-        } else {
-            var coordinator = UpCommingCoordinator(nav: UINavigationController())
-            self.window?.rootViewController = try? coordinator.start(.none).navigationController
-            self.coordinator = coordinator
-        }
+        var coordinator = UpCommingCoordinator(nav: UINavigationController())
+        self.window?.rootViewController = try? coordinator.start(.first).navigationController
+        self.coordinator = coordinator
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

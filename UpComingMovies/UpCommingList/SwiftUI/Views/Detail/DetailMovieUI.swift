@@ -57,6 +57,7 @@ struct DetailMovieUI: View {
 struct DetailMovieUI_Previews: PreviewProvider {
     static var previews: some View {
         DetailMovieUI(viewModel: .constant(PreviewData.detailViewModel))
+            .environmentObject(EnviromentData())
     }
 }
 
@@ -67,6 +68,5 @@ extension DetailMovieUI: LoaderHostingState {
     
     func titleForView() -> String? {
         return viewModel.title
-        
     }
 }

@@ -18,30 +18,28 @@ struct ListMoviesUI: View, UIViewControllerUtils {
         NavigationView {
             VStack {
                 List(viewModel.movies, id: \.idM) { movie in
-                    if let genre = viewModel.genreForMovie(movie: movie) {
-                        let rowModel = ListMoviesCellModel(genre: genre, movie: movie)
-                        NavigationLink {
-                            DetailMovieUI(viewModel: $viewModel.detailViewModel)
+                    NavigationLink {
+                        DetailMovieUI(viewModel: $viewModel.detailViewModel)
                             .onAppear {
-                                DispatchQueue.main.async {
-                                    SVProgressHUD.show()
-                                    viewModel.getMovieInfo(movie: movie) { result in
-                                        SVProgressHUD.dismiss()
-                                        switch result {
-                                        case .success:
-                                            break
-                                        case .failure:
-                                            break
-                                        }
+                                SVProgressHUD.show()
+                                viewModel.getMovieInfo(movie: movie) { result in
+                                    SVProgressHUD.dismiss()
+                                    switch result {
+                                    case .success:
+                                        break
+                                    case .failure:
+                                        break
                                     }
                                 }
                             }.environmentObject(viewModel.envData)
-                        } label: {
+                    } label: {
+                        if let genre = viewModel.genreForMovie(movie: movie) {
+                            let rowModel = ListMoviesCellModel(genre: genre, movie: movie)
                             MovieRowUI(rowModel: rowModel)
                                 .onAppear {
                                     isLast = viewModel.movies.last == movie
                                     if isLast { loadMore() }
-                                }
+                                }.environmentObject(viewModel.envData)
                         }
                     }
                 }.listStyle(.plain)

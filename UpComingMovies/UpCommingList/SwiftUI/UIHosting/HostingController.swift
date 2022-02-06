@@ -14,6 +14,8 @@ protocol LoaderHostingState {
     func titleForView() -> String?
 }
 
+/// A hostingController generic for swift between MVVM (View) and MVVM (SwiftUI) Archr's
+/// Not a definitive solution.
 class HostingController<T: LoaderHostingState & View>: UIHostingController<T> {
 
     public init(uiView: T) {

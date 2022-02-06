@@ -20,7 +20,7 @@ protocol DetailUpCommingListViewModelProtocol {
 }
 
 class DetailUpCommingListViewModel: ObservableObject, DetailUpCommingListViewModelProtocol {
-    var movie: MoviesDetailModelCodable?
+    @Published var movie: MoviesDetailModelCodable?
     
     var title: String?
     var posterPath: URL?

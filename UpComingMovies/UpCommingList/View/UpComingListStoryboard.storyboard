@@ -74,6 +74,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="9Ot-x3-UJN">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="SwiftUI" id="sod-C1-TZx">
+                            <connections>
+                                <action selector="callSwiftUIVersion:" destination="pOv-Ya-0gW" id="YQa-lq-9hm"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="RX Version" id="TU1-mg-mfk">
                             <connections>
                                 <segue destination="hUO-9B-BNr" kind="show" id="b7j-I0-FCW"/>

@@ -6,8 +6,6 @@
 //  Copyright © 2022 FMMobile. All rights reserved.
 //
 
-import Foundation
-
 struct PreviewData {
     static let genres: GenreListModelCodable = load("Genre.json")
     static let movies: PaginationModelCodable<MoviesModelCodable> = load("ListMovie.json")

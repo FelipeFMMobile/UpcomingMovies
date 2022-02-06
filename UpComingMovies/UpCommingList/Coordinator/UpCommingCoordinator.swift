@@ -20,7 +20,7 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     
     var navigation: UINavigationController!
     var view: ListView?
-    
+
     required init(nav: UINavigationController) {
         navigation = nav
     }

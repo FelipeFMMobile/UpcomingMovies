@@ -13,6 +13,9 @@ class UpComingListTableViewController: UITableViewController, ViewModelCoordinat
     weak var coordinatorDelegate: AppCoordinatorDelegate?
     
     let viewModel = UpComingListViewModel()
+
+    // here justo for sample purpose
+    var coordinator: AnyObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,5 +113,16 @@ class UpComingListTableViewController: UITableViewController, ViewModelCoordinat
                 self?.displayError(error)
             }
         })
+    }
+    
+    @IBAction func callSwiftUIVersion(_ sender: Any) {
+        if #available(iOS 14.0, *) {
+            guard let navController = self.navigationController else { return }
+            var coordinator = UpCommingCoordinatorHosting(nav: navController)
+            if let controller = try? coordinator.start(.none) {
+                self.present(controller, animated: true, completion: nil)
+            }
+            self.coordinator = coordinator
+        }
     }
 }

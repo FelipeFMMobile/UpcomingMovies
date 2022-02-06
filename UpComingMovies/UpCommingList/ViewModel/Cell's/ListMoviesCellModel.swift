@@ -23,7 +23,7 @@ class ListMoviesCellModel: NSObject, ObservableObject, ListMoviesCellModelProtoc
     var genreTitle: String = ""
     var sinopses: String = ""
     var movieID: Int = 0
-    var isFavorite: Bool = false
+    @Published var isFavorite: Bool = false
     
     required init(genre: GenreModelCodable, movie: MoviesModelCodable) {
         genreTitle = genre.name ?? ""

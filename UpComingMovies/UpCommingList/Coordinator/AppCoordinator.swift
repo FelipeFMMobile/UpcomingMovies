@@ -17,6 +17,7 @@ protocol AppCoordinatorDelegate: AnyObject {
 enum TransitionType {
     case push
     case modal(controller: UIViewController)
+    case first
     case none
 }
 
@@ -45,8 +46,10 @@ extension AppCoordinator {
         case .modal(let parentController):
             self.navigation.viewControllers = [view]
             parentController.present(self.navigation, animated: true, completion: nil)
-        case .none:
+        case .first:
             self.navigation.viewControllers = [view]
+        case .none:
+            break
         }
         return view
     }
