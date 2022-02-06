@@ -5,6 +5,9 @@
 //  Created by FMMobile on 11/06/2019.
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
+//  SwiftUI view's cover a tentative to give a first look on Swiftui, also, keeping MVVM and Coordinator patterns
+//  Some code arragement's still needed
+//
 
 protocol UpCommingCoordinatorHostingProtocol: AppCoordinator {
 }
