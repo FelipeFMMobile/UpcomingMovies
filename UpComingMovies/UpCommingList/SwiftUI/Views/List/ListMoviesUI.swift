@@ -27,8 +27,8 @@ struct ListMoviesUI: View, UIViewControllerUtils {
                                     switch result {
                                     case .success:
                                         break
-                                    case .failure:
-                                        break
+                                    case .failure(let error):
+                                        self.displayError(error)
                                     }
                                 }
                             }.environmentObject(viewModel.envData)

@@ -49,8 +49,8 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
                 self?.detailMovie = model
                 DispatchQueue.main.async {
                     self?.detailViewModel = DetailUpCommingListViewModel(movie: model)
+                    complete(.success(true))
                 }
-                complete(.success(true))
             case .failure(let error):
                 complete(.failure(error))
             }

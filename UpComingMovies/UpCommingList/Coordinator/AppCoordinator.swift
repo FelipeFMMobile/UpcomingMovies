@@ -1,5 +1,5 @@
 //
-//  BaseCoordinator.swift
+//  AppCoordinator.swift
 //  UpComingMovies
 //
 //  Created by FelipeMenezes on 20/05/20.

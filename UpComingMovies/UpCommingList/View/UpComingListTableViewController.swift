@@ -9,12 +9,10 @@
 import UIKit
 import SVProgressHUD
 
-class UpComingListTableViewController: UITableViewController, ViewModelCoordinator, UIViewControllerUtils {
-    weak var coordinatorDelegate: AppCoordinatorDelegate?
-    
+class UpComingListTableViewController: UITableViewController, UIViewControllerUtils {
     let viewModel = UpComingListViewModel()
 
-    // here justo for sample purpose
+    // here just for sample purpose of SwiftUI
     var coordinator: AnyObject?
     
     override func viewDidLoad() {
@@ -107,7 +105,7 @@ class UpComingListTableViewController: UITableViewController, ViewModelCoordinat
             switch result {
             case .success:
                 if let movieInfo = self?.viewModel.detailMovie {
-                    self?.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
+                    self?.viewModel.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
                 }
             case .failure(let error):
                 self?.displayError(error)

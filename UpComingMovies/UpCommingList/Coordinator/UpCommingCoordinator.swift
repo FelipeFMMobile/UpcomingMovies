@@ -26,7 +26,9 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     }
     
     func instantiateView() -> ListView? {
-        return ListView.instantiate(.list)
+        let view: ListView =  ListView.instantiate(.list)
+        view.viewModel.coordinatorDelegate = self
+        return view
     }
     
     internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailView {

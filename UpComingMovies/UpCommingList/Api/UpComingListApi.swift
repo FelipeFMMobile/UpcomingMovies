@@ -25,7 +25,7 @@ class UpComingListApi: UpComingListApiProtocol {
         let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d", "page": "\(page)"]
         let endpoint = UpcomingEndpoints.upComing
         let apiParam = ApiParamFactory.basic.generate(endPoint: endpoint.path(), params: GetParams(params: params))
-        api.run(param: apiParam, PaginationModelCodable<MoviesModelCodable>.self) { result, request in
+        api.run(param: apiParam, PaginationModelCodable<MoviesModelCodable>.self) { result, _ in
             switch result {
             case .success(let model):
                 complete(.success(model))
@@ -39,7 +39,7 @@ class UpComingListApi: UpComingListApiProtocol {
         let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d"]
         let apiParam = ApiParamFactory.basic.generate(endPoint: UpcomingEndpoints.genres.path(),
                                                       params: GetParams(params: params))
-        api.run(param: apiParam, GenreListModelCodable.self) { result, request in
+        api.run(param: apiParam, GenreListModelCodable.self) { result, _ in
             switch result {
             case .success(let model):
                 complete(.success(model))
@@ -53,7 +53,7 @@ class UpComingListApi: UpComingListApiProtocol {
         let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d"]
         let apiParam = ApiParamFactory.basic.generate(endPoint: UpcomingEndpoints.movie(String(movie.idM)).path(),
                                                       params: GetParams(params: params))
-        api.run(param: apiParam, MoviesDetailModelCodable.self) { result, request in
+        api.run(param: apiParam, MoviesDetailModelCodable.self) { result, _ in
             switch result {
             case .success(let model):
                 complete(.success(model))
