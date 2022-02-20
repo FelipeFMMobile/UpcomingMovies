@@ -11,7 +11,6 @@
 		36F8B2D6245F652E00BF5630 /* FormEncodedParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F8B2D5245F652E00BF5630 /* FormEncodedParams.swift */; };
 		51430E3F229200D900517C4C /* UpcomingMoviesApiParamsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51430E3E229200D900517C4C /* UpcomingMoviesApiParamsTests.swift */; };
 		51430E412292014200517C4C /* UpcomingMoviesApiRunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51430E402292014200517C4C /* UpcomingMoviesApiRunTests.swift */; };
-		51430E44229201F700517C4C /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = 51430E43229201F700517C4C /* Genre.json */; };
 		51430E462292024E00517C4C /* GenreResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51430E452292024E00517C4C /* GenreResponseCodable.swift */; };
 		51430E482292071E00517C4C /* GenreCorrupt.json in Resources */ = {isa = PBXBuildFile; fileRef = 51430E472292071E00517C4C /* GenreCorrupt.json */; };
 		51430E4A22920AD000517C4C /* UpcomingMoviesApiRestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51430E4922920AD000517C4C /* UpcomingMoviesApiRestTests.swift */; };
@@ -29,6 +28,8 @@
 		51EE91DE2291EBCA00BE0D03 /* GetParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91DD2291EBCA00BE0D03 /* GetParams.swift */; };
 		51EE91E02291EEF600BE0D03 /* ApiRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EE91DF2291EEF600BE0D03 /* ApiRunner.swift */; };
 		BA1046BBCFF8956074E4DF73 /* Pods_UpcomingMoviesApi_UpcomingMoviesApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E824DEBD61FEFE7F5878D1 /* Pods_UpcomingMoviesApi_UpcomingMoviesApiTests.framework */; };
+		BC8EA63627C2F0E60027EED4 /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = BC8EA63427C2F0E60027EED4 /* MovieDetail.json */; };
+		BC8EA63727C2F0E60027EED4 /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = BC8EA63527C2F0E60027EED4 /* Genre.json */; };
 		BC95F9312798E3020029F2FA /* ApiHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95F9302798E3020029F2FA /* ApiHeader.swift */; };
 		BC95F9332798E8B20029F2FA /* ApiRestParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95F9322798E8B20029F2FA /* ApiRestParam.swift */; };
 		BCB28162279B3D370082035F /* ApiRestParamFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB28161279B3D370082035F /* ApiRestParamFactory.swift */; };
@@ -52,7 +53,6 @@
 		51399A6B2291FE1E006FACEC /* Pods_UpcomingMoviesApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_UpcomingMoviesApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51430E3E229200D900517C4C /* UpcomingMoviesApiParamsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesApiParamsTests.swift; sourceTree = "<group>"; };
 		51430E402292014200517C4C /* UpcomingMoviesApiRunTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesApiRunTests.swift; sourceTree = "<group>"; };
-		51430E43229201F700517C4C /* Genre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
 		51430E452292024E00517C4C /* GenreResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreResponseCodable.swift; sourceTree = "<group>"; };
 		51430E472292071E00517C4C /* GenreCorrupt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GenreCorrupt.json; sourceTree = "<group>"; };
 		51430E4922920AD000517C4C /* UpcomingMoviesApiRestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesApiRestTests.swift; sourceTree = "<group>"; };
@@ -80,6 +80,8 @@
 		84AC2EED4D1107CF482D74AB /* Pods_UpcomingMoviesApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingMoviesApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8155FC0B7071E507C60CFED /* Pods_UpcomingMoviesApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingMoviesApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A98E684C84BA09E2056C53 /* Pods-UpcomingMoviesApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi.release.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi/Pods-UpcomingMoviesApi.release.xcconfig"; sourceTree = "<group>"; };
+		BC8EA63427C2F0E60027EED4 /* MovieDetail.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MovieDetail.json; sourceTree = "<group>"; };
+		BC8EA63527C2F0E60027EED4 /* Genre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
 		BC95F9302798E3020029F2FA /* ApiHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHeader.swift; sourceTree = "<group>"; };
 		BC95F9322798E8B20029F2FA /* ApiRestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRestParam.swift; sourceTree = "<group>"; };
 		BCB28161279B3D370082035F /* ApiRestParamFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRestParamFactory.swift; sourceTree = "<group>"; };
@@ -110,7 +112,8 @@
 		51430E42229201E100517C4C /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				51430E43229201F700517C4C /* Genre.json */,
+				BC8EA63527C2F0E60027EED4 /* Genre.json */,
+				BC8EA63427C2F0E60027EED4 /* MovieDetail.json */,
 				51430E472292071E00517C4C /* GenreCorrupt.json */,
 				51430E452292024E00517C4C /* GenreResponseCodable.swift */,
 			);
@@ -347,8 +350,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51430E44229201F700517C4C /* Genre.json in Resources */,
+				BC8EA63727C2F0E60027EED4 /* Genre.json in Resources */,
 				51430E482292071E00517C4C /* GenreCorrupt.json in Resources */,
+				BC8EA63627C2F0E60027EED4 /* MovieDetail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
