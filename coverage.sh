@@ -55,8 +55,9 @@ function getCoverage {
     done
   done
   averageCoverage=$(cat $TEMPFILE)
-  percent=$(echo "scale=0; $averageCoverage*100" | bc | xargs printf "%.1f")
-  echo "Total coverage: $percent% for '$@' pattern files"
+  percent=$(echo "scale=0; $averageCoverage*100" | bc)
+  echo $(echo "$percent")
+  #echo "Total coverage: $percent% for '$@' pattern files"
 }
 
 #Build
