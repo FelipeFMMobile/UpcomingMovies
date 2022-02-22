@@ -1,5 +1,5 @@
 
-patternFiles="(ViewModel)(.swift|.docx|.pdf)"
+patternFiles="(ViewModel)(.swift)"
 
 function coverage_file {
   local xccovarchive_file="$1"
@@ -31,7 +31,7 @@ function coverage_file {
 }
 
 function getCoverage {
-  local testPath="Build/Logs/Test/*.xcresult/*_Test/*.xccovarchive"
+  local testPath="$2" #"Build/Logs/Test/*.xcresult/*_Test/*.xccovarchive"
   local fileCount=0
   local sumCoverage=0
   local averageCoverage=0
@@ -40,8 +40,8 @@ function getCoverage {
   echo 0 > $TEMPFILE
   for xccovarchive_file in $testPath; do
     xcrun xccov view --file-list "$xccovarchive_file" | while read -r file_name; do
-    local pattern="$@"
-    if [ "$@" ]; then
+    local pattern="$1"
+    if [ "$1" ]; then
       if [[ $file_name =~ $pattern ]]; then
           coverage_file "$xccovarchive_file" "$file_name"
           #echo $result
@@ -69,4 +69,4 @@ function getCoverage {
 
 #xccov_to_generic "$@" > test.xml
 
-getCoverage $patternFiles
+getCoverage $patternFiles $@
