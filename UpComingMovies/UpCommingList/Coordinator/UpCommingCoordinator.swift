@@ -6,8 +6,6 @@
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
-import Foundation
-
 protocol UpCommingCoordinatorProtocol: AppCoordinator {
     func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailUpComingListTableViewController
     func gotoDetail(detailMovie: MoviesDetailModelCodable)
@@ -26,6 +24,16 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     }
     
     func instantiateView() -> ListView? {
+        return getListViewCode()
+    }
+    
+    internal func getListViewCode() -> ListView? {
+        let view: ListView =  ListView()
+        view.viewModel.coordinatorDelegate = self
+        return view
+    }
+    
+    internal func getListViewStoryboard() -> ListView? {
         let view: ListView =  ListView.instantiate(.list)
         view.viewModel.coordinatorDelegate = self
         return view
