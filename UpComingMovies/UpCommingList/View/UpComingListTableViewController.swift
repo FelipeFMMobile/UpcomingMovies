@@ -9,35 +9,77 @@
 import UIKit
 import SVProgressHUD
 
-class UpComingListTableViewController: UIViewController, UIViewControllerUtils {
+class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIViewControllerUtils {
     let viewModel = UpComingListViewModel()
 
     // here just for sample purpose of SwiftUI
     var coordinator: AnyObject?
-    
-    lazy var listView: UpComingListTableView = {
-        return UpComingListTableView()
+
+    lazy var tableView: UITableView = {
+        let view = UITableView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.rowHeight = UITableView.automaticDimension
+        view.estimatedRowHeight = 44
+        view.backgroundColor = .white
+        return view
     }()
     
-    override func loadView() {
-        self.view = listView
+    lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl(frame: .zero)
+        refresh.tintColor = .black
+        return refresh
+    }()
+    
+    func setupViews() {
+        self.view.addSubview(tableView)
+        tableView.refreshControl = refreshControl
+        tableView.register(ListMoviesTableViewCellViewCode.self,
+                           forCellReuseIdentifier: ListMoviesTableViewCellViewCode.identifier)
+    }
+
+    func setupConstraints() {
+        let constraints = [
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tableView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControl.Event.valueChanged)
-        
+        setup()
         title = viewModel.title
-        
+        setupTableView()
+        start()
+    }
+    
+    func setupTableView() {
         // Handle Pagination
-        self.listView.tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
+        self.tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
             self?.viewModel.forwardPage()
             self?.loadingContent()
-            self?.listView.tableView.finishInfiniteScroll()
+            self?.tableView.finishInfiniteScroll()
         }
-        listView.tableView.delegate = self
-        listView.tableView.dataSource = self
-        start()
+        tableView.delegate = self
+        tableView.dataSource = self
+        refreshControl.addTarget(self, action: #selector(self.refresh),
+                                          for: UIControl.Event.valueChanged)
+        tableView.estimatedRowHeight = 40.0
+        tableView.rowHeight = UITableView.automaticDimension
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "SwiftUI",
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(self.callSwiftUIVersion(_:)))
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "RXVersion",
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(self.callRXVersion(_:)))
     }
     
     func start() {
@@ -51,7 +93,7 @@ class UpComingListTableViewController: UIViewController, UIViewControllerUtils {
             case .failure(let error):
                 self?.displayError(error)
             }
-            // DispatchQueue.main.async { self?.refreshControl?.endRefreshing() }
+            DispatchQueue.main.async { self?.refreshControl.endRefreshing() }
         }
     }
     
@@ -60,7 +102,7 @@ class UpComingListTableViewController: UIViewController, UIViewControllerUtils {
             SVProgressHUD.dismiss()
             switch result {
             case .success:
-                DispatchQueue.main.async { self?.listView.tableView.reloadData() }
+                DispatchQueue.main.async { self?.tableView.reloadData() }
             case .failure(let error):
                 self?.displayError(error)
             }
@@ -80,12 +122,16 @@ class UpComingListTableViewController: UIViewController, UIViewControllerUtils {
             switch result {
             case .success:
                 if let movieInfo = self?.viewModel.detailMovie {
-                    self?.viewModel.coordinatorDelegate?.gotoFlow("detailMovie", model: movieInfo)
+                    self?.viewModel.coordinatorDelegate?.goToFlow("detailMovie", model: movieInfo)
                 }
             case .failure(let error):
                 self?.displayError(error)
             }
         })
+    }
+    
+    @IBAction func callRXVersion(_ sender: Any) {
+        self.viewModel.coordinatorDelegate?.goToFlow("rx")
     }
     
     @IBAction func callSwiftUIVersion(_ sender: Any) {
@@ -110,8 +156,8 @@ extension UpComingListTableViewController: UITableViewDataSource, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: ListMoviesTableViewCell.identifier)
-            as? ListMoviesTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: ListMoviesTableViewCellViewCode.identifier)
+            as? ListMoviesTableViewCellViewCode {
             if let movie = viewModel.valueForCellPosition(indexPath: indexPath) {
                 if let genre = viewModel.genreForMovie(movie: movie) {
                     let cellModel = ListMoviesCellModel(genre: genre, movie: movie)

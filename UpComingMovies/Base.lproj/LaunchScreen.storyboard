@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,18 +17,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComing Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW5-cV-5jj">
-                                <rect key="frame" x="84.5" y="318.5" width="207.5" height="31.5"/>
+                                <rect key="frame" x="84" y="355" width="207" height="31.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="207" id="VNK-kx-Ano"/>
+                                    <constraint firstAttribute="height" constant="31.5" id="u9V-sG-mlF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newlinelogo" translatesAutoresizingMaskIntoConstraints="NO" id="oq2-dR-Zvb">
+                                <rect key="frame" x="67.5" y="219.5" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="2L8-y7-gup"/>
+                                    <constraint firstAttribute="width" secondItem="oq2-dR-Zvb" secondAttribute="height" multiplier="15:8" id="Jhl-Pt-LYV"/>
+                                    <constraint firstAttribute="width" constant="240" id="Zpw-wc-YZ1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bW5-cV-5jj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3DE-q1-exv"/>
-                            <constraint firstItem="bW5-cV-5jj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="V9r-Mi-Utr"/>
+                            <constraint firstItem="oq2-dR-Zvb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="Xhc-3f-aNV"/>
+                            <constraint firstItem="bW5-cV-5jj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="klp-kV-Zon"/>
+                            <constraint firstItem="oq2-dR-Zvb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mBP-Sr-feb"/>
+                            <constraint firstItem="bW5-cV-5jj" firstAttribute="top" secondItem="oq2-dR-Zvb" secondAttribute="bottom" constant="7.5" id="nN4-YP-t0m"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,4 +50,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="newlinelogo" width="1024" height="1024"/>
+    </resources>
 </document>

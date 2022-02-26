@@ -11,7 +11,8 @@ protocol ViewModelCoordinator {
 }
 
 protocol AppCoordinatorDelegate: AnyObject {
-    func gotoFlow<T: Decodable>(_ name: String, model: T)
+    func goToFlow(_ name: String)
+    func goToFlow<T: Decodable>(_ name: String, model: T)
 }
 
 enum TransitionType {
