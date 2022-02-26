@@ -40,10 +40,6 @@ target 'UpComingMovies' do
     inherit! :search_paths
     test_pods
   end
-  
-  target 'SdkManagerTests' do
-    inherit! :search_paths
-  end
 
   target 'UpComingMoviesKIFTests' do
     inherit! :search_paths
