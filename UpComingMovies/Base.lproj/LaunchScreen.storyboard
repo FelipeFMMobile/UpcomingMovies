@@ -19,7 +19,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComing Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW5-cV-5jj">
                                 <rect key="frame" x="84" y="355" width="207" height="31.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="207" id="VNK-kx-Ano"/>
                                     <constraint firstAttribute="height" constant="31.5" id="u9V-sG-mlF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>

@@ -49,7 +49,7 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .systemFont(ofSize: 18.0, weight: .semibold)
-        view.textColor = .darkGray
+        view.textColor = AppTheme.blackColor
         view.numberOfLines = 0
         return view
     }()
@@ -58,7 +58,7 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .systemFont(ofSize: 12.0, weight: .regular)
-        view.textColor = .gray
+        view.textColor = AppTheme.darkGrayColor
         view.numberOfLines = 0
         return view
     }()
@@ -67,7 +67,7 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .systemFont(ofSize: 12.0, weight: .regular)
-        view.textColor = .gray
+        view.textColor = AppTheme.darkGrayColor
         view.numberOfLines = 4
         view.textAlignment = .justified
         return view
@@ -77,7 +77,7 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .systemFont(ofSize: 12.0, weight: .semibold)
-        view.textColor = .gray
+        view.textColor = AppTheme.darkGrayColor
         view.numberOfLines = 0
         view.textAlignment = .right
         return view
@@ -106,6 +106,7 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
     }
 
     func setupViews() {
+        self.contentView.backgroundColor = AppTheme.whiteColor
         self.contentView.addSubview(contentStack)
         contentStack.addArrangedSubview(posterImageView)
         contentStack.addArrangedSubview(verticalStack)

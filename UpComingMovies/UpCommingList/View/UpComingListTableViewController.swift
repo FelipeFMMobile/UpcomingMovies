@@ -20,13 +20,13 @@ class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIVie
         view.translatesAutoresizingMaskIntoConstraints = false
         view.rowHeight = UITableView.automaticDimension
         view.estimatedRowHeight = 44
-        view.backgroundColor = .white
+        view.backgroundColor = AppTheme.whiteColor
         return view
     }()
     
     lazy var refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl(frame: .zero)
-        refresh.tintColor = .black
+        refresh.tintColor = AppTheme.blackColor
         return refresh
     }()
     
@@ -39,8 +39,8 @@ class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIVie
 
     func setupConstraints() {
         let constraints = [
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -49,9 +49,14 @@ class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIVie
         NSLayoutConstraint.activate(constraints)
     }
     
+    override func loadView() {
+        super.loadView()
+        view.backgroundColor = AppTheme.whiteColor
+        setup()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
         title = viewModel.title
         setupTableView()
         start()
@@ -59,7 +64,7 @@ class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIVie
     
     func setupTableView() {
         // Handle Pagination
-        self.tableView.addInfiniteScroll { [weak self] (tableView) -> Void in
+        self.tableView.addInfiniteScroll { [weak self] tableView in
             self?.viewModel.forwardPage()
             self?.loadingContent()
             self?.tableView.finishInfiniteScroll()

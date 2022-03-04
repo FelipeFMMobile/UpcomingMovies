@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -145,6 +146,7 @@
                                                 <constraint firstItem="xrN-wC-RQU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2nH-Hn-NHU" secondAttribute="bottom" constant="20" id="zRl-4E-Rul"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="White"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="52" id="Vwj-KH-MIp">
                                         <rect key="frame" x="0.0" y="301.5" width="375" height="52"/>
@@ -167,6 +169,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="5IB-QI-wey" secondAttribute="trailing" constant="15" id="y0I-pg-Agj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="White"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="56" id="qDA-2Z-SmQ">
                                         <rect key="frame" x="0.0" y="353.5" width="375" height="56"/>
@@ -189,6 +192,7 @@
                                                 <constraint firstItem="16J-B6-ViY" firstAttribute="leading" secondItem="1db-wz-T1e" secondAttribute="leading" constant="15" id="Xce-xa-yUG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="White"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -217,6 +221,7 @@
                                                 <constraint firstItem="VUQ-MB-To9" firstAttribute="centerY" secondItem="tK5-kQ-zAT" secondAttribute="centerY" id="vJM-wI-7Je"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="White"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -239,4 +244,9 @@
             <point key="canvasLocation" x="640.79999999999995" y="122.78860569715144"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="White">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var coordinator = UpCommingCoordinator(nav: UINavigationController())
         self.window?.rootViewController = try? coordinator.start(.first).navigationController
         self.coordinator = coordinator
+        self.window?.makeKeyAndVisible()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

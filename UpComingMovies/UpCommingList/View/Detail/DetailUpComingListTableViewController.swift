@@ -23,8 +23,10 @@ class DetailUpComingListTableViewController: UITableViewController, UIViewContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = AppTheme.whiteColor
         self.title = viewModel?.title
         overviewLabel.text = viewModel?.overview
+        overviewLabel.textColor = AppTheme.darkGrayColor
         titleLabel.text = viewModel?.title
         releaseLabel.text = viewModel?.releaseDate
         genreLabel.text = viewModel?.genresString

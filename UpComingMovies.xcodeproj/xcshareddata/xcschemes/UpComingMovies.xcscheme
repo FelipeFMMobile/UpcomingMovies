@@ -42,20 +42,6 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51EE91AF2291A69B00BE0D03"
-               BuildableName = "SdkManagerTests.xctest"
-               BlueprintName = "SdkManagerTests"
-               ReferencedContainer = "container:UpComingMovies.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "F1023C1022E10FD500602584"
                BuildableName = "UpComingMoviesKIFTests.xctest"
                BlueprintName = "UpComingMoviesKIFTests"
@@ -95,16 +81,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51EE91AF2291A69B00BE0D03"
-               BuildableName = "SdkManagerTests.xctest"
-               BlueprintName = "SdkManagerTests"
-               ReferencedContainer = "container:UpComingMovies.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "F1023C1022E10FD500602584"
                BuildableName = "UpComingMoviesKIFTests.xctest"
                BlueprintName = "UpComingMoviesKIFTests"
@@ -132,7 +108,8 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      queueDebuggingEnabled = "No">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
