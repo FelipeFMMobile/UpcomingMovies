@@ -97,6 +97,16 @@
                ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "51EE91942291A49C00BE0D03"
+               BuildableName = "UpcomingMoviesApiTests.xctest"
+               BlueprintName = "UpcomingMoviesApiTests"
+               ReferencedContainer = "container:UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

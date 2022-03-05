@@ -1,4 +1,4 @@
-platform :ios, '13.1'
+platform :ios, '13.0'
 use_frameworks!
 
 workspace 'UpComingMovies'
