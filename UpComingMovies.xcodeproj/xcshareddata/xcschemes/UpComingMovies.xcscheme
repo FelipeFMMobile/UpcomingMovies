@@ -101,10 +101,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51EE91942291A49C00BE0D03"
-               BuildableName = "UpcomingMoviesApiTests.xctest"
-               BlueprintName = "UpcomingMoviesApiTests"
-               ReferencedContainer = "container:UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj">
+               BlueprintIdentifier = "BC5A4EDB27D3EFBB00C9CB8D"
+               BuildableName = "UpComingMoviesUITests.xctest"
+               BlueprintName = "UpComingMoviesUITests"
+               ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -74,7 +74,6 @@
 		51EE91DD2291EBCA00BE0D03 /* GetParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetParams.swift; sourceTree = "<group>"; };
 		51EE91DF2291EEF600BE0D03 /* ApiRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRunner.swift; sourceTree = "<group>"; };
 		6C29222A5F28B7AF29C4DA92 /* Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.release.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.release.xcconfig"; sourceTree = "<group>"; };
-		6E03978DA1910E5BF86F5D34 /* Pods-UpcomingMoviesApi-ParamsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi-ParamsTests.debug.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi-ParamsTests/Pods-UpcomingMoviesApi-ParamsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B22DA1322AD1CE2DF0BB7B8 /* Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.debug.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests/Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8392E3B90F73FE77A40B5FB5 /* Pods-UpcomingMoviesApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi.debug.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi/Pods-UpcomingMoviesApi.debug.xcconfig"; sourceTree = "<group>"; };
 		84AC2EED4D1107CF482D74AB /* Pods_UpcomingMoviesApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingMoviesApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +85,6 @@
 		BC95F9322798E8B20029F2FA /* ApiRestParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRestParam.swift; sourceTree = "<group>"; };
 		BCB28161279B3D370082035F /* ApiRestParamFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRestParamFactory.swift; sourceTree = "<group>"; };
 		DECCFC377DCA71FB7EF3C872 /* Pods_UpcomingMoviesApi_ParamsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingMoviesApi_ParamsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0D76F34C87471E7BC51B25C /* Pods-UpcomingMoviesApi-ParamsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMoviesApi-ParamsTests.release.xcconfig"; path = "Target Support Files/Pods-UpcomingMoviesApi-ParamsTests/Pods-UpcomingMoviesApi-ParamsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,8 +234,6 @@
 			children = (
 				8392E3B90F73FE77A40B5FB5 /* Pods-UpcomingMoviesApi.debug.xcconfig */,
 				B0A98E684C84BA09E2056C53 /* Pods-UpcomingMoviesApi.release.xcconfig */,
-				6E03978DA1910E5BF86F5D34 /* Pods-UpcomingMoviesApi-ParamsTests.debug.xcconfig */,
-				E0D76F34C87471E7BC51B25C /* Pods-UpcomingMoviesApi-ParamsTests.release.xcconfig */,
 				7B22DA1322AD1CE2DF0BB7B8 /* Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.debug.xcconfig */,
 				6C29222A5F28B7AF29C4DA92 /* Pods-UpcomingMoviesApi-UpcomingMoviesApiTests.release.xcconfig */,
 			);

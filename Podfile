@@ -46,6 +46,10 @@ target 'UpComingMovies' do
     test_pods
     pod 'KIF'
   end
+
+  target 'UpComingMoviesUITests' do
+    test_pods
+  end
 end
 
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
