@@ -70,7 +70,7 @@ extension UpCommingCoordinator: AppCoordinatorDelegate {
         if name == "rx" { gotToRXVersion() }
     }
 
-    func goToFlow<T>(_ name: String, model: T) where T : Decodable {
+    func goToFlow<T>(_ name: String, model: T) where T: Decodable {
         guard let model = model as? MoviesDetailModelCodable else { return }
         gotoDetail(detailMovie: model)
     }

@@ -183,59 +183,78 @@ class UpComingListViewModelTests: XCTestCase {
         waitForExpectations(timeout: 3, handler: nil)
     }
     
-    // TODO: Fix tests
-    //  func testGetMovieInfo_expectationResultInfo() {
-    //    stubFor(contract: "ListMovie.json")
-    //    let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
-    //    let promise = expectation(description: "resultExpectation")
-    //    upcommingMovieApi.requestMovies(page: 0) { resultInfo in
-    //      expect(resultInfo.result).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
-    //      expect(resultInfo.result?.results?.first).toNot(beNil())
-    //      promise.fulfill()
-    //    }
-    //    waitForExpectations(timeout: 3, handler: nil)
-    //  }
-    //
-    //  func testRequestMovies_expectationResultInfo_ContractNulls() {
-    //    stubFor(contract: "ListMovieRequired.json")
-    //    let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
-    //    let promise = expectation(description: "resultExpectation")
-    //    upcommingMovieApi.requestMovies(page: 0) { resultInfo in
-    //      expect(resultInfo.result).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
-    //      expect(resultInfo.result?.results?.first).toNot(beNil())
-    //      promise.fulfill()
-    //    }
-    //    waitForExpectations(timeout: 3, handler: nil)
-    //  }
-    //
-    //  func testRequestGenres_expectationResultInfo() {
-    //    stubFor(contract: "Genre.json")
-    //    let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
-    //    let promise = expectation(description: "resultExpectation")
-    //    upcommingMovieApi.requestGenres { resultInfo in
-    //      expect(resultInfo.result).to(beAKindOf(GenreListModelCodable.self))
-    //      expect(resultInfo.result).toNot(beNil())
-    //      promise.fulfill()
-    //    }
-    //    waitForExpectations(timeout: 3, handler: nil)
-    //  }
-    //
-    //  func testRequestMovieDetail_expectationResultInfo() {
-    //    stubFor(contract: "MovieDetail.json")
-    //    let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
-    //    let promise = expectation(description: "resultExpectation")
-    //    if let object = objectForContract(contract: "ListMovie", PaginationModelCodable<MoviesModelCodable>.self) {
-    //      if let movie = object.results?.first {
-    //        upcommingMovieApi.requestMoviesDetail(movie: movie) { resultInfo in
-    //          expect(resultInfo.result).to(beAKindOf(MoviesDetailModelCodable.self))
-    //          expect(resultInfo.result).toNot(beNil())
-    //          promise.fulfill()
-    //        }
-    //      }
-    //    }
-    //    waitForExpectations(timeout: 3, handler: nil)
-    //  }
+    func testGetMovieInfo_expectationResultInfo() {
+        stubFor(contract: "ListMovie.json")
+        let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
+        let promise = expectation(description: "resultExpectation")
+        upcommingMovieApi.requestMovies(page: 0) { result in
+            switch result {
+            case .success(let model):
+                expect(model).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
+                expect(model.results?.first).toNot(beNil())
+            case .failure:
+                XCTFail("Testing failing")
+            }
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
     
+    func testRequestMovies_expectationResultInfo_ContractNulls() {
+        stubFor(contract: "ListMovieRequired.json")
+        let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
+        let promise = expectation(description: "resultExpectation")
+        upcommingMovieApi.requestMovies(page: 0) { result in
+            switch result {
+            case .success(let model):
+                expect(model).to(beAKindOf(PaginationModelCodable<MoviesModelCodable>.self))
+                expect(model.results?.first).toNot(beNil())
+            case .failure:
+                XCTFail("Testing failing")
+            }
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+    
+    func testRequestGenres_expectationResultInfo() {
+        stubFor(contract: "Genre.json")
+        let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
+        let promise = expectation(description: "resultExpectation")
+        upcommingMovieApi.requestGenres { result in
+            switch result {
+            case .success(let model):
+                expect(model).to(beAKindOf(GenreListModelCodable.self))
+                expect(model).toNot(beNil())
+            case .failure:
+                XCTFail("Testing failing")
+            }
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
+    func testRequestMovieDetail_expectationResultInfo() {
+        stubFor(contract: "MovieDetail.json")
+        let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
+        let promise = expectation(description: "resultExpectation")
+        if let object = objectForContract(contract: "ListMovie", PaginationModelCodable<MoviesModelCodable>.self) {
+            if let movie = object.results?.first {
+                upcommingMovieApi.requestMoviesDetail(movie: movie) { result in
+                    switch result {
+                    case .success(let model):
+                        expect(model).to(beAKindOf(MoviesDetailModelCodable.self))
+                        expect(model).toNot(beNil())
+                    case .failure:
+                        XCTFail("Testing failing")
+                    }
+                    promise.fulfill()
+                }
+            }
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
     func objectForContract<T>(contract: String, _ type: T.Type) -> T? where T: Decodable {
         if let path = Bundle(for: UpComingListApiTests.self).path(forResource: contract, ofType: "json") {
             do {
