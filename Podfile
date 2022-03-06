@@ -7,6 +7,7 @@ project 'UpComingMovies.xcodeproj'
 project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
 
 def shared_pods
+  inhibit_all_warnings!
   project 'UpComingMovies.xcodeproj'
 	pod 'Alamofire', '~> 4.7'
 	pod 'AlamofireObjectMapper', '~> 5.2'
@@ -66,6 +67,8 @@ post_install do |installer_representation|
   installer_representation.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+      config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = "YES"
+      config.build_settings['SWIFT_SUPPRESS_WARNINGS'] = "YES"
     end
   end
 end
