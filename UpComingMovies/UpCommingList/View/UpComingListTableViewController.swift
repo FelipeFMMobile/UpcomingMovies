@@ -9,12 +9,13 @@
 import UIKit
 import SVProgressHUD
 
-class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIViewControllerUtils {
+final class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIViewControllerUtils {
     let viewModel = UpComingListViewModel()
 
     // here just for sample purpose of SwiftUI
     var coordinator: AnyObject?
 
+    // MARK: ViewCode
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -23,18 +24,18 @@ class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIVie
         view.backgroundColor = AppTheme.whiteColor
         return view
     }()
-    
+
     lazy var refreshControl: UIRefreshControl = {
         let refresh = UIRefreshControl(frame: .zero)
         refresh.tintColor = AppTheme.blackColor
         return refresh
     }()
-    
+
     func setupViews() {
         self.view.addSubview(tableView)
         tableView.refreshControl = refreshControl
-        tableView.register(ListMoviesTableViewCellViewCode.self,
-                           forCellReuseIdentifier: ListMoviesTableViewCellViewCode.identifier)
+        tableView.register(ListMoviesTableViewCellView.self,
+                           forCellReuseIdentifier: ListMoviesTableViewCellView.identifier)
     }
 
     func setupConstraints() {
@@ -49,6 +50,7 @@ class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIVie
         NSLayoutConstraint.activate(constraints)
     }
     
+    // MARK: LifeCycle
     override func loadView() {
         super.loadView()
         view.backgroundColor = AppTheme.whiteColor
@@ -119,8 +121,7 @@ class UpComingListTableViewController: UIViewController, ViewCodeProtocol, UIVie
     }
     
     // MARK: - Table view data source
-    
-    public func instantiateDetailSegue(movie: MoviesModelCodable) {
+    public func loadDetailInfo(movie: MoviesModelCodable) {
         SVProgressHUD.show()
         viewModel.getMovieInfo(movie: movie, complete: { [weak self] result in
             SVProgressHUD.dismiss()
@@ -161,8 +162,8 @@ extension UpComingListTableViewController: UITableViewDataSource, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: ListMoviesTableViewCellViewCode.identifier)
-            as? ListMoviesTableViewCellViewCode {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: ListMoviesTableViewCellView.identifier)
+            as? ListMoviesTableViewCellView {
             if let movie = viewModel.valueForCellPosition(indexPath: indexPath) {
                 if let genre = viewModel.genreForMovie(movie: movie) {
                     let cellModel = ListMoviesCellModel(genre: genre, movie: movie)
@@ -177,7 +178,7 @@ extension UpComingListTableViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let movie = viewModel.valueForCellPosition(indexPath: indexPath) {
-            instantiateDetailSegue(movie: movie)
+            loadDetailInfo(movie: movie)
         }
     }
 }

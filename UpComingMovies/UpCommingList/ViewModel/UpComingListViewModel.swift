@@ -8,14 +8,13 @@
 //  SOLID: Single Responsibility Principle, Interface Segregation
 //
 
-import Foundation
 import UpcomingMoviesApi
 
 protocol UpcomingApiProtocol { 
     var api: UpComingListApi { get }
 }
 
-protocol ViewBasicInfoProtocol { 
+protocol ViewTitleInfoProtocol { 
     var title: String { get }
 }
 
@@ -41,6 +40,7 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
     var detailMovie: MoviesDetailModelCodable?
     var envData = EnviromentData()
 
+    // MARK: Services
     /// getMovieInfo
     func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, ApiError>) -> Void) {
         api.requestMoviesDetail(movie: movie) { [weak self] resultInfo in
@@ -89,7 +89,21 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
             }
         }
     }
+}
 
+extension UpComingListViewModel: UpComingTableViewDataSetProtocol {
+    func numberOfSections() -> Int {
+        return 1
+    }
+    
+    func numRowsSection(section: Int) -> Int {
+        return movies.count
+    }
+    
+    func valueForCellPosition(indexPath: IndexPath) -> MoviesModelCodable? {
+        return movies[indexPath.row]
+    }
+    
     public func resetPage() {
         self.currentPage = 1
         movies.removeAll()
@@ -102,27 +116,13 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
     }
 }
 
-extension UpComingListViewModel: UpComingTableViewsDataSetProtocol {
-    func numberOfSections() -> Int {
-        return 1
-    }
-    
-    func numRowsSection(section: Int) -> Int {
-        return movies.count
-    }
-    
-    func valueForCellPosition(indexPath: IndexPath) -> MoviesModelCodable? {
-        return movies[indexPath.row]
-    }
-}
-
 extension UpComingListViewModel: UpComingSwiftUIDataSetProtocol {
     func genreForMovie(movie: MoviesModelCodable) -> GenreModelCodable? {
         return genreList?.genresForMovie(movie: movie)?.first
     }
 }
 
-extension UpComingListViewModel: ViewBasicInfoProtocol {
+extension UpComingListViewModel: ViewTitleInfoProtocol {
     var title: String {
         return "Upcoming Movies"
     }

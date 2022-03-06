@@ -13,6 +13,7 @@ protocol AppStoryboardProtocol {
 enum AppStoryboard: String {
     case main
     case list
+    case detail
 }
 
 extension AppStoryboard: AppStoryboardProtocol {
@@ -22,6 +23,8 @@ extension AppStoryboard: AppStoryboardProtocol {
             return "Main"
         case .list:
             return "UpComingListStoryboard"
+        case .detail:
+            return "DetailUpComingListStoryboard"
         }
     }
 }

@@ -8,10 +8,9 @@
 //  SOLID: Interface Segregation
 //
 
-import Foundation
 import UpcomingMoviesApi
 
-protocol UpComingTableViewsDataSetProtocol {
+protocol UpComingTableViewDataSetProtocol {
   associatedtype ValueModel
   func numberOfSections() -> Int
   func numRowsSection(section: Int) -> Int

@@ -42,7 +42,7 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     }
     
     internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailView {
-        let detailController: DetailView = DetailView.instantiate(.list)
+        let detailController: DetailView = DetailView.instantiate(.detail)
         detailController.viewModel = DetailUpCommingListViewModel(movie: detailMovie)
         return detailController
     }

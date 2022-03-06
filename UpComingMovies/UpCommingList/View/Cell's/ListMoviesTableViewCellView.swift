@@ -10,9 +10,8 @@ import UIKit
 import Kingfisher
 import SwiftUI
 
-class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
+class ListMoviesTableViewCellView: UITableViewCell, ViewCodeProtocol {
     public static var identifier = "ListMovieCell"
-    public static var nib = "ListMoviesCell"
 
     lazy var contentStack: UIStackView = {
         let stack = UIStackView(frame: .zero)
@@ -48,7 +47,9 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
     lazy var titleLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .systemFont(ofSize: 18.0, weight: .semibold)
+        view.font = .preferredFont(forTextStyle: .title3)
+        view.minimumScaleFactor = 0.5
+        view.adjustsFontForContentSizeCategory = true
         view.textColor = AppTheme.blackColor
         view.numberOfLines = 0
         return view
@@ -57,7 +58,9 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
     lazy var genreLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .systemFont(ofSize: 12.0, weight: .regular)
+        view.font = .preferredFont(forTextStyle: .caption1)
+        view.minimumScaleFactor = 0.5
+        view.adjustsFontForContentSizeCategory = true
         view.textColor = AppTheme.darkGrayColor
         view.numberOfLines = 0
         return view
@@ -66,7 +69,9 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
     lazy var previewLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .systemFont(ofSize: 12.0, weight: .regular)
+        view.font = .preferredFont(forTextStyle: .caption2)
+        view.minimumScaleFactor = 0.5
+        view.adjustsFontForContentSizeCategory = true
         view.textColor = AppTheme.darkGrayColor
         view.numberOfLines = 4
         view.textAlignment = .justified
@@ -76,7 +81,9 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
     lazy var releaseLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = .systemFont(ofSize: 12.0, weight: .semibold)
+        view.font = .preferredFont(forTextStyle: .footnote)
+        view.minimumScaleFactor = 0.5
+        view.adjustsFontForContentSizeCategory = true
         view.textColor = AppTheme.darkGrayColor
         view.numberOfLines = 0
         view.textAlignment = .right
@@ -92,7 +99,7 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
         setup()
         
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = nil
@@ -115,7 +122,7 @@ class ListMoviesTableViewCellViewCode: UITableViewCell, ViewCodeProtocol {
         verticalStack.addArrangedSubview(previewLabel)
         verticalStack.addArrangedSubview(releaseLabel)
     }
-    
+
     func setupConstraints() {
         let constraints = [
             contentStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
