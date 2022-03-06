@@ -20,9 +20,9 @@ struct ImageLoaderView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }
-            .onProgress { receivedSize, totalSize in  }
-            .onSuccess { result in  }
-            .onFailure { error in }
+            .onProgress { _, _ in  }
+            .onSuccess { _ in  }
+            .onFailure { _ in }
             .resizable()
             .aspectRatio(contentMode: .fit)
             .shadow(color: .gray,

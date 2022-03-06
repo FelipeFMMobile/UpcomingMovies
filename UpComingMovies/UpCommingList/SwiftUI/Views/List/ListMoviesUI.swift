@@ -21,16 +21,7 @@ struct ListMoviesUI: View, UIViewControllerUtils {
                     NavigationLink {
                         DetailMovieUI(viewModel: $viewModel.detailViewModel)
                             .onAppear {
-                                SVProgressHUD.show()
-                                viewModel.getMovieInfo(movie: movie) { result in
-                                    SVProgressHUD.dismiss()
-                                    switch result {
-                                    case .success:
-                                        break
-                                    case .failure(let error):
-                                        self.displayError(error)
-                                    }
-                                }
+                                loadDetail(movie)
                             }.environmentObject(viewModel.envData)
                     } label: {
                         if let genre = viewModel.genreForMovie(movie: movie) {
@@ -59,23 +50,27 @@ struct ListMoviesUI: View, UIViewControllerUtils {
 @available(iOS 14.0, *)
 extension ListMoviesUI: LoaderHostingState {
     func startLoad() {
-        SVProgressHUD.show()
-        viewModel.resetPage()
-        viewModel.getGenres { result in
-            switch result {
-            case .success:
-                self.loadingContent()
-            case .failure(let error):
-                self.displayError(error)
-            }
-        }
+        loadGenres()
     }
     
     func titleForView() -> String? {
         return viewModel.title
     }
     
-    func loadingContent() {
+    private func loadGenres() {
+        SVProgressHUD.show()
+        viewModel.resetPage()
+        viewModel.getGenres { result in
+            switch result {
+            case .success:
+                self.loadMovies()
+            case .failure(let error):
+                self.displayError(error)
+            }
+        }
+    }
+    
+    private func loadMovies() {
         viewModel.getUpCommingMovies { result in
             SVProgressHUD.dismiss()
             switch result {
@@ -87,13 +82,29 @@ extension ListMoviesUI: LoaderHostingState {
         }
     }
     
-    func refresh() {
-        startLoad()
+    private func refresh() {
+        loadGenres()
     }
     
+    // MARK: LoadDetail
+    
+    private func loadDetail(_ movie: MoviesModelCodable) {
+        SVProgressHUD.show()
+        viewModel.getMovieInfo(movie: movie) { result in
+            SVProgressHUD.dismiss()
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                self.displayError(error)
+            }
+        }
+    }
+    
+    // MARK: Scrolling Load
     private func loadMore() {
         viewModel.forwardPage()
-        loadingContent()
+        loadMovies()
     }
     
 }

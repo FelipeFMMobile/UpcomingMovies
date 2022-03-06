@@ -24,28 +24,26 @@ struct MovieRowUI: View {
             VStack(alignment: .leading, spacing: 4.0) {
                 HStack(alignment: .top) {
                     Text(rowModel.title)
-                        .font(.system(size: 18))
+                        .font(.title2)
                         .lineLimit(2)
                 }
                 Text(rowModel.genreTitle)
-                    .font(.system(size: 12))
+                    .font(.caption)
                 Text(rowModel.sinopses)
-                    .font(.system(size: 12))
-                    .frame(width: 200)
-                    .fixedSize()
-                    .lineLimit(3)
+                    .font(.caption2)
+                    .padding(.all, 4.0)
+                    .lineLimit(4)
                 Spacer()
                 HStack {
                     Spacer()
                     Text(rowModel.releaseDate)
-                        .font(.system(size: 12))
+                        .font(.caption2)
                     if favoriteIndex >= 0 {
                         StarButton(isSet: $envData.favoritesMovies[favoriteIndex].isFavorite)
                     }
                 }
             }
-        }.frame(height: 150)
-            .padding(8)
+        }.padding(8)
     }
 }
 
@@ -53,8 +51,8 @@ struct MovieRowUI: View {
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MovieRowUI(rowModel: PreviewData.cellModel)
-            MovieRowUI(rowModel: PreviewData.cellModel2)
-        }.previewLayout(.fixed(width: 300, height: 200))
+            MovieRowUI(rowModel: PreviewData.cellModel).environmentObject(EnviromentData())
+            MovieRowUI(rowModel: PreviewData.cellModel2).environmentObject(EnviromentData())
+        }.previewLayout(.fixed(width: 345, height: 200))
     }
 }
