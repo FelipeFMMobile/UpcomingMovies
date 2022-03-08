@@ -29,10 +29,10 @@ class UpComingListViewModelTests: XCTestCase {
         
     }
     
-    func stubFor(contract: String) {
+    func stubFor(contract: String, statusCode: Int32 = 200) {
         stub(condition: isHost("api.themoviedb.org")) { _ in
             let stubPath = OHPathForFile(contract, type(of: self))
-            return fixture(filePath: stubPath!, status: 200, headers: ["Content-Type": "application/json"])
+            return fixture(filePath: stubPath!, status: statusCode, headers: ["Content-Type": "application/json"])
         }
     }
     
@@ -58,6 +58,26 @@ class UpComingListViewModelTests: XCTestCase {
         waitForExpectations(timeout: 3, handler: nil)
     }
     
+    func testGetMoviewInfo_DetailMustFail() {
+        stubFor(contract: "MovieDetail.json", statusCode: 401)
+        let viewModel: UpComingListViewModelProtocol = UpComingListViewModel()
+        let promise = expectation(description: "resultExpectation")
+        if let object = objectForContract(contract: "ListMovie", PaginationModelCodable<MoviesModelCodable>.self) {
+            if let movie = object.results?.first {
+                viewModel.getMovieInfo(movie: movie) { result in
+                    switch result {
+                    case .success:
+                        XCTFail("Testing failing")
+                    case .failure(let error):
+                        expect(error).toNot(beNil())
+                    }
+                    promise.fulfill()
+                }
+            }
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
     func testGetGenres_GenreListNotEmpty() {
         stubFor(contract: "Genre.json")
         let viewModel: UpComingListViewModelProtocol = UpComingListViewModel()
@@ -74,7 +94,23 @@ class UpComingListViewModelTests: XCTestCase {
         }
         waitForExpectations(timeout: 3, handler: nil)
     }
-    
+
+    func testGetGenres_GenreListMustFail() {
+        stubFor(contract: "Genre.json", statusCode: 401)
+        let viewModel: UpComingListViewModelProtocol = UpComingListViewModel()
+        let promise = expectation(description: "resultExpectation")
+        viewModel.getGenres { result in
+            switch result {
+            case .success:
+                XCTFail("Testing failing")
+             case .failure(let error):
+                expect(error).toNot(beNil())
+            }
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
     func testGetMovies_MoviesNotEmpty() {
         stubFor(contract: "ListMovie.json")
         let viewModel: UpComingListViewModelProtocol = UpComingListViewModel()
@@ -91,6 +127,22 @@ class UpComingListViewModelTests: XCTestCase {
         waitForExpectations(timeout: 3, handler: nil)
     }
     
+    func testGetMovies_MoviesMustFail() {
+        stubFor(contract: "ListMovie.json", statusCode: 401)
+        let viewModel: UpComingListViewModelProtocol = UpComingListViewModel()
+        let promise = expectation(description: "resultExpectation")
+        viewModel.getUpCommingMovies { result in
+            switch result {
+            case .success:
+                XCTFail("Testing failing")
+            case .failure(let error):
+                expect(error).toNot(beNil())
+            }
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
     func testResePage_CurrentPageEqualOne() {
         stubFor(contract: "ListMovie.json")
         let viewModel = UpComingListViewModel()
@@ -228,6 +280,22 @@ class UpComingListViewModelTests: XCTestCase {
                 expect(model).toNot(beNil())
             case .failure:
                 XCTFail("Testing failing")
+            }
+            promise.fulfill()
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
+    func testRequestGenres_expectationResultFail() {
+        stubFor(contract: "Genre.json", statusCode: 401)
+        let upcommingMovieApi: UpComingListApiProtocol = UpComingListApi()
+        let promise = expectation(description: "resultExpectation")
+        upcommingMovieApi.requestGenres { result in
+            switch result {
+            case .success:
+                XCTFail("Testing failing")
+            case .failure(let error):
+                expect(error).toNot(beNil())
             }
             promise.fulfill()
         }

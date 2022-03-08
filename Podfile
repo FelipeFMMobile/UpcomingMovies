@@ -1,4 +1,4 @@
-platform :ios, '13.0'
+platform :ios, '11.0'
 use_frameworks!
 
 workspace 'UpComingMovies'
@@ -7,7 +7,6 @@ project 'UpComingMovies.xcodeproj'
 project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
 
 def shared_pods
-  inhibit_all_warnings!
   project 'UpComingMovies.xcodeproj'
 	pod 'Alamofire', '~> 4.7'
 	pod 'AlamofireObjectMapper', '~> 5.2'
@@ -36,6 +35,7 @@ end
 
 # Pods for UpComingMovies
 target 'UpComingMovies' do
+  inhibit_all_warnings!
   shared_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
@@ -54,7 +54,8 @@ target 'UpComingMovies' do
 end
 
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
-target 'UpcomingMoviesApi' do 
+target 'UpcomingMoviesApi' do
+  inhibit_all_warnings!
   project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
   quality_pods
   target 'UpcomingMoviesApiTests' do
