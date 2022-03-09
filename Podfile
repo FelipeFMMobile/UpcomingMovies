@@ -16,6 +16,7 @@ def shared_pods
   pod 'RxDataSources', '~> 3.1'
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '~> 6.3.0'
+  pod 'SwiftGen', '~> 6.0'
   pod 'Firebase/Core'
   pod 'Firebase/Crashlytics'
   # (Recommended) Pod for Google Analytics

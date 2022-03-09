@@ -16,7 +16,7 @@ struct ImageLoaderView: View {
             .fade(duration: 0.25)
             .placeholder {
                 // Placeholder while downloading.
-                Image("cover")
+                Image(Asset.cover.name)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }

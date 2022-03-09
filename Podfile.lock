@@ -151,6 +151,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - SVProgressHUD (2.2.5)
+  - SwiftGen (6.5.1)
   - SwiftLint (0.46.3)
   - UIScrollView-InfiniteScroll (1.0.2)
 
@@ -170,6 +171,7 @@ DEPENDENCIES:
   - RxDataSources (~> 3.1)
   - RxSwift (~> 4.5)
   - SVProgressHUD
+  - SwiftGen (~> 6.0)
   - SwiftLint
   - UIScrollView-InfiniteScroll (~> 1.0.0)
 
@@ -202,6 +204,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SVProgressHUD
+    - SwiftGen
     - SwiftLint
     - UIScrollView-InfiniteScroll
 
@@ -233,9 +236,10 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
   SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
   UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
 
-PODFILE CHECKSUM: 0ad4d6a5b0d32d34eb6390380d4cbebc50490171
+PODFILE CHECKSUM: d9691303f804e140d6f7e22924e742571ddba1f9
 
 COCOAPODS: 1.11.2

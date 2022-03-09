@@ -38,6 +38,8 @@
 		BC075EE527CAD76700BFA6CE /* ListMoviesTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC075EE427CAD76700BFA6CE /* ListMoviesTableViewCellView.swift */; };
 		BC1023F02072F5D0005FF7C5 /* ListMoviesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1023EF2072F5D0005FF7C5 /* ListMoviesCell.xib */; };
 		BC1F470927C6FE4D00E48743 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F470827C6FE4D00E48743 /* ViewCodeProtocol.swift */; };
+		BC2AA18A27D8241B00B335DC /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = BC2AA18927D8241B00B335DC /* swiftgen.yml */; };
+		BC2AA18C27D829A800B335DC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2AA18B27D829A800B335DC /* Assets.swift */; };
 		BC5401C6279F53B200D44BEA /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5401C5279F53B200D44BEA /* PreviewData.swift */; };
 		BC5401C8279F576600D44BEA /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = 51830CF922A4667600BE346A /* Genre.json */; };
 		BC5401C9279F576A00D44BEA /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 51830CFB22A4677800BE346A /* MovieDetail.json */; };
@@ -159,6 +161,8 @@
 		BC075EE427CAD76700BFA6CE /* ListMoviesTableViewCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMoviesTableViewCellView.swift; sourceTree = "<group>"; };
 		BC1023EF2072F5D0005FF7C5 /* ListMoviesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListMoviesCell.xib; sourceTree = "<group>"; };
 		BC1F470827C6FE4D00E48743 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		BC2AA18927D8241B00B335DC /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		BC2AA18B27D829A800B335DC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		BC5401C5279F53B200D44BEA /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		BC5401CB279F5B3000D44BEA /* ListMoviesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesUI.swift; sourceTree = "<group>"; };
 		BC56BF1D27D19302004E2F56 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -451,6 +455,7 @@
 		BC5D80EE279DF295001626DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BC2AA18B27D829A800B335DC /* Assets.swift */,
 				BCF6EBBC206EC7C50063D023 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -523,6 +528,7 @@
 		BCF6EBA6206EC7C50063D023 = {
 			isa = PBXGroup;
 			children = (
+				BC2AA18927D8241B00B335DC /* swiftgen.yml */,
 				5106DFE822B6F0BB00CAE101 /* sonar-project.properties */,
 				BCF6EBB1206EC7C50063D023 /* UpComingMovies */,
 				BCF6EBC9206EC7C50063D023 /* UpComingMoviesTests */,
@@ -666,6 +672,7 @@
 				51994EAE2290B3F100B4420D /* SwiftLint */,
 				BC56BF1C27D190A2004E2F56 /* Embed Frameworks */,
 				F8B958DC2A7CE265B0442482 /* [CP] Embed Pods Frameworks */,
+				BC2AA18827D8239C00B335DC /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -792,6 +799,7 @@
 				BCF6EBBD206EC7C50063D023 /* Assets.xcassets in Resources */,
 				BC1023F02072F5D0005FF7C5 /* ListMoviesCell.xib in Resources */,
 				BC635FED27D5600D0015C928 /* DetailUpComingListStoryboard.storyboard in Resources */,
+				BC2AA18A27D8241B00B335DC /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,6 +931,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BC2AA18827D8239C00B335DC /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
 		};
 		BC8720B1279DA9A0003D20C4 /* FirebaseCrashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1156,6 +1182,7 @@
 				BCE70824207452290015DAA3 /* ServerConfig.swift in Sources */,
 				36B00B062471DAE600E2DB5D /* AppStoryboard.swift in Sources */,
 				BCCFA5C4279EFB2700E0806A /* MovieRowUI.swift in Sources */,
+				BC2AA18C27D829A800B335DC /* Assets.swift in Sources */,
 				BCF6EBEB206EDE760063D023 /* GenreModelMap.swift in Sources */,
 				5177AD4122B07D78005D20AC /* UpComingListRXTableViewController.swift in Sources */,
 				BC8AD52E27A9FA34006DBD01 /* EnviromentData.swift in Sources */,

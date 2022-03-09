@@ -14,9 +14,9 @@ protocol AppThemeProtocol {
 }
 
 struct AppTheme: AppThemeProtocol {
-    static let blackColor = UIColor(named: "Black")
-    static let darkGrayColor = UIColor(named: "DarkGray")
-    static let whiteColor = UIColor(named: "White")
+    static let blackColor = Asset.black.color
+    static let darkGrayColor = Asset.darkGray.color
+    static let whiteColor = Asset.white.color
 
     // Theme of SVProgressHUD
     func configureTheme() {
