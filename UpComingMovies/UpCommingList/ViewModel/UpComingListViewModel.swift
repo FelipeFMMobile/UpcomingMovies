@@ -35,11 +35,12 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
     var maxPages = 1
 
     var genreList: GenreListModelCodable?
-    @Published var movies = [MoviesModelCodable]()
     var detailViewModel = DetailUpCommingListViewModel(movie: nil)
     var detailMovie: MoviesDetailModelCodable?
     var envData = EnviromentData()
 
+    @Published var movies = [MoviesModelCodable]()
+    
     // MARK: Services
     /// getMovieInfo
     func getMovieInfo(movie: MoviesModelCodable, complete: @escaping (Result<Bool, ApiError>) -> Void) {

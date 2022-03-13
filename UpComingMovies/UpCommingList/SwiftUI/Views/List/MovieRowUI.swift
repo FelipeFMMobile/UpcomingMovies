@@ -51,8 +51,8 @@ struct MovieRowUI: View {
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MovieRowUI(rowModel: PreviewData.cellModel).environmentObject(EnviromentData())
-            MovieRowUI(rowModel: PreviewData.cellModel2).environmentObject(EnviromentData())
+            MovieRowUI(rowModel: PreviewEnviroment.cellModel).environmentObject(EnviromentData())
+            MovieRowUI(rowModel: PreviewEnviroment.cellModel2).environmentObject(EnviromentData())
         }.previewLayout(.fixed(width: 345, height: 200))
     }
 }

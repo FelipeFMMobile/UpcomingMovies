@@ -12,9 +12,13 @@ import SwiftUI
 struct DetailMovieUI: View {
     @Binding var viewModel: DetailUpCommingListViewModel
     @EnvironmentObject private var envData: EnviromentData
+    @State private var firstTime = !PreviewEnviroment.isPreviewing
     var favoriteIndex: Int {
-        envData.favoritesMovies.firstIndex(where: { $0.idM == viewModel.movie?.idM }) ?? -1
+        envData.favoritesMovies.firstIndex(where: {
+            $0.idM == viewModel.movie?.idM
+        }) ?? -1
     }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .top) {
@@ -46,17 +50,20 @@ struct DetailMovieUI: View {
                     .lineLimit(1)
             }
         }.padding(16.0)
+        .opacity(firstTime ? 0 : 1)
         Spacer()
-            .onAppear {
-                startLoad()
-            }
+        .onAppear {
+            startLoad()
+        }
+        .navigationTitle(viewModel.title ?? "")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 @available(iOS 14.0, *)
 struct DetailMovieUI_Previews: PreviewProvider {
     static var previews: some View {
-        DetailMovieUI(viewModel: .constant(PreviewData.detailViewModel))
+        DetailMovieUI(viewModel: .constant(PreviewEnviroment.detailViewModel))
             .environmentObject(EnviromentData())
     }
 }
@@ -64,6 +71,9 @@ struct DetailMovieUI_Previews: PreviewProvider {
 @available(iOS 14.0, *)
 extension DetailMovieUI: LoaderHostingState {
     func startLoad() {
+        if firstTime {
+            firstTime = false
+        }
     }
     
     func titleForView() -> String? {

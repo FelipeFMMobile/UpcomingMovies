@@ -13,36 +13,34 @@ import SVProgressHUD
 struct ListMoviesUI: View, UIViewControllerUtils {
     @StateObject var viewModel: UpComingListViewModel = UpComingListViewModel()
     @State private var isLast = false
-    @State private var isFirstLoading = true
+    @State private var firstTime = !PreviewEnviroment.isPreviewing
     var body: some View {
         NavigationView {
             VStack {
                 List(viewModel.movies, id: \.idM) { movie in
                     NavigationLink {
                         DetailMovieUI(viewModel: $viewModel.detailViewModel)
-                            .onAppear {
-                                loadDetail(movie)
-                            }.environmentObject(viewModel.envData)
+                            .environmentObject(viewModel.envData)
+                            .onAppear { loadDetail(movie) }
                     } label: {
                         if let genre = viewModel.genreForMovie(movie: movie) {
                             let rowModel = ListMoviesCellModel(genre: genre, movie: movie)
                             MovieRowUI(rowModel: rowModel)
+                                .environmentObject(viewModel.envData)
                                 .onAppear {
                                     isLast = viewModel.movies.last == movie
                                     if isLast { loadMore() }
-                                }.environmentObject(viewModel.envData)
+                                }
                         }
                     }
                 }.listStyle(.plain)
                 if isLast {
                     ProgressView()
                 }
-            }.onAppear {
-                if isFirstLoading {
-                    startLoad()
-                    isFirstLoading = false
-                }
             }.navigationTitle(viewModel.title)
+            .onAppear {
+                startLoad()
+            }
         }
     }
 }
@@ -50,7 +48,10 @@ struct ListMoviesUI: View, UIViewControllerUtils {
 @available(iOS 14.0, *)
 extension ListMoviesUI: LoaderHostingState {
     func startLoad() {
-        loadGenres()
+        if firstTime {
+            loadGenres()
+            firstTime = false
+        }
     }
     
     func titleForView() -> String? {
@@ -111,6 +112,6 @@ extension ListMoviesUI: LoaderHostingState {
 @available(iOS 14.0, *)
 struct ListMoviesUI_Previews: PreviewProvider {
     static var previews: some View {
-        ListMoviesUI(viewModel: PreviewData.viewModel)
+        ListMoviesUI(viewModel: PreviewEnviroment.viewModel)
     }
 }

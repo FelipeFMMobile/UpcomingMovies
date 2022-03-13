@@ -6,23 +6,26 @@
 //  Copyright © 2022 FMMobile. All rights reserved.
 //
 
-struct PreviewData {
+struct PreviewEnviroment {
+    static var isPreviewing: Bool {
+        ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+    }
     static let genres: GenreListModelCodable = load("Genre.json")
     static let movies: PaginationModelCodable<MoviesModelCodable> = load("ListMovie.json")
     static let movieDetail: MoviesDetailModelCodable = load("MovieDetail.json")
-    static var cellModel: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewData.genres.genres!.first!,
-                                                             movie: PreviewData.movies.results!.first!)
-    static var cellModel2: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewData.genres.genres!.last!,
-                                                             movie: PreviewData.movies.results!.last!)
+    static var cellModel: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewEnviroment.genres.genres!.first!,
+                                                             movie: PreviewEnviroment.movies.results!.first!)
+    static var cellModel2: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewEnviroment.genres.genres!.last!,
+                                                             movie: PreviewEnviroment.movies.results!.last!)
     static var viewModel: UpComingListViewModel = {
         let model = UpComingListViewModel()
-        model.genreList = PreviewData.genres
-        model.movies = PreviewData.movies.results!
+        model.genreList = PreviewEnviroment.genres
+        model.movies = PreviewEnviroment.movies.results!
         return model
     }()
 
     static var detailViewModel: DetailUpCommingListViewModel = {
-        return DetailUpCommingListViewModel(movie: PreviewData.movieDetail)
+        return DetailUpCommingListViewModel(movie: PreviewEnviroment.movieDetail)
     }()
 }
 

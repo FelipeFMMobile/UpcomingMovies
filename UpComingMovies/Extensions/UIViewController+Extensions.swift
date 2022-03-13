@@ -40,6 +40,9 @@ extension UIViewControllerUtils {
         }
         DispatchQueue.main.async {
             SVProgressHUD.show(withStatus: errorMessage)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                SVProgressHUD.dismiss()
+            }
         }
     }
 }
