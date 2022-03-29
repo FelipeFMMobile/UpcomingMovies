@@ -9,9 +9,9 @@
 import SwiftUI
 import SVProgressHUD
 
-@available(iOS 14.0, *)
+@available(iOS 15.0, *)
 struct ListMoviesUI: View, UIViewControllerUtils {
-    @StateObject var viewModel: UpComingListViewModel = UpComingListViewModel()
+    @StateObject var viewModel = ListUIViewModel()
     @State private var isLast = false
     @State private var firstTime = !PreviewEnviroment.isPreviewing
     var body: some View {
@@ -19,18 +19,16 @@ struct ListMoviesUI: View, UIViewControllerUtils {
             VStack {
                 List(viewModel.movies, id: \.idM) { movie in
                     NavigationLink {
-                        DetailMovieUI(viewModel: $viewModel.detailViewModel)
+                        DetailMovieUI(viewModel: DetailUIViewModel(movie: movie))
                             .environmentObject(viewModel.envData)
-                            .onAppear { loadDetail(movie) }
                     } label: {
-                        if let genre = viewModel.genreForMovie(movie: movie) {
-                            let rowModel = ListMoviesCellModel(genre: genre, movie: movie)
-                            MovieRowUI(rowModel: rowModel)
-                                .environmentObject(viewModel.envData)
-                                .onAppear {
-                                    isLast = viewModel.movies.last == movie
-                                    if isLast { loadMore() }
-                                }
+                        let rowModel = MovieRowUIViewModel(movie: movie)
+                        MovieRowUI(rowModel: rowModel)
+                            .environmentObject(viewModel.envData)
+                    } .onAppear {
+                        isLast = viewModel.movies.last == movie
+                        if isLast {
+                            Task { try? await loadMore() }
                         }
                     }
                 }.listStyle(.plain)
@@ -39,79 +37,44 @@ struct ListMoviesUI: View, UIViewControllerUtils {
                 }
             }.navigationTitle(viewModel.title)
             .onAppear {
-                startLoad()
+                if firstTime {
+                    Task { try? await loadMovies() }
+                }
+            }
+            .refreshable {
+                try? await refresh()
             }
         }
     }
 }
 
-@available(iOS 14.0, *)
-extension ListMoviesUI: LoaderHostingState {
-    func startLoad() {
-        if firstTime {
-            loadGenres()
-            firstTime = false
-        }
-    }
-    
+@available(iOS 15.0, *)
+extension ListMoviesUI: LoaderHostingState {    
     func titleForView() -> String? {
         return viewModel.title
     }
-    
-    private func loadGenres() {
+
+    private func loadMovies() async throws {
         SVProgressHUD.show()
+        try await viewModel.moviesList()
+        await SVProgressHUD.dismiss()
+        firstTime = false
+    }
+
+    private func refresh() async throws {
         viewModel.resetPage()
-        viewModel.getGenres { result in
-            switch result {
-            case .success:
-                self.loadMovies()
-            case .failure(let error):
-                self.displayError(error)
-            }
-        }
+        try await loadMovies()
     }
-    
-    private func loadMovies() {
-        viewModel.getUpCommingMovies { result in
-            SVProgressHUD.dismiss()
-            switch result {
-            case .success:
-                break
-            case .failure(let error):
-                self.displayError(error)
-            }
-        }
-    }
-    
-    private func refresh() {
-        loadGenres()
-    }
-    
-    // MARK: LoadDetail
-    
-    private func loadDetail(_ movie: MoviesModelCodable) {
-        SVProgressHUD.show()
-        viewModel.getMovieInfo(movie: movie) { result in
-            SVProgressHUD.dismiss()
-            switch result {
-            case .success:
-                break
-            case .failure(let error):
-                self.displayError(error)
-            }
-        }
-    }
-    
+
     // MARK: Scrolling Load
-    private func loadMore() {
-        viewModel.forwardPage()
-        loadMovies()
+    private func loadMore() async throws {
+         viewModel.forwardPage()
+         try await loadMovies()
     }
-    
 }
-@available(iOS 14.0, *)
+@available(iOS 15.0, *)
 struct ListMoviesUI_Previews: PreviewProvider {
     static var previews: some View {
-        ListMoviesUI(viewModel: PreviewEnviroment.viewModel)
+        ListMoviesUI(viewModel: PreviewEnviroment.listViewModel)
     }
 }

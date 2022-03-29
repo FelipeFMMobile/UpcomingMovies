@@ -13,19 +13,22 @@ struct PreviewEnviroment {
     static let genres: GenreListModelCodable = load("Genre.json")
     static let movies: PaginationModelCodable<MoviesModelCodable> = load("ListMovie.json")
     static let movieDetail: MoviesDetailModelCodable = load("MovieDetail.json")
-    static var cellModel: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewEnviroment.genres.genres!.first!,
-                                                             movie: PreviewEnviroment.movies.results!.first!)
-    static var cellModel2: ListMoviesCellModel = ListMoviesCellModel(genre: PreviewEnviroment.genres.genres!.last!,
-                                                             movie: PreviewEnviroment.movies.results!.last!)
-    static var viewModel: UpComingListViewModel = {
-        let model = UpComingListViewModel()
-        model.genreList = PreviewEnviroment.genres
+    static var cellModel: MovieRowUIViewModel = MovieRowUIViewModel(
+        movie: PreviewEnviroment.movies.results!.first!
+    )
+    static var cellModel2: MovieRowUIViewModel = MovieRowUIViewModel(
+        movie: PreviewEnviroment.movies.results!.last!
+    )
+    static var listViewModel: ListUIViewModel = {
+        let model = ListUIViewModel()
         model.movies = PreviewEnviroment.movies.results!
         return model
     }()
-
-    static var detailViewModel: DetailUpCommingListViewModel = {
-        return DetailUpCommingListViewModel(movie: PreviewEnviroment.movieDetail)
+    
+    static var detailViewModel: DetailUIViewModel = {
+        let model = DetailUIViewModel(movie: PreviewEnviroment.movies.results!.first!)
+        model.movie = PreviewEnviroment.movieDetail
+        return model
     }()
 }
 

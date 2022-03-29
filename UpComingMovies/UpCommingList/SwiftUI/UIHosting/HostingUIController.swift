@@ -10,12 +10,11 @@ import UIKit
 import SwiftUI
 
 protocol LoaderHostingState {
-    func startLoad()
     func titleForView() -> String?
 }
 
 /// A hostingController generic for switch between MVVM (View) and MVVM (SwiftUI) Archr's
-class HostingController<T: LoaderHostingState & View>: UIHostingController<T> {
+class HostingUIController<T: LoaderHostingState & View>: UIHostingController<T> {
 
     public init(uiView: T) {
         super.init(rootView: uiView)

@@ -7,10 +7,11 @@
 //
 
 import SwiftUI
+import SVProgressHUD
 
-@available(iOS 14.0, *)
+@available(iOS 15.0, *)
 struct DetailMovieUI: View {
-    @Binding var viewModel: DetailUpCommingListViewModel
+    @StateObject var viewModel: DetailUIViewModel
     @EnvironmentObject private var envData: EnviromentData
     @State private var firstTime = !PreviewEnviroment.isPreviewing
     var favoriteIndex: Int {
@@ -53,30 +54,36 @@ struct DetailMovieUI: View {
         .opacity(firstTime ? 0 : 1)
         Spacer()
         .onAppear {
-            startLoad()
+            if firstTime {
+                Task {
+                    try? await loadDetail()
+                }
+            }
         }
         .navigationTitle(viewModel.title ?? "")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 15.0, *)
 struct DetailMovieUI_Previews: PreviewProvider {
     static var previews: some View {
-        DetailMovieUI(viewModel: .constant(PreviewEnviroment.detailViewModel))
+        DetailMovieUI(viewModel: PreviewEnviroment.detailViewModel)
             .environmentObject(EnviromentData())
     }
 }
 
-@available(iOS 14.0, *)
+@available(iOS 15.0, *)
 extension DetailMovieUI: LoaderHostingState {
-    func startLoad() {
-        if firstTime {
-            firstTime = false
-        }
-    }
-    
     func titleForView() -> String? {
         return viewModel.title
+    }
+
+    // MARK: LoadDetail
+    private func loadDetail() async throws {
+        SVProgressHUD.show()
+        try? await viewModel.detail()
+        await SVProgressHUD.dismiss()
+        firstTime = false
     }
 }

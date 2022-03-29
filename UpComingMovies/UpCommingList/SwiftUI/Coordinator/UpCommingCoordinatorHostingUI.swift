@@ -9,11 +9,11 @@
 //  Some code arragement's still needed
 //
 
-protocol UpCommingCoordinatorHostingProtocol: AppCoordinator {
+protocol UpCommingCoordinatorHostingUIProtocol: AppCoordinator {
 }
 
-@available(iOS 14.0, *)
-final class UpCommingCoordinatorHosting: UpCommingCoordinatorHostingProtocol {
+@available(iOS 15.0, *)
+final class UpCommingCoordinatorHostingUI: UpCommingCoordinatorHostingUIProtocol {
     var navigation: UINavigationController!
     var view: UIViewController?
     
@@ -22,7 +22,7 @@ final class UpCommingCoordinatorHosting: UpCommingCoordinatorHostingProtocol {
     }
     
     func instantiateView() -> UIViewController? {
-        self.view = HostingController(uiView: getListMoviesUI())
+        self.view = HostingUIController(uiView: getListMoviesUI())
         return view
     }
     

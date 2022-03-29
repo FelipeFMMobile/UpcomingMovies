@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 protocol DetailUpCommingListViewModelProtocol {
     var movie: MoviesDetailModelCodable? { get set }
@@ -19,8 +20,8 @@ protocol DetailUpCommingListViewModelProtocol {
     init(movie: MoviesDetailModelCodable?)
 }
 
-class DetailUpCommingListViewModel: ObservableObject, DetailUpCommingListViewModelProtocol {
-    @Published var movie: MoviesDetailModelCodable?
+class DetailUpCommingListViewModel: DetailUpCommingListViewModelProtocol {
+    var movie: MoviesDetailModelCodable?
     
     var title: String?
     var posterPath: URL?

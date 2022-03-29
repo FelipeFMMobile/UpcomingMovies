@@ -141,9 +141,9 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
     }
     
     @IBAction func callSwiftUIVersion(_ sender: Any) {
-        if #available(iOS 14.0, *) {
+        if #available(iOS 15.0, *) {
             guard let navController = self.navigationController else { return }
-            var coordinator = UpCommingCoordinatorHosting(nav: navController)
+            var coordinator = UpCommingCoordinatorHostingUI(nav: navController)
             if let controller = try? coordinator.start(.none) {
                 self.present(controller, animated: true, completion: nil)
             }

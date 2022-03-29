@@ -26,7 +26,7 @@ protocol UpComingListViewModelProtocol: UpcomingApiProtocol {
     func forwardPage()
 }
 
-class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator, ObservableObject {
+class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator {
     weak var coordinatorDelegate: AppCoordinatorDelegate?
 
     var api = UpComingListApi()
@@ -39,7 +39,7 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
     var detailMovie: MoviesDetailModelCodable?
     var envData = EnviromentData()
 
-    @Published var movies = [MoviesModelCodable]()
+    var movies = [MoviesModelCodable]()
     
     // MARK: Services
     /// getMovieInfo

@@ -11,7 +11,7 @@ import Kingfisher
 
 @available(iOS 14.0, *)
 struct MovieRowUI: View {
-    @StateObject var rowModel: ListMoviesCellModel
+    @StateObject var rowModel: MovieRowUIViewModel
     @EnvironmentObject private var envData: EnviromentData
     var favoriteIndex: Int {
         envData.favoritesMovies.firstIndex(where: { $0.idM == rowModel.movieID }) ?? -1
