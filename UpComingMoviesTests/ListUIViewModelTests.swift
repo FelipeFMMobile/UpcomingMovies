@@ -112,6 +112,9 @@ class ListUIViewModelTests: XCTestCase {
         }
         let rowViewModel = MovieRowUIViewModel(movie: first)
         XCTAssertEqual(rowViewModel.title, "Godzilla: King of the Monsters")
+        let second = viewModel.movies[1]
+        let rowViewModel2 = MovieRowUIViewModel(movie: second)
+        XCTAssertEqual(rowViewModel2.posterPath.relativeString, "https://image.tmdb.org/t/p/w185/")
     }
 
 }
