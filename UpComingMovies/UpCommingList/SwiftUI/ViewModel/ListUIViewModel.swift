@@ -18,7 +18,7 @@ class ListUIViewModel: ObservableObject {
     private var api = UpComingListApi()
 
     private var maxPages = 1
-    private var currentPage: Int = 1
+    private(set) var currentPage: Int = 1
     private var genreList: GenreListModelCodable?
 
     @available(iOS 15.0.0, *)

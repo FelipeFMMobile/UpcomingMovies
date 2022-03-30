@@ -37,6 +37,7 @@
 		8B0B0CEA7D7ED9324D7C004C /* Pods_UpComingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2082A2CEC7BC3DEB44965E68 /* Pods_UpComingMovies.framework */; };
 		BC0702C927F2860E00A3210D /* DetailUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0702C827F2860E00A3210D /* DetailUIViewModel.swift */; };
 		BC075EE527CAD76700BFA6CE /* ListMoviesTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC075EE427CAD76700BFA6CE /* ListMoviesTableViewCellView.swift */; };
+		BC08091627F5125300AC50B5 /* ListUIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08091527F5125300AC50B5 /* ListUIViewModelTests.swift */; };
 		BC1023F02072F5D0005FF7C5 /* ListMoviesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1023EF2072F5D0005FF7C5 /* ListMoviesCell.xib */; };
 		BC1F470927C6FE4D00E48743 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F470827C6FE4D00E48743 /* ViewCodeProtocol.swift */; };
 		BC2AA18A27D8241B00B335DC /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = BC2AA18927D8241B00B335DC /* swiftgen.yml */; };
@@ -163,6 +164,7 @@
 		B9F2D6D1B6BF06D98490BFBE /* Pods-UpComingMoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpComingMoviesTests.release.xcconfig"; path = "Target Support Files/Pods-UpComingMoviesTests/Pods-UpComingMoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		BC0702C827F2860E00A3210D /* DetailUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUIViewModel.swift; sourceTree = "<group>"; };
 		BC075EE427CAD76700BFA6CE /* ListMoviesTableViewCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMoviesTableViewCellView.swift; sourceTree = "<group>"; };
+		BC08091527F5125300AC50B5 /* ListUIViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUIViewModelTests.swift; sourceTree = "<group>"; };
 		BC1023EF2072F5D0005FF7C5 /* ListMoviesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListMoviesCell.xib; sourceTree = "<group>"; };
 		BC1F470827C6FE4D00E48743 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		BC2AA18927D8241B00B335DC /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 				BCF6EBCA206EC7C50063D023 /* UpComingMoviesTests.swift */,
 				51830CE322A426E100BE346A /* UpComingListApiTests.swift */,
 				516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */,
+				BC08091527F5125300AC50B5 /* ListUIViewModelTests.swift */,
 				5177AD3E22B077E9005D20AC /* UpComingListCoordinatorTests.swift */,
 				BCF6EBCC206EC7C50063D023 /* Info.plist */,
 			);
@@ -1230,6 +1233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC08091627F5125300AC50B5 /* ListUIViewModelTests.swift in Sources */,
 				5177AD3F22B077E9005D20AC /* UpComingListCoordinatorTests.swift in Sources */,
 				516E3E7822AD6B270025F255 /* UpComingListViewModelTests.swift in Sources */,
 				BCF6EBCB206EC7C50063D023 /* UpComingMoviesTests.swift in Sources */,
