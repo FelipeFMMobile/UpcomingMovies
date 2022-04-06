@@ -8,33 +8,34 @@
 //  SOLID: Liskov Substitution Principle, Fat Interface Principle
 //
 
-import Foundation
+public enum ApiError: Error, Equatable {
+    case domainFail, contentSerializeError(Error?), networkingError(NSError), statusCodeError(Int)
 
-typealias CompletionRequest<T> = (_ sucesso: Bool,
-  _ responseData: T?,
-  _ request: URLRequest?,
-  _ error: NSError?) -> Void
-
-protocol ApiRestGetProtocol {
-  func get<T: Decodable>(endPoint: String, params: [String: Any]?,
-                         completion: @escaping CompletionRequest<T>)
+    public static func == (lhs: ApiError, rhs: ApiError) -> Bool {
+        switch (lhs, rhs) {
+        case (.domainFail, .domainFail):
+            return true
+        case (.contentSerializeError, .contentSerializeError):
+            return true
+        case (.networkingError(let lError), networkingError(let rError)):
+            return lError.code == rError.code
+        case (.statusCodeError(let lCode), statusCodeError(let rCode)):
+            return lCode == rCode
+        default:
+            return false
+        }
+    }
 }
 
-protocol ApiRestPostJsonProtocol {
-  func post<T: Decodable>(endPoint: String, params: [String: Any]?,
-                          completion: @escaping CompletionRequest<T>)
-}
-
+public typealias ApiCompletionRequest<T> = (_ result: Result<T, ApiError>,
+                                            _ request: URLRequest?) -> Void
 protocol ApiRestProtocol {
-  
-  func run<T: Decodable>(method: HttpMethod,
-                         _ contentType: ContentType,
-                         endPoint: String,
-                         params: ParamsProtocol,
-                         completion: @escaping CompletionRequest<T>
-  )
+    func run<T: Decodable>(param: ApiRestParamProtocol,
+                           _ resultModel: T.Type,
+                           completion: @escaping ApiCompletionRequest<T>
+    )
+}
 
-  func addHeaderValue(value: String, key: String) -> Bool
-  func setAuthorization(value: String) -> Bool
-  func clearHeaderValues() -> Bool
+protocol ApiRestCacheProtocol {
+    func setCachePolicy()
 }

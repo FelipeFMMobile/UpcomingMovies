@@ -28,11 +28,11 @@ internal class IntegrationKIFTestCase: KIFTestCase {
 }
 
 extension IntegrationKIFTestCase {
-    func viewTester(_ file : String = #file, _ line : Int = #line) -> KIFUIViewTestActor {
+    func viewTester(_ file: String = #file, _ line: Int = #line) -> KIFUIViewTestActor {
         return KIFUIViewTestActor(inFile: file, atLine: line, delegate: self)
     }
     
-    func system(_ file : String = #file, _ line : Int = #line) -> KIFSystemTestActor {
+    func system(_ file: String = #file, _ line: Int = #line) -> KIFSystemTestActor {
         return KIFSystemTestActor(inFile: file, atLine: line, delegate: self)
     }
 }

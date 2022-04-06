@@ -5,7 +5,7 @@ disabled_rules:
 #    - comma
 #    - colon
 #    - force_cast
-#    - type_name
+    - type_name
 #    - variable_name_min_length
 #    - trailing_semicolon
 #    - force_try

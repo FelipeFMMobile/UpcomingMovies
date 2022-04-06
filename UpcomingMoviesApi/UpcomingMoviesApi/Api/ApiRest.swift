@@ -8,31 +8,23 @@
 // SOLID: Liskov Substitution Principle, Fat Interface Principle
 //
 
-import Foundation
-
-enum DefaultErrorCodes: Int {
-  case domainFail = 999, responseCodableFail = 997, noDataResponse = 996, statusCodeError = 995
+enum ApiErrorCodes: Int {
+    case domainFail = 999, responseCodableFail = 997, noDataResponse = 996, statusCodeError = 995
 }
 
-open class ApiRest: ApiRunner, ApiRestGetProtocol, ApiRestPostJsonProtocol {
-  
-  public override init() { super.init() }
-  
-  /// Get Post
-  public func get<T>(endPoint: String, params: [String: Any]?, 
-                     completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
-    
-    let getParams = GetParams(params: params ?? [:])
-    self.run(method: HttpMethod.GET, ContentType.json, endPoint: endPoint, 
-             params: getParams, completion: completion)
-  }
-  
-  /// JsonBody Post
-  public func post<T>(endPoint: String, params: [String: Any]?, 
-                      completion: @escaping (Bool, T?, URLRequest?, NSError?) -> Void) where T: Decodable {
-    let getParams = JsonBodyParams(params: params ?? [:])
-    self.run(method: HttpMethod.GET, ContentType.json, endPoint: endPoint, 
-             params: getParams, completion: completion)
-  }
-  
+open class ApiRest: ApiRunner {
+    public override init() { super.init() }
+}
+
+extension ApiRest: ApiRestCacheProtocol {
+    /// set cachePolicy using 
+    func setCachePolicy() {
+        let cacheDirectory = (NSSearchPathForDirectoriesInDomains(.cachesDirectory,
+                                                                    .userDomainMask, true)[0] as String)
+            .appendingFormat("/\(Bundle.main.bundleIdentifier ?? "cache")/" )
+        self.configuration.urlCache = URLCache(memoryCapacity: 4 * 1024 * 1024,
+                                               diskCapacity: 1 * 1024 * 1024,
+                                               diskPath: cacheDirectory)
+        self.configuration.requestCachePolicy = .useProtocolCachePolicy
+    }
 }

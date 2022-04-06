@@ -26,7 +26,7 @@
       "vote_average": 7,
       "title": "Pokémon Detective Pikachu",
       "popularity": 114.075,
-      "poster_path": "/wgQ7APnFpf1TuviKHXeEe3KnsTV.jpg",
+      "poster_path": null,
       "original_language": "en",
       "original_title": "Pokémon Detective Pikachu",
       "genre_ids": [
@@ -39,7 +39,7 @@
       ],
       "backdrop_path": "/nDP33LmQwNsnPv29GQazz59HjJI.jpg",
       "adult": false,
-      "overview": "In a world where people collect pocket-size monsters (Pokémon) to do battle, a boy comes across an intelligent monster who seeks to be a detective.",
+      "overview": null,
       "release_date": "2019-05-03"
     },
     {
