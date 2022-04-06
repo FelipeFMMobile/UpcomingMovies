@@ -14,14 +14,14 @@ struct ServerConfig {
     public static let key = "1f54bd990f1cdfb230adb312546d765d"
 }
 
-//* Domain control
-//* Check target bundle to switch between domains 
-//* Homolg and dev domains is not avalaible
-enum WebDomain: String {
+// Domain control
+// Check target bundle to switch between domains
+// Homolg and dev domains is not avalaible
+public enum WebDomain: String {
     case producao = "https://api.themoviedb.org/3/"
     case homolog = "https://homolog.themoviedb.org/3/"
     case dev = "localhost://api.themoviedb.org/3/"
-    
+
     static func domainForBundle() -> WebDomain {
         if let bundleID = Bundle.main.bundleIdentifier {
             if bundleID.range(of: "homolog") != nil {
@@ -33,7 +33,7 @@ enum WebDomain: String {
         }
         return .producao
     }
-    
+
     static func config() -> ServerConfig {
         return ServerConfig()
     }

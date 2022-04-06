@@ -1,0 +1,144 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name UpcomingMoviesApi
+import Foundation
+import Swift
+@_exported import UpcomingMoviesApi
+import _Concurrency
+public enum HttpMethod {
+  case GET
+  case POST
+  case PUT
+  case DELETE
+  case PATCH
+  public static func == (a: UpcomingMoviesApi.HttpMethod, b: UpcomingMoviesApi.HttpMethod) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ApiError : Swift.Error, Swift.Equatable {
+  case domainFail, contentSerializeError(Swift.Error?), networkingError(Foundation.NSError), statusCodeError(Swift.Int)
+  public static func == (lhs: UpcomingMoviesApi.ApiError, rhs: UpcomingMoviesApi.ApiError) -> Swift.Bool
+}
+public typealias ApiCompletionRequest<T> = (_ result: Swift.Result<T, UpcomingMoviesApi.ApiError>, _ request: Foundation.URLRequest?) -> Swift.Void
+public typealias Header = [Swift.String : Swift.String]
+public typealias Path = Swift.String
+public protocol EndPoint {
+  func path() -> UpcomingMoviesApi.Path
+  func header() -> UpcomingMoviesApi.Header
+  func contentType() -> UpcomingMoviesApi.ContentType
+}
+public protocol ApiRestParamProtocol : AnyObject {
+  var domain: UpcomingMoviesApi.WebDomain { get }
+  var method: UpcomingMoviesApi.HttpMethod { get }
+  var contentType: UpcomingMoviesApi.ContentType { get }
+  var endPoint: Swift.String { get }
+  var params: UpcomingMoviesApi.ParamsProtocol { get }
+  var header: UpcomingMoviesApi.ApiHeader { get }
+  func generateDefaultHeader()
+}
+extension UpcomingMoviesApi.ApiRestParamProtocol {
+  public func generateDefaultHeader()
+}
+@_hasMissingDesignatedInitializers public class ApiRestParam : UpcomingMoviesApi.ApiRestParamProtocol {
+  public var domain: UpcomingMoviesApi.WebDomain
+  public var method: UpcomingMoviesApi.HttpMethod
+  public var contentType: UpcomingMoviesApi.ContentType
+  public var endPoint: Swift.String
+  public var params: UpcomingMoviesApi.ParamsProtocol
+  public var header: UpcomingMoviesApi.ApiHeader
+  @objc deinit
+}
+public class JsonBodyParams : UpcomingMoviesApi.ParamsProtocol {
+  required public init(params: [Swift.String : Any])
+  public func buildParams(request: Foundation.URLRequest) -> Foundation.URLRequest
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class ApiRunner : ObjectiveC.NSObject {
+  public func run<T>(param: UpcomingMoviesApi.ApiRestParamProtocol, _ resultModel: T.Type, completion: @escaping UpcomingMoviesApi.ApiCompletionRequest<T>) where T : Swift.Decodable
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension UpcomingMoviesApi.ApiRunner : Foundation.URLSessionDataDelegate {
+  @objc dynamic public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse, completionHandler: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
+}
+@objc @_inheritsConvenienceInitializers open class ApiRest : UpcomingMoviesApi.ApiRunner {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class QueryItensConvert {
+  public func queryItens(url: Foundation.URL, params: [Swift.String : Any]) -> Foundation.URL
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class GetParams : UpcomingMoviesApi.QueryItensConvert, UpcomingMoviesApi.ParamsProtocol {
+  required public init(params: [Swift.String : Any])
+  public func buildParams(request: Foundation.URLRequest) -> Foundation.URLRequest
+  @objc deinit
+}
+public enum ContentType {
+  case formurlencoded
+  case json
+  public static func == (a: UpcomingMoviesApi.ContentType, b: UpcomingMoviesApi.ContentType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum WebDomain : Swift.String {
+  case producao
+  case homolog
+  case dev
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol ApiHeader {
+  var header: [Swift.String : Swift.String] { get set }
+  func addHeaderValue(value: Swift.String, key: Swift.String)
+  func setAuthorization(value: Swift.String)
+  func clearHeaderValues()
+}
+@_hasMissingDesignatedInitializers public class ApiHeaderSimple : UpcomingMoviesApi.ApiHeader {
+  public var header: [Swift.String : Swift.String]
+  public func addHeaderValue(value: Swift.String, key: Swift.String)
+  public func clearHeaderValues()
+  public func setAuthorization(value: Swift.String)
+  @objc deinit
+}
+public protocol ApiRestParamFactoryProtocol {
+  func generate(endPoint: Swift.String, params: UpcomingMoviesApi.ParamsProtocol) -> UpcomingMoviesApi.ApiRestParamProtocol
+  func generate(method: UpcomingMoviesApi.HttpMethod, endPoint: Swift.String, params: UpcomingMoviesApi.ParamsProtocol) -> UpcomingMoviesApi.ApiRestParamProtocol
+}
+extension UpcomingMoviesApi.ApiRestParamFactoryProtocol {
+  public func generate(endPoint: Swift.String, params: UpcomingMoviesApi.ParamsProtocol) -> UpcomingMoviesApi.ApiRestParamProtocol
+  public func generate(method: UpcomingMoviesApi.HttpMethod, endPoint: Swift.String, params: UpcomingMoviesApi.ParamsProtocol) -> UpcomingMoviesApi.ApiRestParamProtocol
+}
+public enum ApiParamFactory : UpcomingMoviesApi.ApiRestParamFactoryProtocol {
+  case basic
+  public static func == (a: UpcomingMoviesApi.ApiParamFactory, b: UpcomingMoviesApi.ApiParamFactory) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ParamsProtocol {
+  init(params: [Swift.String : Any])
+  func buildParams(request: Foundation.URLRequest) -> Foundation.URLRequest
+}
+@_hasMissingDesignatedInitializers public class FormEncodedParams : UpcomingMoviesApi.QueryItensConvert, UpcomingMoviesApi.ParamsProtocol {
+  required public init(params: [Swift.String : Any])
+  public func buildParams(request: Foundation.URLRequest) -> Foundation.URLRequest
+  @objc deinit
+}
+extension UpcomingMoviesApi.HttpMethod : Swift.Equatable {}
+extension UpcomingMoviesApi.HttpMethod : Swift.Hashable {}
+extension UpcomingMoviesApi.ContentType : Swift.Equatable {}
+extension UpcomingMoviesApi.ContentType : Swift.Hashable {}
+extension UpcomingMoviesApi.WebDomain : Swift.Equatable {}
+extension UpcomingMoviesApi.WebDomain : Swift.Hashable {}
+extension UpcomingMoviesApi.WebDomain : Swift.RawRepresentable {}
+extension UpcomingMoviesApi.ApiParamFactory : Swift.Equatable {}
+extension UpcomingMoviesApi.ApiParamFactory : Swift.Hashable {}

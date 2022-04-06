@@ -7,17 +7,20 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var coordinator: UpCommingCoordinator?
+    var coordinator: AnyObject?
+    
+    var sdkDependency: [SdkProtocol] = [
+        FirebaseSdk()
+    ]
     
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions 
-        launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions
+                     launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         appTheme()
         
@@ -29,15 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func appTheme() {
-        //theme of SVProgressHUD
-        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+        AppTheme().configureTheme()
     }
     
     func initViews() {
         self.window = UIWindow()
-        coordinator = UpCommingCoordinator(nav: UINavigationController())
-        
-        self.window?.rootViewController = coordinator?.start(.none)?.navigationController
+        var coordinator = UpCommingCoordinator(nav: UINavigationController())
+        self.window?.rootViewController = try? coordinator.start(.first).navigationController
+        self.coordinator = coordinator
+        self.window?.makeKeyAndVisible()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -58,7 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: SdkControlProtocol {
     func initSdks() {
-        let firebase: SdkProtocol = FirebaseSdk()
-        _ = firebase.initialization()
+        sdkDependency.forEach {
+            $0.initialization()
+        }
     }
 }

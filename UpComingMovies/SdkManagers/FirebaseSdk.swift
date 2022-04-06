@@ -10,9 +10,9 @@
 
 import Foundation
 import Firebase
-import Crashlytics
 
 protocol SdkProtocol {
+    @discardableResult
     func initialization() -> Bool
 }
 
@@ -21,11 +21,10 @@ protocol SdkControlProtocol {
 }
 
 // FireBase SDK Implementation Tools
-class FirebaseSdk: SdkProtocol {
+struct FirebaseSdk: SdkProtocol {
+    @discardableResult
     func initialization() -> Bool {
-        let hasInit = FirebaseApp.app() != nil
-        if !hasInit { FirebaseApp.configure() }
-        return FirebaseApp.app() != nil
+        FirebaseApp.configure()
+        return true
     }
-    
 }

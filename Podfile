@@ -1,13 +1,13 @@
-platform :ios, '10.3'
+platform :ios, '11.0'
 use_frameworks!
 
 workspace 'UpComingMovies'
 
-xcodeproj 'UpComingMovies.xcodeproj'
-xcodeproj 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
+project 'UpComingMovies.xcodeproj'
+project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
 
 def shared_pods
-  xcodeproj 'UpComingMovies.xcodeproj'
+  project 'UpComingMovies.xcodeproj'
 	pod 'Alamofire', '~> 4.7'
 	pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'SVProgressHUD'
@@ -15,11 +15,10 @@ def shared_pods
   pod 'RxCocoa', '~> 4.1'
   pod 'RxDataSources', '~> 3.1'
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
-  pod 'Kingfisher', '5.2.0'
+  pod 'Kingfisher', '~> 6.3.0'
+  pod 'SwiftGen', '~> 6.0'
   pod 'Firebase/Core'
-  # Pods for PodTest
-  pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'Firebase/Crashlytics'
   # (Recommended) Pod for Google Analytics
   pod 'Firebase/Analytics'
   pod 'Firebase/Performance'
@@ -28,7 +27,7 @@ end
 def quality_pods
   pod 'SwiftLint'
 end  
-
+# Pods for PodTest
 def test_pods
   pod 'OHHTTPStubs/Swift'
   pod 'Quick'
@@ -37,15 +36,11 @@ end
 
 # Pods for UpComingMovies
 target 'UpComingMovies' do
+  inhibit_all_warnings!
   shared_pods
-  quality_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
     test_pods
-  end
-  
-  target 'SdkManagerTests' do
-    inherit! :search_paths
   end
 
   target 'UpComingMoviesKIFTests' do
@@ -53,16 +48,20 @@ target 'UpComingMovies' do
     test_pods
     pod 'KIF'
   end
+
+  target 'UpComingMoviesUITests' do
+    test_pods
+  end
 end
 
 # Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
-target 'UpcomingMoviesApi' do 
-  xcodeproj 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
-  
+target 'UpcomingMoviesApi' do
+  inhibit_all_warnings!
+  project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
+  quality_pods
   target 'UpcomingMoviesApiTests' do
     test_pods
   end
-  
 end
 
 # Disable Code Coverage for Pods projects
@@ -70,6 +69,8 @@ post_install do |installer_representation|
   installer_representation.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+      config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = "YES"
+      config.build_settings['SWIFT_SUPPRESS_WARNINGS'] = "YES"
     end
   end
 end

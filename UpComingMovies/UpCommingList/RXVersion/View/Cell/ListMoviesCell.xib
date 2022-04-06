@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListMovieCell" rowHeight="148" id="Syi-18-ae7" customClass="ListMoviesTableViewCell" customModule="UpComingMovies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="148"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Syi-18-ae7" id="Nxk-Yn-vYc">
+                <rect key="frame" x="0.0" y="0.0" width="383" height="148"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K0j-5T-dt4">
+                        <rect key="frame" x="15" y="15" width="78" height="117.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="117.5" id="gpq-IP-Pwh"/>
+                            <constraint firstAttribute="width" constant="78" id="jdS-cw-uqr"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pacific Rim: Uprising" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMS-4c-mbc">
+                        <rect key="frame" x="108" y="15" width="260" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drama" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2V-mt-OfE">
+                        <rect key="frame" x="108" y="44.5" width="259" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Comming on 27 fev" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xso-mn-RQ6">
+                        <rect key="frame" x="108" y="118" width="260" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yMS-4c-mbc" firstAttribute="leading" secondItem="K0j-5T-dt4" secondAttribute="trailing" constant="15" id="0Dl-hP-450"/>
+                    <constraint firstItem="s2V-mt-OfE" firstAttribute="top" secondItem="yMS-4c-mbc" secondAttribute="bottom" constant="8" id="2jh-8v-JCK"/>
+                    <constraint firstItem="s2V-mt-OfE" firstAttribute="leading" secondItem="K0j-5T-dt4" secondAttribute="trailing" constant="15" id="4U1-rW-b0K"/>
+                    <constraint firstItem="xso-mn-RQ6" firstAttribute="leading" secondItem="K0j-5T-dt4" secondAttribute="trailing" constant="15" id="74k-xu-WLy"/>
+                    <constraint firstAttribute="trailing" secondItem="s2V-mt-OfE" secondAttribute="trailing" constant="16" id="CHo-KG-4Jo"/>
+                    <constraint firstItem="K0j-5T-dt4" firstAttribute="top" secondItem="Nxk-Yn-vYc" secondAttribute="top" constant="15" id="Ctq-6Y-Jxa"/>
+                    <constraint firstAttribute="bottom" secondItem="xso-mn-RQ6" secondAttribute="bottom" constant="15" id="Q3z-69-abb"/>
+                    <constraint firstAttribute="trailing" secondItem="yMS-4c-mbc" secondAttribute="trailing" constant="15" id="S5v-Pb-qbp"/>
+                    <constraint firstItem="yMS-4c-mbc" firstAttribute="top" secondItem="Nxk-Yn-vYc" secondAttribute="top" constant="15" id="enG-wm-6wZ"/>
+                    <constraint firstAttribute="trailing" secondItem="xso-mn-RQ6" secondAttribute="trailing" constant="15" id="hcD-26-8Wy"/>
+                    <constraint firstItem="K0j-5T-dt4" firstAttribute="leading" secondItem="Nxk-Yn-vYc" secondAttribute="leading" constant="15" id="nXb-kp-aLE"/>
+                    <constraint firstAttribute="bottom" secondItem="K0j-5T-dt4" secondAttribute="bottom" constant="15" id="tSi-lA-5ek"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="genreLabel" destination="s2V-mt-OfE" id="VXd-RE-UAS"/>
+                <outlet property="posterImageView" destination="K0j-5T-dt4" id="gxN-0J-G7z"/>
+                <outlet property="releaseLabel" destination="xso-mn-RQ6" id="nmd-dn-03Q"/>
+                <outlet property="titleLabel" destination="yMS-4c-mbc" id="jqm-KI-xJJ"/>
+            </connections>
+            <point key="canvasLocation" x="-109" y="-74"/>
+        </tableViewCell>
+    </objects>
+</document>

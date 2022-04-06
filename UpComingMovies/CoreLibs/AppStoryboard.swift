@@ -6,8 +6,6 @@
 //  Copyright © 2020 FMMobile. All rights reserved.
 //
 
-import Foundation
-
 protocol AppStoryboardProtocol {
     func getName() -> String
 }
@@ -15,16 +13,18 @@ protocol AppStoryboardProtocol {
 enum AppStoryboard: String {
     case main
     case list
+    case detail
 }
 
 extension AppStoryboard: AppStoryboardProtocol {
-        
     func getName() -> String {
         switch self {
         case .main:
             return "Main"
         case .list:
             return "UpComingListStoryboard"
+        case .detail:
+            return "DetailUpComingListStoryboard"
         }
     }
 }

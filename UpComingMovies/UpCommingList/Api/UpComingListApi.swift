@@ -6,16 +6,10 @@
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
-import Foundation
 import UpcomingMoviesApi
 
-struct RequestResultInfo<T> { 
-    var result: T?
-    var error: ApiError?
-}
-
 protocol UpComingListApiProtocol {
-    typealias RequetsResult<T> = (_ result: RequestResultInfo<T>) -> Void
+    typealias RequetsResult<T> = (_ result: Result<T, ApiError>) -> Void
     func requestMovies(page: Int, complete: @escaping RequetsResult<PaginationModelCodable<MoviesModelCodable>>)
     func requestGenres(complete: @escaping RequetsResult<GenreListModelCodable>)
     func requestMoviesDetail(movie: MoviesModelCodable, complete: @escaping RequetsResult<MoviesDetailModelCodable>)
@@ -30,39 +24,42 @@ class UpComingListApi: UpComingListApiProtocol {
         
         let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d", "page": "\(page)"]
         let endpoint = UpcomingEndpoints.upComing
-        api.get(endPoint: endpoint, params: params, PaginationModelCodable<MoviesModelCodable>.self) { response in
-            switch response {
-            case .success(let result):
-                complete(RequestResultInfo(result: result.data, error: nil))
+        let apiParam = ApiParamFactory.basic.generate(endPoint: endpoint.path(), params: GetParams(params: params))
+        api.run(param: apiParam, PaginationModelCodable<MoviesModelCodable>.self) { result, _ in
+            switch result {
+            case .success(let model):
+                complete(.success(model))
             case .failure(let error):
-                complete(RequestResultInfo(result: nil, error: error))
+                complete(.failure(error))
             }
         }
     }
-    
+
     func requestGenres(complete: @escaping RequetsResult<GenreListModelCodable>) {
         let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d"]
-        api.get(endPoint: UpcomingEndpoints.genres,
-                params: params, GenreListModelCodable.self) { response in
-                switch response {
-                case .success(let result):
-                    complete(RequestResultInfo(result: result.data, error: nil))
-                case .failure(let error):
-                    complete(RequestResultInfo(result: nil, error: error))
-                }
+        let apiParam = ApiParamFactory.basic.generate(endPoint: UpcomingEndpoints.genres.path(),
+                                                      params: GetParams(params: params))
+        api.run(param: apiParam, GenreListModelCodable.self) { result, _ in
+            switch result {
+            case .success(let model):
+                complete(.success(model))
+            case .failure(let error):
+                complete(.failure(error))
+            }
         }
     }
-    
+
     func requestMoviesDetail(movie: MoviesModelCodable, complete: @escaping RequetsResult<MoviesDetailModelCodable>) {
         let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d"]
-        api.get(endPoint: UpcomingEndpoints.movie(String(movie.idM)),
-                params: params, MoviesDetailModelCodable.self) { response in
-                    switch response {
-                    case .success(let result):
-                        complete(RequestResultInfo(result: result.data, error: nil))
-                    case .failure(let error):
-                        complete(RequestResultInfo(result: nil, error: error))
-                    }
+        let apiParam = ApiParamFactory.basic.generate(endPoint: UpcomingEndpoints.movie(String(movie.idM)).path(),
+                                                      params: GetParams(params: params))
+        api.run(param: apiParam, MoviesDetailModelCodable.self) { result, _ in
+            switch result {
+            case .success(let model):
+                complete(.success(model))
+            case .failure(let error):
+                complete(.failure(error))
+            }
         }
     }
 }

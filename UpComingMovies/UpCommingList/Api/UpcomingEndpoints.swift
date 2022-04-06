@@ -6,7 +6,6 @@
 //  Copyright © 2020 FMMobile. All rights reserved.
 //
 
-import Foundation
 import UpcomingMoviesApi
 
 public enum UpcomingEndpoints {
