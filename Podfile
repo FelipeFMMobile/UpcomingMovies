@@ -38,6 +38,7 @@ end
 target 'UpComingMovies' do
   inhibit_all_warnings!
   shared_pods
+  quality_pods
   target 'UpComingMoviesTests' do
     inherit! :search_paths
     test_pods
@@ -50,16 +51,6 @@ target 'UpComingMovies' do
   end
 
   target 'UpComingMoviesUITests' do
-    test_pods
-  end
-end
-
-# Pods for UpComingMoviesApi - Framework - Setup to work all in same Workplace
-target 'UpcomingMoviesApi' do
-  inhibit_all_warnings!
-  project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
-  quality_pods
-  target 'UpcomingMoviesApiTests' do
     test_pods
   end
 end

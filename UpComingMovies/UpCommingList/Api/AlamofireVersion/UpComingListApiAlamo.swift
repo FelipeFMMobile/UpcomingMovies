@@ -10,6 +10,7 @@ import Foundation
 import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
+import SwiftApiSDK
 
 enum ServicesEndpoints: String {
     case upComing = "movie/upcoming"
@@ -23,7 +24,7 @@ class UpComingListApiAlamo {
     let language = "en-US"
     
     func requestUpComingMovies(page: Int, complete: @escaping (PaginationModelMap<MoviesModelMap>) -> Void) {
-        let url = ServerConfig.domain+ServicesEndpoints.upComing.rawValue
+        let url = WebDomain().domainForBundle()+ServicesEndpoints.upComing.rawValue
         let parameters: [String: Any] = [
             "api_key": key,
             "language": language,
@@ -43,7 +44,7 @@ class UpComingListApiAlamo {
     }
     
     func requestGenres(complete: @escaping (GenreListModelMap) -> Void) {
-        let url = ServerConfig.domain+ServicesEndpoints.genres.rawValue
+        let url = WebDomain().domainForBundle()+ServicesEndpoints.genres.rawValue
         let parameters: [String: Any] = [
             "api_key": key,
             "language": language
@@ -62,7 +63,7 @@ class UpComingListApiAlamo {
     }
     
     func requestMovieInfo(movie: MoviesModelMap, complete: @escaping (MoviesDetailModelMap) -> Void) {
-        let url = ServerConfig.domain + ServicesEndpoints.movie.rawValue + String(movie.idM)
+        let url = WebDomain().domainForBundle() + ServicesEndpoints.movie.rawValue + String(movie.idM)
         let parameters: [String: Any] = [
             "api_key": key,
             "language": language

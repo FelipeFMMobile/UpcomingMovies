@@ -8,7 +8,7 @@
 
 import Foundation
 import SVProgressHUD
-import UpcomingMoviesApi
+import SwiftApiSDK
 
 protocol UIViewControllerUtils {
     static func instantiate<T>(_ appStoryboard: AppStoryboard) -> T where T: UIViewController

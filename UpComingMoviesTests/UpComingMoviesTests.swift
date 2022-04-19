@@ -8,7 +8,7 @@
 
 import XCTest
 @testable import UpComingMovies
-import UpcomingMoviesApi
+import SwiftApiSDK
 
 class UpComingMoviesTests: XCTestCase {
     

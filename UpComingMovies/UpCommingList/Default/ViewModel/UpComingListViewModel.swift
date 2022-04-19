@@ -8,7 +8,7 @@
 //  SOLID: Single Responsibility Principle, Interface Segregation
 //
 
-import UpcomingMoviesApi
+import SwiftApiSDK
 
 protocol UpcomingApiProtocol { 
     var api: UpComingListApi { get }

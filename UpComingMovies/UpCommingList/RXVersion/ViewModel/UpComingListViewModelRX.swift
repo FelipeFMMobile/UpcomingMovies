@@ -12,7 +12,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
-import UpcomingMoviesApi
+import SwiftApiSDK
 
 protocol UpComingListViewModelRXProtocol {
     var moviesSubject: PublishSubject<[MoviesModelCodable]> { get set }

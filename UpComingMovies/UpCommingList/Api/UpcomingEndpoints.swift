@@ -6,7 +6,7 @@
 //  Copyright © 2020 FMMobile. All rights reserved.
 //
 
-import UpcomingMoviesApi
+import SwiftApiSDK
 
 public enum UpcomingEndpoints {
     case upComing
