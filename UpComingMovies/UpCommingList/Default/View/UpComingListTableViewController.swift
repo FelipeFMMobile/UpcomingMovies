@@ -82,11 +82,6 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(self.callSwiftUIVersion(_:)))
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "RXVersion",
-                                                                style: .plain,
-                                                                target: self,
-                                                                action: #selector(self.callRXVersion(_:)))
     }
     
     func start() {
@@ -134,10 +129,6 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
                 self?.displayError(error)
             }
         })
-    }
-    
-    @IBAction func callRXVersion(_ sender: Any) {
-        self.viewModel.coordinatorDelegate?.goToFlow("rx")
     }
     
     @IBAction func callSwiftUIVersion(_ sender: Any) {

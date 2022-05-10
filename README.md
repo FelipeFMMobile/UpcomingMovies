@@ -29,6 +29,7 @@ pod install
 # Architeture
 
 * MVVM+[Coordinator](https://github.com/FelipeFMMobile/UpcomingMovies/wiki/Coordinator) with Networking
+* SPM using SwiftApiSDK [Repo](https://github.com/FelipeFMMobile/SwiftApiSDK)
 
 * SwiftUI Version
 
@@ -62,12 +63,7 @@ preview: https://user-images.githubusercontent.com/3279991/156943301-42dddfd3-5e
 ## Other dependencies
 
 ```
-pod 'Alamofire', '~> 4.7'
-pod 'AlamofireObjectMapper', '~> 5.2'
 pod 'SVProgressHUD'
-pod 'RxSwift', '~> 4.5'
-pod 'RxCocoa', '~> 4.1'
-pod 'RxDataSources', '~> 3.1'
 pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
 pod 'Kingfisher', '~> 6.3.0'
 pod 'SwiftGen', '~> 6.0'
@@ -89,7 +85,7 @@ Felipe Menezes, SÊnior iOS Developer, Software Enginieer
 
 ## Version History
 * 2022 
-  * Swift update, Async/Await, SwiftUI
+  * Swift update, Async/Await, SwiftUI, SPM
 * 2021
   * api improvement, code revision, CI improvement  
 * 2019

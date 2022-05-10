@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftApiSDK
 
 protocol ListMoviesCellModelProtocol {
     var title: String  { get set }

@@ -7,6 +7,7 @@
 //
 
 import Combine
+import SwiftApiSDK
 
 class MovieRowUIViewModel: ObservableObject {
     var title: String = ""

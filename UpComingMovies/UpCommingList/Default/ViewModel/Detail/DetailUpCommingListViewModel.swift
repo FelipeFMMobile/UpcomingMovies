@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import Combine
+import SwiftApiSDK
 
 protocol DetailUpCommingListViewModelProtocol {
     var movie: MoviesDetailModelCodable? { get set }

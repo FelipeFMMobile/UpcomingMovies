@@ -8,7 +8,7 @@
 //  SOLID: Interface Segregation
 //
 
-import UpcomingMoviesApi
+import SwiftApiSDK
 
 protocol UpComingTableViewDataSetProtocol {
   associatedtype ValueModel
