@@ -1,9 +1,4 @@
 PODS:
-  - Alamofire (4.9.1)
-  - AlamofireObjectMapper (5.2.1):
-    - Alamofire (~> 4.7)
-    - ObjectMapper (~> 3.4)
-  - Differentiator (3.1.0)
   - Firebase/Analytics (8.12.1):
     - Firebase/Core
   - Firebase/Core (8.12.1):
@@ -127,7 +122,6 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - Nimble (9.2.1)
-  - ObjectMapper (3.5.3)
   - OHHTTPStubs/Core (9.1.0)
   - OHHTTPStubs/Default (9.1.0):
     - OHHTTPStubs/Core
@@ -143,21 +137,12 @@ PODS:
     - OHHTTPStubs/Default
   - PromisesObjC (2.0.0)
   - Quick (4.0.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.5.0)
   - SVProgressHUD (2.2.5)
   - SwiftGen (6.5.1)
   - SwiftLint (0.46.3)
   - UIScrollView-InfiniteScroll (1.0.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
-  - AlamofireObjectMapper (~> 5.2)
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/Crashlytics
@@ -167,9 +152,6 @@ DEPENDENCIES:
   - Nimble
   - OHHTTPStubs/Swift
   - Quick
-  - RxCocoa (~> 4.1)
-  - RxDataSources (~> 3.1)
-  - RxSwift (~> 4.5)
   - SVProgressHUD
   - SwiftGen (~> 6.0)
   - SwiftLint
@@ -177,9 +159,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
-    - AlamofireObjectMapper
-    - Differentiator
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -196,22 +175,15 @@ SPEC REPOS:
     - Kingfisher
     - nanopb
     - Nimble
-    - ObjectMapper
     - OHHTTPStubs
     - PromisesObjC
     - Quick
-    - RxCocoa
-    - RxDataSources
-    - RxSwift
     - SVProgressHUD
     - SwiftGen
     - SwiftLint
     - UIScrollView-InfiniteScroll
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Firebase: 580d09e8edafc3073ebf09c03fd42e4d80d35fe9
   FirebaseABTesting: 1b05c92327b3f0a9545cea3bab4d93e82550e29b
   FirebaseAnalytics: bd10d7706ba8d6e01ea2816f8fe9e9b881cb0918
@@ -228,18 +200,14 @@ SPEC CHECKSUMS:
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
-  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
   OHHTTPStubs: 90eac6d8f2c18317baeca36698523dc67c513831
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
   SwiftLint: ae76d82f056734f853c8cd0371503252c606c482
   UIScrollView-InfiniteScroll: c132d6d5851daff229ab4a1060ccf70a05a051c9
 
-PODFILE CHECKSUM: 40fb068f1f3960dd649fbbf1d9d4ef9a5d52f115
+PODFILE CHECKSUM: 3911b411cdb9050736b8529cfe0c79b83e68d4ed
 
 COCOAPODS: 1.11.2

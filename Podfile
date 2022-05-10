@@ -8,12 +8,7 @@ project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
 
 def shared_pods
   project 'UpComingMovies.xcodeproj'
-	pod 'Alamofire', '~> 4.7'
-	pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'SVProgressHUD'
-  pod 'RxSwift', '~> 4.5'
-  pod 'RxCocoa', '~> 4.1'
-  pod 'RxDataSources', '~> 3.1'
   pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
   pod 'Kingfisher', '~> 6.3.0'
   pod 'SwiftGen', '~> 6.0'

@@ -9,14 +9,12 @@
 protocol UpCommingCoordinatorProtocol: AppCoordinator {
     func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailUpComingListTableViewController
     func gotoDetail(detailMovie: MoviesDetailModelCodable)
-    func gotToRXVersion()
 }
 
 class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     
     typealias ListView = UpComingListTableViewController
     typealias DetailView = DetailUpComingListTableViewController
-    typealias ListViewRX = UpComingListRXTableViewController
     
     var navigation: UINavigationController!
     var view: ListView?
@@ -35,12 +33,6 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
         return view
     }
     
-    internal func getListViewRXStoryboard() -> ListViewRX? {
-        let view: ListViewRX =  ListViewRX.instantiate(.list)
-        view.viewModel.coordinatorDelegate = self
-        return view
-    }
-    
     internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailView {
         let detailController: DetailView = DetailView.instantiate(.detail)
         detailController.viewModel = DetailUpCommingListViewModel(movie: detailMovie)
@@ -55,20 +47,10 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
             self.navigation.pushViewController(detailController, animated: true)
         }
     }
-    
-    func gotToRXVersion() {
-        DispatchQueue.main.async {
-            if let view = self.getListViewRXStoryboard() {
-                self.navigation.pushViewController(view, animated: true)
-            }
-        }
-    }
 }
 
 extension UpCommingCoordinator: AppCoordinatorDelegate {
-    func goToFlow(_ name: String) {
-        if name == "rx" { gotToRXVersion() }
-    }
+    func goToFlow(_ name: String) { }
 
     func goToFlow<T>(_ name: String, model: T) where T: Decodable {
         guard let model = model as? MoviesDetailModelCodable else { return }
