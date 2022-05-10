@@ -50,6 +50,7 @@
 		BC635FED27D5600D0015C928 /* DetailUpComingListStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC635FEC27D5600D0015C928 /* DetailUpComingListStoryboard.storyboard */; };
 		BC7AA96827A747EC009FEF0F /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7AA96727A747EC009FEF0F /* ImageLoaderView.swift */; };
 		BC8720B0279DA72E003D20C4 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8720AF279DA72E003D20C4 /* AppTheme.swift */; };
+		BC89F5E3282AB8DB00C6B5E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BC89F5E2282AB8DB00C6B5E6 /* README.md */; };
 		BC8AD52C27A9F73A006DBD01 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AD52B27A9F73A006DBD01 /* StarButton.swift */; };
 		BC8AD52E27A9FA34006DBD01 /* EnviromentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8AD52D27A9FA34006DBD01 /* EnviromentData.swift */; };
 		BC9E6B0E27E7C22F003B9065 /* ListUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9E6B0D27E7C22F003B9065 /* ListUIViewModel.swift */; };
@@ -154,6 +155,7 @@
 		BC635FEC27D5600D0015C928 /* DetailUpComingListStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailUpComingListStoryboard.storyboard; sourceTree = "<group>"; };
 		BC7AA96727A747EC009FEF0F /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
 		BC8720AF279DA72E003D20C4 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		BC89F5E2282AB8DB00C6B5E6 /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; fileEncoding = 4; path = README.md; sourceTree = "<group>"; };
 		BC8AD52B27A9F73A006DBD01 /* StarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		BC8AD52D27A9FA34006DBD01 /* EnviromentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviromentData.swift; sourceTree = "<group>"; };
 		BC9E6B0D27E7C22F003B9065 /* ListUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUIViewModel.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 		BCF6EBA6206EC7C50063D023 = {
 			isa = PBXGroup;
 			children = (
+				BC89F5E2282AB8DB00C6B5E6 /* README.md */,
 				BC2AA18927D8241B00B335DC /* swiftgen.yml */,
 				BCF6EBB1206EC7C50063D023 /* UpComingMovies */,
 				BCF6EBC9206EC7C50063D023 /* UpComingMoviesTests */,
@@ -739,6 +742,7 @@
 			files = (
 				BC5401CA279F580700D44BEA /* ListMovie.json in Resources */,
 				51994EAD2290B06500B4420D /* .swiftlint.yml in Resources */,
+				BC89F5E3282AB8DB00C6B5E6 /* README.md in Resources */,
 				BC5401C8279F576600D44BEA /* Genre.json in Resources */,
 				BCF6EBC0206EC7C50063D023 /* LaunchScreen.storyboard in Resources */,
 				BCC3D707280CCD8A000A19EF /* Mocks in Resources */,
