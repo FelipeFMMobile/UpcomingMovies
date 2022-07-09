@@ -1,7 +1,0 @@
-organization=felipefmmobile-github
-projectKey=FelipeFMMobile_UpcomingMovies
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.8352
-dashboardUrl=https://sonarcloud.io/dashboard?id=FelipeFMMobile_UpcomingMovies
-ceTaskId=AXJYaXHpXb26Fi4fIlj9
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXJYaXHpXb26Fi4fIlj9

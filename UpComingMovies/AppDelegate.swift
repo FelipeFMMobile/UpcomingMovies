@@ -11,9 +11,9 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var coordinator: AnyObject?
+    private var coordinator: AnyObject?
     
-    var sdkDependency: [SdkProtocol] = [
+    private var sdkDependency: [SdkProtocol] = [
         FirebaseSdk()
     ]
     
@@ -31,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func appTheme() {
+    private func appTheme() {
         AppTheme().configureTheme()
     }
     
-    func initViews() {
+    private func initViews() {
         self.window = UIWindow()
         var coordinator = UpCommingCoordinator(nav: UINavigationController())
         self.window?.rootViewController = try? coordinator.start(.first).navigationController

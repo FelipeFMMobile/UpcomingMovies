@@ -1,15 +1,23 @@
 //
-//  MovieRowUIViewModel.swift
+//  ListMoviesCellModel.swift
 //  UpComingMovies
 //
-//  Created by Felipe Menezes on 20/03/22.
-//  Copyright © 2022 FMMobile. All rights reserved.
+//  Created by Felipe Menezes on 01/04/2018.
+//  Copyright © 2018 FMMobile. All rights reserved.
 //
 
-import Combine
+import UIKit
 import SwiftApiSDK
 
-class MovieRowUIViewModel: ObservableObject {
+protocol ListMoviesCellModelProtocol {
+    var title: String  { get set }
+    var posterPath: URL { get set }
+    var releaseDate: String { get set }
+    var genreTitle: String { get set }
+    init(genre: GenreModelCodable, movie: MoviesModelCodable)
+}
+
+class ListMoviesCellModel: NSObject, ObservableObject, ListMoviesCellModelProtocol {
     var title: String = ""
     var posterPath: URL = URL(string: "https://www.apple.com")!
     var releaseDate: String = ""
@@ -17,9 +25,9 @@ class MovieRowUIViewModel: ObservableObject {
     var sinopses: String = ""
     var movieID: Int = 0
     @Published var isFavorite: Bool = false
-
-    required init(movie: MoviesModelCodable) {
-        genreTitle = movie.firstGenreName()
+    
+    required init(genre: GenreModelCodable, movie: MoviesModelCodable) {
+        genreTitle = genre.name ?? ""
         title = movie.title
         let url = ServerConfig.imagesBaseUrl + (movie.posterPath ?? "")
         if let url = URL(string: url) {

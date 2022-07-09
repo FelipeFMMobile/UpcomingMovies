@@ -9,7 +9,7 @@
 import Foundation
 
 /// MoviesModelCodable
-public class MoviesModelCodable: Decodable, Equatable {
+final public class MoviesModelCodable: Decodable, Equatable {
     var voteCount: Int
     var idM: Int
     var video: Bool

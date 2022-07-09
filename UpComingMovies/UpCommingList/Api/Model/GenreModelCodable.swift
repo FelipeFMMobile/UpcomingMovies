@@ -7,7 +7,7 @@
 //
 
 /// Genre Model Object
-public class GenreListModelCodable: Decodable {
+final public class GenreListModelCodable: Decodable {
     var genres: [GenreModelCodable]?
     
     // we need to choice a better place for this
@@ -18,7 +18,7 @@ public class GenreListModelCodable: Decodable {
     }
 }
 
-public class GenreModelCodable: Decodable {
+final public class GenreModelCodable: Decodable {
     var idGenre: Int
     var name: String?
     

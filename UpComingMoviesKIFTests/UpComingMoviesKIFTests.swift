@@ -9,10 +9,6 @@
 import XCTest
 
 class UpComingMoviesKIFTests: IntegrationKIFTestCase {
-    func testRXVersionButtonExists() {
-        XCTAssertNotNil(viewTester().usingLabel("RXVersion"))
-    }
-    
     func testSwiftUIVersionButtonExists() {
         XCTAssertNotNil(viewTester().usingLabel("SwiftUI"))
     }

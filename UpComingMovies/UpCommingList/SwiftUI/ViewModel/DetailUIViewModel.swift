@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import UpcomingMoviesApi
+import SwiftApiSDK
 
 class DetailUIViewModel: ObservableObject {
     @Published var movie: MoviesDetailModelCodable? {
