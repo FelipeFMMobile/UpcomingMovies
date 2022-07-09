@@ -15,14 +15,16 @@ protocol UpComingListApiProtocol {
     func requestMoviesDetail(movie: MoviesModelCodable, complete: @escaping RequetsResult<MoviesDetailModelCodable>)
 }
 
-class UpComingListApi: UpComingListApiProtocol {
+final class UpComingListApi: UpComingListApiProtocol {
     
-    let api = ApiRest()
+    private let api = ApiRest()
+    
+    private let apiKey = "1f54bd990f1cdfb230adb312546d765d"
     
     func requestMovies(page: Int,
                        complete: @escaping RequetsResult<PaginationModelCodable<MoviesModelCodable>>) {
         
-        let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d", "page": "\(page)"]
+        let params = ["api_key": apiKey, "page": "\(page)"]
         let endpoint = UpcomingEndpoints.upComing
         let apiParam = ApiParamFactory.basic.generate(domain: WebDomain.self,
                                                       endPoint: endpoint.path(),
@@ -38,7 +40,7 @@ class UpComingListApi: UpComingListApiProtocol {
     }
 
     func requestGenres(complete: @escaping RequetsResult<GenreListModelCodable>) {
-        let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d"]
+        let params = ["api_key": apiKey]
         let apiParam = ApiParamFactory.basic.generate(domain: WebDomain.self,
                                                       endPoint: UpcomingEndpoints.genres.path(),
                                                       params: GetParams(params: params))
@@ -53,7 +55,7 @@ class UpComingListApi: UpComingListApiProtocol {
     }
 
     func requestMoviesDetail(movie: MoviesModelCodable, complete: @escaping RequetsResult<MoviesDetailModelCodable>) {
-        let params = ["api_key": "1f54bd990f1cdfb230adb312546d765d"]
+        let params = ["api_key": apiKey]
         let apiParam = ApiParamFactory.basic.generate(domain: WebDomain.self,
                                                       endPoint: UpcomingEndpoints.movie(String(movie.idM)).path(),
                                                       params: GetParams(params: params))

@@ -10,19 +10,13 @@ protocol AppStoryboardProtocol {
     func getName() -> String
 }
 
-enum AppStoryboard: String {
-    case main
-    case list
+enum AppStoryboardHUB: String {
     case detail
 }
 
-extension AppStoryboard: AppStoryboardProtocol {
+extension AppStoryboardHUB: AppStoryboardProtocol {
     func getName() -> String {
         switch self {
-        case .main:
-            return "Main"
-        case .list:
-            return "UpComingListStoryboard"
         case .detail:
             return "DetailUpComingListStoryboard"
         }

@@ -10,7 +10,7 @@
 		363215E62460DE6E00A0C7C7 /* UpcomingEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363215E52460DE6E00A0C7C7 /* UpcomingEndpoints.swift */; };
 		364D370524734B4500C5F22D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D370424734B4500C5F22D /* UIViewController+Extensions.swift */; };
 		36898CC42475824800C1043A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36898CC32475824800C1043A /* AppCoordinator.swift */; };
-		36B00B062471DAE600E2DB5D /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B00B052471DAE600E2DB5D /* AppStoryboard.swift */; };
+		36B00B062471DAE600E2DB5D /* AppStoryboardHUB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B00B052471DAE600E2DB5D /* AppStoryboardHUB.swift */; };
 		516E3E7822AD6B270025F255 /* UpComingListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */; };
 		517290D722A739CE00D6C9A7 /* UpComingTableViewDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517290D622A739CE00D6C9A7 /* UpComingTableViewDataSetProtocol.swift */; };
 		5177AD3D22B073E3005D20AC /* UpCommingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177AD3C22B073E3005D20AC /* UpCommingCoordinator.swift */; };
@@ -118,7 +118,7 @@
 		364D370424734B4500C5F22D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		3659A20924982A8C0040805F /* UpComingMovies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UpComingMovies.entitlements; sourceTree = "<group>"; };
 		36898CC32475824800C1043A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		36B00B052471DAE600E2DB5D /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
+		36B00B052471DAE600E2DB5D /* AppStoryboardHUB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboardHUB.swift; sourceTree = "<group>"; };
 		4F72AF29FDEF3585659D33EB /* Pods-UpComingMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpComingMovies.debug.xcconfig"; path = "Target Support Files/Pods-UpComingMovies/Pods-UpComingMovies.debug.xcconfig"; sourceTree = "<group>"; };
 		516E3E7722AD6B270025F255 /* UpComingListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingListViewModelTests.swift; sourceTree = "<group>"; };
 		517290D622A739CE00D6C9A7 /* UpComingTableViewDataSetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingTableViewDataSetProtocol.swift; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 		36B00B042471DAD500E2DB5D /* CoreLibs */ = {
 			isa = PBXGroup;
 			children = (
-				36B00B052471DAE600E2DB5D /* AppStoryboard.swift */,
+				36B00B052471DAE600E2DB5D /* AppStoryboardHUB.swift */,
 				BC8720AF279DA72E003D20C4 /* AppTheme.swift */,
 				BC1F470827C6FE4D00E48743 /* ViewCodeProtocol.swift */,
 			);
@@ -452,13 +452,13 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		BC9E6B0B27E7BC0B003B9065 /* Default */ = {
+		BC9E6B0B27E7BC0B003B9065 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
 				51830CDD22A425B400BE346A /* View */,
 				51830CDC22A425A900BE346A /* ViewModel */,
 			);
-			path = Default;
+			path = MVVM;
 			sourceTree = "<group>";
 		};
 		BC9E6B0C27E7C214003B9065 /* ViewModel */ = {
@@ -537,7 +537,7 @@
 			children = (
 				51830CDE22A425D700BE346A /* Api */,
 				36B00B032471DA9400E2DB5D /* Coordinator */,
-				BC9E6B0B27E7BC0B003B9065 /* Default */,
+				BC9E6B0B27E7BC0B003B9065 /* MVVM */,
 				BC5D80F1279E129C001626DB /* SwiftUI */,
 			);
 			path = UpCommingList;
@@ -1097,7 +1097,7 @@
 				BC0702C927F2860E00A3210D /* DetailUIViewModel.swift in Sources */,
 				BC1F470927C6FE4D00E48743 /* ViewCodeProtocol.swift in Sources */,
 				51830CE722A4286B00BE346A /* StatusErrorModelCodable.swift in Sources */,
-				36B00B062471DAE600E2DB5D /* AppStoryboard.swift in Sources */,
+				36B00B062471DAE600E2DB5D /* AppStoryboardHUB.swift in Sources */,
 				BCCFA5C4279EFB2700E0806A /* MovieRowUI.swift in Sources */,
 				BC9E6B0E27E7C22F003B9065 /* ListUIViewModel.swift in Sources */,
 				BC2AA18C27D829A800B335DC /* Assets.swift in Sources */,

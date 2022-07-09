@@ -11,13 +11,13 @@ import SVProgressHUD
 import SwiftApiSDK
 
 protocol UIViewControllerUtils {
-    static func instantiate<T>(_ appStoryboard: AppStoryboard) -> T where T: UIViewController
+    static func instantiate<T>(_ appStoryboard: AppStoryboardHUB) -> T where T: UIViewController
     func displayError(_ error: Error)
 }
 
 extension UIViewControllerUtils {
     // swiftlint:disable force_cast
-    static func instantiate<T>(_ appStoryboard: AppStoryboard) -> T where T: UIViewController {
+    static func instantiate<T>(_ appStoryboard: AppStoryboardHUB) -> T where T: UIViewController {
         let storyboard = UIStoryboard(name: appStoryboard.getName(), bundle: nil)
         let identifier = NSStringFromClass(T.self).components(separatedBy: ".").last ?? ""
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
@@ -35,8 +35,6 @@ extension UIViewControllerUtils {
             errorMessage = "Networking error, check your connection and try again later \(nSError.localizedDescription)"
         case .statusCodeError(let statusCode):
             errorMessage = "Service error \(statusCode), try again later"
-        default:
-            break
         }
         DispatchQueue.main.async {
             SVProgressHUD.show(withStatus: errorMessage)
