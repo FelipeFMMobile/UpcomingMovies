@@ -78,12 +78,10 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
             case .success(let model):
                 self?.maxPages = model.totalPages
                 if let results = model.results {
-                    DispatchQueue.main.async {
-                        self?.movies += results
-                        let movieMark = results.map { EnviromentData.MovieMark(idM: $0.idM, isFavorite: false) }
-                        self?.envData.favoritesMovies += movieMark
-                        complete(.success(true))
-                    }
+                    self?.movies += results
+                    let movieMark = results.map { EnviromentData.MovieMark(idM: $0.idM, isFavorite: false) }
+                    self?.envData.favoritesMovies += movieMark
+                    complete(.success(true))
                 }
             case .failure(let error):
                 complete(.failure(error))

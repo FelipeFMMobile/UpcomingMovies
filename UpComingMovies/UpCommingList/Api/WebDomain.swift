@@ -11,7 +11,6 @@ import SwiftApiSDK
 public struct ServerConfig {
     public static let dateFormat = "yyyy-MM-dd"
     public static let imagesBaseUrl = "https://image.tmdb.org/t/p/w185/"
-    public static let key = "1f54bd990f1cdfb230adb312546d765d"
 }
 
 public struct WebDomain: WebDomainProtocol {

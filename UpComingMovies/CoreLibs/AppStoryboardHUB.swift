@@ -21,4 +21,11 @@ extension AppStoryboardHUB: AppStoryboardProtocol {
             return "DetailUpComingListStoryboard"
         }
     }
+
+    // swiftlint:disable force_cast
+    func instantiate<T>() -> T where T: UIViewController {
+        let storyboard = UIStoryboard(name: getName(), bundle: nil)
+        let identifier = NSStringFromClass(T.self).components(separatedBy: ".").last ?? ""
+        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
+    }
 }
