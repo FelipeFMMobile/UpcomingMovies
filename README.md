@@ -4,7 +4,7 @@
 A sample project that explore Swift techniques for iOS development.
 
 [![Swift](https://img.shields.io/badge/Swift-5.5-red)](https://img.shields.io/badge/Swift-5.5-red)
-[![XCode](https://img.shields.io/badge/Xcode-13.1-blue)](https://img.shields.io/badge/Xcode-13.1-blue)
+[![XCode](https://img.shields.io/badge/Xcode-13.1-blue)](https://img.shields.io/badge/Xcode-14.1-blue)
 [![Platforms](https://img.shields.io/badge/Plataform-iOS-lightgrey)](https://img.shields.io/badge/Plataform-iOS-lightgrey)
 [![CocoaPods Compatible](https://img.shields.io/badge/cocoapods-1.11.2-green)](https://img.shields.io/badge/cocoapods-1.11.2-green)
 [![iOS Version](https://img.shields.io/badge/Version-iOS%2015-orange)](https://img.shields.io/badge/Version-iOS%2015-orange)
