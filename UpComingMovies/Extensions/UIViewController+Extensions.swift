@@ -11,17 +11,10 @@ import SVProgressHUD
 import SwiftApiSDK
 
 protocol UIViewControllerUtils {
-    static func instantiate<T>(_ appStoryboard: AppStoryboardHUB) -> T where T: UIViewController
     func displayError(_ error: Error)
 }
 
 extension UIViewControllerUtils {
-    // swiftlint:disable force_cast
-    static func instantiate<T>(_ appStoryboard: AppStoryboardHUB) -> T where T: UIViewController {
-        let storyboard = UIStoryboard(name: appStoryboard.getName(), bundle: nil)
-        let identifier = NSStringFromClass(T.self).components(separatedBy: ".").last ?? ""
-        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
-    }
     
     func displayError(_ error: Error) {
         guard let error = error as? ApiError else { return }

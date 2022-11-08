@@ -2,7 +2,7 @@
 //  UpcomingListApi.swift
 //  UpComingMovies
 //
-//  Created by FMMobile on 02/06/2019.
+//  Created by Felipe Menezes on 02/06/2019.
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ final class UpComingListApi: UpComingListApiProtocol {
     
     private let api = ApiRest()
     
-    private let apiKey = "1f54bd990f1cdfb230adb312546d765d"
+    private let apiKey = "2c767653e58ac61f2ef293863e254f5d"
     
     func requestMovies(page: Int,
                        complete: @escaping RequetsResult<PaginationModelCodable<MoviesModelCodable>>) {

@@ -2,7 +2,7 @@
 //  UpCommingCoordinator.swift
 //  UpComingMovies
 //
-//  Created by FMMobile on 11/06/2019.
+//  Created by Felipe Menezes on 11/06/2019.
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
@@ -34,7 +34,7 @@ class UpCommingCoordinator: UpCommingCoordinatorProtocol {
     }
     
     internal func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailView {
-        let detailController: DetailView = DetailView.instantiate(.detail)
+        let detailController: DetailView = AppStoryboardHUB.detail.instantiate()
         detailController.viewModel = DetailUpCommingListViewModel(movie: detailMovie)
         return detailController
     }

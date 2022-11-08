@@ -2,7 +2,7 @@
 //  PaginationModelCodable.swift
 //  UpComingMovies
 //
-//  Created by FMMobile on 02/06/2019.
+//  Created by Felipe Menezes on 02/06/2019.
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 

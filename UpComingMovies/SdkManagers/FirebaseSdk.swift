@@ -2,7 +2,7 @@
 //  FirebaseSdk.swift
 //  UpComingMovies
 //
-//  Created by FMMobile on 18/05/2019.
+//  Created by Felipe Menezes on 18/05/2019.
 //  Copyright © 2019 FMMobile. All rights reserved.
 // 
 //

@@ -35,7 +35,6 @@
 		BC0702C927F2860E00A3210D /* DetailUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0702C827F2860E00A3210D /* DetailUIViewModel.swift */; };
 		BC075EE527CAD76700BFA6CE /* ListMoviesTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC075EE427CAD76700BFA6CE /* ListMoviesTableViewCellView.swift */; };
 		BC08091627F5125300AC50B5 /* ListUIViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC08091527F5125300AC50B5 /* ListUIViewModelTests.swift */; };
-		BC0D7B37280CD48E00E2DB91 /* SwiftApiSDK in Frameworks */ = {isa = PBXBuildFile; productRef = BC0D7B36280CD48E00E2DB91 /* SwiftApiSDK */; };
 		BC0D7B39280CD50600E2DB91 /* WebDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0D7B38280CD50600E2DB91 /* WebDomain.swift */; };
 		BC1F470927C6FE4D00E48743 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1F470827C6FE4D00E48743 /* ViewCodeProtocol.swift */; };
 		BC2AA18A27D8241B00B335DC /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = BC2AA18927D8241B00B335DC /* swiftgen.yml */; };
@@ -58,6 +57,7 @@
 		BCA0105F27A07FAF0020334E /* DetailMovieUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA0105E27A07FAF0020334E /* DetailMovieUI.swift */; };
 		BCA0106127A0952A0020334E /* HostingUIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA0106027A0952A0020334E /* HostingUIController.swift */; };
 		BCA0106327A09D310020334E /* UpCommingCoordinatorHostingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA0106227A09D310020334E /* UpCommingCoordinatorHostingUI.swift */; };
+		BCB9B4572919C7D6004C43CB /* SwiftApiSDK in Frameworks */ = {isa = PBXBuildFile; productRef = BCB9B4562919C7D5004C43CB /* SwiftApiSDK */; };
 		BCC3D707280CCD8A000A19EF /* Mocks in Resources */ = {isa = PBXBuildFile; fileRef = BCC3D706280CCD8A000A19EF /* Mocks */; };
 		BCC3D709280CCE29000A19EF /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = BCC3D708280CCE29000A19EF /* MovieDetail.json */; };
 		BCCFA5C4279EFB2700E0806A /* MovieRowUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCFA5C3279EFB2700E0806A /* MovieRowUI.swift */; };
@@ -208,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC0D7B37280CD48E00E2DB91 /* SwiftApiSDK in Frameworks */,
+				BCB9B4572919C7D6004C43CB /* SwiftApiSDK in Frameworks */,
 				8DF6D5E13D43A5BBF2421A10 /* Pods_UpComingMovies.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +403,7 @@
 			path = "Cell's";
 			sourceTree = "<group>";
 		};
-		BC5D80F1279E129C001626DB /* SwiftUI */ = {
+		BC5D80F1279E129C001626DB /* SwiftUI_Version */ = {
 			isa = PBXGroup;
 			children = (
 				BC7AA96327A73ADB009FEF0F /* Coordinator */,
@@ -413,7 +413,7 @@
 				BC8AD52D27A9FA34006DBD01 /* EnviromentData.swift */,
 				BC5401C5279F53B200D44BEA /* PreviewEnviroment.swift */,
 			);
-			path = SwiftUI;
+			path = SwiftUI_Version;
 			sourceTree = "<group>";
 		};
 		BC7AA96327A73ADB009FEF0F /* Coordinator */ = {
@@ -452,13 +452,13 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		BC9E6B0B27E7BC0B003B9065 /* MVVM */ = {
+		BC9E6B0B27E7BC0B003B9065 /* MVVM_Version */ = {
 			isa = PBXGroup;
 			children = (
 				51830CDD22A425B400BE346A /* View */,
 				51830CDC22A425A900BE346A /* ViewModel */,
 			);
-			path = MVVM;
+			path = MVVM_Version;
 			sourceTree = "<group>";
 		};
 		BC9E6B0C27E7C214003B9065 /* ViewModel */ = {
@@ -537,8 +537,8 @@
 			children = (
 				51830CDE22A425D700BE346A /* Api */,
 				36B00B032471DA9400E2DB5D /* Coordinator */,
-				BC9E6B0B27E7BC0B003B9065 /* MVVM */,
-				BC5D80F1279E129C001626DB /* SwiftUI */,
+				BC9E6B0B27E7BC0B003B9065 /* MVVM_Version */,
+				BC5D80F1279E129C001626DB /* SwiftUI_Version */,
 			);
 			path = UpCommingList;
 			sourceTree = "<group>";
@@ -625,7 +625,7 @@
 			);
 			name = UpComingMovies;
 			packageProductDependencies = (
-				BC0D7B36280CD48E00E2DB91 /* SwiftApiSDK */,
+				BCB9B4562919C7D5004C43CB /* SwiftApiSDK */,
 			);
 			productName = UpComingMovies;
 			productReference = BCF6EBAF206EC7C50063D023 /* UpComingMovies.app */;
@@ -714,7 +714,7 @@
 			);
 			mainGroup = BCF6EBA6206EC7C50063D023;
 			packageReferences = (
-				BC0D7B35280CD48E00E2DB91 /* XCRemoteSwiftPackageReference "SwiftApiSDK" */,
+				BCB9B4552919C7D5004C43CB /* XCRemoteSwiftPackageReference "SwiftApiSDK" */,
 			);
 			productRefGroup = BCF6EBB0206EC7C50063D023 /* Products */;
 			projectDirPath = "";
@@ -1539,7 +1539,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BC0D7B35280CD48E00E2DB91 /* XCRemoteSwiftPackageReference "SwiftApiSDK" */ = {
+		BCB9B4552919C7D5004C43CB /* XCRemoteSwiftPackageReference "SwiftApiSDK" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/FelipeFMMobile/SwiftApiSDK";
 			requirement = {
@@ -1550,9 +1550,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC0D7B36280CD48E00E2DB91 /* SwiftApiSDK */ = {
+		BCB9B4562919C7D5004C43CB /* SwiftApiSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BC0D7B35280CD48E00E2DB91 /* XCRemoteSwiftPackageReference "SwiftApiSDK" */;
+			package = BCB9B4552919C7D5004C43CB /* XCRemoteSwiftPackageReference "SwiftApiSDK" */;
 			productName = SwiftApiSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
