@@ -9,11 +9,9 @@
 import SwiftUI
 import SVProgressHUD
 
-@available(iOS 15.0, *)
 struct ListMoviesUI: View, UIViewControllerUtils {
     @StateObject var viewModel = ListUIViewModel()
     @State private var isLast = false
-    @State private var firstTime = !PreviewEnviroment.isPreviewing
     var body: some View {
         NavigationView {
             VStack {
@@ -25,21 +23,18 @@ struct ListMoviesUI: View, UIViewControllerUtils {
                         let rowModel = MovieRowUIViewModel(movie: movie)
                         MovieRowUI(rowModel: rowModel)
                             .environmentObject(viewModel.envData)
-                    } .onAppear {
+                            .redacted(reason: isLast ? .placeholder : [])
+                    }.task {
                         isLast = viewModel.movies.last == movie
                         if isLast {
-                            Task { try? await loadMore() }
+                            try? await loadMore()
                         }
                     }
+                    
                 }.listStyle(.plain)
-                if isLast {
-                    ProgressView()
-                }
             }.navigationTitle(viewModel.title)
-            .onAppear {
-                if firstTime {
-                    Task { try? await loadMovies() }
-                }
+            .task {
+                try? await loadMovies()
             }
             .refreshable {
                 try? await refresh()
@@ -48,22 +43,20 @@ struct ListMoviesUI: View, UIViewControllerUtils {
     }
 }
 
-@available(iOS 15.0, *)
-extension ListMoviesUI: LoaderHostingState {    
+extension ListMoviesUI: LoaderHostingState {
     func titleForView() -> String? {
         return viewModel.title
     }
 
     private func loadMovies() async throws {
-        SVProgressHUD.show()
         try await viewModel.moviesList()
-        await SVProgressHUD.dismiss()
-        firstTime = false
     }
 
     private func refresh() async throws {
         viewModel.resetPage()
+        if !isLast { SVProgressHUD.show() }
         try await loadMovies()
+        await SVProgressHUD.dismiss()
     }
 
     // MARK: Scrolling Load
@@ -72,7 +65,7 @@ extension ListMoviesUI: LoaderHostingState {
          try await loadMovies()
     }
 }
-@available(iOS 15.0, *)
+
 struct ListMoviesUI_Previews: PreviewProvider {
     static var previews: some View {
         ListMoviesUI(viewModel: PreviewEnviroment.listViewModel)
