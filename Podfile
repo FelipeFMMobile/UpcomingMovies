@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '15.0'
 use_frameworks!
 
 workspace 'UpComingMovies'
@@ -9,9 +9,8 @@ project 'UpcomingMoviesApi/UpcomingMoviesApi.xcodeproj'
 def shared_pods
   project 'UpComingMovies.xcodeproj'
   pod 'SVProgressHUD'
-  pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
-  pod 'Kingfisher', '~> 6.3.0'
-  pod 'SwiftGen', '~> 6.0'
+  pod 'Kingfisher'
+  pod 'SwiftGen'
   pod 'Firebase/Core'
   pod 'Firebase/Crashlytics'
   # (Recommended) Pod for Google Analytics
@@ -57,6 +56,7 @@ post_install do |installer_representation|
       config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
       config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = "YES"
       config.build_settings['SWIFT_SUPPRESS_WARNINGS'] = "YES"
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
     end
   end
 end

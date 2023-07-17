@@ -13,6 +13,7 @@ import Nimble
 
 /// UpComingListViewModelTests
 /// Important note: none of this tests are covering failure scenarios, this will probably revised later
+// swiftlint disable:body_length
 class UpComingListViewModelTests: XCTestCase {
     
     override func setUp() {
@@ -103,7 +104,7 @@ class UpComingListViewModelTests: XCTestCase {
             switch result {
             case .success:
                 XCTFail("Testing failing")
-             case .failure(let error):
+            case .failure(let error):
                 expect(error).toNot(beNil())
             }
             promise.fulfill()

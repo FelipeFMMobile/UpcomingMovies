@@ -23,7 +23,6 @@ class UpComingMoviesTests: XCTestCase {
     }
     
     func testUpcomingMovieApi_Initialization_True() {
-      let api = ApiRest()
       XCTAssert(true)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

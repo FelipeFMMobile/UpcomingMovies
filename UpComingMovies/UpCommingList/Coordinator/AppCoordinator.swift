@@ -6,6 +6,8 @@
 //  Copyright © 2020 FMMobile. All rights reserved.
 //
 
+import UIKit
+
 protocol ViewModelCoordinator {
     var coordinatorDelegate: AppCoordinatorDelegate? { get set }
 }

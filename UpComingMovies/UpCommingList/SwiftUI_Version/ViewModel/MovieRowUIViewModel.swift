@@ -8,6 +8,7 @@
 
 import Combine
 import SwiftApiSDK
+import Foundation
 
 class MovieRowUIViewModel: ObservableObject {
     var title: String = ""
@@ -19,7 +20,6 @@ class MovieRowUIViewModel: ObservableObject {
     @Published var isFavorite: Bool = false
 
     required init(movie: MoviesModelCodable) {
-        genreTitle = movie.firstGenreName()
         title = movie.title
         let url = ServerConfig.imagesBaseUrl + (movie.posterPath ?? "")
         if let url = URL(string: url) {

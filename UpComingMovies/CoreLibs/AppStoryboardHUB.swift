@@ -6,6 +6,8 @@
 //  Copyright © 2020 FMMobile. All rights reserved.
 //
 
+import UIKit
+
 protocol AppStoryboardProtocol {
     func getName() -> String
 }

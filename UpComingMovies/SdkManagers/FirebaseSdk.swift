@@ -7,9 +7,9 @@
 // 
 //
 
-import Foundation
 import Firebase
 
+/// SDKProtocol abstraction to initialize all sdk dependencies in projet.
 protocol SdkProtocol {
     @discardableResult
     func initialization() -> Bool

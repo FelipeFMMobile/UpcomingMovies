@@ -6,6 +6,8 @@
 //  Copyright © 2019 FMMobile. All rights reserved.
 //
 
+import UIKit
+
 protocol UpCommingCoordinatorProtocol: AppCoordinator {
     func instantiateDetail(_ detailMovie: MoviesDetailModelCodable) -> DetailUpComingListTableViewController
     func gotoDetail(detailMovie: MoviesDetailModelCodable)

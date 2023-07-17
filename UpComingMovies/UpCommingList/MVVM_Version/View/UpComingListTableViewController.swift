@@ -65,12 +65,6 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
     }
     
     func setupTableView() {
-        // Handle Pagination
-        self.tableView.addInfiniteScroll { [weak self] tableView in
-            self?.viewModel.forwardPage()
-            self?.loadingContent()
-            self?.tableView.finishInfiniteScroll()
-        }
         tableView.delegate = self
         tableView.dataSource = self
         refreshControl.addTarget(self, action: #selector(self.refresh),
@@ -82,6 +76,12 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(self.callSwiftUIVersion(_:)))
+    }
+
+    private func loadMoreContent() {
+        guard !SVProgressHUD.isVisible() else { return }
+        self.viewModel.forwardPage()
+        self.loadingContent()
     }
     
     func start() {
@@ -100,6 +100,7 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
     }
     
     func loadingContent() {
+        SVProgressHUD.show()
         viewModel.getUpCommingMovies { [weak self] result in
             SVProgressHUD.dismiss()
             switch result {
@@ -170,6 +171,19 @@ extension UpComingListTableViewController: UITableViewDataSource, UITableViewDel
         tableView.deselectRow(at: indexPath, animated: true)
         if let movie = viewModel.valueForCellPosition(indexPath: indexPath) {
             loadDetailInfo(movie: movie)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Calculate the total number of rows in the table view
+        let totalRows = tableView.numberOfRows(inSection: 0)
+        
+        // Calculate the last visible row on the screen
+        let lastVisibleRow = tableView.indexPathsForVisibleRows?.last?.row ?? 0
+        
+        // Check if the last visible row is the last row of the table view
+        if lastVisibleRow == indexPath.row {
+            loadMoreContent()
         }
     }
 }

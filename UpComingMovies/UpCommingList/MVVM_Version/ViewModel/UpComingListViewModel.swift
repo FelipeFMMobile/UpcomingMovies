@@ -9,6 +9,7 @@
 //
 
 import SwiftApiSDK
+import Foundation
 
 protocol UpcomingApiProtocol { 
     var api: UpComingListApi { get }

@@ -9,6 +9,8 @@
 //  Some code arragement's still needed
 //
 
+import UIKit
+
 protocol UpCommingCoordinatorHostingUIProtocol: AppCoordinator {
 }
 

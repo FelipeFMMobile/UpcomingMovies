@@ -9,6 +9,7 @@
 //
 
 import SwiftApiSDK
+import UIKit
 
 protocol UpComingTableViewDataSetProtocol {
   associatedtype ValueModel
