@@ -11,8 +11,7 @@ import XCTest
 import OHHTTPStubs
 import Nimble
 
-/// UpComingListViewModelTests
-/// Important note: none of this tests are covering failure scenarios, this will probably revised later
+// swiftlint: disable type_body_length
 class UpComingListViewModelTests: XCTestCase {
     
     override func setUp() {
@@ -103,7 +102,7 @@ class UpComingListViewModelTests: XCTestCase {
             switch result {
             case .success:
                 XCTFail("Testing failing")
-             case .failure(let error):
+            case .failure(let error):
                 expect(error).toNot(beNil())
             }
             promise.fulfill()
@@ -343,5 +342,5 @@ class UpComingListViewModelTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }
+// swiftlint: enable type_body_length

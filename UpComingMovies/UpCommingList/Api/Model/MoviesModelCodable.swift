@@ -42,11 +42,6 @@ final public class MoviesModelCodable: Decodable, Equatable {
         case releaseDate = "release_date"
     }
     
-    public func firstGenreName() -> String {
-        // TODO: Parse genre name here
-        return ""
-    }
-    
     public static func == (lhs: MoviesModelCodable, rhs: MoviesModelCodable) -> Bool {
         return lhs.idM == rhs.idM
     }

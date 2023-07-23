@@ -6,6 +6,8 @@
 //  Copyright © 2020 FMMobile. All rights reserved.
 //
 
+import UIKit
+
 protocol AppStoryboardProtocol {
     func getName() -> String
 }
@@ -28,4 +30,5 @@ extension AppStoryboardHUB: AppStoryboardProtocol {
         let identifier = NSStringFromClass(T.self).components(separatedBy: ".").last ?? ""
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
+    // swiftlint:enable force_cast
 }

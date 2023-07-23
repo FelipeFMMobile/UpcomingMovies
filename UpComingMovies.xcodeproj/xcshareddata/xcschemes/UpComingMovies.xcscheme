@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1310"
+   LastUpgradeVersion = "1430"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -35,16 +35,16 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1023C1022E10FD500602584"
-               BuildableName = "UpComingMoviesKIFTests.xctest"
-               BlueprintName = "UpComingMoviesKIFTests"
+               BlueprintIdentifier = "BC5A4EDB27D3EFBB00C9CB8D"
+               BuildableName = "UpComingMoviesUITests.xctest"
+               BlueprintName = "UpComingMoviesUITests"
                ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -81,29 +81,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1023C1022E10FD500602584"
-               BuildableName = "UpComingMoviesKIFTests.xctest"
-               BlueprintName = "UpComingMoviesKIFTests"
-               ReferencedContainer = "container:UpComingMovies.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "BCF6EBC5206EC7C50063D023"
                BuildableName = "UpComingMoviesTests.xctest"
                BlueprintName = "UpComingMoviesTests"
-               ReferencedContainer = "container:UpComingMovies.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC5A4EDB27D3EFBB00C9CB8D"
-               BuildableName = "UpComingMoviesUITests.xctest"
-               BlueprintName = "UpComingMoviesUITests"
                ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </TestableReference>

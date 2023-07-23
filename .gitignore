@@ -93,3 +93,6 @@ iOSInjectionProject/
 
 # Slather
 html
+
+# Mac 
+.DS_Store

@@ -22,15 +22,14 @@ class UpComingMoviesUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         // Navigation
-        let tablesQuery = app.tables
-        tablesQuery.cells.firstMatch.tap()
+        app.collectionViews.firstMatch.tap()
+        app.buttons["Favorito"].tap()
         app.navigationBars.firstMatch.buttons["Upcoming Movies"].tap()
-        app.navigationBars["Upcoming Movies"].buttons["SwiftUI"].tap()
         app.cells.firstMatch.swipeUp()
     }
 
     func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
+        if #available(iOS 15.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTApplicationLaunchMetric()]) {
                 XCUIApplication().launch()

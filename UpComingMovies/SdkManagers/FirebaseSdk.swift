@@ -7,9 +7,9 @@
 // 
 //
 
-import Foundation
 import Firebase
 
+/// SDKProtocol abstraction to initialize all sdk dependencies in projet.
 protocol SdkProtocol {
     @discardableResult
     func initialization() -> Bool
@@ -23,6 +23,7 @@ protocol SdkControlProtocol {
 struct FirebaseSdk: SdkProtocol {
     @discardableResult
     func initialization() -> Bool {
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
         return true
     }

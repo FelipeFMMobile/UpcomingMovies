@@ -7,6 +7,7 @@
 //
 
 import SwiftApiSDK
+import Foundation
 
 public struct ServerConfig {
     public static let dateFormat = "yyyy-MM-dd"

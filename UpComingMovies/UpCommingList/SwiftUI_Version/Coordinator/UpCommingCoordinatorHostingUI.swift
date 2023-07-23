@@ -9,10 +9,11 @@
 //  Some code arragement's still needed
 //
 
+import UIKit
+
 protocol UpCommingCoordinatorHostingUIProtocol: AppCoordinator {
 }
 
-@available(iOS 15.0, *)
 final class UpCommingCoordinatorHostingUI: UpCommingCoordinatorHostingUIProtocol {
     var navigation: UINavigationController!
     var view: UIViewController?

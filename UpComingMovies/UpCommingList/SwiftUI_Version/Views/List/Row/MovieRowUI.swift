@@ -9,7 +9,6 @@
 import SwiftUI
 import Kingfisher
 
-@available(iOS 14.0, *)
 struct MovieRowUI: View {
     @StateObject var rowModel: MovieRowUIViewModel
     @EnvironmentObject private var envData: EnviromentData
@@ -47,7 +46,6 @@ struct MovieRowUI: View {
     }
 }
 
-@available(iOS 14.0, *)
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
         Group {

@@ -65,12 +65,6 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
     }
     
     func setupTableView() {
-        // Handle Pagination
-        self.tableView.addInfiniteScroll { [weak self] tableView in
-            self?.viewModel.forwardPage()
-            self?.loadingContent()
-            self?.tableView.finishInfiniteScroll()
-        }
         tableView.delegate = self
         tableView.dataSource = self
         refreshControl.addTarget(self, action: #selector(self.refresh),
@@ -82,6 +76,12 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(self.callSwiftUIVersion(_:)))
+    }
+
+    private func loadMoreContent() {
+        guard !SVProgressHUD.isVisible() else { return }
+        self.viewModel.forwardPage()
+        self.loadingContent()
     }
     
     func start() {
@@ -100,6 +100,7 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
     }
     
     func loadingContent() {
+        SVProgressHUD.show()
         viewModel.getUpCommingMovies { [weak self] result in
             SVProgressHUD.dismiss()
             switch result {
@@ -132,14 +133,12 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
     }
     
     @IBAction func callSwiftUIVersion(_ sender: Any) {
-        if #available(iOS 15.0, *) {
-            guard let navController = self.navigationController else { return }
-            var coordinator = UpCommingCoordinatorHostingUI(nav: navController)
-            if let controller = try? coordinator.start(.none) {
-                self.present(controller, animated: true, completion: nil)
-            }
-            self.coordinator = coordinator
+        guard let navController = self.navigationController else { return }
+        var coordinator = UpCommingCoordinatorHostingUI(nav: navController)
+        if let controller = try? coordinator.start(.none) {
+            self.present(controller, animated: true, completion: nil)
         }
+        self.coordinator = coordinator
     }
 }
 
@@ -170,6 +169,16 @@ extension UpComingListTableViewController: UITableViewDataSource, UITableViewDel
         tableView.deselectRow(at: indexPath, animated: true)
         if let movie = viewModel.valueForCellPosition(indexPath: indexPath) {
             loadDetailInfo(movie: movie)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Calculate the last visible row on the screen
+        let lastVisibleRow = tableView.indexPathsForVisibleRows?.last?.row ?? 0
+        
+        // Check if the last visible row is the last row of the table view
+        if lastVisibleRow == indexPath.row {
+            loadMoreContent()
         }
     }
 }

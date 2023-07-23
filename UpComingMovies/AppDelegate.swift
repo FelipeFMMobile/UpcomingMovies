@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func initViews() {
         self.window = UIWindow()
-        var coordinator = UpCommingCoordinator(nav: UINavigationController())
-        self.window?.rootViewController = try? coordinator.start(.first).navigationController
+        var coordinator = UpCommingCoordinatorHostingUI(nav: UINavigationController())
+        self.window?.rootViewController = coordinator.instantiateView()
         self.coordinator = coordinator
         self.window?.makeKeyAndVisible()
     }
