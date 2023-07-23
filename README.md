@@ -84,6 +84,8 @@ Felipe Menezes, SÊnior iOS Developer, Software Enginieer
 
 
 ## Version History
+* 2023
+  * SwiftUI Improvements
 * 2022 
   * Swift update, Async/Await, SwiftUI, SPM
 * 2021
