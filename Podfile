@@ -38,12 +38,6 @@ target 'UpComingMovies' do
     test_pods
   end
 
-  target 'UpComingMoviesKIFTests' do
-    inherit! :search_paths
-    test_pods
-    pod 'KIF'
-  end
-
   target 'UpComingMoviesUITests' do
     test_pods
   end
