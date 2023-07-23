@@ -23,6 +23,7 @@ protocol SdkControlProtocol {
 struct FirebaseSdk: SdkProtocol {
     @discardableResult
     func initialization() -> Bool {
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
         return true
     }

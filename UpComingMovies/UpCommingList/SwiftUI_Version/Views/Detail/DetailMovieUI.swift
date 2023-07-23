@@ -23,30 +23,28 @@ struct DetailMovieUI: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .top) {
-                if let poster = viewModel.posterPath {
-                    ImageLoaderView(url: poster)
-                        .frame(height: 200)
-                }
-                Text(viewModel.overview ?? "")
+                ImageLoaderView(url: viewModel.posterPath)
+                    .frame(height: 200)
+                Text(viewModel.overview)
                     .font(.system(size: 14))
                     .lineLimit(12)
                     .foregroundColor(.gray)
                     .padding(8)
             }
             HStack {
-                Text(viewModel.title ?? "")
+                Text(viewModel.title)
                     .font(.system(size: 22))
                     .lineLimit(3)
                 if favoriteIndex >= 0 {
                     StarButton(isSet: $envData.favoritesMovies[favoriteIndex].isFavorite)
                 }
             }
-            Text(viewModel.releaseDate ?? "")
+            Text(viewModel.releaseDate)
                 .font(.system(size: 14))
                 .lineLimit(1)
             HStack {
                 Spacer()
-                Text(viewModel.genresString ?? "")
+                Text(viewModel.genresString)
                     .font(.system(size: 14))
                     .lineLimit(1)
             }
@@ -55,9 +53,9 @@ struct DetailMovieUI: View {
         Spacer()
         .task(priority: .background) {
             try? await loadDetail()
-             isLoading = false
+            isLoading = false
         }
-        .navigationTitle(viewModel.title ?? "")
+        .navigationTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

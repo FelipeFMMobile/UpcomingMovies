@@ -133,14 +133,12 @@ final class UpComingListTableViewController: UIViewController, ViewCodeProtocol,
     }
     
     @IBAction func callSwiftUIVersion(_ sender: Any) {
-        if #available(iOS 15.0, *) {
-            guard let navController = self.navigationController else { return }
-            var coordinator = UpCommingCoordinatorHostingUI(nav: navController)
-            if let controller = try? coordinator.start(.none) {
-                self.present(controller, animated: true, completion: nil)
-            }
-            self.coordinator = coordinator
+        guard let navController = self.navigationController else { return }
+        var coordinator = UpCommingCoordinatorHostingUI(nav: navController)
+        if let controller = try? coordinator.start(.none) {
+            self.present(controller, animated: true, completion: nil)
         }
+        self.coordinator = coordinator
     }
 }
 
@@ -175,9 +173,6 @@ extension UpComingListTableViewController: UITableViewDataSource, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // Calculate the total number of rows in the table view
-        let totalRows = tableView.numberOfRows(inSection: 0)
-        
         // Calculate the last visible row on the screen
         let lastVisibleRow = tableView.indexPathsForVisibleRows?.last?.row ?? 0
         

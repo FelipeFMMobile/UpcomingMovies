@@ -21,7 +21,6 @@ class ListUIViewModel: ObservableObject {
     private(set) var currentPage: Int = 1
     private var genreList: GenreListModelCodable?
 
-    @available(iOS 15.0.0, *)
     @MainActor
     func moviesList() async throws {
         if currentPage == 1 {
@@ -33,7 +32,6 @@ class ListUIViewModel: ObservableObject {
         movies += results
     }
 
-    @available(iOS 15.0.0, *)
     private func listMovies() async throws -> [MoviesModelCodable] {
         typealias ApiContinuation = CheckedContinuation<[MoviesModelCodable], Error>
         return try await withCheckedThrowingContinuation { (continuation: ApiContinuation) in
@@ -51,7 +49,6 @@ class ListUIViewModel: ObservableObject {
         }
     }
 
-    @available(iOS 15.0.0, *)
     private func genres() async throws -> GenreListModelCodable {
         typealias ApiContinuation = CheckedContinuation<GenreListModelCodable, Error>
         return try await withCheckedThrowingContinuation { (continuation: ApiContinuation) in

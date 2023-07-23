@@ -30,4 +30,5 @@ extension AppStoryboardHUB: AppStoryboardProtocol {
         let identifier = NSStringFromClass(T.self).components(separatedBy: ".").last ?? ""
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
+    // swiftlint:enable force_cast
 }

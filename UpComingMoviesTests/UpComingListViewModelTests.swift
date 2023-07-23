@@ -11,9 +11,7 @@ import XCTest
 import OHHTTPStubs
 import Nimble
 
-/// UpComingListViewModelTests
-/// Important note: none of this tests are covering failure scenarios, this will probably revised later
-// swiftlint disable:body_length
+// swiftlint: disable type_body_length
 class UpComingListViewModelTests: XCTestCase {
     
     override func setUp() {
@@ -344,5 +342,5 @@ class UpComingListViewModelTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }
+// swiftlint: enable type_body_length

@@ -12,10 +12,12 @@ import SVProgressHUD
 struct ListMoviesUI: View, UIViewControllerUtils {
     @StateObject var viewModel = ListUIViewModel()
     @State private var isLast = false
+    @State private var isLoading = true
     var body: some View {
         NavigationView {
             VStack {
-                List(viewModel.movies, id: \.idM) { movie in
+                List(isLoading ? PreviewEnviroment.movies.results ?? [] : viewModel.movies,
+                     id: \.idM) { movie in
                     NavigationLink {
                         DetailMovieUI(viewModel: DetailUIViewModel(movie: movie))
                             .environmentObject(viewModel.envData)
@@ -23,18 +25,18 @@ struct ListMoviesUI: View, UIViewControllerUtils {
                         let rowModel = MovieRowUIViewModel(movie: movie)
                         MovieRowUI(rowModel: rowModel)
                             .environmentObject(viewModel.envData)
-                            .redacted(reason: isLast ? .placeholder : [])
+                            .redacted(reason: isLoading ? .placeholder : [])
                     }.task {
                         isLast = viewModel.movies.last == movie
                         if isLast {
                             try? await loadMore()
                         }
-                    }
-                    
+                    }                    
                 }.listStyle(.plain)
             }.navigationTitle(viewModel.title)
             .task {
                 try? await loadMovies()
+                isLoading = false
             }
             .refreshable {
                 try? await refresh()

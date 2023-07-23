@@ -17,11 +17,11 @@ class DetailUIViewModel: ObservableObject {
     }
     var movieInfo: MoviesModelCodable?
 
-    var title: String?
-    var posterPath: URL?
-    var overview: String?
-    var releaseDate: String?
-    var genresString: String?
+    var title: String = ""
+    var posterPath: URL = URL(string: "some")!
+    var overview: String = "Some overview"
+    var releaseDate: String = "10/10/2010"
+    var genresString: String = "Genre"
     
     private var api = UpComingListApi()
     
@@ -29,7 +29,6 @@ class DetailUIViewModel: ObservableObject {
         self.movieInfo = movie
     }
     
-    @available(iOS 15.0.0, *)
     @MainActor
     func detail() async throws {
         guard let movie = self.movieInfo else { throw ApiError.contentSerializeError(nil) }
@@ -54,10 +53,9 @@ class DetailUIViewModel: ObservableObject {
             }
         }
         let array = movie.genres?.map { $0.name ?? "" }
-        genresString = array?.joined(separator: ", ")
+        genresString = array?.joined(separator: ", ") ?? ""
     }
 
-    @available(iOS 15.0.0, *)
     private func detailVM(movie: MoviesModelCodable) async throws -> MoviesDetailModelCodable {
         typealias ApiContinuation = CheckedContinuation<MoviesDetailModelCodable, Error>
         return try await withCheckedThrowingContinuation { (continuation: ApiContinuation) in
