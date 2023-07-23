@@ -34,6 +34,20 @@
                ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BC5A4EDB27D3EFBB00C9CB8D"
+               BuildableName = "UpComingMoviesUITests.xctest"
+               BlueprintName = "UpComingMoviesUITests"
+               ReferencedContainer = "container:UpComingMovies.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -70,16 +84,6 @@
                BlueprintIdentifier = "BCF6EBC5206EC7C50063D023"
                BuildableName = "UpComingMoviesTests.xctest"
                BlueprintName = "UpComingMoviesTests"
-               ReferencedContainer = "container:UpComingMovies.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC5A4EDB27D3EFBB00C9CB8D"
-               BuildableName = "UpComingMoviesUITests.xctest"
-               BlueprintName = "UpComingMoviesUITests"
                ReferencedContainer = "container:UpComingMovies.xcodeproj">
             </BuildableReference>
          </TestableReference>
