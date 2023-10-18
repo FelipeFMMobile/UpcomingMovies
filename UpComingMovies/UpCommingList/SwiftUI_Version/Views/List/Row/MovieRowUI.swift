@@ -12,9 +12,8 @@ import Kingfisher
 struct MovieRowUI: View {
     @StateObject var rowModel: MovieRowUIViewModel
     @EnvironmentObject private var envData: EnviromentData
-    var favoriteIndex: Int {
-        envData.favoritesMovies.firstIndex(where: { $0.idM == rowModel.movieID }) ?? -1
-    }
+    @State private var isSet: Bool = false
+    
     var body: some View {
         HStack(alignment: .top,
                spacing: 12.0) {
@@ -37,9 +36,10 @@ struct MovieRowUI: View {
                     Spacer()
                     Text(rowModel.releaseDate)
                         .font(.caption2)
-                    if favoriteIndex >= 0 {
-                        StarButton(isSet: $envData.favoritesMovies[favoriteIndex].isFavorite)
-                    }
+                    StarButton(isSet: $isSet)
+                        .onAppear {
+                            isSet = envData.favoritesMovies[rowModel.movieID] ?? false
+                        }
                 }
             }
         }.padding(8)

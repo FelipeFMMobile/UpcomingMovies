@@ -27,7 +27,7 @@ final class UpComingListApi: UpComingListApiProtocol {
         let params = ["api_key": apiKey, "page": "\(page)"]
         let endpoint = UpcomingEndpoints.upComing
         let apiParam = ApiParamFactory.basic.generate(domain: WebDomain.self,
-                                                      endPoint: endpoint.path(),
+                                                      endPoint: endpoint,
                                                       params: GetParams(params: params))
         api.run(param: apiParam, PaginationModelCodable<MoviesModelCodable>.self) { result, _ in
             switch result {
@@ -42,7 +42,7 @@ final class UpComingListApi: UpComingListApiProtocol {
     func requestGenres(complete: @escaping RequetsResult<GenreListModelCodable>) {
         let params = ["api_key": apiKey]
         let apiParam = ApiParamFactory.basic.generate(domain: WebDomain.self,
-                                                      endPoint: UpcomingEndpoints.genres.path(),
+                                                      endPoint: UpcomingEndpoints.genres,
                                                       params: GetParams(params: params))
         api.run(param: apiParam, GenreListModelCodable.self) { result, _ in
             switch result {
@@ -57,7 +57,7 @@ final class UpComingListApi: UpComingListApiProtocol {
     func requestMoviesDetail(movie: MoviesModelCodable, complete: @escaping RequetsResult<MoviesDetailModelCodable>) {
         let params = ["api_key": apiKey]
         let apiParam = ApiParamFactory.basic.generate(domain: WebDomain.self,
-                                                      endPoint: UpcomingEndpoints.movie(String(movie.idM)).path(),
+                                                      endPoint: UpcomingEndpoints.movie(String(movie.idM)),
                                                       params: GetParams(params: params))
         api.run(param: apiParam, MoviesDetailModelCodable.self) { result, _ in
             switch result {

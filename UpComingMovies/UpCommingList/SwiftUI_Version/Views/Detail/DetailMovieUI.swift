@@ -14,10 +14,10 @@ struct DetailMovieUI: View {
     @StateObject var viewModel: DetailUIViewModel
     @EnvironmentObject private var envData: EnviromentData
     @State private var isLoading = true
-    var favoriteIndex: Int {
-        envData.favoritesMovies.firstIndex(where: {
-            $0.idM == viewModel.movie?.idM
-        }) ?? -1
+    @State private var isSet: Bool = false
+    
+    init(viewModel: DetailUIViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -35,9 +35,10 @@ struct DetailMovieUI: View {
                 Text(viewModel.title)
                     .font(.system(size: 22))
                     .lineLimit(3)
-                if favoriteIndex >= 0 {
-                    StarButton(isSet: $envData.favoritesMovies[favoriteIndex].isFavorite)
-                }
+                StarButton(isSet: $isSet)
+                    .onChange(of: isSet) { newValue in
+                        envData.setFavorite(movieId: viewModel.movieId, activate: newValue)
+                    }
             }
             Text(viewModel.releaseDate)
                 .font(.system(size: 14))
@@ -52,8 +53,9 @@ struct DetailMovieUI: View {
         .redacted(reason: isLoading ? .placeholder : [])
         Spacer()
         .task(priority: .background) {
-            try? await loadDetail()
+            try? await viewModel.detail()
             isLoading = false
+            isSet = envData.favoritesMovies[viewModel.movieId] ?? false
         }
         .navigationTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
@@ -64,16 +66,11 @@ extension DetailMovieUI: LoaderHostingState {
     func titleForView() -> String? {
         return viewModel.title
     }
-
-    // MARK: LoadDetail
-    private func loadDetail() async throws {
-        try? await viewModel.detail()
-    }
 }
 
 struct DetailMovieUI_Previews: PreviewProvider {
     static var previews: some View {
-        DetailMovieUI(viewModel: PreviewEnviroment.detailViewModel)
-            .environmentObject(EnviromentData())
+        DetailMovieUI(viewModel: DetailUIViewModel(movie: PreviewEnviroment.movies.results!.first!)
+        ).environmentObject(EnviromentData())
     }
 }

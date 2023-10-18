@@ -80,8 +80,9 @@ class UpComingListViewModel: UpComingListViewModelProtocol, ViewModelCoordinator
                 self?.maxPages = model.totalPages
                 if let results = model.results {
                     self?.movies += results
-                    let movieMark = results.map { EnviromentData.MovieMark(idM: $0.idM, isFavorite: false) }
-                    self?.envData.favoritesMovies += movieMark
+                    // TODO: Resolver
+                    //let movieMark = results.map { EnviromentData.MovieMark(idM: $0.idM, isFavorite: false) }
+                    //self?.envData.favoritesMovies += movieMark
                     complete(.success(true))
                 }
             case .failure(let error):

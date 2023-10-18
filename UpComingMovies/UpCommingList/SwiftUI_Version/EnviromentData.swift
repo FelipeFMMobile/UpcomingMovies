@@ -9,9 +9,9 @@
 import Combine
 
 class EnviromentData: ObservableObject {
-    @Published var favoritesMovies: [MovieMark] = []
-    struct MovieMark {
-        var idM: Int
-        var isFavorite: Bool
+    var favoritesMovies: [Int: Bool] = [:]
+
+    func setFavorite(movieId: Int, activate: Bool) {
+        favoritesMovies[movieId] = activate
     }
 }

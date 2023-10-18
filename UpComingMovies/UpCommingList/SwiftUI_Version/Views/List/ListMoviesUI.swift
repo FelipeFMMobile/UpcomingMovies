@@ -11,7 +11,6 @@ import SVProgressHUD
 
 struct ListMoviesUI: View, UIViewControllerUtils {
     @StateObject var viewModel = ListUIViewModel()
-    @State private var isLast = false
     @State private var isLoading = true
     var body: some View {
         NavigationView {
@@ -26,10 +25,9 @@ struct ListMoviesUI: View, UIViewControllerUtils {
                         MovieRowUI(rowModel: rowModel)
                             .environmentObject(viewModel.envData)
                             .redacted(reason: isLoading ? .placeholder : [])
-                    }.task {
-                        isLast = viewModel.movies.last == movie
-                        if isLast {
-                            try? await loadMore()
+                    }.task(priority: .background) {
+                        if viewModel.movies.last == movie {
+                            try? await viewModel.loadMore()
                         }
                     }                    
                 }.listStyle(.plain)
@@ -56,20 +54,14 @@ extension ListMoviesUI: LoaderHostingState {
 
     private func refresh() async throws {
         viewModel.resetPage()
-        if !isLast { SVProgressHUD.show() }
+        SVProgressHUD.show()
         try await loadMovies()
         await SVProgressHUD.dismiss()
-    }
-
-    // MARK: Scrolling Load
-    private func loadMore() async throws {
-         viewModel.forwardPage()
-         try await loadMovies()
     }
 }
 
 struct ListMoviesUI_Previews: PreviewProvider {
     static var previews: some View {
-        ListMoviesUI(viewModel: PreviewEnviroment.listViewModel)
+        ListMoviesUI(viewModel: ListUIViewModel(movies: PreviewEnviroment.movies.results!))
     }
 }
