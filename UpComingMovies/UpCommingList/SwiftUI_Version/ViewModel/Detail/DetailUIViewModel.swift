@@ -11,7 +11,7 @@ import SwiftApiSDK
 
 @MainActor
 class DetailUIViewModel: ObservableObject {
-    private var movie: MoviesDetailModelCodable? {
+    private(set) var movie: MoviesDetailModelCodable? {
         didSet {
             fillData()
         }

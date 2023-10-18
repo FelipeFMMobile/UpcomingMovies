@@ -9,7 +9,6 @@
 import Combine
 import SwiftUI
 
-@MainActor
 class ListUIViewModel: ObservableObject {
     @Published private(set) var movies: [MoviesModelCodable]
     private(set) var title: String = "Upcoming Movies"
@@ -22,6 +21,7 @@ class ListUIViewModel: ObservableObject {
         self.movies = movies
     }
 
+    @MainActor
     func moviesList() async throws {
         async let results = self.listMovies()
         self.movies += try await results

@@ -22,8 +22,9 @@ struct ListMoviesUI: View, UIViewControllerUtils {
                             .environmentObject(viewModel.envData)
                     } label: {
                         let rowModel = MovieRowUIViewModel(movie: movie)
-                        MovieRowUI(rowModel: rowModel)
+                        MovieRowUI()
                             .environmentObject(viewModel.envData)
+                            .environmentObject(rowModel)
                             .redacted(reason: isLoading ? .placeholder : [])
                     }.task(priority: .background) {
                         if viewModel.movies.last == movie {

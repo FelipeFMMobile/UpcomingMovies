@@ -10,7 +10,7 @@ import SwiftUI
 import Kingfisher
 
 struct MovieRowUI: View {
-    @StateObject var rowModel: MovieRowUIViewModel
+    @EnvironmentObject private var rowModel: MovieRowUIViewModel
     @EnvironmentObject private var envData: EnviromentData
     @State private var isSet: Bool = false
     
@@ -49,8 +49,16 @@ struct MovieRowUI: View {
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MovieRowUI(rowModel: PreviewEnviroment.cellModel).environmentObject(EnviromentData())
-            MovieRowUI(rowModel: PreviewEnviroment.cellModel2).environmentObject(EnviromentData())
+            MovieRowUI()
+                .environmentObject(MovieRowUIViewModel(
+                    movie: PreviewEnviroment.movies.results!.first!
+                ))
+                .environmentObject(EnviromentData())
+            MovieRowUI()
+                .environmentObject(MovieRowUIViewModel(
+                movie: PreviewEnviroment.movies.results!.first!
+            ))
+            .environmentObject(EnviromentData())
         }.previewLayout(.fixed(width: 345, height: 200))
     }
 }

@@ -74,6 +74,7 @@ class ListUIViewModelTests: XCTestCase {
     }
 
     @available(iOS 15.0.0, *)
+    @MainActor
     func testDetailMoviesListSuccessfullLoadMovies() async throws {
         stubFor(contract: "ListMovie.json")
         let viewModel = ListUIViewModel()
@@ -87,6 +88,7 @@ class ListUIViewModelTests: XCTestCase {
     }
     
     @available(iOS 15.0.0, *)
+    @MainActor
     func testDetailMoviesListFailLoadMovies() async {
         stubFor(contract: "ListMovie.json")
         let viewModel = ListUIViewModel()

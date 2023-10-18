@@ -15,12 +15,6 @@ struct PreviewEnviroment {
     static let genres: GenreListModelCodable = load("Genre.json")
     static let movies: PaginationModelCodable<MoviesModelCodable> = load("ListMovie.json")
     static let movieDetail: MoviesDetailModelCodable = load("MovieDetail.json")
-    static var cellModel: MovieRowUIViewModel = MovieRowUIViewModel(
-        movie: PreviewEnviroment.movies.results!.first!
-    )
-    static var cellModel2: MovieRowUIViewModel = MovieRowUIViewModel(
-        movie: PreviewEnviroment.movies.results!.last!
-    )
 }
 
 func load<T: Decodable>(_ filename: String) -> T {
