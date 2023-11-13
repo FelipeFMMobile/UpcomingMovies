@@ -31,31 +31,34 @@ class ListUIViewModelTests: XCTestCase {
     }
 
     @available(iOS 15.0.0, *)
+    @MainActor
     func testMoviesListSuccessfullLoadMovies() async throws {
         stubFor(contract: "ListMovie.json")
         let viewModel = ListUIViewModel()
-        try await viewModel.moviesList()
+        try await viewModel.moviesList(false)
         XCTAssertEqual(viewModel.movies.count, 20)
     }
     
     @available(iOS 15.0.0, *)
+    @MainActor
     func testMoviesListFailLoadMovies() async {
         stubFor(contract: "ListMovie.json", statusCode: 401)
         let viewModel = ListUIViewModel()
         do {
-            try await viewModel.moviesList()
+            try await viewModel.moviesList(false)
         } catch {
             XCTAssertEqual(viewModel.movies.count, 0)
         }
     }
     
     @available(iOS 15.0.0, *)
+    @MainActor
     func testMoviesListFailLoadMoviesWhenForwardPage() async {
         stubFor(contract: "ListMovie.json", statusCode: 401)
         let viewModel = ListUIViewModel()
         viewModel.forwardPage()
         do {
-            try await viewModel.moviesList()
+            try await viewModel.moviesList(false)
         } catch {
             XCTAssertEqual(viewModel.movies.count, 0)
         }
@@ -63,6 +66,7 @@ class ListUIViewModelTests: XCTestCase {
     }
 
     @available(iOS 15.0.0, *)
+    @MainActor
     func testResetPageAfterForwardPageIsCorrect() async {
         let viewModel = ListUIViewModel()
         viewModel.forwardPage()
@@ -78,7 +82,7 @@ class ListUIViewModelTests: XCTestCase {
     func testDetailMoviesListSuccessfullLoadMovies() async throws {
         stubFor(contract: "ListMovie.json")
         let viewModel = ListUIViewModel()
-        try await viewModel.moviesList()
+        try await viewModel.moviesList(false)
         let first = try XCTUnwrap(viewModel.movies.first)
         let detailModel = DetailUIViewModel(movie: first)
         stubFor(contract: "MovieDetail.json")
@@ -92,7 +96,7 @@ class ListUIViewModelTests: XCTestCase {
     func testDetailMoviesListFailLoadMovies() async {
         stubFor(contract: "ListMovie.json")
         let viewModel = ListUIViewModel()
-        try? await viewModel.moviesList()
+        try? await viewModel.moviesList(false)
         guard let first = viewModel.movies.first else {
             XCTFail("Failing loading movie")
             return
@@ -106,15 +110,15 @@ class ListUIViewModelTests: XCTestCase {
     @available(iOS 15.0.0, *)
     func testRowMoviesListIsCorrect() async throws {
         stubFor(contract: "ListMovie.json")
-        let viewModel = ListUIViewModel()
-        try await viewModel.moviesList()
-        guard let first = viewModel.movies.first else {
+        async let viewModel = ListUIViewModel()
+        try await viewModel.moviesList(false)
+        guard let first = await viewModel.movies.first else {
             XCTFail("Failing loading movie")
             return
         }
         let rowViewModel = MovieRowUIViewModel(movie: first)
         XCTAssertEqual(rowViewModel.title, "Godzilla: King of the Monsters")
-        let second = viewModel.movies[1]
+        let second = await viewModel.movies[1]
         let rowViewModel2 = MovieRowUIViewModel(movie: second)
         XCTAssertEqual(rowViewModel2.posterPath.relativeString, "https://image.tmdb.org/t/p/w185/")
     }

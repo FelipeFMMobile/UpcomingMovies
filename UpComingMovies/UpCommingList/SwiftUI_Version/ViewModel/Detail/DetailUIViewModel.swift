@@ -11,6 +11,13 @@ import SwiftApiSDK
 
 @MainActor
 class DetailUIViewModel: ObservableObject {
+    enum State {
+        case loading
+        case success
+        case error
+        case idle
+    }
+    @Published private(set) var state: State = .idle
     private(set) var movie: MoviesDetailModelCodable? {
         didSet {
             fillData()
@@ -32,8 +39,11 @@ class DetailUIViewModel: ObservableObject {
     }
     
     func detail() async throws {
+        guard state == .idle else { return }
+        state = .loading
         guard let movie = self.movieInfo else { throw ApiError.contentSerializeError(nil) }
         self.movie = try await detailVM(movie: movie)
+        state = .success
     }
  
     private func fillData() {

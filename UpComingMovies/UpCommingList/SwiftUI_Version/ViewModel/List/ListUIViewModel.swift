@@ -9,8 +9,16 @@
 import Combine
 import SwiftUI
 
+@MainActor
 class ListUIViewModel: ObservableObject {
-    @Published private(set) var movies: [MoviesModelCodable]
+    enum State {
+        case loading
+        case success
+        case error
+        case idle
+    }
+    @Published private(set) var state: State = .idle
+    private(set) var movies: [MoviesModelCodable]
     private(set) var title: String = "Upcoming Movies"
     private(set) var envData = EnviromentData()
     private var api = UpComingListApi()
@@ -21,10 +29,11 @@ class ListUIViewModel: ObservableObject {
         self.movies = movies
     }
 
-    @MainActor
-    func moviesList() async throws {
+    func moviesList(_ loading: Bool) async throws {
+        if loading { state = .loading }
         async let results = self.listMovies()
         self.movies += try await results
+        state = .success
     }
 
     private func listMovies() async throws -> [MoviesModelCodable] {
@@ -49,6 +58,7 @@ class ListUIViewModel: ObservableObject {
     }
     
     func resetPage() {
+        self.state = .idle
         self.movies.removeAll()
         self.currentPage = 1
     }
@@ -56,7 +66,6 @@ class ListUIViewModel: ObservableObject {
     // MARK: Scrolling Load
     func loadMore() async throws {
          forwardPage()
-         try await moviesList()
+        try await moviesList(false)
     }
-
 }

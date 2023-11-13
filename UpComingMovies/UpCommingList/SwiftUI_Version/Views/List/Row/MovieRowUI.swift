@@ -10,9 +10,13 @@ import SwiftUI
 import Kingfisher
 
 struct MovieRowUI: View {
-    @EnvironmentObject private var rowModel: MovieRowUIViewModel
+    private var rowModel: MovieRowUIViewModel
     @EnvironmentObject private var envData: EnviromentData
     @State private var isSet: Bool = false
+
+    init(movie: MoviesModelCodable) {
+        rowModel = MovieRowUIViewModel(movie: movie)
+    }
     
     var body: some View {
         HStack(alignment: .top,
@@ -49,16 +53,10 @@ struct MovieRowUI: View {
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MovieRowUI()
-                .environmentObject(MovieRowUIViewModel(
-                    movie: PreviewEnviroment.movies.results!.first!
-                ))
+            MovieRowUI(movie: PreviewEnviroment.movies.results!.first!)
                 .environmentObject(EnviromentData())
-            MovieRowUI()
-                .environmentObject(MovieRowUIViewModel(
-                movie: PreviewEnviroment.movies.results!.first!
-            ))
-            .environmentObject(EnviromentData())
+            MovieRowUI(movie: PreviewEnviroment.movies.results!.first!)
+                .environmentObject(EnviromentData())
         }.previewLayout(.fixed(width: 345, height: 200))
     }
 }
