@@ -9,34 +9,46 @@
 import UIKit
 import SwiftApiSDK
 
+@MainActor
 class DetailUIViewModel: ObservableObject {
-    @Published var movie: MoviesDetailModelCodable? {
+    enum State {
+        case loading
+        case success
+        case error
+        case idle
+    }
+    @Published private(set) var state: State = .idle
+    private(set) var movie: MoviesDetailModelCodable? {
         didSet {
             fillData()
         }
     }
-    var movieInfo: MoviesModelCodable?
+    private var movieInfo: MoviesModelCodable?
 
-    var title: String = ""
-    var posterPath: URL = URL(string: "some")!
-    var overview: String = "Some overview"
-    var releaseDate: String = "10/10/2010"
-    var genresString: String = "Genre"
+    private(set) var movieId: Int = 0
+    private(set) var title: String = ""
+    private(set) var posterPath: URL = URL(string: "some")!
+    private(set) var overview: String = "Some overview"
+    private(set) var releaseDate: String = "10/10/2010"
+    private(set) var genresString: String = "Genre"
     
     private var api = UpComingListApi()
-    
+ 
     init(movie: MoviesModelCodable) {
         self.movieInfo = movie
     }
     
-    @MainActor
     func detail() async throws {
+        guard state == .idle else { return }
+        state = .loading
         guard let movie = self.movieInfo else { throw ApiError.contentSerializeError(nil) }
         self.movie = try await detailVM(movie: movie)
+        state = .success
     }
  
     private func fillData() {
         guard let movie = movie else { return }
+        movieId = movie.idM
         title = movie.title
         overview = movie.overview
         let url = ServerConfig.imagesBaseUrl + movie.posterPath

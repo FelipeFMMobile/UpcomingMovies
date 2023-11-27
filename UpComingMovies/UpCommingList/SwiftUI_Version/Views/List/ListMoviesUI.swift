@@ -11,65 +11,82 @@ import SVProgressHUD
 
 struct ListMoviesUI: View, UIViewControllerUtils {
     @StateObject var viewModel = ListUIViewModel()
-    @State private var isLast = false
-    @State private var isLoading = true
     var body: some View {
         NavigationView {
             VStack {
-                List(isLoading ? PreviewEnviroment.movies.results ?? [] : viewModel.movies,
-                     id: \.idM) { movie in
-                    NavigationLink {
-                        DetailMovieUI(viewModel: DetailUIViewModel(movie: movie))
-                            .environmentObject(viewModel.envData)
-                    } label: {
-                        let rowModel = MovieRowUIViewModel(movie: movie)
-                        MovieRowUI(rowModel: rowModel)
-                            .environmentObject(viewModel.envData)
-                            .redacted(reason: isLoading ? .placeholder : [])
-                    }.task {
-                        isLast = viewModel.movies.last == movie
-                        if isLast {
-                            try? await loadMore()
-                        }
-                    }                    
-                }.listStyle(.plain)
+                // switch use structural identity in SwiftUI
+                switch viewModel.state {
+                case .loading:
+                    listLoadingView()
+                case .success:
+                    listView()
+                case .error:
+                    Text("Some erro appears")
+                case .idle:
+                    Text("Some erro appears")
+                }
             }.navigationTitle(viewModel.title)
-            .task {
+                .task {
                 try? await loadMovies()
-                isLoading = false
             }
             .refreshable {
                 try? await refresh()
             }
         }
     }
-}
 
-extension ListMoviesUI: LoaderHostingState {
-    func titleForView() -> String? {
-        return viewModel.title
+    @ViewBuilder
+    private func listView() -> some View {
+        List(viewModel.movies,
+             id: \.idM) { movie in
+            NavigationLink {
+                DetailMovieUI(movie: movie)
+                    .environmentObject(viewModel.envData)
+            } label: {
+                rowView(movie: movie)
+            }.task(priority: .background) {
+                if viewModel.movies.last == movie {
+                    try? await viewModel.loadMore()
+                }
+            }
+        }.listStyle(.plain)
+    }
+    
+    // list loading view
+    @ViewBuilder
+    private func listLoadingView() -> some View {
+        List(PreviewEnviroment.movies.results ?? [], id: \.idM) { movie in
+            rowView(movie: movie)
+                .redacted(reason: .placeholder)
+        }.listStyle(.plain)
     }
 
+    // row View
+    @ViewBuilder
+    private func rowView(movie: MoviesModelCodable) -> some View {
+        MovieRowUI(movie: movie)
+            .environmentObject(viewModel.envData)
+    }
+}
+
+extension ListMoviesUI {
+
     private func loadMovies() async throws {
-        try await viewModel.moviesList()
+        if viewModel.state == .idle {
+            try await viewModel.moviesList(true)
+        }
     }
 
     private func refresh() async throws {
         viewModel.resetPage()
-        if !isLast { SVProgressHUD.show() }
         try await loadMovies()
-        await SVProgressHUD.dismiss()
-    }
-
-    // MARK: Scrolling Load
-    private func loadMore() async throws {
-         viewModel.forwardPage()
-         try await loadMovies()
     }
 }
 
 struct ListMoviesUI_Previews: PreviewProvider {
     static var previews: some View {
-        ListMoviesUI(viewModel: PreviewEnviroment.listViewModel)
+        ListMoviesUI(viewModel: 
+                        ListUIViewModel(movies: PreviewEnviroment.movies.results!)
+        )
     }
 }

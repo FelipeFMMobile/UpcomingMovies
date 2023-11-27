@@ -10,11 +10,14 @@ import SwiftUI
 import Kingfisher
 
 struct MovieRowUI: View {
-    @StateObject var rowModel: MovieRowUIViewModel
+    private var rowModel: MovieRowUIViewModel
     @EnvironmentObject private var envData: EnviromentData
-    var favoriteIndex: Int {
-        envData.favoritesMovies.firstIndex(where: { $0.idM == rowModel.movieID }) ?? -1
+    @State private var isSet: Bool = false
+
+    init(movie: MoviesModelCodable) {
+        rowModel = MovieRowUIViewModel(movie: movie)
     }
+    
     var body: some View {
         HStack(alignment: .top,
                spacing: 12.0) {
@@ -37,9 +40,10 @@ struct MovieRowUI: View {
                     Spacer()
                     Text(rowModel.releaseDate)
                         .font(.caption2)
-                    if favoriteIndex >= 0 {
-                        StarButton(isSet: $envData.favoritesMovies[favoriteIndex].isFavorite)
-                    }
+                    StarButton(isSet: $isSet)
+                        .onAppear {
+                            isSet = envData.favoritesMovies[rowModel.movieID] ?? false
+                        }
                 }
             }
         }.padding(8)
@@ -49,8 +53,10 @@ struct MovieRowUI: View {
 struct MovieRowUI_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MovieRowUI(rowModel: PreviewEnviroment.cellModel).environmentObject(EnviromentData())
-            MovieRowUI(rowModel: PreviewEnviroment.cellModel2).environmentObject(EnviromentData())
+            MovieRowUI(movie: PreviewEnviroment.movies.results!.first!)
+                .environmentObject(EnviromentData())
+            MovieRowUI(movie: PreviewEnviroment.movies.results!.first!)
+                .environmentObject(EnviromentData())
         }.previewLayout(.fixed(width: 345, height: 200))
     }
 }
